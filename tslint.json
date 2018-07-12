@@ -1,4 +1,9 @@
 {
+  "extends": "tslint:recommended",
+  "compilerOptions": {
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+  },
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
