@@ -10,11 +10,11 @@ import { User } from '../bean/user';
 })
 export class RegistComponent implements OnInit {
 
-  user$:User;
-  id:string;
-  title:string;
+  user$: User;
+  id: string;
+  title: string;
 
-  constructor(private data:DataService) { }
+  constructor(private data: DataService) { }
 
   ngOnInit() {
     this.id = "input value";

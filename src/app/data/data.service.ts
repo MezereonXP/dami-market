@@ -10,6 +10,6 @@ export class DataService {
   }
 
   getUser(id) {
-    return this.http.get('http://localhost:8080/api/getUser?id='+id);
+    return this.http.get('http://localhost:8080/api/getUser?id=' + id);
   }
 }
