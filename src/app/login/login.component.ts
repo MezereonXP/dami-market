@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data/data.service';
 import { Observable } from 'rxjs';
 /**
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   users$: Object;
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private route: ActivatedRoute) { }
 
   /**
    * Do while initing the login component
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
    * @memberof LoginComponent
    */
   ngOnInit() {
+    window.alert(this.route.snapshot.paramMap.get("id"));
     this.data.getUsers().subscribe(
       data => this.users$ = data
     );

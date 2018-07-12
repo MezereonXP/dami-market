@@ -14,7 +14,7 @@ export class RegistComponent implements OnInit {
   id: string;
   title: string;
 
-  users$: Array<User>; 
+  users$: Array<User>;
 
   constructor(private data: DataService) { }
 
