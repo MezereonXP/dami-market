@@ -1,0 +1,13 @@
+{
+  "people": {
+    "data": {
+      "id": 1,
+      "name": "xp",
+      "password": "xp",
+      "sign": "test"
+    },
+    "status": true,
+    "msg": null,
+    "page": null
+  }
+}
