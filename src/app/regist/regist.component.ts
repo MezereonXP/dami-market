@@ -29,7 +29,10 @@ export class RegistComponent implements OnInit {
   }
 
   check() {
-    window.alert(this.user$.name);
+    this.user$ = new User(null, "testName", "testPwd", "testSign");
+    this.data.insertUser(this.user$).subscribe(
+      result => window.alert(result['code'])
+    );
   }
 
 }
