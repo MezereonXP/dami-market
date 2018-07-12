@@ -14,12 +14,17 @@ export class RegistComponent implements OnInit {
   id: string;
   title: string;
 
+  users$: Array<User>; 
+
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.id = "input value";
     this.title = "My title";
-    this.user$ = null;
+    this.user$ = new User(1, "loading", "loading", "loading");
+    this.data.getAllUser().subscribe(
+      result => this.users$ = result["data"]
+    );
   }
 
   login() {
@@ -31,7 +36,7 @@ export class RegistComponent implements OnInit {
   check() {
     this.user$ = new User(null, "testName", "testPwd", "testSign");
     this.data.insertUser(this.user$).subscribe(
-      result => window.alert(result['code'])
+      result => window.alert(result["sign"])
     );
   }
 

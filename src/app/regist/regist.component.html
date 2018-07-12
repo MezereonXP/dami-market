@@ -3,4 +3,7 @@
 </p>
 <input type="text" [(ngModel)]="id"> {{id}}
 <button (click)="login()">go to login</button>
-<button (click)="check()">check</button>
+<button mat-raised-button (click)="check()">check</button>
+<ul *ngFor="let user of users$">
+  <li>{{user.name}}</li>
+</ul>

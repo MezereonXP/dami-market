@@ -1,11 +1,37 @@
 {
-  "people": {
-    "data": {
-      "id": 1,
-      "name": "xp",
-      "password": "xp",
-      "sign": "test"
-    },
+  "addUser": {
+    "id": null,
+    "name": "testName",
+    "password": "testPwd",
+    "sign": "testSign"
+  },
+  "getAllUser": {
+    "data": [
+      {
+        "id": 1,
+        "name": "xp",
+        "password": "xp",
+        "sign": "test"
+      },
+      {
+        "id": 2,
+        "name": "saber",
+        "password": "saber",
+        "sign": "test"
+      },
+      {
+        "id": 3,
+        "name": "test",
+        "password": "test",
+        "sign": "test"
+      },
+      {
+        "id": 4,
+        "name": "testName",
+        "password": "testPwd",
+        "sign": "testSign"
+      }
+    ],
     "status": true,
     "msg": null,
     "page": null

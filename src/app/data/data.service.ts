@@ -20,7 +20,12 @@ export class DataService {
     return this.http.get('http://localhost:8080/api/getUser?id=' + id);
   }
 
+  getAllUser() {
+    return this.http.get("http://localhost:8080/api/getAllUser")
+  }
+
   insertUser(user:User) {
     return this.http.post('http://localhost:8080/api/addUser', user);
   }
+
 }
