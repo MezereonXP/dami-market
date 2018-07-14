@@ -30,7 +30,9 @@ import { TempGoods } from '../bean/temp.goods';
 export class HomeComponent implements OnInit {
 
   items = ["手机 电话卡", "笔记本 平板", "健康 家居", "路由器 手机配件", "耳机 音箱"];
-  goodsImages = ["assets/goods-1.jpg", "assets/goods-2.jpg"];
+  goodsImages = ["assets/goods-1.jpg", "assets/goods-2.jpg", "assets/goods-3.jpg"];
+  slideColors = ["rgb(98,92,82)", "rgb(98,92,88)", "rgb(85,87,92)"];
+  currentColor = "rgb(98,92,82)";
   users$: Object;
   isShowDetail = false;
   goodsList$: Object;
@@ -65,7 +67,7 @@ export class HomeComponent implements OnInit {
    */
   showDetail(index) {
     this.isShowDetail = true;
-    this.showGoodsList$ = this.goodsList$[index+1];
+    this.showGoodsList$ = this.goodsList$[index + 1];
   }
 
   /**
@@ -77,6 +79,11 @@ export class HomeComponent implements OnInit {
 
   test(id) {
     window.alert(id);
+  }
+
+  log(event: number) {
+    this.currentColor = this.slideColors[event];
+    console.log(this.currentColor);
   }
 
 }
