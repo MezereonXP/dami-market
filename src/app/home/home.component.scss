@@ -1,8 +1,74 @@
-.headbar{
-    background-color: #ffffff;
-    color: black;
+.headbar {
+  background-color: #ffffff;
+  color: black;
+  z-index: -1 !important;
 }
-.searchSpan{
-    margin-left: 30%;
-    margin-top: 1%;
+
+.searchSpan {
+  margin-top: 3%;
+}
+
+.bar {
+  width: 100%;
+}
+
+.menu {
+  margin-top: 2%;
+  margin-left: 10%;
+  width: 1200px;
+  height: 460px;
+}
+
+.menu1 {
+  background-color: #625C52;
+  color: #ffffff;
+}
+
+.list {
+  width: 100%;
+  height: 100%;
+}
+
+.menu-btn {
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  border-color: #625C52;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.carousel {
+  height: 100%;
+  .slide {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.detail-card {
+  height: 100%;
+  width: 100%;
+  padding: 1%;
+  .detail-list {
+    height: 100%;
+    width: 100%;
+  }
+  .small-img {
+    height: 40px;
+    width: 40px;
+    display: inline;
+  }
+  .link {
+    cursor: pointer !important;
+    width: 100%;
+    z-index: 5;
+    color: black;
+  }
+  a:hover {
+    color: #625C52;
+    text-decoration: #625C52;
+  }
+  .goodsNameTile {
+    float: left;
+  }
 }
