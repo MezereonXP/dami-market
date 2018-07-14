@@ -1,6 +1,34 @@
-.headbar{
+.headbar {
   background-color: #333333;
 }
-.bar{
+
+.bar {
   width: 100%;
+}
+
+.login {
+  width: 100%;
+  height: 100%;
+  .btn-login {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.regist {
+  width: 100%;
+  height: 100%;
+  .btn-regist {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.span-info {
+  width: 100%;
+  height: 100%;
+  .btn-info {
+    width: 100%;
+    height: 100%;
+  }
 }

@@ -12,16 +12,16 @@ import { TempGoods } from '../bean/temp.goods';
       state('in', style({ transform: 'translateX(0)' })),
       transition('void => *', [
         animate(600, keyframes([
-          style({ opacity: 0, transform: 'translateY(-100%)', offset: 0 }),
-          style({ opacity: 1, transform: 'translateY(15px)', offset: 0.3 }),
-          style({ opacity: 1, transform: 'translateY(0)', offset: 1.0 })
+          style({ opacity: 0, transform: 'translateX(-100%)', offset: 0 }),
+          style({ opacity: 0.7, transform: 'translateX(-10px)', offset: 0.3 }),
+          style({ opacity: 1, transform: 'translateX(0)', offset: 1.0 })
         ]))
       ]),
       transition('* => void', [
-        animate(600, keyframes([
-          style({ opacity: 1, transform: 'translateY(0)', offset: 0 }),
-          style({ opacity: 1, transform: 'translateY(-15px)', offset: 0.7 }),
-          style({ opacity: 0, transform: 'translateY(100%)', offset: 1.0 })
+        animate(100, keyframes([
+          style({ opacity: 1, transform: 'translateX(0)', offset: 0 }),
+          style({ opacity: 0.3, transform: 'translateX(10px)', offset: 0.7 }),
+          style({ opacity: 0, transform: 'translateX(100%)', offset: 1.0 })
         ]))
       ])
     ])

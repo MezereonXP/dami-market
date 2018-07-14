@@ -37,7 +37,7 @@
     <mat-grid-tile colspan="4" class="outline" *ngIf="isShowDetail">
       <mat-card class="detail-card mat-elevation-z8">
         <mat-grid-list class="detail-list" cols="4" rowHeight="72px">
-          <mat-grid-tile *ngFor="let item of showGoodsList$; let i=index">
+          <mat-grid-tile [@listStagger]="showGoodsList$" *ngFor="let item of showGoodsList$; let i=index">
             <mat-grid-list cols="3" rowHeight="1:1" style="width: 100%;">
               <mat-grid-tile>
                 <img src="{{item.pic}}" class="small-img">
