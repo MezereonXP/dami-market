@@ -1,9 +1,26 @@
 <mat-toolbar class="headbar" color="primary">
-    <mat-toolbar-row>
-      <span>Dami</span>
-      <span class="login" *ngIf="isLogin"><button mat-button>Login</button></span>
-      <span class="regist" *ngIf="isLogin"><button mat-button>Regist</button></span>
-      <span><button mat-button>消息通知</button></span>
-    </mat-toolbar-row>
+  <mat-toolbar-row>
+    <mat-grid-list cols="12" rowHeight="2:1" class="bar">
+      <mat-grid-tile>
+        <span>Dami</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="8"></mat-grid-tile>
+      <mat-grid-tile>
+        <span class="login" *ngIf="isLogin">
+          <button mat-button>Login</button>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <span class="regist" *ngIf="isLogin">
+          <button mat-button>Regist</button>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <span>
+          <button mat-button>消息通知</button>
+        </span>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>
