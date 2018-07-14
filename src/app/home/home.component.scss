@@ -9,9 +9,6 @@
 .bar{
     width: 100%;
 }
-.outline{  
-    z-index: -1 !important;
-}
 .menu{
     margin-top: 2%;
     margin-left: 10%;
@@ -35,13 +32,35 @@
 }
 .carousel{
     height: 100%;
-}
-.slide{
-    height: 100%;
-    width: 100%;
+    .slide{
+        height: 100%;
+        width: 100%;
+    }
 }
 .detail-card{
     height: 100%;
     width: 100%;
-    z-index: 4;
+    padding: 1%;
+    .detail-list{
+        height: 100%;
+        width: 100%;
+    }
+    .small-img{
+        height: 40px;
+        width: 40px;
+        display: inline;
+    }
+    .link{
+        cursor:pointer !important;
+        width: 100%;
+        z-index: 5;
+        color: black;
+    }
+    a:hover{
+        color: #625C52;
+        text-decoration: #625C52;
+    }
+    .goodsNameTile{
+        float: left;
+    }
 }

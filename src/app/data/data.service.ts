@@ -28,4 +28,8 @@ export class DataService {
     return this.http.post('http://localhost:8080/api/addUser', user);
   }
 
+  getGoodsList() {
+    return this.http.get("http://localhost:8080/api/getGoodsList");
+  }
+
 }

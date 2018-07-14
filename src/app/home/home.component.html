@@ -21,23 +21,34 @@
 <div class="menu mat-elevation-z8" (mouseleave)="hideDetail()">
   <mat-grid-list cols="5" rowHeight="460px">
     <mat-grid-tile class="menu1">
-        <mat-grid-list cols="1" rowHeight="240:92" class="list">
-            <mat-grid-tile [@listStagger]="items" rowspan="1" *ngFor="let item of items; index as i">
-                <button mat-button class="menu-btn" (mouseover)="showDetail(i)">{{item}}</button>
-            </mat-grid-tile>
-        </mat-grid-list>
+      <mat-grid-list cols="1" rowHeight="240:92" class="list">
+        <mat-grid-tile [@listStagger]="items" rowspan="1" *ngFor="let item of items; index as i">
+          <button mat-button class="menu-btn" (mouseover)="showDetail(i)">{{item}}</button>
+        </mat-grid-tile>
+      </mat-grid-list>
     </mat-grid-tile>
     <mat-grid-tile colspan="4" class="outline" *ngIf="!isShowDetail">
-        <carousel class="carousel">
-            <slide *ngFor="let img of goodsImages" class="slide">
-              <img :src="{{img}}" style="display: block;height: 460px;">
-            </slide>
-        </carousel>
+      <carousel class="carousel">
+        <slide *ngFor="let img of goodsImages" class="slide">
+          <img :src="{{img}}" style="display: block;height: 460px;">
+        </slide>
+      </carousel>
     </mat-grid-tile>
     <mat-grid-tile colspan="4" class="outline" *ngIf="isShowDetail">
-        <mat-card class="detail-card mat-elevation-z8">
-
-        </mat-card>
+      <mat-card class="detail-card mat-elevation-z8">
+        <mat-grid-list class="detail-list" cols="4" rowHeight="72px">
+          <mat-grid-tile *ngFor="let item of showGoodsList$; let i=index">
+            <mat-grid-list cols="3" rowHeight="1:1" style="width: 100%;">
+              <mat-grid-tile>
+                <img src="{{item.pic}}" class="small-img">
+              </mat-grid-tile>
+              <mat-grid-tile colspan="2" class="goodsNameTile">
+                <a href="javascript:;" class="link" (click)="test(item.goodId)">{{item.name}}</a>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>

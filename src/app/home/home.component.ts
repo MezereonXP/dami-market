@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger, state } from '@angular/animations';
 import { DataService } from '../data/data.service';
+import { TempGoods } from '../bean/temp.goods';
 
 @Component({
   selector: 'app-home',
@@ -32,13 +33,30 @@ export class HomeComponent implements OnInit {
   goodsImages = ["assets/goods-1.jpg", "assets/goods-2.jpg"];
   users$: Object;
   isShowDetail = false;
+  goodsList$: Object;
+  showGoodsList$: Array<TempGoods>;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.data.getUsers().subscribe(
-      data => this.users$ = data
+    this.data.getGoodsList().subscribe(
+      result => {
+        this.goodsList$ = result["data"];
+        console.log(this.goodsList$["1"][0].name);
+      }
     );
+  }
+
+  /**
+   * Object 转换成Map
+   * @param obj 
+   */
+  objToStrMap(obj) {
+    let strMap = new Map();
+    for (let k of Object.keys(obj)) {
+      strMap.set(k, obj[k]);
+    }
+    return strMap;
   }
 
   /**
@@ -46,8 +64,8 @@ export class HomeComponent implements OnInit {
    * @param index 
    */
   showDetail(index) {
-    console.log(index);
     this.isShowDetail = true;
+    this.showGoodsList$ = this.goodsList$[index+1];
   }
 
   /**
@@ -55,6 +73,10 @@ export class HomeComponent implements OnInit {
    */
   hideDetail() {
     this.isShowDetail = false;
+  }
+
+  test(id) {
+    window.alert(id);
   }
 
 }
