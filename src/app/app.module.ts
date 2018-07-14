@@ -8,7 +8,7 @@ import { RegistComponent } from './regist/regist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from "./data/data.service";
-import { MatButtonModule } from "@angular/material";
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule } from "@angular/material";
 import { HomeComponent } from './home/home.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { ShopcarComponent } from './shopcar/shopcar.component';
@@ -40,7 +40,10 @@ import { InfomationComponent } from './infomation/infomation.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
