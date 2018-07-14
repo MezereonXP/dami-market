@@ -1,19 +1,19 @@
 .headbar{
     background-color: #ffffff;
     color: black;
+    z-index: -1 !important;
 }
 .searchSpan{
-    margin-left: 30%;
-    margin-top: 1%;
+    margin-top: 3%;
 }
 .bar{
     width: 100%;
 }
-.outline{
-    border: black;
-    border-width: 3px;
+.outline{  
+    z-index: -1 !important;
 }
 .menu{
+    margin-top: 2%;
     margin-left: 10%;
     width: 1200px;
     height: 460px;
@@ -39,4 +39,9 @@
 .slide{
     height: 100%;
     width: 100%;
+}
+.detail-card{
+    height: 100%;
+    width: 100%;
+    z-index: 4;
 }
