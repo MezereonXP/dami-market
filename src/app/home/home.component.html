@@ -27,14 +27,14 @@
         </mat-grid-tile>
       </mat-grid-list>
     </mat-grid-tile>
-    <mat-grid-tile colspan="4" class="outline" *ngIf="!isShowDetail">
+    <mat-grid-tile colspan="4" *ngIf="!isShowDetail">
       <carousel class="carousel" (activeSlideChange)="log($event)">
         <slide *ngFor="let img of goodsImages; let i=index" class="slide">
           <img :src="{{img}}" style="display: block;height: 460px;">
         </slide>
       </carousel>
     </mat-grid-tile>
-    <mat-grid-tile colspan="4" class="outline" *ngIf="isShowDetail">
+    <mat-grid-tile colspan="4" *ngIf="isShowDetail">
       <mat-card class="detail-card mat-elevation-z8">
         <mat-grid-list class="detail-list" cols="4" rowHeight="72px">
           <mat-grid-tile [@listStagger]="showGoodsList$" *ngFor="let item of showGoodsList$; let i=index">
