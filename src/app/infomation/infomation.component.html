@@ -1,3 +1,6 @@
 <p>
   infomation works!
 </p>
+<div *ngFor="let item of pics" style="text-align: center">
+  <img style="width: 1260px;" :src="{{item.pic}}">
+</div>
