@@ -30,13 +30,14 @@ import { TempGoods } from '../bean/temp.goods';
 export class HomeComponent implements OnInit {
 
   items = ["手机 电话卡", "笔记本 平板", "健康 家居", "路由器 手机配件", "耳机 音箱"];
-  goodsImages = ["assets/goods-1.jpg", "assets/goods-2.jpg", "assets/goods-3.jpg"];
-  slideColors = ["rgb(98,92,82)", "rgb(98,92,88)", "rgb(85,87,92)"];
+  goodsImages = ["assets/goods-1.jpg", "assets/goods-2.jpg", "assets/goods-3.jpg", "assets/goods-4.jpg"];
+  slideColors = ["rgb(98,92,82)", "rgb(98,92,88)", "rgb(85,87,92)", "rgb(83,12,12)"];
   currentColor = "rgb(98,92,82)";
   users$: Object;
   isShowDetail = false;
   goodsList$: Object;
   showGoodsList$: Array<TempGoods>;
+  goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg","https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg","https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
 
   constructor(private data: DataService) { }
 

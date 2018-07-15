@@ -1,0 +1,23 @@
+{
+  "getSimpleUser": {
+    "id": null,
+    "name": "testName",
+    "password": "testPwd",
+    "sign": "testSign"
+  },
+  "getGoodInfo": {
+    "data":[
+      {
+        "pic":"https://i8.mifile.cn/b2c-mimall-media/b325b2de3df99045b7207a0318f4b2ae.jpg"
+      },
+      {
+        "pic":"https://i8.mifile.cn/b2c-mimall-media/e8554f75614e9d75c3df10dddbc51b7e.jpg"
+      },
+      {
+        "pic":"https://i8.mifile.cn/b2c-mimall-media/fcf9f4f945f5af3633babd4a2b90d834.jpg"
+      }
+    ],
+    "code":200,
+    "msg":"success"
+  }
+}

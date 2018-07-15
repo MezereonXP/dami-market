@@ -39,6 +39,7 @@
 
 .carousel {
   height: 100%;
+  width: 100%;
   .slide {
     height: 100%;
     width: 100%;
@@ -56,7 +57,7 @@
   .small-img {
     height: 40px;
     width: 40px;
-    display: inline;
+    display: inline-block;
   }
   .link {
     cursor: pointer !important;
@@ -72,3 +73,20 @@
     float: left;
   }
 }
+
+.divideList{
+  width: 1200px;
+  display: block;
+  margin-top: 40px;
+  margin-left: 10%;
+  padding: 0;
+  .divideTile {
+    width: 100%;
+    padding: 0;
+  }
+}
+.dividePic {
+  display: inline-block;
+  width: 100%;
+}
+
