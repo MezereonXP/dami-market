@@ -1,11 +1,12 @@
 <mat-toolbar class="headbar mat-elevation-z2" color="primary">
   <mat-toolbar-row>
-    <mat-grid-list cols="8" rowHeight="3:1" class="bar">
-      <mat-grid-tile class="ok">
+    <mat-grid-list cols="15" rowHeight="5:3" class="bar">
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile  colspan="2"class="ok">
         <span>Are you OK</span>
       </mat-grid-tile>
-      <mat-grid-tile colspan="5"></mat-grid-tile>
-      <mat-grid-tile colspan="2">
+      <mat-grid-tile colspan="7"></mat-grid-tile>
+      <mat-grid-tile colspan="3">
         <span class="searchSpan">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="输入搜索关键词" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -15,6 +16,7 @@
           </div>
         </span>
       </mat-grid-tile>
+      <mat-grid-tile colspan="2"></mat-grid-tile>
     </mat-grid-list>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -57,3 +59,19 @@
     <img class="dividePic" :src="{{item}}">
   </mat-grid-tile>
 </mat-grid-list>
+<mat-toolbar class="headbar mat-elevation-z2" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="15" rowHeight="5:3" class="bar">
+        <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile class="ok">
+        <span>闪购</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="6"></mat-grid-tile>
+      <mat-grid-tile class="ok">
+          <span>团购</span>
+        </mat-grid-tile>
+      <mat-grid-tile colspan="6">
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
