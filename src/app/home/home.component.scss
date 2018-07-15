@@ -73,3 +73,20 @@
     float: left;
   }
 }
+
+.divideList{
+  width: 1200px;
+  display: block;
+  margin-top: 40px;
+  margin-left: 10%;
+  padding: 0;
+  .divideTile {
+    width: 100%;
+    padding: 0;
+  }
+}
+.dividePic {
+  display: inline-block;
+  width: 100%;
+}
+
