@@ -1,3 +1,80 @@
-<p>
-  kill works!
-</p>
+<mat-toolbar class="headbar mat-elevation-z2" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="8" rowHeight="3:1" class="bar">
+      <mat-grid-tile class="ok">
+        <span>Are you OK</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="5"></mat-grid-tile>
+      <mat-grid-tile colspan="2">
+        <span class="searchSpan">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="输入搜索关键词" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2">搜索</button>
+            </div>
+          </div>
+        </span>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-toolbar class="headbar mat-elevation-z2" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="7" rowHeight="102px" class="bar">
+      <mat-grid-tile colspan="3"></mat-grid-tile>
+      <mat-grid-tile class="ok">
+        <span>Are you Ok 闪购</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="3"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-toolbar class="headbar mat-elevation-z2" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="7" rowHeight="64px" class="bar">
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile class="killTime">
+        <span class="full">
+          <button mat-button class="killTimeInner" (click)="showKillGood(i)">
+            <span>6:00</span>
+            <span></span>
+          </button>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile class="killTime">
+        <span class="full">
+          <button mat-button class="killTimeInner" (click)="showKillGood(i)">
+            <span>10:00</span>
+            <span>  </span>
+          </button>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile class="killTime">
+        <span class="full">
+          <button mat-button class="killTimeInner" (click)="showKillGood(i)">
+            <span>14:00</span>
+            <span></span>
+          </button>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile class="killTime">
+        <span class="full">
+          <button mat-button class="killTimeInner" (click)="showKillGood(i)">
+            <span>18:00</span>
+            <span></span>
+          </button>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile class="killTime">
+        <span class="full">
+          <button mat-button class="killTimeInner" (click)="showKillGood(i)">
+            <span>22:00</span>
+            <span></span>
+          </button>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+{{time}}
