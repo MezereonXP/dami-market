@@ -94,46 +94,13 @@
   width: 100%;
 }
 
-.imgbar {
+.tableitem {
+  margin-top: 30%;
   height: 70%;
-  width: 100%;
+  width: 40%;
 }
 
-.tablebar {
-  height: 70px;
-  width: 100%;
-  text-align: center
-}
-
-.originpricebar {
-  color: red;
-}
-
-.nowpricebar {
-  color: #000;
-}
-
-.cardbar {
-  margin-top: 5%;
-  width: 100%;
-  height: 100%;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  height: 380px;
-  cursor: pointer;
-}
-
-.tabitem {
-  height: 1000px;
-  width: 100%;
-}
-
-.centreitem {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-}
-
-.titleitem {
-  font-size: 35px;
+.buttonitem{
+  color: #fdfcfc;
+  background-color: blue;
 }

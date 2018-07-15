@@ -1,21 +1,37 @@
-// 收货地址实体类
 import { Customer } from "./customer";
 
-export class Address {
-    aId: number;
-    customer: Customer;
-    aReceiver: String;
-    aTelephone: String;
-    aZipcode: string;
-    aDetail: string;
-    aStatus: number;
+export class Address{
+    aId:number;
 
+    customer:Customer;
 
-    constructor(aId: number,customer: Customer, aReceiver: String,aTelephone: String,aZipcode: string,aDetail: string,aStatus: number) {
+    aReceiver:String;
 
+    aTelephone:String;
+
+    aZipcode:string;
+
+    aDetail:string;
+
+    aStatus:number;
+
+    
+    constructor(aId:number,
+
+        customer:Customer,
+    
+        aReceiver:String,
+    
+        aTelephone:String,
+    
+        aZipcode:string,
+    
+        aDetail:string,
+    
+        aStatus:number) {
+        
         this.aId = aId;
         this.customer = customer;
-        this.aReceiver=aReceiver;
         this.aTelephone = aTelephone;
         this.aZipcode = aZipcode;
         this.aDetail = aDetail;

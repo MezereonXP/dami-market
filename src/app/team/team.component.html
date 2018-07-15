@@ -1,3 +1,68 @@
-<p>
-  team works!
-</p>
+<div class="background">
+  <mat-toolbar class="headbar" color="primary">
+    <mat-grid-list cols="7" rowHeight="102px" class="bar">
+      <mat-grid-tile colspan="2"></mat-grid-tile>
+      <mat-grid-tile colspan="3" class="ok">
+        <span class="titleitem">Are you Ok 团购</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar>
+</div>
+
+<mat-tab-group class="centreitem" (selectedTabChange)="tabChanged($event)">
+  <mat-tab label="分类:" disabled></mat-tab>
+  <mat-tab label="全部">
+    <!--展示全部 -->
+    <div class="tabitem">
+      <mat-grid-list cols="8" rowHeight="400px" class="teamgoodheadbar">
+        <mat-grid-tile colspan="1"></mat-grid-tile>
+        <mat-grid-tile colspan="6">
+          <mat-grid-list rowHeight="1:2" cols="4" class="super-class" *ngFor="let item of TeamGoodsList$;index as i">
+            <mat-grid-tile class="super-class">
+              <mat-card class="cardbar mat-elevation-z8" (click)="showalert(item.teamGoodsId)">
+                <img src="{{item.pic}}" class="imgbar">
+                <table class="tablebar">
+                  <tr>{{item.name}}</tr>
+                  <tr>
+                    <span class="originpricebar">
+                      <del>￥{{item.originPrice}}</del>
+                    </span>
+                    <span class="nowpricebar">￥{{item.nowPrice}}</span>
+                  </tr>
+                </table>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </mat-tab>
+  <mat-tab label="{{item}}" *ngFor="let item of items;let i=index">
+    <div class="tabitem">
+      <mat-grid-list cols="8" rowHeight="400px" class="teamgoodheadbar">
+        <mat-grid-tile colspan="1"></mat-grid-tile>
+        <mat-grid-tile colspan="6">
+          <mat-grid-list rowHeight="1:2" cols="4" class="super-class" *ngFor="let item of TeamGoodsListByType$">
+            <mat-grid-tile class="super-class">
+              <mat-card class="cardbar mat-elevation-z8" (click)="showalert()">
+                <img src="{{item.pic}}" class="imgbar">
+                <table class="tablebar">
+                  <tr>{{item.name}}</tr>
+                  <tr>
+                    <span class="originpricebar">
+                      <del>￥{{item.originPrice}}</del>
+                    </span>
+                    <span class="nowpricebar">￥{{item.nowPrice}}</span>
+                  </tr>
+                </table>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -5,16 +5,13 @@ const shopcar = require('./mock/shopcar.json')
 const home = require('./mock/home.json');
 const shop = require('./mock/shop.json');
 module.exports = () => ({
+  getTeamByTgId: data.getTeamByTgId,
+  getTeamGoods: data.getTeamGoods,
+  getAllTeamGoods: data.getAllTeamGoods,
+  getTeamGoodById:data.getTeamGoodById,
   getGoodsList: data.getGoodsList,
-  killGoods:data.killGoodsList,
   getSimpleUser: data2.getSimpleUser,
   getGoodInfo: data2.getGoodInfo,
-  getAddress: order.getAddress,
-  getOrderGoodsList:order.getOrderGoodsList,
-  getRecommendGoods:shopcar.getRecommendGoods,
-  newApi: home.newApi,
-  getShopGood:shop.getShopGood,
-  getShopGoodInfo:shop.getShopGoodInfo,
-  getShopCarGoods: shopcar.getShopCarGoods,
-  getRecommendGoods:shopcar.getRecommendGoods
+  getTopGoodsAdv: home.getTopGoodsAdv
 });
+
