@@ -8,7 +8,7 @@ import { RegistComponent } from './regist/regist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from "./data/data.service";
-import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule } from "@angular/material";
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatDividerModule } from "@angular/material";
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { ShoppingComponent } from './shopping/shopping.component';
@@ -49,7 +49,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     MatGridListModule,
     MatListModule,
     MatCardModule,
-    CarouselModule
+    CarouselModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
