@@ -2,8 +2,8 @@
   <mat-toolbar-row>
     <mat-grid-list cols="15" rowHeight="5:3" class="bar">
       <mat-grid-tile colspan="1"></mat-grid-tile>
-      <mat-grid-tile  colspan="2"class="ok">
-        <span>Are you OK</span>
+      <mat-grid-tile colspan="2" class="ok">
+        <span>Are you OK ?</span>
       </mat-grid-tile>
       <mat-grid-tile colspan="7"></mat-grid-tile>
       <mat-grid-tile colspan="3">
@@ -20,6 +20,7 @@
     </mat-grid-list>
   </mat-toolbar-row>
 </mat-toolbar>
+
 <div class="menu mat-elevation-z8" (mouseleave)="hideDetail()">
   <mat-grid-list cols="5" rowHeight="460px">
     <mat-grid-tile class="menu1" [ngStyle]="{'background-color': currentColor}">
@@ -54,22 +55,24 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+
 <mat-grid-list cols="3" rowHeight="2:1" class="divideList">
   <mat-grid-tile class="devideTile" *ngFor="let item of goodsImage2">
     <img class="dividePic" :src="{{item}}">
   </mat-grid-tile>
 </mat-grid-list>
+
 <mat-toolbar class="headbar mat-elevation-z2" color="primary">
   <mat-toolbar-row>
     <mat-grid-list cols="15" rowHeight="5:3" class="bar">
-        <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="1"></mat-grid-tile>
       <mat-grid-tile class="ok">
         <span>闪购</span>
       </mat-grid-tile>
       <mat-grid-tile colspan="6"></mat-grid-tile>
       <mat-grid-tile class="ok">
-          <span>团购</span>
-        </mat-grid-tile>
+        <span>团购</span>
+      </mat-grid-tile>
       <mat-grid-tile colspan="6">
       </mat-grid-tile>
     </mat-grid-list>
