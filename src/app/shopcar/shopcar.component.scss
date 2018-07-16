@@ -1,0 +1,86 @@
+.headbar3 {
+  background-color: #ffffff;
+  color: rgb(8, 8, 8);
+  z-index: -1 !important;
+}
+
+
+
+.myOrder{
+  margin-top: 3%;
+  font-size: 15px;
+}
+
+.bar {
+  width: 100%;
+}
+
+.shoplist {
+  background-color: rgb(233, 248, 250);
+  margin-top: 2%;
+  margin-left: 10%;
+  width: 1150px;
+  
+}
+
+.menu1 {
+  background-color: #625C52;
+  color: #ffffff;
+}
+
+.list {
+  width: 100%;
+  height: 100%;
+}
+
+.menu-btn {
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  border-color: #625C52;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.carousel {
+  height: 100%;
+  width: 100%;
+  .slide {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.detail-card {
+  height: 100%;
+  width: 100%;
+  padding: 1%;
+  .detail-list {
+    height: 100%;
+    width: 100%;
+  }
+  .small-img {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+  }
+  .link {
+    cursor: pointer !important;
+    width: 100%;
+    z-index: 5;
+    color: black;
+  }
+  a{
+    color:black;
+    text-decoration: black;
+  }
+  a:hover {
+    color: rgb(247, 178, 58);
+    text-decoration: rgb(247, 178, 58);
+
+  }
+  .goodsNameTile {
+    float: left;
+  }
+}
+
+
