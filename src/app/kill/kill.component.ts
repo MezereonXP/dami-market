@@ -59,4 +59,8 @@ export class KillComponent implements OnInit {
 
   }
 
+  showKillGood(index) {
+
+  }
+
 }
