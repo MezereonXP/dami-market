@@ -77,14 +77,30 @@
 .killTime{
     background-color: #333333; 
 }
-.killTimeInner{
+.killTimeInner-true{
     width: 100%;
     height: 100%;
     color: #fdfcfc;
 } 
+.killTimeInner-false{
+  width: 100px;
+  height: 100px;
+  color: rgb(218, 24, 24);
+}
 .full{
     width: 100%;
     height: 100%;
 }
-
+.firstTimeSize{
+  font-size: 25px;
+}
+.secondTimeSize{
+  font-size:10px;
+}
+.background{
+  height: 100%;
+  width: 100%;
+  background-image: url(/src/assets/kill-background.jpg);
+  background-repeat: no-repeat;
+}
 
