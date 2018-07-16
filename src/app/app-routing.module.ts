@@ -11,7 +11,7 @@ import { KillComponent } from './kill/kill.component';
 const routes: Routes = [
   {
     path: '',
-    component: RegistComponent
+    component: HomeComponent
   },
   {
     path: 'login/:id',
