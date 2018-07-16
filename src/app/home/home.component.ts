@@ -40,8 +40,8 @@ export class HomeComponent implements OnInit {
   showGoodsList$: Array<TempGoods>;
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
 
-  advPics1:Object = ["",""];
-  isShowElevation=[[true, true]];
+  advPics1: Object = ["", ""];
+  isShowElevation = [[true, true]];
 
   constructor(private data: DataService) { }
 
@@ -108,8 +108,8 @@ export class HomeComponent implements OnInit {
    * @param flag 代表商品的特定id
    * @param isOver 代表鼠標是否在上方
    */
-  setElevation(type, flag, isOver){
-    let temp = isOver==1?false:true;
+  setElevation(type, flag, isOver) {
+    let temp = isOver == 1 ? false : true;
     this.isShowElevation[type].forEach(element => {
       element = true;
     });
@@ -117,7 +117,7 @@ export class HomeComponent implements OnInit {
   }
 
   isShowUp(flag) {
-    return flag?'-5px':'0px';
+    return flag ? '-5px' : '0px';
   }
 
 }
