@@ -1,7 +1,7 @@
 .headbar {
-    background-color: #ffffff;
     color: black;
     z-index: -1 !important;
+    background-color: rgba(0, 0, 0, 0);
   }
   
   .searchSpan {
@@ -96,11 +96,11 @@
 }
 .secondTimeSize{
   font-size:10px;
+  margin-left: 10px;
 }
 .background{
   height: 100%;
   width: 100%;
-  background-image: url(/src/assets/kill-background.jpg);
-  background-repeat: no-repeat;
+  background-image: url("/assets/kill-background.jpg");
 }
 
