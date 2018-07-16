@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DataService } from '../data/data.service';
 
 @Component({
   selector: 'app-infomation',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfomationComponent implements OnInit {
 
-  constructor() { }
+  goodId:number;
+  pics:Object;
+
+  constructor(private data: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.goodId = +this.route.snapshot.paramMap.get("id");
+    this.data.getGoodInfo(this.goodId).subscribe(
+      result => this.pics = result["data"]
+    );
   }
 
 }
