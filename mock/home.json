@@ -1,0 +1,17 @@
+{
+  "getTopGoodsAdv": [{
+      "type": 1,
+      "pics": [
+        "https://i1.mifile.cn/a4/xmad_15266395374048_JnZQo.jpg",
+        "https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg"
+      ]
+    },
+    {
+      "type": 2,
+      "pics": [
+        "https://i1.mifile.cn/a4/xmad_15266395374048_JnZQo.jpg",
+        "https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg"
+      ]
+    }
+  ]
+}

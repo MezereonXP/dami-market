@@ -5,6 +5,8 @@ import { LoginComponent  } from './login/login.component';
 import { RegistComponent } from "./regist/regist.component";
 import { HomeComponent } from './home/home.component';
 import { InfomationComponent } from './infomation/infomation.component';
+import { KillComponent } from './kill/kill.component';
+
 
 const routes: Routes = [
   {
@@ -22,6 +24,10 @@ const routes: Routes = [
   {
     path: 'info/:id',
     component: InfomationComponent
+  },
+  {
+    path: 'kill',
+    component: KillComponent
   }
 ];
 
