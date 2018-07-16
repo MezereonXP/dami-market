@@ -37,32 +37,19 @@ export class KillComponent implements OnInit {
     let hour = Math.floor(nTime % 86400 / 3600);
     let minute = Math.floor(nTime % 86400 % 3600 / 60);
     let second = Math.floor(nTime % 86400 % 3600 % 60);
-    let timeSlot = Math.floor(4 - hour / 4);
-    if (timeSlot <= 0) {
-      if (hour >= 16 && hour < 18) {
-        this.timeTipe[0] = "距离开始还剩" + (hour - 16) + ":" + minute + ":" + second;
-      }
-    } else {
-      for (let i = 0; i < timeSlot + 1; i++) {
+    let timeSlot = 4 - Math.floor(hour / 4);
+    if (timeSlot > 0) {
+      for (let i = 0; i < timeSlot; i++) {
         this.timeTipe[i] = "已结束";
       }
-
     }
-    if (hour >= 12 && hour < 14) {
-      this.timeTipe[1] = "距离开始还剩" + (hour - 12) + ":" + minute + ":" + second;
-    }
-    if (hour >= 8 && hour < 10) {
-      this.timeTipe[2] = "距离开始还剩" + (hour - 8) + ":" + minute + ":" + second;
-    }
-    if (hour >= 4 && hour < 6) {
-      this.timeTipe[3] = "距离开始还剩" + (hour - 4) + ":" + minute + ":" + second;
-    }
-    if (hour >= 0 && hour < 2) {
-      this.timeTipe[4] = "距离开始还剩" + hour + ":" + minute + ":" + second;
+    let temp = 4 * Math.floor(hour / 4);
+    if ((hour - temp) <= 2) {
+      let position = Math.floor(4 - temp / 4);
+      this.timeTipe[position] = "距离开始还剩" + (hour - temp) + ":" + minute + ":" + second;
     }
 
     setTimeout(() => {
-      11
       this.getTime();
     }, 500);
   }
