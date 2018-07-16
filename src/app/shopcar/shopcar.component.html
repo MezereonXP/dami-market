@@ -2,21 +2,21 @@
   <mat-toolbar-row>
     <mat-grid-list cols="15" rowHeight="5:3" class="bar">
       <mat-grid-tile colspan="1"></mat-grid-tile>
-      <mat-grid-tile  colspan="2"class="ok">
+      <mat-grid-tile colspan="2" class="ok">
         <span>我的购物车</span>
       </mat-grid-tile>
       <mat-grid-tile colspan="8">
-        <span ></span>
+        <span></span>
       </mat-grid-tile>
       <mat-grid-tile colspan="3">
-        <span >
+        <span>
           <div class="detail-card">
-            
+
             <a href="">
-            <span class="myOrder">
-              我的订单
-            </span>
-          </a>
+              <span class="myOrder">
+                我的订单
+              </span>
+            </a>
           </div>
         </span>
       </mat-grid-tile>
@@ -27,9 +27,13 @@
 
 <div class="shoplist">
   <mat-grid-list cols="12" rowHeight="5:3" class="bar">
-    
+
     <mat-grid-tile colspan="1">
-      <span><i >√</i>全选</span>
+      <span>
+        <mat-checkbox color="primary">
+            全选
+        </mat-checkbox>
+      </span>
     </mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="2">
@@ -44,6 +48,6 @@
     <mat-grid-tile colspan="1">小计</mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="1">操作</mat-grid-tile>
-    
+
   </mat-grid-list>
 </div>

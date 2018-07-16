@@ -4,9 +4,7 @@
   z-index: -1 !important;
 }
 
-
-
-.myOrder{
+.myOrder {
   margin-top: 3%;
   font-size: 15px;
 }
@@ -20,7 +18,19 @@
   margin-top: 2%;
   margin-left: 10%;
   width: 1150px;
-  
+}
+
+mat-checkbox {
+  color: #625C52;
+  /deep/ .mat-checkbox-background {
+    background-color: #625C52 !important;
+  }
+  /deep/ .mat-checkbox-focused {
+    color: #625C52;
+    .mat-ink-ripple {
+      background-color: rgba(129, 111, 71, 0.26) !important;
+    }
+  }
 }
 
 .menu1 {
@@ -69,18 +79,15 @@
     z-index: 5;
     color: black;
   }
-  a{
-    color:black;
+  a {
+    color: black;
     text-decoration: black;
   }
   a:hover {
     color: rgb(247, 178, 58);
     text-decoration: rgb(247, 178, 58);
-
   }
   .goodsNameTile {
     float: left;
   }
 }
-
-
