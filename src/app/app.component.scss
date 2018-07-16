@@ -1,7 +1,15 @@
 .headbar {
   background-color: #333333;
 }
+.headbar2 {
+  background-color: #ffffff;
+  color: black;
+  z-index: -1 !important;
+}
 
+.searchSpan {
+  margin-top: 3%;
+}
 .bar {
   width: 100%;
 }
