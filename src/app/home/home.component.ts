@@ -110,8 +110,8 @@ export class HomeComponent implements OnInit {
    * @param flag 代表商品的特定id
    * @param isOver 代表鼠標是否在上方
    */
-  setElevation(type, flag, isOver){
-    let temp = isOver==1?false:true;
+  setElevation(type, flag, isOver) {
+    let temp = isOver == 1 ? false : true;
     this.isShowElevation[type].forEach(element => {
       element = true;
     });
@@ -119,7 +119,7 @@ export class HomeComponent implements OnInit {
   }
 
   isShowUp(flag) {
-    return flag?'-5px':'0px';
+    return flag ? '-5px' : '0px';
   }
 
 }

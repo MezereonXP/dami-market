@@ -1,3 +1,61 @@
-<p>
-  kill works!
-</p>
+<div class="background">
+  <mat-toolbar class="headbar mat-elevation-z2" color="primary">
+    <mat-toolbar-row>
+      <mat-grid-list cols="7" rowHeight="102px" class="bar">
+        <mat-grid-tile colspan="3"></mat-grid-tile>
+        <mat-grid-tile class="ok">
+          <span>Are you Ok 闪购</span>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="3"></mat-grid-tile>
+      </mat-grid-list>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-toolbar class="headbar mat-elevation-z2" color="primary">
+    <mat-toolbar-row>
+      <mat-grid-list cols="7" rowHeight="64px" class="bar">
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile class="killTime">
+          <span class="full">
+            <button mat-button class="killTimeInner-true" (click)="showKillGood(1)">
+              <span class="firstTimeSize">{{times[0]}}</span>
+              <span class="secondTimeSize">{{timeTipe[0]}}</span>
+            </button>
+          </span>
+        </mat-grid-tile>
+        <mat-grid-tile class="killTime">
+          <span class="full">
+            <button mat-button class="killTimeInner-true" (click)="showKillGood(2)">
+              <span class="firstTimeSize">{{times[1]}}</span>
+              <span class="secondTimeSize">{{timeTipe[1]}}</span>
+            </button>
+          </span>
+        </mat-grid-tile>
+        <mat-grid-tile class="killTime">
+          <span class="full">
+            <button mat-button class="killTimeInner-true" (click)="showKillGood(3)">
+              <span class="firstTimeSize">{{times[2]}}</span>
+              <span class="secondTimeSize">{{timeTipe[2]}}</span>
+            </button>
+          </span>
+        </mat-grid-tile>
+        <mat-grid-tile class="killTime">
+          <span class="full">
+            <button mat-button class="killTimeInner-true" (click)="showKillGood(4)">
+              <span class="firstTimeSize">{{times[3]}}</span>
+              <span class="secondTimeSize">{{timeTipe[3]}}</span>
+            </button>
+          </span>
+        </mat-grid-tile>
+        <mat-grid-tile class="killTime">
+          <span class="full">
+            <button mat-button class="killTimeInner-true" (click)="showKillGood(5)">
+              <span class="firstTimeSize">{{times[4]}}</span>
+              <span class="secondTimeSize">{{timeTipe[4]}}</span>
+            </button>
+          </span>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+      </mat-grid-list>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
