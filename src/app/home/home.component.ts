@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
   showGoodsList$: Array<TempGoods>;
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
 
-  advPics1:Object = ["",""];
+  advPics:Object[] = [["",""],["",""],["",""],["",""],["",""],["",""]];
   isShowElevation=[[true, true]];
 
   constructor(private data: DataService) { }
@@ -52,9 +52,11 @@ export class HomeComponent implements OnInit {
         console.log(this.goodsList$["1"][0].name);
       }
     );
-    this.data.getTopGoodsAdv(1).subscribe(
-      result => this.advPics1 = result[0]["pics"]
-    );
+    for (let type = 1; type <= this.advPics.length; type++) {
+      this.data.getTopGoodsAdv(type).subscribe(
+        result => this.advPics[type-1] = result[0]["pics"]
+      );
+    }
   }
 
   /**
