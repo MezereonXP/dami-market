@@ -40,8 +40,8 @@ export class HomeComponent implements OnInit {
   showGoodsList$: Array<TempGoods>;
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
 
-  advPics:Object[] = [["",""],["",""],["",""],["",""],["",""],["",""]];
-  isShowElevation=[[true, true]];
+  advPics:Object[] = [["",""],["",""],["",""],["",""],["",""]];
+  isShowElevation=[[true, true],[true, true],[true, true],[true, true],[true, true]];
 
   constructor(private data: DataService) { }
 
