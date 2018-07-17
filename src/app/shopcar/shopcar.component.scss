@@ -13,11 +13,32 @@
   width: 100%;
 }
 
-.shoplist {
-  background-color: rgb(233, 248, 250);
+.shoplistbar {
+  background-color: rgba(225, 228, 230, 0.822);
   margin-top: 2%;
   margin-left: 10%;
   width: 1150px;
+  
+  a {
+    color: black;
+    text-decoration: black;
+  }
+  a:hover {
+    color: rgb(247, 178, 58);
+    text-decoration: rgb(247, 178, 58);
+  }
+}
+
+.shoplist {
+  background-color:#ffffff;
+  margin-top: 1%;
+  margin-left: 10%;
+  width: 1150px;
+}
+
+.shoplist .goodsimg {
+  width: 70px;
+  height: 70px;
 }
 
 mat-checkbox {
