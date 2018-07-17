@@ -79,12 +79,9 @@
 
 <mat-grid-list cols="5" rowHeight="1:2" class="divideList">
   <mat-grid-tile class="simple-tile">
-    <mat-grid-list cols="1" rowHeight="4:5" class="advlist">
+    <mat-grid-list cols="1" rowHeight="2:5" class="advlist">
       <mat-grid-tile (mouseover)="setElevation(0,0,1)" (mouseleave)="setElevation(0,0,0)" [ngStyle]="{'top': isShowUp(!isShowElevation[0][0])}">
         <img :src="{{advPics[0][0]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation[0][0],'mat-elevation-z8': !isShowElevation[0][0]}">
-      </mat-grid-tile>
-      <mat-grid-tile (mouseover)="setElevation(0,1,1)" (mouseleave)="setElevation(0,1,0)" [ngStyle]="{'top': isShowUp(!isShowElevation[0][1])}">
-        <img :src="{{advPics[0][1]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation[0][1],'mat-elevation-z8': !isShowElevation[0][1]}">
       </mat-grid-tile>
     </mat-grid-list>
   </mat-grid-tile>
