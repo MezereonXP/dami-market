@@ -8,13 +8,33 @@ import { RegistComponent } from './regist/regist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from "./data/data.service";
-import { MatButtonModule } from "@angular/material";
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatDividerModule } from "@angular/material";
+import { MatCardModule } from '@angular/material/card';
+import { HomeComponent } from './home/home.component';
+import { ShoppingComponent } from './shopping/shopping.component';
+import { ShopcarComponent } from './shopcar/shopcar.component';
+import { OrderComponent } from './order/order.component';
+import { PayComponent } from './pay/pay.component';
+import { KillComponent } from './kill/kill.component';
+import { TeamComponent } from './team/team.component';
+import { SelfcenterComponent } from './selfcenter/selfcenter.component';
+import { InfomationComponent } from './infomation/infomation.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistComponent
+    RegistComponent,
+    HomeComponent,
+    ShoppingComponent,
+    ShopcarComponent,
+    OrderComponent,
+    PayComponent,
+    KillComponent,
+    TeamComponent,
+    SelfcenterComponent,
+    InfomationComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +42,16 @@ import { MatButtonModule } from "@angular/material";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatIconModule,
+    MatGridListModule,
+    MatListModule,
+    MatCardModule,
+    CarouselModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

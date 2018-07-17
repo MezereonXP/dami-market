@@ -1,2 +1,55 @@
-<p class="head">123</p>
+<mat-toolbar class="headbar" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="15" rowHeight="5:3" class="bar">
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="1">
+        <a href="/#/home">
+          <img class="icon" src="assets/icon.png">
+        </a>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="7"></mat-grid-tile>
+      <mat-grid-tile>
+        <span class="login" *ngIf="isLogin">
+          <button mat-button class="btn-login">登录</button>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <span class="regist" *ngIf="isLogin">
+          <button mat-button class="btn-regist">注册</button>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <span class="span-info">
+          <button mat-button class="btn-info">消息通知</button>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-toolbar class="headbar2 mat-elevation-z2" color="primary">
+    <mat-toolbar-row>
+      <mat-grid-list cols="15" rowHeight="5:3" class="bar">
+        <mat-grid-tile colspan="1"></mat-grid-tile>
+        <mat-grid-tile colspan="2" class="ok">
+          <span>Are you OK ?</span>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="7"></mat-grid-tile>
+        <mat-grid-tile colspan="3">
+          <span class="searchSpan">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="输入搜索关键词" aria-label="Recipient's username" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">搜索</button>
+              </div>
+            </div>
+          </span>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2"></mat-grid-tile>
+      </mat-grid-list>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
 <router-outlet></router-outlet>
