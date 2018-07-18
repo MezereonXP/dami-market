@@ -60,5 +60,5 @@
   </mat-toolbar>
 </div>
 
-<input [(value)]="killId">
+<input [(ngModel)]="killId">
 <button mat-button [(disabled)]="isCanKill" (click)="kill()">抢购</button>
