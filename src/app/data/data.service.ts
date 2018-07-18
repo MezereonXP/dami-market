@@ -42,4 +42,9 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/getTopGoodsAdv", {params});
   }
 
+  getgoodsPic(type) {
+    const params = new HttpParams().set("type", type);
+    return this.http.get("http://localhost:8080/api/getgoodsPic", {params});
+  }
+
 }

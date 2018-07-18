@@ -40,11 +40,18 @@ export class HomeComponent implements OnInit {
   showGoodsList$: Array<TempGoods>;
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
 
-  advPics:Object[] = [["",""],["",""],["",""],["",""],["",""]];
-  isShowElevation=[[true, true],[true, true],[true, true],[true, true],[true, true]];
+  advPics: Object[] = [["", ""], ["", ""], ["", ""], ["", ""], ["", ""]];
+  goodsPics: Object[] = [["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""]];
 
+  isShowElevation = [[true, true], [true, true], [true, true], [true, true], [true, true]];
+  isShowElevation2 = [[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true],
+  [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]];
   constructor(private data: DataService) { }
-
+  /**
+   *
+   *
+   * @memberof HomeComponent
+   */
   ngOnInit() {
     this.data.getGoodsList().subscribe(
       result => {
@@ -54,7 +61,12 @@ export class HomeComponent implements OnInit {
     );
     for (let type = 1; type <= this.advPics.length; type++) {
       this.data.getTopGoodsAdv(type).subscribe(
-        result => this.advPics[type-1] = result[0]["pics"]
+        result => this.advPics[type - 1] = result[0]["pics"]
+      );
+    }
+    for (let type = 1; type <= this.goodsPics.length; type++) {
+      this.data.getgoodsPic(type).subscribe(
+        result => this.goodsPics[type - 1] = result[0]["pics"]
       );
     }
   }
@@ -117,8 +129,19 @@ export class HomeComponent implements OnInit {
     });
     this.isShowElevation[type][flag] = temp;
   }
+  setElevation2(type, flag, isOver) {
+    let temp = isOver == 1 ? false : true;
+    this.isShowElevation2[type].forEach(element => {
+      element = true;
+    });
+    this.isShowElevation2[type][flag] = temp;
+  }
+
 
   isShowUp(flag) {
+    return flag ? '-5px' : '0px';
+  }
+  isShowUp2(flag) {
     return flag ? '-5px' : '0px';
   }
 
