@@ -61,4 +61,4 @@
 </div>
 
 <input [(ngModel)]="killId">
-<button mat-button [(disabled)]="isCanKill" (click)="kill()">抢购</button>
+<button mat-button [(disabled)]="!isCanKill" (click)="kill()">抢购</button>
