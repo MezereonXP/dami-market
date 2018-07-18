@@ -46,5 +46,10 @@ export class DataService {
     const params = new HttpParams().set("id", name);
     return this.http.get("api/killGoods", {params});
   }
+  
+  getgoodsPic(type) {
+    const params = new HttpParams().set("type", type);
+    return this.http.get("http://localhost:8080/api/getgoodsPic", {params});
+  }
 
 }
