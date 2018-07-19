@@ -89,8 +89,10 @@
   <mat-grid-tile colspan="4" class="simple-tile">
     <mat-grid-list cols="4" rowHeight="4:5" class="advlist">
       <mat-grid-tile (mouseover)="setElevation2(0,0,1)" (mouseleave)="setElevation2(0,0,0)" [ngStyle]="{'top': isShowUp2(!isShowElevation2[0][0])}">
-        <mat-grid-list cols="1" rowHeight="1:5" class="advlist">
-          <img :src="{{goodsPics[0][0]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation2[0][0],'mat-elevation-z8': !isShowElevation2[0][0]}">
+        <mat-grid-list cols="1" rowHeight="5:1" class="advlist" [ngClass]="{'mat-elevation-z2': isShowElevation2[0][0],'mat-elevation-z8': !isShowElevation2[0][0]}">
+          <mat-grid-tile rowspan="4">
+            <img :src="{{goodsPics[0][0]}}" class="advimg">
+          </mat-grid-tile>
         </mat-grid-list>
       </mat-grid-tile>
       <mat-grid-tile (mouseover)="setElevation2(0,1,1)" (mouseleave)="setElevation2(0,1,0)" [ngStyle]="{'top': isShowUp2(!isShowElevation2[0][1])}">
@@ -130,7 +132,6 @@
       </mat-grid-tile>
     </mat-grid-list>
   </mat-grid-tile>
-
 </mat-grid-list>
 
 <mat-grid-list cols="1" rowHeight="10:1" class="divideList">
@@ -454,3 +455,54 @@
 
 
 </mat-grid-list>
+
+<div *ngFor="let item of showBeans; let i=index">
+  <mat-grid-list cols="1" rowHeight="10:1" class="divideList">
+    <mat-grid-tile class="devideTile">
+      <img class="dividePic" :src="{{item.dividePic}}">
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-list class="divide-list">
+    <mat-list-item class="title-item">{{item.typeName}}</mat-list-item>
+    <mat-list-item class="seeall-item" (mouseover)="changeSeeAllColor(1)" (mouseleave)="changeSeeAllColor(0)" [ngStyle]="{'color': currentSeeAllColor}">查看全部
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor!='red'">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor=='red'">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="red" />
+      </svg>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+  <mat-grid-list cols="5" rowHeight="1:2" class="divideList">
+    <mat-grid-tile class="simple-tile">
+      <mat-grid-list cols="1" :rowHeight="{{item.isOneAdvPic?&#34;2&#58;5&#34;:&#34;1&#58;5&#34;}}" class="advlist" *ngFor="let pic of item.advPics; let j = index">
+        <mat-grid-tile (mouseover)="setElevation(i,j,1)" (mouseleave)="setElevation(i,j,0)" [ngStyle]="{'top': isShowUp(!isShowElevationNew[i][j])}">
+          <img :src="{{pic}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevationNew[i][j],'mat-elevation-z8': !isShowElevationNew[i][j]}">
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="4" class="simple-tile">
+      <mat-grid-list cols="4" rowHeight="4:5" class="advlist">
+        <mat-grid-tile (mouseover)="setElevation2(i,k,1)" *ngFor="let good of item.goods; let k=index"
+           (mouseleave)="setElevation2(i,k,0)" [ngStyle]="{'top': isShowUp2(!isShowElevationNew2[i][k])}">
+          <mat-grid-list cols="1" rowHeight="5:1" class="advlist" [ngClass]="{'mat-elevation-z2': isShowElevationNew2[i][k],'mat-elevation-z8': !isShowElevationNew2[i][k]}">
+            <mat-grid-tile rowspan="4">
+              <img :src="{{good.pic}}" class="advimg">
+            </mat-grid-tile>
+            <mat-grid-tile>
+              {{good.name}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+              {{good.price}}元
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
