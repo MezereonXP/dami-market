@@ -42,4 +42,9 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/getTopGoodsAdv", {params});
   }
 
+  killGoods(name) {
+    const params = new HttpParams().set("id", name);
+    return this.http.get("api/killGoods", {params});
+  }
+
 }
