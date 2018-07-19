@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger, state } from '@angular/animations';
 import { DataService } from '../data/data.service';
 import { TempGoods } from '../bean/temp.goods';
+import { ShowBean } from '../bean/showbean';
 
 @Component({
   selector: 'app-home',
@@ -43,9 +44,15 @@ export class HomeComponent implements OnInit {
   advPics: Object[] = [["", ""], ["", ""], ["", ""], ["", ""], ["", ""]];
   goodsPics: Object[] = [["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""]];
 
+  showBeans: Array<ShowBean>;
+
   isShowElevation = [[true, true], [true, true], [true, true], [true, true], [true, true]];
   isShowElevation2 = [[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true],
   [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]];
+  
+  isShowElevationNew :Array<Array<boolean>>;
+  isShowElevationNew2 :Array<Array<boolean>>;
+  
   constructor(private data: DataService) { }
   /**
    *
@@ -69,6 +76,26 @@ export class HomeComponent implements OnInit {
         result => this.goodsPics[type - 1] = result[0]["pics"]
       );
     }
+
+    this.data.getInfo().subscribe(
+      result => {
+        this.showBeans = result["data"];
+        this.isShowElevationNew = new Array();
+        this.isShowElevationNew2 = new Array();
+        for (let i = 0; i < this.showBeans.length; i++) {
+          const element = this.showBeans[i];
+          this.isShowElevationNew.push(new Array());
+          this.isShowElevationNew2.push(new Array());
+          for (let j = 0; j < element.goods.length; j++) {
+              this.isShowElevationNew2[i].push(true);
+          }
+          for (let j = 0; j < element.advPics.length; j++) {
+              this.isShowElevationNew[i].push(true);
+          }
+        }
+      }
+    );
+
   }
 
   /**
@@ -124,17 +151,17 @@ export class HomeComponent implements OnInit {
    */
   setElevation(type, flag, isOver) {
     let temp = isOver == 1 ? false : true;
-    this.isShowElevation[type].forEach(element => {
+    this.isShowElevationNew[type].forEach(element => {
       element = true;
     });
-    this.isShowElevation[type][flag] = temp;
+    this.isShowElevationNew[type][flag] = temp;
   }
   setElevation2(type, flag, isOver) {
     let temp = isOver == 1 ? false : true;
-    this.isShowElevation2[type].forEach(element => {
+    this.isShowElevationNew2[type].forEach(element => {
       element = true;
     });
-    this.isShowElevation2[type][flag] = temp;
+    this.isShowElevationNew2[type][flag] = temp;
   }
 
 
@@ -143,6 +170,10 @@ export class HomeComponent implements OnInit {
   }
   isShowUp2(flag) {
     return flag ? '-5px' : '0px';
+  }
+
+  getRowHeight(flag){
+    return flag?"2:5":"1:5";
   }
 
 }

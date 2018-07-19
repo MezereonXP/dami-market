@@ -47,4 +47,8 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/getgoodsPic", {params});
   }
 
+  getInfo() {
+    return this.http.get("http://localhost:8080/api/newApi");
+  }
+
 }
