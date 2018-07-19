@@ -1,0 +1,248 @@
+.headbar3 {
+  background-color: #ffffff;
+  color: rgb(8, 8, 8);
+  z-index: -1 !important;
+}
+
+li {
+  list-style: none;
+}
+
+.myOrder {
+  margin-top: 3%;
+  font-size: 15px;
+}
+
+.bar {
+  width: 100%;
+}
+
+a {
+  color: black;
+  text-decoration: black;
+}
+
+a:hover {
+  color: rgb(247, 178, 58);
+  text-decoration: rgb(247, 178, 58);
+}
+
+.order {
+  background-color: #ffffff;
+  margin-top: 1%;
+  margin-left: 10%;
+  width: 1150px;
+}
+
+.section {
+  margin-left: 48px;
+  margin-right: 48px;
+}
+
+.section .section-header {
+  margin-bottom: 20px;
+}
+
+.section .section-body {
+  float: left;
+  margin-left: -18px;
+  margin-top: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.address-item {
+  float: left;
+  margin-left: 17px;
+  margin-bottom: 24px;
+}
+
+.address-item {
+  width: 268px;
+  height: 178px;
+  border: 1px solid;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+}
+
+.address-item-new {
+  text-align: center;
+  color: #b0b0b0;
+}
+
+.address-item-new .iconfont {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 63px auto 8px;
+  font-size: 35px;
+  line-height: 30px;
+  background-color: #e0e0e0;
+  border-radius: 17px;
+  text-align: center;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+  color: #fff;
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.1px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.selected {
+  border: 2px solid;
+  border-color: #0e0d0d;
+}
+
+.address-item dl {
+  padding: 15px 24px 0;
+  margin: 0;
+}
+
+.address-item dt {
+  margin: 0 0 10px;
+  line-height: 30px;
+}
+
+dt {
+  display: block;
+}
+
+.address-item .uname {
+  font-size: 18px;
+  color: #333;
+  font-style: normal;
+}
+
+.section .address-item .uaddress {
+  max-height: 88px;
+  overflow: hidden;
+}
+
+.actions {
+  position: absolute;
+  right: 24px;
+  bottom: 10px;
+}
+
+.address-item .modify {
+  display: none;
+  margin-left: 10px;
+  color: #ff6700;
+}
+
+.selected .modify {
+  display: inline-block;
+}
+
+.section-goods {
+  float: left;
+  padding: 10px 0;
+  width: 1150px;
+}
+
+.more {
+  float: right;
+}
+
+.section-goods .section-header h3 {
+  line-height: 10px;
+  float: left;
+  color: #333;
+}
+
+.section-goods .goods-list {
+  padding: 10px 0;
+}
+
+.section-goods .goods-list li {
+  padding: 10px 0;
+  margin-bottom: 15px;
+}
+
+.section-goods .goods-list .col-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.section-goods .goods-list .col-name {
+  width: 685px;
+}
+
+.section-goods .goods-list .col {
+  float: left;
+  line-height: 30px;
+  color: #424242;
+}
+
+.section-goods .goods-list .col-price {
+  width: 150px;
+  text-align: center;
+}
+
+.section-goods .goods-list .col-status {
+  width: 100px;
+  text-align: center;
+}
+
+.section-goods .goods-list .col-total {
+  width: 190px;
+  text-align: center;
+  color: #ff6700;
+}
+
+.section-count {
+  min-height: 200px;
+  padding: 10px 0;
+  position: relative;
+  width: 1150px;
+}
+
+.section-count .money-box {
+  right: 0;
+  bottom: 20px;
+  text-align: right;
+}
+
+.section-count .money-box ul {
+  float: right;
+  list-style: none;
+}
+
+.section-count .money-box li {
+  display: block;
+  padding-left: 100px;
+  line-height: 2;
+  position: relative;
+  zoom: 1;
+  list-style: none;
+}
+
+.section-count .money-box .val {
+  color: #ff6700;
+  zoom: 1;
+}
+
+.section-bar {
+  padding: 10px 0;
+  border-top: 1px solid #e7e7e7;
+  float: left;
+  width: 1150px;
+}
+
+.section-bar .fr {
+  float: right;
+  color: #757575;
+}
+
+.btn-primary {
+  background: #929190d8;
+  border-color: #727170;
+  color: #fff;
+}
