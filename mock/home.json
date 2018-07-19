@@ -36,6 +36,19 @@
     }
   ],
   "getGoodsPic":[{
+    "type":1,
+    "pics": [
+      "https://i1.mifile.cn/a1/pms_1524883847.49276938!220x220.jpg",
+      "https://i1.mifile.cn/a4/xmad_14972549116226_tZpod.png",
+      "https://i1.mifile.cn/a1/pms_1522318330.86967810!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1496997930.13622399!220x220.jpg",
+      "https://i1.mifile.cn/a4/xmad_15281923207128_rOfDp.png",
+      "https://i1.mifile.cn/a1/pms_1505897517.20426731!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1500287084.72131750!220x220.jpg"
+    ]
+  },
+  {
     "type": 2,
     "pics": [
       "https://i1.mifile.cn/a1/pms_1524883847.49276938!220x220.jpg",
@@ -47,5 +60,48 @@
       "https://i1.mifile.cn/a1/pms_1505897517.20426731!220x220.jpg",
       "https://i1.mifile.cn/a1/pms_1500287084.72131750!220x220.jpg"
     ]
-  }]
+  },
+  {
+    "type": 3,
+    "pics": [
+      "https://i1.mifile.cn/a1/pms_1524883847.49276938!220x220.jpg",
+      "https://i1.mifile.cn/a4/xmad_14972549116226_tZpod.png",
+      "https://i1.mifile.cn/a1/pms_1522318330.86967810!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1496997930.13622399!220x220.jpg",
+      "https://i1.mifile.cn/a4/xmad_15281923207128_rOfDp.png",
+      "https://i1.mifile.cn/a1/pms_1505897517.20426731!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1500287084.72131750!220x220.jpg"
+    ]
+  },
+  {
+    "type": 4,
+    "pics": [
+      "https://i1.mifile.cn/a1/pms_1524883847.49276938!220x220.jpg",
+      "https://i1.mifile.cn/a4/xmad_14972549116226_tZpod.png",
+      "https://i1.mifile.cn/a1/pms_1522318330.86967810!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1496997930.13622399!220x220.jpg",
+      "https://i1.mifile.cn/a4/xmad_15281923207128_rOfDp.png",
+      "https://i1.mifile.cn/a1/pms_1505897517.20426731!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1500287084.72131750!220x220.jpg"
+    ]
+  },
+  {
+    "type": 5,
+    "pics": [
+      "https://i1.mifile.cn/a1/pms_1524883847.49276938!220x220.jpg",
+      "https://i1.mifile.cn/a4/xmad_14972549116226_tZpod.png",
+      "https://i1.mifile.cn/a1/pms_1522318330.86967810!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1504498936.11861982!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1496997930.13622399!220x220.jpg",
+      "https://i1.mifile.cn/a4/xmad_15281923207128_rOfDp.png",
+      "https://i1.mifile.cn/a1/pms_1505897517.20426731!220x220.jpg",
+      "https://i1.mifile.cn/a1/pms_1500287084.72131750!220x220.jpg"
+    ]
+  }
+],
+"getGoodsInfo":[{
+  
+}] 
 }
