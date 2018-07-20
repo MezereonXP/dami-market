@@ -1,109 +1,5 @@
 {
-  "getTopGoodsAdv": [{
-      "type": 1,
-      "pics": [
-        "https://i1.mifile.cn/a4/xmad_15283420365224_wLvZm.jpg",
-        "https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg"
-      ]
-    },
-    {
-      "type": 2,
-      "pics": [
-        "https://i1.mifile.cn/a4/xmad_15266395374048_JnZQo.jpg",
-        "https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg"
-      ]
-    },
-    {
-      "type": 3,
-      "pics": [
-        "https://i1.mifile.cn/a4/xmad_15287211809144_LDIsa.jpg",
-        "https://i1.mifile.cn/a4/xmad_14950995035103_fhWtH.jpg"
-      ]
-    },
-    {
-      "type": 4,
-      "pics": [
-        "https://i1.mifile.cn/a4/xmad_15222058002076_sWEmR.jpg",
-        "https://i1.mifile.cn/a4/xmad_15290668700648_LpwQf.jpg"
-      ]
-    },
-    {
-      "type": 5,
-      "pics": [
-        "https://i1.mifile.cn/a4/xmad_15277816294188_wikHT.jpg",
-        "https://i1.mifile.cn/a4/xmad_15277814391495_RBqUe.jpg"
-      ]
-    }
-  ],
-  "getGoodsPic": [{
-      "type": 1,
-      "pics": [
-        "https://i1.mifile.cn/a1/pms_1528719476.67789934!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1528092587.49664451!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1527684990.93616987!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1522034061.12391230!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1527144859.25489991!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1495692033.10494295!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1509723483.31416776!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1525853341.8312102!220x220.jpg"
-      ],
-      "prices": [
-        10, 10, 10, 10, 10, 10
-      ]
-    },
-    {
-      "type": 2,
-      "pics": [
-        "https://i1.mifile.cn/a1/pms_1524883847.49276938!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1514387870.88251945!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1522318330.86967810!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1499072633.96298268!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1490604807.82792204!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1469583247.6157588!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1505897517.20426731!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1500287084.72131750!220x220.jpg"
-      ]
-    },
-    {
-      "type": 3,
-      "pics": [
-        "https://i1.mifile.cn/a4/cf6660a3-d424-4248-889f-0eed1e99a342",
-        "https://i1.mifile.cn/a1/pms_1527754949.17141338!220x220.jpg",
-        "https://i1.mifile.cn/a1/T1sWd_B7VT1RXrhCrK!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1490770630.65576964!220x220.png",
-        "https://i1.mifile.cn/a1/pms_1506733860.3164711!220x220.jpg",
-        "https://i1.mifile.cn/a4/2b69b930-a2fd-4d09-a46a-8690cb79f764",
-        "https://i1.mifile.cn/a1/pms_1478761096.92412274!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1496730880.16174470!220x220.jpg"
-      ]
-    },
-    {
-      "type": 4,
-      "pics": [
-        "https://i1.mifile.cn/a1/pms_1526349330.12883818!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1527840795.6763911.jpg?width=150&height=150",
-        "https://i1.mifile.cn/a1/pms_1526888961.86752709.jpg?width=150&height=150",
-        "https://i1.mifile.cn/a1/pms_1524466977.94886383.jpg?width=150&height=150",
-        "https://i1.mifile.cn/a1/pms_1530154528.55496598.jpg?width=150&height=150",
-        "https://i1.mifile.cn/a1/pms_1486980879.11199962!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1509852703.79453120!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1524467046.18799928!220x220.jpg"
-      ]
-    },
-    {
-      "type": 5,
-      "pics": [
-        "https://i1.mifile.cn/a1/pms_1522666970.27937468.jpg",
-        "https://i1.mifile.cn/a1/pms_1524571235.37826274.jpg",
-        "https://i1.mifile.cn/a1/pms_1482321199.12589253.jpg",
-        "https://i1.mifile.cn/a1/pms_1502093110.00979492.jpg",
-        "https://i1.mifile.cn/a1/pms_1513857241.9291821.jpg",
-        "https://i1.mifile.cn/a1/T1IdZgB5hv1RXrhCrK!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1499161620.42031583!220x220.jpg",
-        "https://i1.mifile.cn/a1/pms_1492587658.23552969!220x220.jpg"
-      ]
-    }
-  ],
+  
   "newApi": {
       "data":[
         {
@@ -115,55 +11,294 @@
           "isOneAdvPic":true,
           "goods":[
             {
-              "name": "good1",
-              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934!220x220.jpg",
+              "name": "小米8 SE 4GB+64GB",
+              "pic": "https://i1.mifile.cn/a1/pms_1527684990.93616987.jpg?width=150&height=150",
               "price": "1999",
               "comment": "That is good"
             },
             {
-              "name": "good1",
-              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934!220x220.jpg",
+              "name": "红米6A",
+              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934.jpg?width=150&height=150",
+              "price": "599",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米8 6GB+64GB",
+              "pic": "https://i1.mifile.cn/a1/pms_1528092587.49664451!220x220.jpg",
+              "price": "2699",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MIX 2S",
+              "pic": "https://i1.mifile.cn/a1/pms_1522034061.12391230!220x220.jpg",
+              "price": "3999",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米6X",
+              "pic": "https://i1.mifile.cn/a1/pms_1527144859.25489991!220x220.jpg",
+              "price": "1299",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MAX2",
+              "pic": "https://i1.mifile.cn/a1/pms_1495692033.10494295!220x220.jpg",
+              "price": "1249",
+              "comment": "That is good"
+            },
+            {
+              "name": "红米S2",
+              "pic": "https://i1.mifile.cn/a1/pms_1525853341.8312102!220x220.jpg",
+              "price": "899",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MIX2 全陶瓷",
+              "pic": "https://i1.mifile.cn/a1/pms_1509723483.31416776!220x220.jpg",
+              "price": "2999",
+              "comment": "That is good"
+            }
+          ]
+        },
+        {
+          "typeName":"笔记本平板",
+          "dividePic": "https://i1.mifile.cn/a4/xmad_1531969003126_XdRfS.jpg",
+          "advPics":[
+            "https://i1.mifile.cn/a4/xmad_15266395374048_JnZQo.jpg",
+            "https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg"
+          ],
+          "isOneAdvPic":false,
+          "goods":[
+            {
+              "name": "12.5 小米笔记本 Air",
+              "pic": "https://i1.mifile.cn/a1/pms_1514387870.88251945!220x220.jpg",
+              "price": "3599",
+              "comment": "That is good"
+            },
+            {
+              "name": "",
+              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934.jpg?width=150&height=150",
+              "price": "599",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米8 6GB+64GB",
+              "pic": "https://i1.mifile.cn/a1/pms_1528092587.49664451!220x220.jpg",
+              "price": "2699",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MIX 2S",
+              "pic": "https://i1.mifile.cn/a1/pms_1522034061.12391230!220x220.jpg",
+              "price": "3999",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米6X",
+              "pic": "https://i1.mifile.cn/a1/pms_1527144859.25489991!220x220.jpg",
+              "price": "1299",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MAX2",
+              "pic": "https://i1.mifile.cn/a1/pms_1495692033.10494295!220x220.jpg",
+              "price": "1249",
+              "comment": "That is good"
+            },
+            {
+              "name": "红米S2",
+              "pic": "https://i1.mifile.cn/a1/pms_1525853341.8312102!220x220.jpg",
+              "price": "899",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MIX2 全陶瓷",
+              "pic": "https://i1.mifile.cn/a1/pms_1509723483.31416776!220x220.jpg",
+              "price": "2999",
+              "comment": "That is good"
+            }
+          ]
+        },
+        {
+          "typeName":"智能家居",
+          "dividePic": "https://i1.mifile.cn/a4/xmad_1531969003126_XdRfS.jpg",
+          "advPics":[
+            "https://i1.mifile.cn/a4/xmad_15266395374048_JnZQo.jpg",
+            "https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg"
+          ],
+          "isOneAdvPic":false,
+          "goods":[
+            {
+              "name": "12.5 小米笔记本 Air",
+              "pic": "https://i1.mifile.cn/a1/pms_1514387870.88251945!220x220.jpg",
               "price": "1999",
               "comment": "That is good"
             },
             {
-              "name": "good1",
-              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934!220x220.jpg",
+              "name": "红米6A",
+              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934.jpg?width=150&height=150",
+              "price": "599",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米8 6GB+64GB",
+              "pic": "https://i1.mifile.cn/a1/pms_1528092587.49664451!220x220.jpg",
+              "price": "2699",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MIX 2S",
+              "pic": "https://i1.mifile.cn/a1/pms_1522034061.12391230!220x220.jpg",
+              "price": "3999",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米6X",
+              "pic": "https://i1.mifile.cn/a1/pms_1527144859.25489991!220x220.jpg",
+              "price": "1299",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MAX2",
+              "pic": "https://i1.mifile.cn/a1/pms_1495692033.10494295!220x220.jpg",
+              "price": "1249",
+              "comment": "That is good"
+            },
+            {
+              "name": "红米S2",
+              "pic": "https://i1.mifile.cn/a1/pms_1525853341.8312102!220x220.jpg",
+              "price": "899",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MIX2 全陶瓷",
+              "pic": "https://i1.mifile.cn/a1/pms_1509723483.31416776!220x220.jpg",
+              "price": "2999",
+              "comment": "That is good"
+            }
+          ]
+        },
+        {
+          "typeName":"配件",
+          "dividePic": "https://i1.mifile.cn/a4/xmad_1531969003126_XdRfS.jpg",
+          "advPics":[
+            "https://i1.mifile.cn/a4/xmad_15266395374048_JnZQo.jpg",
+            "https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg"
+          ],
+          "isOneAdvPic":false,
+          "goods":[
+            {
+              "name": "12.5 小米笔记本 Air",
+              "pic": "https://i1.mifile.cn/a1/pms_1514387870.88251945!220x220.jpg",
               "price": "1999",
               "comment": "That is good"
             },
             {
-              "name": "good1",
-              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934!220x220.jpg",
+              "name": "红米6A",
+              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934.jpg?width=150&height=150",
+              "price": "599",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米8 6GB+64GB",
+              "pic": "https://i1.mifile.cn/a1/pms_1528092587.49664451!220x220.jpg",
+              "price": "2699",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MIX 2S",
+              "pic": "https://i1.mifile.cn/a1/pms_1522034061.12391230!220x220.jpg",
+              "price": "3999",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米6X",
+              "pic": "https://i1.mifile.cn/a1/pms_1527144859.25489991!220x220.jpg",
+              "price": "1299",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MAX2",
+              "pic": "https://i1.mifile.cn/a1/pms_1495692033.10494295!220x220.jpg",
+              "price": "1249",
+              "comment": "That is good"
+            },
+            {
+              "name": "红米S2",
+              "pic": "https://i1.mifile.cn/a1/pms_1525853341.8312102!220x220.jpg",
+              "price": "899",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MIX2 全陶瓷",
+              "pic": "https://i1.mifile.cn/a1/pms_1509723483.31416776!220x220.jpg",
+              "price": "2999",
+              "comment": "That is good"
+            }
+          ]
+        },
+        {
+          "typeName":"耳机音箱",
+          "dividePic": "https://i1.mifile.cn/a4/xmad_1531969003126_XdRfS.jpg",
+          "advPics":[
+            "https://i1.mifile.cn/a4/xmad_15266395374048_JnZQo.jpg",
+            "https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg"
+          ],
+          "isOneAdvPic":false,
+          "goods":[
+            {
+              "name": "12.5 小米笔记本 Air",
+              "pic": "https://i1.mifile.cn/a1/pms_1514387870.88251945!220x220.jpg",
               "price": "1999",
               "comment": "That is good"
             },
             {
-              "name": "good1",
-              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934!220x220.jpg",
-              "price": "1999",
+              "name": "红米6A",
+              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934.jpg?width=150&height=150",
+              "price": "599",
               "comment": "That is good"
             },
             {
-              "name": "good1",
-              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934!220x220.jpg",
-              "price": "1999",
+              "name": "小米8 6GB+64GB",
+              "pic": "https://i1.mifile.cn/a1/pms_1528092587.49664451!220x220.jpg",
+              "price": "2699",
               "comment": "That is good"
             },
             {
-              "name": "good1",
-              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934!220x220.jpg",
-              "price": "1999",
+              "name": "小米MIX 2S",
+              "pic": "https://i1.mifile.cn/a1/pms_1522034061.12391230!220x220.jpg",
+              "price": "3999",
               "comment": "That is good"
             },
             {
-              "name": "good1",
-              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934!220x220.jpg",
-              "price": "1999",
+              "name": "小米6X",
+              "pic": "https://i1.mifile.cn/a1/pms_1527144859.25489991!220x220.jpg",
+              "price": "1299",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MAX2",
+              "pic": "https://i1.mifile.cn/a1/pms_1495692033.10494295!220x220.jpg",
+              "price": "1249",
+              "comment": "That is good"
+            },
+            {
+              "name": "红米S2",
+              "pic": "https://i1.mifile.cn/a1/pms_1525853341.8312102!220x220.jpg",
+              "price": "899",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MIX2 全陶瓷",
+              "pic": "https://i1.mifile.cn/a1/pms_1509723483.31416776!220x220.jpg",
+              "price": "2999",
               "comment": "That is good"
             }
           ]
         }
+
+
+
 
       ],
       "code": 200,
