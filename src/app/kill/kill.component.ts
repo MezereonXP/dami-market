@@ -73,7 +73,8 @@ export class KillComponent implements OnInit {
   }
 
   showKillGood(index){
-    this.showKillGoodsList$ = this.killGoodsList$[index+1];
+    this.showKillGoodsList$ = this.killGoodsList$[index];
+    window.alert(index);
   }
 
 }
