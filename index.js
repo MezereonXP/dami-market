@@ -5,6 +5,6 @@ module.exports = () => ({
   getGoodsList: data.getGoodsList,
   getSimpleUser: data2.getSimpleUser,
   getGoodInfo: data2.getGoodInfo,
-  killGoodsList:data.killGoodsList,
+  killGoods:data.killGoodsList,
   newApi: home.newApi
 });

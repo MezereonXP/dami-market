@@ -19,6 +19,7 @@ export class KillComponent implements OnInit {
   fourthTime: string;
   fifthTime: string;
   killGoodsList$:Array<KillGoods>;
+  killGoods$:object;
   killId: string = "name";
   isCanKill = false;
 
@@ -28,8 +29,8 @@ export class KillComponent implements OnInit {
     //从service得到数据
     this.data.killGoods(this.killId).subscribe(
       result => {
-        this.killGoodsList$ = result["data"];
-        console.log(this.killGoodsList$["1"][0].kgId);
+        this.killGoods$ = result["data"];
+        console.log(this.killGoods$["1"][0].kgId);
       }
     ),
     
@@ -80,7 +81,7 @@ export class KillComponent implements OnInit {
   }
 
   showKillGood(index) {
-
+    this.killGoodsList$=this.killGoods$[index];
   }
 
   kill(){
