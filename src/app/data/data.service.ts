@@ -36,5 +36,8 @@ export class DataService {
     const params = new HttpParams().set("goodId", goodId);
     return this.http.get("http://localhost:8080/api/getGoodInfo", {params});
   }
-
+  getAddress(userId) {
+    const params = new HttpParams().set("userId", userId);
+    return this.http.get("http://localhost:8080/api/getAddress", {params});
+  }
 }

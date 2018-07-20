@@ -32,17 +32,17 @@
     </div>
   </div>
   <div class="section section-body">
-    <div class="address-item selected">
+    <div class="address-item"  ng-click="isSelected = !isSelected" *ngFor="let item of addressList;" id="item{{i}}">
       <dl>
         <dt>
-          <em class="uname">王作洞</em>
+          <em class="uname">{{item.name}}</em>
         </dt>
         <dd class="utel">
-          139****8373
+          {{item.telephone}}
         </dd>
         <dd class="uaddress">
-          辽宁 沈阳市 浑南新区 白塔街道
-          <br> 东北大学浑南校区
+          {{item.address}}
+          <br> {{item.detailAddress}}
         </dd>
 
       </dl>
@@ -52,26 +52,7 @@
         </a>
       </div>
     </div>
-    <div class="address-item">
-      <dl>
-        <dt>
-          <em class="uname">王作洞</em>
-        </dt>
-        <dd class="utel">
-          139****8373
-        </dd>
-        <dd class="uaddress">
-          辽宁 沈阳市 浑南新区 白塔街道
-          <br> 东北大学浑南校区
-        </dd>
-
-      </dl>
-      <div class="actions">
-        <a class="modify">
-          修改
-        </a>
-      </div>
-    </div>
+   
     <div class="address-item address-item-new">
       <i class="iconfont">
         +

@@ -59,7 +59,7 @@ a:hover {
 .address-item {
   width: 268px;
   height: 178px;
-  border: 1px solid;
+  border: 1px solid #b0b0b0;
   cursor: pointer;
   position: relative;
   -webkit-transition: all .4s ease;
@@ -85,7 +85,12 @@ a:hover {
   transition: all .4s ease;
   color: #fff;
 }
-
+.address-item-new:hover {
+  color: #504e4e;
+}
+.address-item:hover {
+  border-color: #504f4f;
+}
 .iconfont {
   font-family: "iconfont" !important;
   font-style: normal;
@@ -115,7 +120,7 @@ dt {
 
 .address-item .uname {
   font-size: 18px;
-  color: #333;
+  color: rgb(128, 126, 126);
   font-style: normal;
 }
 

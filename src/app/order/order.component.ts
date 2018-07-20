@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { DataService } from '../data/data.service';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
-  constructor() { }
+  addressList: Object;
+  
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.data.getAddress(1).subscribe(
+      result => {
+        this.addressList = result["data"];
+      }
+    );
   }
 
 }
