@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { timer } from '../../../node_modules/rxjs';
+import { DataService } from '../data/data.service';
+import { KillGoods } from '../bean/KillGoods'
 
 @Component({
   selector: 'app-kill',
@@ -16,9 +18,20 @@ export class KillComponent implements OnInit {
   thirdTime: string;
   fourthTime: string;
   fifthTime: string;
-  constructor() { }
+  killGoodsList$:object;
+  showKillGoodsList$:Array<KillGoods>;
+
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+    //从service得到数据
+    this.data.getKillGoodsList().subscribe(
+      result => {
+        this.killGoodsList$ = result["data"];
+        console.log(this.killGoodsList$["1"][0].kgId);
+      }
+    ),
+
     this.currentTime = new Date();
     while (new Date().getTime() > this.testTime) {
       this.testTime = this.testTime + 86400000;
@@ -44,9 +57,9 @@ export class KillComponent implements OnInit {
       }
     }
     let temp = 4 * Math.floor(hour / 4);
-    if ((hour - temp) <= 2) {
+    if ((hour - temp) < 2) {
       let position = Math.floor(4 - temp / 4);
-      this.timeTipe[position] = "距离开始还剩" + (hour - temp) + ":" + minute + ":" + second;
+      this.timeTipe[position] = "距开始还剩" + (hour - temp) + ":" + minute + ":" + second;
     }
 
     setTimeout(() => {
@@ -57,6 +70,10 @@ export class KillComponent implements OnInit {
 
   clickTime(index) {
 
+  }
+
+  showKillGood(index){
+    this.showKillGoodsList$ = this.killGoodsList$[index+1];
   }
 
 }

@@ -334,5 +334,34 @@
     },
     "code": 200,
     "msg": "success"
+  },
+
+  "killGoodsList":{
+     "data":{
+        "1":[{
+          "kgId":1,
+          "kgName":"小米1",
+          "kgPrice":10,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/m8-80.png"
+        },
+        {
+          "kgId":2,
+          "kgName":"小米2",
+          "kgPrice":15,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/m8se-80.png"
+        },
+        {
+          "kgId":3,
+          "kgName":"小米3",
+          "kgPrice":20,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png"
+        },
+        {
+          "kgId":4,
+          "kgName":"小米4",
+          "kgPrice":25,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg"
+        }]
+      }
   }
 }
