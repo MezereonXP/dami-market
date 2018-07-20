@@ -1,0 +1,26 @@
+{
+    "getShopCarGoods":{
+        "data":[
+            {
+                "pics":"http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg",
+                "name":"小白智能摄像机大众版-白色",
+                "price":99,
+                "count":2
+            },
+            {
+                "pics":"http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg",
+                "name":"小白智能摄像机大众版-白色",
+                "price":99,
+                "count":2
+            },
+            {
+                "pics":"http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg",
+                "name":"小白智能摄像机大众版-白色",
+                "price":99,
+                "count":2
+            }
+        ],
+        "code":200,
+        "msg":"success"
+    }
+}

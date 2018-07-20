@@ -37,4 +37,9 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/getGoodInfo", {params});
   }
 
+  getShopCarGoods(userId) {
+    const params = new HttpParams().set("userId", userId);
+    return this.http.get("http://localhost:8080/api/getShopCarGoods", {params});
+  }
+
 }

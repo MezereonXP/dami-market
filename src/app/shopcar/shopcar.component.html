@@ -31,7 +31,7 @@
 
     <mat-grid-tile colspan="1">
       <span>
-        <mat-checkbox color="primary" id="selectall">
+        <mat-checkbox color="primary" id="selectall" [(ngModel)]="isSelectAll" (click)="changeStatus()">
           全选
         </mat-checkbox>
       </span>
@@ -55,60 +55,33 @@
 
 
 </div>
-<div class="shoplist">
+<div class="shoplist" *ngFor="let item of goods; let i = index">
   <mat-grid-list cols="12" rowHeight="5:3" class="bar">
-
     <mat-grid-tile colspan="1">
       <span>
-        <mat-checkbox color="primary" id="checkgood">
+        <mat-checkbox color="primary" [(ngModel)]="status[i]" (click)="changeSelectAllStatus(i,item)">
 
         </mat-checkbox>
       </span>
     </mat-grid-tile>
     <mat-grid-tile colspan="1">
-      <img class="goodsimg" src="http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg">
+      <img class="goodsimg" :src="{{item.pics}}">
     </mat-grid-tile>
     <mat-grid-tile colspan="3">
-      <span>小白智能摄像机大众版-白色</span>
+      <span>{{item.name}}</span>
     </mat-grid-tile>
-
-    <mat-grid-tile colspan="1">99元</mat-grid-tile>
+    <mat-grid-tile colspan="1">{{item.price}}元</mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
-
-    <mat-grid-tile colspan="1">2</mat-grid-tile>
-    <mat-grid-tile colspan="1"></mat-grid-tile>
-    <mat-grid-tile colspan="1">99元</mat-grid-tile>
-    <mat-grid-tile colspan="1"></mat-grid-tile>
-    <mat-grid-tile colspan="1">×</mat-grid-tile>
-
-  </mat-grid-list>
-  <mat-grid-list cols="12" rowHeight="5:3" class="bar">
-
     <mat-grid-tile colspan="1">
-      <span>
-        <mat-checkbox color="primary">
-
-        </mat-checkbox>
-      </span>
+      <mat-form-field class="count">
+        <input matInput type="number"   [(ngModel)]="goods[i].count" class="count-input" (ngModelChange)="changeTatalMoney()">
+      </mat-form-field>
     </mat-grid-tile>
-    <mat-grid-tile colspan="1">
-      <img class="goodsimg" src="http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg">
-    </mat-grid-tile>
-    <mat-grid-tile colspan="3">
-      <span>小白智能摄像机大众版-白色</span>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1">99元</mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
-
-    <mat-grid-tile colspan="1">2</mat-grid-tile>
+    <mat-grid-tile colspan="1">{{item.count*item.price}}元</mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
-    <mat-grid-tile colspan="1">99元</mat-grid-tile>
-    <mat-grid-tile colspan="1"></mat-grid-tile>
-    <mat-grid-tile colspan="1">×</mat-grid-tile>
-
+    <mat-grid-tile colspan="1"><a class="delete-btn">x</a></mat-grid-tile>
   </mat-grid-list>
-
 </div>
 <div class="shoplistbar">
   <mat-grid-list cols="12" rowHeight="5:3" class="bar">
@@ -122,7 +95,7 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="3">
       <span>
-        共1件商品，已选择1件商品
+        共{{count}}件商品，已选择{{selectNum}}件商品
       </span>
     </mat-grid-tile>
     <mat-grid-tile colspan="5">
@@ -130,11 +103,13 @@
     </mat-grid-tile>
 
 
-    <mat-grid-tile colspan="1">合计:99元</mat-grid-tile>
+    <mat-grid-tile colspan="1">合计:{{totalMoney}}元</mat-grid-tile>
 
     <mat-grid-tile colspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="1">
-      <button mat-stroked-button><a href="order">去结算</a></button>
+      <button mat-stroked-button>
+        <a href="order">去结算</a>
+      </button>
     </mat-grid-tile>
 
   </mat-grid-list>
