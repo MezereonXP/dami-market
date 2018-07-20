@@ -1,26 +1,58 @@
 {
-    "getShopCarGoods":{
-        "data":[
-            {
-                "pics":"http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg",
-                "name":"小白智能摄像机大众版-白色",
-                "price":99,
-                "count":2
-            },
-            {
-                "pics":"http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg",
-                "name":"小白智能摄像机大众版-白色",
-                "price":99,
-                "count":2
-            },
-            {
-                "pics":"http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg",
-                "name":"小白智能摄像机大众版-白色",
-                "price":99,
-                "count":2
-            }
-        ],
-        "code":200,
-        "msg":"success"
-    }
+  "getShopCarGoods": {
+    "data": [{
+        "pics": "http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg",
+        "name": "小白智能摄像机大众版-白色",
+        "price": 99,
+        "count": 2
+      },
+      {
+        "pics": "http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg",
+        "name": "小白智能摄像机大众版-白色",
+        "price": 99,
+        "count": 2
+      },
+      {
+        "pics": "http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg",
+        "name": "小白智能摄像机大众版-白色",
+        "price": 99,
+        "count": 2
+      }
+    ],
+    "code": 200,
+    "msg": "success"
+  },
+
+  "getRecommendGoods": {
+    "data": [{
+        "pics": "https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg",
+        "name": "小米手环3",
+        "price": 169,
+        "tips": 1
+      },
+      {
+        "pics": "https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg",
+        "name": "小米手环3",
+        "price": 169,
+        "tips": 1
+      }, {
+        "pics": "https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg",
+        "name": "小米手环3",
+        "price": 169,
+        "tips": 1
+      }, {
+        "pics": "https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg",
+        "name": "小米手环3",
+        "price": 169,
+        "tips": 1
+      }, {
+        "pics": "https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg",
+        "name": "小米手环3",
+        "price": 169,
+        "tips": 1
+      }
+    ],
+    "code": 201,
+    "msg": "success"
+  }
 }

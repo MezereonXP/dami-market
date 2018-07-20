@@ -14,7 +14,7 @@
 
             <a href="">
               <span class="myOrder">
-                我的订单
+                我的订单>>
               </span>
             </a>
           </div>
@@ -127,131 +127,29 @@
   </div>
   <div class="recommend">
     <ul class="row">
-      <li class="recommend-item">
+      <li class="recommend-item"  *ngFor="let item of recommendGoods">
         <dl>
           <dt>
             <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
+              <img src="{{item.pics}}">
             </a>
           </dt>
           <dd>
-            <a> 小米手环3</a>
+            <a> {{item.name}}</a>
           </dd>
           <dd class="recommend-price">
-            169元
+            {{item.price}}元
           </dd>
           <dd class="recommend-tips">
-            1.6万人好评
+            {{item.tips}}万人好评
             <a class="recommend-addbtn">加入购物车</a>
           </dd>
 
         </dl>
       </li>
-      <li class="recommend-item">
-        <dl>
-          <dt>
-            <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
-            </a>
-          </dt>
-          <dd>
-            <a> 小米手环3</a>
-          </dd>
-          <dd class="recommend-price">
-            169元
-          </dd>
-          <dd class="recommend-tips">
-            1.6万人好评
-            <a class="recommend-addbtn">加入购物车</a>
-          </dd>
-
-        </dl>
-      </li>
-      <li class="recommend-item">
-        <dl>
-          <dt>
-            <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
-            </a>
-          </dt>
-          <dd>
-            <a> 小米手环3</a>
-          </dd>
-          <dd class="recommend-price">
-            169元
-          </dd>
-          <dd class="recommend-tips">
-            1.6万人好评
-            <a class="recommend-addbtn">加入购物车</a>
-          </dd>
-
-        </dl>
-      </li>
-      <li class="recommend-item">
-        <dl>
-          <dt>
-            <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
-            </a>
-          </dt>
-          <dd>
-            <a> 小米手环3</a>
-          </dd>
-          <dd class="recommend-price">
-            169元
-          </dd>
-          <dd class="recommend-tips">
-            1.6万人好评
-            <a class="recommend-addbtn">加入购物车</a>
-          </dd>
-
-        </dl>
-      </li>
-      <li class="recommend-item">
-        <dl>
-          <dt>
-            <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
-            </a>
-          </dt>
-          <dd>
-            <a> 小米手环3</a>
-          </dd>
-          <dd class="recommend-price">
-            169元
-          </dd>
-          <dd class="recommend-tips">
-            1.6万人好评
-            <a class="recommend-addbtn">加入购物车</a>
-          </dd>
-
-        </dl>
-      </li>
+     
     </ul>
   </div>
-  <div class="recommend">
-    <ul class="row">
-      <li class="recommend-item">
-        <dl>
-          <dt>
-            <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
-            </a>
-          </dt>
-          <dd>
-            <a> 小米手环3</a>
-          </dd>
-          <dd class="recommend-price">
-            169元
-          </dd>
-          <dd class="recommend-tips">
-            1.6万人好评
-            <a class="recommend-addbtn">加入购物车</a>
-          </dd>
 
-        </dl>
-      </li>
-    </ul>
-  </div>
 
 </div>

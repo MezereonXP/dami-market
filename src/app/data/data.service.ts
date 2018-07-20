@@ -41,5 +41,9 @@ export class DataService {
     const params = new HttpParams().set("userId", userId);
     return this.http.get("http://localhost:8080/api/getShopCarGoods", {params});
   }
+  getRecommendGoods(goodsId) {
+    const params = new HttpParams().set("goodsId", goodsId);
+    return this.http.get("http://localhost:8080/api/getRecommendGoods", {params});
+  }
 
 }

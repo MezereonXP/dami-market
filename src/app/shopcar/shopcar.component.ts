@@ -10,6 +10,7 @@ import { Shopcar } from '../../app/bean/shopcar';
 export class ShopcarComponent implements OnInit {
 
   goods: Array<Shopcar>;
+  recommendGoods:Object;
   isSelectAll = false;
   status: Array<boolean>;
   //quantity: Array<number>;
@@ -29,11 +30,17 @@ export class ShopcarComponent implements OnInit {
           this.count++;
         }
         this.goods = result["data"];
+        
         // for (let i = 0; i < this.goods.length; i++){
         //   this.quantity.push(this.goods[i].count)
         // }
       }
     );
+    this.data.getRecommendGoods(1).subscribe(
+      result =>{
+        this.recommendGoods=result["data"];
+      }
+    )
   }
 
   changeStatus() {
