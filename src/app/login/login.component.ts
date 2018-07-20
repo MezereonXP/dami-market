@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
    * @memberof LoginComponent
    */
   ngOnInit() {
-    window.alert(this.route.snapshot.paramMap.get("id"));
+    // window.alert(this.route.snapshot.paramMap.get("id"));
     this.data.getUsers().subscribe(
       data => this.users$ = data
     );

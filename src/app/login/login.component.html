@@ -1,14 +1,26 @@
-<p>
-  login works!
-</p>
-<ul>
-  <li *ngFor="let user of users$">
-    <a routerLink="/details/{{user.id}}">{{ user.name }}</a>
-    <ul>
-      <li>{{ user.email }}</li>
-      <li>
-        <a href="http://{{ user.website }}">{{ user.website }}</a>
-      </li>
-    </ul>
-  </li>
-</ul>
+<mat-toolbar class="head" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="15" rowHeight="5:3" class="bar">
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="2" class="yes"> 
+        <a href="/#/home">
+          <span>I'm very OK!</span>
+        </a>      
+      </mat-grid-tile>
+      <mat-grid-tile cplspan="12"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-toolbar class="body" color="primary">
+  <mat-grid-list cols="15" rowHeight="500px" class="bar">
+    <mat-grid-tile colspan="10">
+      <img class="photo" src="https://i1.mifile.cn/a4/xmad_15283359125436_gBSNq.jpg">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="5">
+      
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-toolbar>
+
+  

@@ -14,7 +14,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'login/:id',
+    path: 'login',
     component: LoginComponent
   },
   {
@@ -28,6 +28,10 @@ const routes: Routes = [
   {
     path: 'kill',
     component: KillComponent
+  },
+  {
+    path: 'regist',
+    component: RegistComponent
   }
 ];
 
