@@ -91,13 +91,13 @@
         {
           "name": "红米Note 5",
           "url": "https://www.mi.com/redminote5/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/note5-80-80.png",
+          "pic": "https://i8.mifile.cn/b2c-mimall-media/eb0fb45f529c1a988a506eaa2ea9ef56.jpg",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/note5-140-140.png"
         },
         {
-          "name": "红米S4",
+          "name": "红米5Plus",
           "url": "https://www.mi.com/redmis2/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/s2-80-80.png",
+          "pic": "https://i8.mifile.cn/b2c-mimall-media/c358575259b313192f95c4c69596e483.jpg?w=1212&h=716",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/s2-140-140.png"
         }
       ],
@@ -160,17 +160,17 @@
         },
         {
 
-          "name": "HDMI转接器",
-          "url": "//item.mi.com/1163000011.html",
-          "pic": "//i1.mifile.cn/f/i/15/goods/sidebar/usbzjqggg80.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/15/goods/list/usbzjqggg140.jpg"
-        },
-        {
-
           "name": "笔记本双肩包",
           "url": "https://search.mi.com/search_笔记本双肩包",
           "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bijibenshuangjianbao80.jpg",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/bijibenshuangjianbao160.jpg"
+        },
+        {
+
+          "name": "12.5小米笔记本 Air 128银色",
+          "url": "//item.mi.com/1163000011.html",
+          "pic": "https://i8.mifile.cn/b2c-mimall-media/1990df327b99f823f4678eb7c58c2fba.jpg",
+          "pic_hd": "//i1.mifile.cn/f/i/15/goods/list/usbzjqggg140.jpg"
         }
 
       ],
@@ -191,17 +191,17 @@
         {
           "name": "米家电饭煲 4L",
           "pic": "https://i1.mifile.cn/a1/pms_1490770630.65576964!220x220.png"
-          
+
         },
         {
           "name": "车载空气净化器",
           "pic": "https://i1.mifile.cn/a1/pms_1506733860.3164711!220x220.jpg"
-          
+
         },
         {
           "name": "米家行车记录议",
           "pic": "https://i1.mifile.cn/a1/pms_1488338229.6467773!220x220.jpg"
-         
+
         },
         {
           "name": "米家声波电动牙刷",
@@ -214,49 +214,49 @@
         {
           "name": "小米体脂秤",
           "pic": "https://i1.mifile.cn/a1/pms_1487831386.1667404!220x220.jpg"
-        },{
+        }, {
           "name": "米家PM2.5检测仪",
           "pic": "https://i1.mifile.cn/a1/pms_1477980865.4569720!220x220.jpg"
         }
       ],
       "4": [{
-        "name": "红米Note 4X 标准高透贴膜",
-              "pic": "https://i1.mifile.cn/a4/xmad_14987297093922_POaTU.jpg",
-        "goodId": 3
-      },
-      {
-        "name": "小米6X 标准高透贴膜",
-              "pic": "https://i1.mifile.cn/a1/pms_1524466931.58435208!220x220.jpg",
-        "goodId": 4
-      },
-      {
-        "name": "小米机械键盘",
-              "pic": "https://i1.mifile.cn/a1/pms_1490702347.3628109!220x220.png"
-      },
-      {
-        "name": "小米指环支架",
-        "pic": "https://i1.mifile.cn/a1/pms_1482221011.26064844!220x220.jpg"
-        
-      },
-      {
-        "name": "小米便携鼠标",
-        "pic": "https://i1.mifile.cn/a1/pms_1488533926.06453673!220x220.jpg"
-        
-      },
-      {
-        "name": "USB Type-C 转接头",
-        "pic": "https://i1.mifile.cn/a1/T1xLxQBgVT1RXrhCrK!220x220.jpg"
-       
-      },
-      {
-        "name": "多功能转接器",
-              "pic": "https://i1.mifile.cn/a1/pms_1469523170.25518983!220x220.jpg"
-      },
-      {
-        "name": "闪充充电器",
-              "pic": "https://i1.mifile.cn/a1/pms_1507877361.06147174!220x220.jpg"
-      },
-      {
+          "name": "红米Note 4X 标准高透贴膜",
+          "pic": "https://i1.mifile.cn/a4/xmad_14987297093922_POaTU.jpg",
+          "goodId": 3
+        },
+        {
+          "name": "小米6X 标准高透贴膜",
+          "pic": "https://i1.mifile.cn/a1/pms_1524466931.58435208!220x220.jpg",
+          "goodId": 4
+        },
+        {
+          "name": "小米机械键盘",
+          "pic": "https://i1.mifile.cn/a1/pms_1490702347.3628109!220x220.png"
+        },
+        {
+          "name": "小米指环支架",
+          "pic": "https://i1.mifile.cn/a1/pms_1482221011.26064844!220x220.jpg"
+
+        },
+        {
+          "name": "小米便携鼠标",
+          "pic": "https://i1.mifile.cn/a1/pms_1488533926.06453673!220x220.jpg"
+
+        },
+        {
+          "name": "USB Type-C 转接头",
+          "pic": "https://i1.mifile.cn/a1/T1xLxQBgVT1RXrhCrK!220x220.jpg"
+
+        },
+        {
+          "name": "多功能转接器",
+          "pic": "https://i1.mifile.cn/a1/pms_1469523170.25518983!220x220.jpg"
+        },
+        {
+          "name": "闪充充电器",
+          "pic": "https://i1.mifile.cn/a1/pms_1507877361.06147174!220x220.jpg"
+        },
+        {
           "pic": "https://i1.mifile.cn/f/i/g/2015/luyouqi.jpg?width=80&height=80",
           "name": "大米路由器Q4",
           "goodId": 3
@@ -268,43 +268,43 @@
         }
       ],
       "5": [{
-        "name": "小米AI音箱",
-              "pic": "https://i1.mifile.cn/a1/pms_1522666970.27937468.jpg?width=150&height=150",
-        "goodId": 3
-      },
-      {
-        "name": "小米双单元半入耳式耳机",
-              "pic": "https://i1.mifile.cn/a1/pms_1521442671.5222520!220x220.jpg",
-        "goodId": 4
-      },
-      {
-        "name": "小米移动电源",
-              "pic": "https://i1.mifile.cn/a1/pms_1513857241.9291821.jpg?width=150&height=150"
-      },
-      {
-        "name": "小米无线充电器",
-              "pic": "https://i1.mifile.cn/a1/pms_1522139938.61998092.jpg?width=150&height=150"
-        
-      },
-      {
-        "name": "小米降噪耳机",
-        "pic": "https://i1.mifile.cn/a1/pms_1492587658.23552969!220x220.jpg"
-        
-      },
-      {
-        "name": "小米随身蓝牙音箱",
-              "pic": "https://i1.mifile.cn/a1/T1IdZgB5hv1RXrhCrK!220x220.jpg"
-       
-      },
-      {
-        "name": "小米蓝牙耳机青春版",
-              "pic": "https://i1.mifile.cn/a1/pms_1478248721.42297795!220x220.jpg"
-      },
-      {
-        "name": "小米蓝牙音频接收器",
-              "pic": "https://i1.mifile.cn/a1/pms_1499161620.42031583!220x220.jpg"
-      },
-      {
+          "name": "小米AI音箱",
+          "pic": "https://i1.mifile.cn/a1/pms_1522666970.27937468.jpg?width=150&height=150",
+          "goodId": 3
+        },
+        {
+          "name": "小米双单元半入耳式耳机",
+          "pic": "https://i1.mifile.cn/a1/pms_1521442671.5222520!220x220.jpg",
+          "goodId": 4
+        },
+        {
+          "name": "小米移动电源",
+          "pic": "https://i1.mifile.cn/a1/pms_1513857241.9291821.jpg?width=150&height=150"
+        },
+        {
+          "name": "小米无线充电器",
+          "pic": "https://i1.mifile.cn/a1/pms_1522139938.61998092.jpg?width=150&height=150"
+
+        },
+        {
+          "name": "小米降噪耳机",
+          "pic": "https://i1.mifile.cn/a1/pms_1492587658.23552969!220x220.jpg"
+
+        },
+        {
+          "name": "小米随身蓝牙音箱",
+          "pic": "https://i1.mifile.cn/a1/T1IdZgB5hv1RXrhCrK!220x220.jpg"
+
+        },
+        {
+          "name": "小米蓝牙耳机青春版",
+          "pic": "https://i1.mifile.cn/a1/pms_1478248721.42297795!220x220.jpg"
+        },
+        {
+          "name": "小米蓝牙音频接收器",
+          "pic": "https://i1.mifile.cn/a1/pms_1499161620.42031583!220x220.jpg"
+        },
+        {
           "pic": "https://i1.mifile.cn/f/i/g/2015/toudaishierjijichuxiangsu.jpg?width=80&height=80",
           "name": "便宜耳机",
           "goodId": 3
