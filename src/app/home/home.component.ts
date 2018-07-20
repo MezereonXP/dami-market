@@ -40,6 +40,8 @@ export class HomeComponent implements OnInit {
   goodsList$: Object;
   showGoodsList$: Array<TempGoods>;
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
+  killandteam=["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532101915206&di=f6337f9599c69272fa6c668f9ead624a&imgtype=0&src=http%3A%2F%2Fimg.sccnn.com%2Fbimg%2F339%2F16545.jpg","assets/team.png"]
+
 
   advPics: Object[] = [["", ""], ["", ""], ["", ""], ["", ""], ["", ""]];
   goodsPics: Object[] = [["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""]];

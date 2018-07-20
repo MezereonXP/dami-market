@@ -56,6 +56,12 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+<mat-grid-list cols="2" rowHeight="2:1" class="divideList">
+    <mat-grid-tile class="devideTile" *ngFor="let item of killandteam">
+      <img class="dividePic" :src="{{item}}">
+    </mat-grid-tile>
+  </mat-grid-list>
+
 <div *ngFor="let item of showBeans; let i=index">
   <mat-grid-list cols="1" rowHeight="10:1" class="divideList">
     <mat-grid-tile class="devideTile">
