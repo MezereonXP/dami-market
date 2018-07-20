@@ -18,14 +18,15 @@ export class KillComponent implements OnInit {
   thirdTime: string;
   fourthTime: string;
   fifthTime: string;
-  killGoodsList$:object;
-  showKillGoodsList$:Array<KillGoods>;
+  killGoodsList$:Array<KillGoods>;
+  killId: string = "name";
+  isCanKill = false;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
     //从service得到数据
-    this.data.getKillGoodsList().subscribe(
+    this.data.killGoods(this.killId).subscribe(
       result => {
         this.killGoodsList$ = result["data"];
         console.log(this.killGoodsList$["1"][0].kgId);
@@ -62,6 +63,12 @@ export class KillComponent implements OnInit {
       this.timeTipe[position] = "距开始还剩" + (hour - temp) + ":" + minute + ":" + second;
     }
 
+    if(second<=10) {
+      this.isCanKill = true;
+    } else {
+      this.isCanKill = false;
+    }
+
     setTimeout(() => {
       this.getTime();
     }, 500);
@@ -72,9 +79,14 @@ export class KillComponent implements OnInit {
 
   }
 
-  showKillGood(index){
-    this.showKillGoodsList$ = this.killGoodsList$[index];
-    window.alert(index);
+  showKillGood(index) {
+
+  }
+
+  kill(){
+    this.data.killGoods(this.killId).subscribe(
+      result => window.alert(result["msg"])
+    );
   }
 
 }

@@ -9,8 +9,8 @@ import { DataService } from '../data/data.service';
 })
 export class InfomationComponent implements OnInit {
 
-  goodId:number;
-  pics:Object;
+  goodId: number;
+  pics: Object;
 
   constructor(private data: DataService, private route: ActivatedRoute) { }
 

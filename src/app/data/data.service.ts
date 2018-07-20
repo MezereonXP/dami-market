@@ -42,9 +42,9 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/getTopGoodsAdv", {params});
   }
 
-  //得到商品list
-  getKillGoodsList(){
-    return this.http.get("http://localhost:8080/api/killGoodsList");
+  killGoods(name) {
+    const params = new HttpParams().set("id", name);
+    return this.http.get("api/killGoods", {params});
   }
 
 }
