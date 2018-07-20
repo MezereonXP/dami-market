@@ -41,12 +41,12 @@
 .background {
   height: 100%;
   width: 100%;
+  z-index: -1 !important;
   background-image: url("/assets/kill-background.jpg");
 }
 
 .timeheadbar {
   color: black;
-  z-index: -1 !important;
   height: 64px;
   background-color: rgba(0, 0, 0, 0);
   .timebar {
@@ -58,7 +58,6 @@
   width: 100%;
   height: 100%;
   color: black;
-  z-index: -1 !important;
   background-color: rgba(0, 0, 0, 0);
 }
 

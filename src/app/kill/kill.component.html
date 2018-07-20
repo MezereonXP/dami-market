@@ -6,7 +6,7 @@
         <span style="font-size: 35px">Are you Ok 闪购</span>
       </mat-grid-tile>
       <mat-grid-tile colspan="2"></mat-grid-tile>
-    </mat-grid-list>
+    </mat-grid-list>  
   </mat-toolbar>
 
   <mat-toolbar class="timeheadbar mat-elevation-z2" color="primary">
@@ -14,7 +14,7 @@
       <mat-grid-tile></mat-grid-tile>
       <mat-grid-tile class="killTime">
         <span class="full">
-          <button mat-button class="killTimeInner-true" (click)="showKillGood(i)">
+          <button mat-button class="killTimeInner-true" (click)="showKillGood(1)">
             <span class="firstTimeSize">{{times[0]}}</span>
             <span class="secondTimeSize">{{timeTipe[0]}}</span>
           </button>
@@ -22,7 +22,7 @@
       </mat-grid-tile>
       <mat-grid-tile class="killTime">
         <span class="full">
-          <button mat-button class="killTimeInner-true" (click)="showKillGood(i)">
+          <button mat-button class="killTimeInner-true" (click)="showKillGood(1)">
             <span class="firstTimeSize">{{times[1]}}</span>
             <span class="secondTimeSize">{{timeTipe[1]}}</span>
           </button>
@@ -30,7 +30,7 @@
       </mat-grid-tile>
       <mat-grid-tile class="killTime">
         <span class="full">
-          <button mat-button class="killTimeInner-true" (click)="showKillGood(i)">
+          <button mat-button class="killTimeInner-true" (click)="showKillGood(1)">
             <span class="firstTimeSize">{{times[2]}}</span>
             <span class="secondTimeSize">{{timeTipe[2]}}</span>
           </button>
@@ -38,7 +38,7 @@
       </mat-grid-tile>
       <mat-grid-tile class="killTime">
         <span class="full">
-          <button mat-button class="killTimeInner-true" (click)="showKillGood(i)">
+          <button mat-button class="killTimeInner-true" (click)="showKillGood(1)">
             <span class="firstTimeSize">{{times[3]}}</span>
             <span class="secondTimeSize">{{timeTipe[3]}}</span>
           </button>
@@ -60,17 +60,15 @@
     <mat-grid-tile></mat-grid-tile>
     <mat-grid-tile colspan="5" class="killgoodbar">
         <mat-grid-list cols="3" class="killgoodbar" rowHeight="190px">
-          <mat-grid-tile></mat-grid-tile>
-          <mat-grid-tile></mat-grid-tile>
-          <mat-grid-tile>
+          <mat-grid-tile [@listStagger]="showKillGoodsList$" *ngFor="let item of showKillGoodsList$" style="height: 190px;">
             <mat-grid-list cols="2" class="killgoodbar" rowHeight="190px">
               <mat-grid-tile style="height: 190px;">
-                <p style="height: 50px; width: 100%;">1111</p>
+                <img src="{{item.pic}}">
               </mat-grid-tile>
               <mat-grid-tile style="height: 190px;">
                 <table style="height: 150px; width: 100%;">
-                  <tr>111</tr>
-                  <tr>111</tr>
+                  <tr>{{item.kgId}}</tr>
+                  <tr>{{item.kgName}}</tr>
                   <tr>111</tr>
                 </table>
               </mat-grid-tile>

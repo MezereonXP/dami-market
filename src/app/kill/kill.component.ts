@@ -31,7 +31,7 @@ export class KillComponent implements OnInit {
         console.log(this.killGoodsList$["1"][0].kgId);
       }
     ),
-
+    
     this.currentTime = new Date();
     while (new Date().getTime() > this.testTime) {
       this.testTime = this.testTime + 86400000;
