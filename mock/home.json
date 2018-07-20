@@ -1,38 +1,308 @@
 {
-  "getTopGoodsAdv": [{
-      "type": 1,
-      "pics": [
-        "https://i1.mifile.cn/a4/xmad_15283420365224_wLvZm.jpg",
-        "https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg"
-      ]
-    },
-    {
-      "type": 2,
-      "pics": [
-        "https://i1.mifile.cn/a4/xmad_15266395374048_JnZQo.jpg",
-        "https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg"
-      ]
-    },
-    {
-      "type": 3,
-      "pics": [
-        "https://i1.mifile.cn/a4/xmad_15287211809144_LDIsa.jpg",
-        "https://i1.mifile.cn/a4/xmad_14950995035103_fhWtH.jpg"
-      ]
-    },
-    {
-      "type": 4,
-      "pics": [
-        "https://i1.mifile.cn/a4/xmad_15222058002076_sWEmR.jpg",
-        "https://i1.mifile.cn/a4/xmad_15290668700648_LpwQf.jpg"
-      ]
-    },
-    {
-      "type": 5,
-      "pics": [
-        "https://i1.mifile.cn/a4/xmad_15277816294188_wikHT.jpg",
-        "https://i1.mifile.cn/a4/xmad_15277814391495_RBqUe.jpg"
-      ]
-    }
-  ]
+  
+  "newApi": {
+      "data":[
+        {
+          "typeName":"手机",
+          "dividePic": "https://i1.mifile.cn/a4/xmad_15299774887546_atPHd.jpg",
+          "advPics":[
+            "https://i1.mifile.cn/a4/xmad_15283420365224_wLvZm.jpg"
+          ],
+          "isOneAdvPic":true,
+          "goods":[
+            {
+              "name": "小米8 SE 4GB+64GB",
+              "pic": "https://i1.mifile.cn/a1/pms_1527684990.93616987.jpg?width=150&height=150",
+              "price": "1999",
+              "comment": "That is good"
+            },
+            {
+              "name": "红米6A",
+              "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934.jpg?width=150&height=150",
+              "price": "599",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米8 6GB+64GB",
+              "pic": "https://i1.mifile.cn/a1/pms_1528092587.49664451!220x220.jpg",
+              "price": "2699",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MIX 2S",
+              "pic": "https://i1.mifile.cn/a1/pms_1522034061.12391230!220x220.jpg",
+              "price": "3999",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米6X",
+              "pic": "https://i1.mifile.cn/a1/pms_1527144859.25489991!220x220.jpg",
+              "price": "1299",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MAX2",
+              "pic": "https://i1.mifile.cn/a1/pms_1495692033.10494295!220x220.jpg",
+              "price": "1249",
+              "comment": "That is good"
+            },
+            {
+              "name": "红米S2",
+              "pic": "https://i1.mifile.cn/a1/pms_1525853341.8312102!220x220.jpg",
+              "price": "899",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米MIX2 全陶瓷",
+              "pic": "https://i1.mifile.cn/a1/pms_1509723483.31416776!220x220.jpg",
+              "price": "2999",
+              "comment": "That is good"
+            }
+          ]
+        },
+        {
+          "typeName":"笔记本平板",
+          "dividePic": "https://i1.mifile.cn/a4/xmad_1531969003126_XdRfS.jpg",
+          "advPics":[
+            "https://i1.mifile.cn/a4/xmad_15266395374048_JnZQo.jpg",
+            "https://i1.mifile.cn/a4/xmad_15123939053142_dFlAw.jpg"
+          ],
+          "isOneAdvPic":false,
+          "goods":[
+            {
+              "name": "12.5 小米笔记本 Air",
+              "pic": "https://i1.mifile.cn/a1/pms_1514387870.88251945!220x220.jpg",
+              "price": "3599",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米平板",
+              "pic": "https://i8.mifile.cn/a1/pms_1529842987.88097905!560x560.jpg",
+              "price": "1499",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米游戏本 15.6英寸",
+              "pic": "https://i8.mifile.cn/b2c-mimall-media/e3c8f48d3d9ca478a70917ec33bbb608.jpg",
+              "price": "5999",
+              "comment": "That is good"
+            },
+            {
+              "name": "12.5 Air 128G",
+              "pic": "https://i8.mifile.cn/b2c-mimall-media/93eec7ed365aea4e4887f7ee4e1f4464.jpg?w=1212&h=716",
+              "price": "3999",
+              "comment": "That is good"
+            },
+            {
+              "name": "13.3 Air 四核i5 独显",
+              "pic": "https://i8.mifile.cn/b2c-mimall-media/c1bd4b3affc9c7af5b2844776049759c.jpg",
+              "price": "5399",
+              "comment": "That is good"
+            },
+            {
+              "name": "13.3 Air 四核i7 独显",
+              "pic": "https://i8.mifile.cn/b2c-mimall-media/a20dc22f36750ae93eb51dfb579cd7bd.jpg",
+              "price": "1249",
+              "comment": "That is good"
+            },
+            {
+              "name": "游戏本 i5 8G",
+              "pic": "https://i8.mifile.cn/b2c-mimall-media/636d48971b43c34933c6761b95f01128.jpg",
+              "price": "5999",
+              "comment": "That is good"
+            },
+            {
+              "name": "15.6 Pro",
+              "pic": "https://i8.mifile.cn/b2c-mimall-media/83713ac197b9a7d1660715ed85594a50.jpg",
+              "price": "5599",
+              "comment": "That is good"
+            }
+          ]
+        },
+        {
+          "typeName":"智能家居",
+          "dividePic": "https://i1.mifile.cn/a4/xmad_15204795762271_ZwaxE.jpg",
+          "advPics":[
+            "https://i1.mifile.cn/a4/xmad_15287211809144_LDIsa.jpg",
+            "https://i1.mifile.cn/a4/xmad_14950995035103_fhWtH.jpg"
+          ],
+          "isOneAdvPic":false,
+          "goods":[
+            {
+              "name": "菲利浦智能台灯",
+              "pic": "https://i1.mifile.cn/a4/cf6660a3-d424-4248-889f-0eed1e99a342",
+              "price": "199",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米手环3",
+              "pic": "https://i1.mifile.cn/a1/pms_1527754949.17141338!220x220.jpg",
+              "price": "169",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米体重秤",
+              "pic": "https://i1.mifile.cn/a1/T1sWd_B7VT1RXrhCrK!220x220.jpg",
+              "price": "99",
+              "comment": "That is good"
+            },
+            {
+              "name": "米家电饭煲 4L",
+              "pic": "https://i1.mifile.cn/a1/pms_1490770630.65576964!220x220.png",
+              "price": "599",
+              "comment": "That is good"
+            },
+            {
+              "name": "车载空气净化器",
+              "pic": "https://i1.mifile.cn/a1/pms_1506733860.3164711!220x220.jpg",
+              "price": "449",
+              "comment": "That is good"
+            },
+            {
+              "name": "米家行车记录议",
+              "pic": "https://i1.mifile.cn/a1/pms_1488338229.6467773!220x220.jpg",
+              "price": "349",
+              "comment": "That is good"
+            },
+            {
+              "name": "米家声波电动牙刷",
+              "pic": "https://i1.mifile.cn/a1/pms_1498564154.53184175!220x220.jpg",
+              "price": "199",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米电动滑板车",
+              "pic": "https://i1.mifile.cn/a1/pms_1488272686.62666302!220x220.jpg",
+              "price": "1999",
+              "comment": "That is good"
+            }
+          ]
+        },
+        {
+          "typeName":"配件",
+          "dividePic": "https://i1.mifile.cn/a4/xmad_15204798088946_YvzWs.jpg",
+          "advPics":[
+            "https://i1.mifile.cn/a4/xmad_15222058002076_sWEmR.jpg",
+            "https://i1.mifile.cn/a4/xmad_15290668700648_LpwQf.jpg"
+          ],
+          "isOneAdvPic":false,
+          "goods":[
+            {
+              "name": "红米Note 4X 标准高透贴膜",
+              "pic": "https://i1.mifile.cn/a4/xmad_14987297093922_POaTU.jpg",
+              "price": "10",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米6X 标准高透贴膜",
+              "pic": "https://i1.mifile.cn/a1/pms_1524466931.58435208!220x220.jpg",
+              "price": "19",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米机械键盘",
+              "pic": "https://i1.mifile.cn/a1/pms_1490702347.3628109!220x220.png",
+              "price": "299",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米指环支架",
+              "pic": "https://i1.mifile.cn/a1/pms_1482221011.26064844!220x220.jpg",
+              "price": "19",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米便携鼠标",
+              "pic": "https://i1.mifile.cn/a1/pms_1488533926.06453673!220x220.jpg",
+              "price": "99",
+              "comment": "That is good"
+            },
+            {
+              "name": "USB Type-C 转接头",
+              "pic": "https://i1.mifile.cn/a1/T1xLxQBgVT1RXrhCrK!220x220.jpg",
+              "price": "5",
+              "comment": "That is good"
+            },
+            {
+              "name": "多功能转接器",
+              "pic": "https://i1.mifile.cn/a1/pms_1469523170.25518983!220x220.jpg",
+              "price": "149",
+              "comment": "That is good"
+            },
+            {
+              "name": "闪充充电器",
+              "pic": "https://i1.mifile.cn/a1/pms_1507877361.06147174!220x220.jpg",
+              "price": "29",
+              "comment": "That is good"
+            }
+          ]
+        },
+        {
+          "typeName":"耳机音箱",
+          "dividePic": "https://i1.mifile.cn/a4/xmad_15204799796935_WjnpM.jpg",
+          "advPics":[
+            "https://i1.mifile.cn/a4/xmad_15277816294188_wikHT.jpg",
+            "https://i1.mifile.cn/a4/xmad_15277814391495_RBqUe.jpg"
+          ],
+          "isOneAdvPic":false,
+          "goods":[
+            {
+              "name": "小米AI音箱",
+              "pic": "https://i1.mifile.cn/a1/pms_1522666970.27937468.jpg?width=150&height=150",
+              "price": "299",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米双单元半入耳式耳机",
+              "pic": "https://i1.mifile.cn/a1/pms_1521442671.5222520!220x220.jpg",
+              "price": "69",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米移动电源",
+              "pic": "https://i1.mifile.cn/a1/pms_1513857241.9291821.jpg?width=150&height=150",
+              "price": "79",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米无线充电器",
+              "pic": "https://i1.mifile.cn/a1/pms_1522139938.61998092.jpg?width=150&height=150",
+              "price": "99",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米降噪耳机",
+              "pic": "https://i1.mifile.cn/a1/pms_1492587658.23552969!220x220.jpg",
+              "price": "299",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米随身蓝牙音箱",
+              "pic": "https://i1.mifile.cn/a1/T1IdZgB5hv1RXrhCrK!220x220.jpg",
+              "price": "99",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米蓝牙耳机青春版",
+              "pic": "https://i1.mifile.cn/a1/pms_1478248721.42297795!220x220.jpg",
+              "price": "59",
+              "comment": "That is good"
+            },
+            {
+              "name": "小米蓝牙音频接收器",
+              "pic": "https://i1.mifile.cn/a1/pms_1499161620.42031583!220x220.jpg",
+              "price": "99",
+              "comment": "That is good"
+            }
+          ]
+        }
+
+
+
+
+      ],
+      "code": 200,
+      "msg": "success"
+  }
+
 }
