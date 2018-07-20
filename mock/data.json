@@ -39,277 +39,224 @@
     "data": {
       "1": [{
           "goodId": 1,
-          "name": "小米8",
-          "url": "https://www.mi.com/mi8/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/m8-80.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/m8-140.png"
-        },
-        {
-          "goodId": 1,
           "name": "小米8 SE",
           "url": "https://www.mi.com/mi8i/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/m8se-80.png",
+          "pic": "https://i1.mifile.cn/a1/pms_1527684990.93616987.jpg?width=150&height=150",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/m8se-140.png"
-        },
-        {
-          "goodId": 1,
-          "name": "小米MIX 2S",
-          "url": "https://www.mi.com/mix2s/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/mix2140-140white.png"
-        },
-        {
-          "goodId": 1,
-          "name": "小米6X",
-          "url": "https://www.mi.com/mi6x/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg"
-        },
-        {
-          "goodId": 1,
-          "name": "黑鲨游戏手机",
-          "url": "https://www.mi.com/blackshark/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/heisha-80.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/heisha-140.png"
-        },
-        {
-          "goodId": 1,
-          "name": "小米MIX 2",
-          "url": "https://www.mi.com/mix2/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/mix2-80.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/mix2-140.png"
-        },
-        {
-          "goodId": 1,
-          "name": "小米Max 2",
-          "url": "//www.mi.com/max2/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/max2_80.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/max2_140.jpg"
-        },
-        {
-          "goodId": 1,
-          "name": "红米6 Pro",
-          "url": "//www.mi.com/redmi6pro/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/6pro140-140.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/6pro140-140.png"
-        },
-        {
-          "goodId": 1,
-          "name": "红米6",
-          "url": "//www.mi.com/redmi6/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/666666.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/666666.png"
         },
         {
           "goodId": 1,
           "name": "红米6A",
           "url": "//www.mi.com/redmi6a/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/6AAAA.png",
+          "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934.jpg?width=150&height=150",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/6AAAA.png"
         },
         {
-          "goodId": 1,
+          "name": "小米8 6GB+64GB",
+          "url": "https://www.mi.com/mi6x/",
+          "pic": "https://i1.mifile.cn/a1/pms_1528092587.49664451!220x220.jpg",
+          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg"
+        },
+        {
+          "name": "小米MIX 2S",
+          "url": "https://www.mi.com/blackshark/",
+          "pic": "https://i1.mifile.cn/a1/pms_1522034061.12391230!220x220.jpg",
+          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/heisha-140.png"
+        },
+        {
+          "name": "小米6X",
+          "url": "https://www.mi.com/mix2/",
+          "pic": "https://i1.mifile.cn/a1/pms_1527144859.25489991!220x220.jpg",
+          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/mix2-140.png"
+        },
+        {
+          "name": "小米Max2",
+          "url": "//www.mi.com/max2/",
+          "pic": "https://i1.mifile.cn/a1/pms_1495692033.10494295!220x220.jpg",
+          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/max2_140.jpg"
+        },
+        {
+          "name": "红米S2",
+          "url": "//www.mi.com/redmi6pro/",
+          "pic": "https://i1.mifile.cn/a1/pms_1525853341.8312102!220x220.jpg",
+          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/6pro140-140.png"
+        },
+        {
+          "name": "小米MIX2 全陶瓷",
+          "url": "//www.mi.com/redmi6/",
+          "pic": "https://i1.mifile.cn/a1/pms_1509723483.31416776!220x220.jpg",
+          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/666666.png"
+        },
+
+        {
           "name": "红米Note 5",
           "url": "https://www.mi.com/redminote5/",
           "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/note5-80-80.png",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/note5-140-140.png"
         },
         {
-          "goodId": 1,
-          "name": "红米S2",
+          "name": "红米S4",
           "url": "https://www.mi.com/redmis2/",
           "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/s2-80-80.png",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/s2-140-140.png"
-        },
-        {
-          "goodId": 1,
-          "name": "红米5 Plus",
-          "url": "//www.mi.com/redmi5/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/redmi5P-80-80.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/redmi5P-140-140.png"
-        },
-        {
-          "goodId": 1,
-          "name": "红米5",
-          "url": "//www.mi.com/redmi5/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/redmi5-80-80.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/redmi5-140-140.png"
-        },
-        {
-          "goodId": 1,
-          "name": "红米5A",
-          "url": "https://www.mi.com/redmi5a/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/80-5a.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/140-5a.png"
         }
       ],
       "2": [{
           "goodId": 1,
-          "name": "小米平板4",
+          "name": "12.5 小米笔记本 Air",
+          "url": "//www.mi.com/mibookair-12/",
+          "pic": "https://i1.mifile.cn/a1/pms_1514387870.88251945!220x220.jpg",
+          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben140.jpg"
+        },
+        {
+          "goodId": 1,
+          "name": "小米平板",
           "url": "https://item.mi.com/product/10000108.html",
-          "pic": "//i1.mifile.cn/f/i/g/2015/pingban2.jpg",
+          "pic": "https://i8.mifile.cn/a1/pms_1529842987.88097905!560x560.jpg",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/pingban1.jpg"
         },
         {
-          "goodId": 1,
-          "name": "小米游戏本 15.6",
+
+          "name": "小米游戏本 15.6英寸",
           "url": "https://www.mi.com/migaminglaptop/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/80x80youxichuantu.png",
+          "pic": "https://i8.mifile.cn/b2c-mimall-media/e3c8f48d3d9ca478a70917ec33bbb608.jpg",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/80x80youxichuantu.png"
         },
+
         {
-          "goodId": 1,
-          "name": "笔记本Air 12.5",
-          "url": "//www.mi.com/mibookair-12/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben80.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben140.jpg"
-        },
-        {
-          "goodId": 1,
-          "name": "笔记本Air 13.3 独显",
+
+          "name": "12.5 Air 128G",
           "url": "//www.mi.com/mibookair/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben80.jpg",
+          "pic": "https://i8.mifile.cn/b2c-mimall-media/93eec7ed365aea4e4887f7ee4e1f4464.jpg?w=1212&h=716",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben140.jpg"
         },
         {
-          "goodId": 1,
-          "name": "笔记本Air 13.3 集显",
+
+          "name": "13.3 Air 四核i5 独显",
           "url": "https://www.mi.com/mibookair-13in/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben80.jpg",
+          "pic": "https://i8.mifile.cn/b2c-mimall-media/c1bd4b3affc9c7af5b2844776049759c.jpg",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben140.jpg"
         },
         {
-          "goodId": 1,
-          "name": "笔记本Air 13.3 四核增强",
+
+          "name": "13.3 Air 四核i7 独显",
           "url": "https://www.mi.com/mibookair-13/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/80x80.png",
+          "pic": "https://i8.mifile.cn/b2c-mimall-media/a20dc22f36750ae93eb51dfb579cd7bd.jpg",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/80x80.png"
         },
         {
-          "goodId": 1,
-          "name": "笔记本Pro 15.6",
+
+          "name": "游戏本 i5 8G",
           "url": "https://www.mi.com/mibookpro/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/WechatIMG605.png",
+          "pic": "https://i8.mifile.cn/b2c-mimall-media/636d48971b43c34933c6761b95f01128.jpg",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/Wechatpic605.png"
         },
         {
-          "goodId": 1,
-          "name": "USB-C电源适配器",
+
+          "name": "15.6 Pro",
           "url": "//item.mi.com/1170700024.html",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bjbcdq80.jpg",
+          "pic": "https://i8.mifile.cn/b2c-mimall-media/83713ac197b9a7d1660715ed85594a50.jpg",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/bjbcdq140.jpg"
         },
         {
-          "goodId": 1,
+
           "name": "HDMI转接器",
           "url": "//item.mi.com/1163000011.html",
           "pic": "//i1.mifile.cn/f/i/15/goods/sidebar/usbzjqggg80.jpg",
           "pic_hd": "//i1.mifile.cn/f/i/15/goods/list/usbzjqggg140.jpg"
         },
         {
-          "goodId": 1,
-          "name": "VGA 千兆网口转接器",
-          "url": "https://item.mi.com/1173700004.html?cfrom=search",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/vga.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/vga.png"
-        },
-        {
-          "goodId": 1,
-          "name": "小米笔记本内胆包",
-          "url": "//list.mi.com/accessories/tag?id=neidanbao",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/neidanbao80.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/meidanbao140.jpg"
-        },
-        {
-          "goodId": 1,
-          "name": "悦米机械键盘",
-          "url": "//www.mi.com/keyboard/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/ymjp80.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/ymjp140.jpg"
-        },
-        {
-          "goodId": 1,
-          "name": "悦米机械键盘Pro静音版",
-          "url": "https://item.mi.com/1181300020.html",
-          "pic": "//i1.mifile.cn/f/i/g/2015/jianpanbashi.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/ijanpanyibaisi.jpg"
-        },
-        {
-          "goodId": 1,
-          "name": "小米便携鼠标",
-          "url": "//www.mi.com/mouse/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/shubiao80.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/shubiao140.jpg"
-        },
-        {
-          "goodId": 1,
-          "name": "小米无线鼠标",
-          "url": "//www.mi.com/mouse-2/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/wxsb80.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/wxsb140.png"
-        },
-        {
-          "goodId": 1,
-          "name": "鼠标垫",
-          "url": "//list.mi.com/59",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/xmsbd80.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/xmsbd140.jpg"
-        },
-        {
-          "goodId": 1,
-          "name": "DisplayPort转接器",
-          "url": "https://www.mi.com/commutator-dp/",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/USBC80.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/USBC140.jpg"
-        },
-        {
-          "goodId": 1,
-          "name": "USB至千兆网口转接器",
-          "url": "//item.mi.com/1173700032.html",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/6838xiaozhuanjieqi.png",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/6838xiaozhuanjieqi.png"
-        },
-        {
-          "goodId": 1,
-          "name": "游戏鼠标",
-          "url": "https://search.mi.com/search_游戏鼠标",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/youxishubiao80.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/youxishubiao160.jpg"
-        },
-        {
-          "goodId": 1,
+
           "name": "笔记本双肩包",
           "url": "https://search.mi.com/search_笔记本双肩包",
           "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bijibenshuangjianbao80.jpg",
           "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/bijibenshuangjianbao160.jpg"
-        },
-        {
-          "goodId": 1,
-          "name": "适配器",
-          "url": "https://search.mi.com/search_适配器",
-          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/shipeiqi80.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/cn-index/shipeiqi160.jpg"
-        },
-        {
-          "goodId": 1,
-          "name": "平板配件",
-          "url": "https://search.mi.com/search_%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%B9%B3%E6%9D%BF%E9%85%8D%E4%BB%B6",
-          "pic": "//i1.mifile.cn/f/i/g/2015/xiaomipingbanpeijian80.jpg",
-          "pic_hd": "//i1.mifile.cn/f/i/g/2015/xiaomipingbanpeijian140.jpg"
         }
+
       ],
       "3": [{
-          "pic": "https://i1.mifile.cn/f/i/g/2015/touyingyiyibaisi.jpg?width=80&height=80",
-          "name": "大米投影仪",
+          "name": "菲利浦智能台灯",
+          "pic": "https://i1.mifile.cn/a4/cf6660a3-d424-4248-889f-0eed1e99a342",
           "goodId": 3
         },
         {
-          "pic": "https://i1.mifile.cn/f/i/g/2015/mijiadianfengshan80.png?width=80&height=80",
-          "name": "大米电风扇",
+          "name": "小米手环3",
+          "pic": "https://i1.mifile.cn/a1/pms_1527754949.17141338!220x220.jpg",
           "goodId": 4
+        },
+        {
+          "name": "小米体重秤",
+          "pic": "https://i1.mifile.cn/a1/T1sWd_B7VT1RXrhCrK!220x220.jpg"
+        },
+        {
+          "name": "米家电饭煲 4L",
+          "pic": "https://i1.mifile.cn/a1/pms_1490770630.65576964!220x220.png"
+          
+        },
+        {
+          "name": "车载空气净化器",
+          "pic": "https://i1.mifile.cn/a1/pms_1506733860.3164711!220x220.jpg"
+          
+        },
+        {
+          "name": "米家行车记录议",
+          "pic": "https://i1.mifile.cn/a1/pms_1488338229.6467773!220x220.jpg"
+         
+        },
+        {
+          "name": "米家声波电动牙刷",
+          "pic": "https://i1.mifile.cn/a1/pms_1498564154.53184175!220x220.jpg"
+        },
+        {
+          "name": "小米电动滑板车",
+          "pic": "https://i1.mifile.cn/a1/pms_1488272686.62666302!220x220.jpg"
+        },
+        {
+          "name": "小米体脂秤",
+          "pic": "https://i1.mifile.cn/a1/pms_1487831386.1667404!220x220.jpg"
+        },{
+          "name": "米家PM2.5检测仪",
+          "pic": "https://i1.mifile.cn/a1/pms_1477980865.4569720!220x220.jpg"
         }
       ],
       "4": [{
+        "name": "红米Note 4X 标准高透贴膜",
+              "pic": "https://i1.mifile.cn/a4/xmad_14987297093922_POaTU.jpg",
+        "goodId": 3
+      },
+      {
+        "name": "小米6X 标准高透贴膜",
+              "pic": "https://i1.mifile.cn/a1/pms_1524466931.58435208!220x220.jpg",
+        "goodId": 4
+      },
+      {
+        "name": "小米机械键盘",
+              "pic": "https://i1.mifile.cn/a1/pms_1490702347.3628109!220x220.png"
+      },
+      {
+        "name": "小米指环支架",
+        "pic": "https://i1.mifile.cn/a1/pms_1482221011.26064844!220x220.jpg"
+        
+      },
+      {
+        "name": "小米便携鼠标",
+        "pic": "https://i1.mifile.cn/a1/pms_1488533926.06453673!220x220.jpg"
+        
+      },
+      {
+        "name": "USB Type-C 转接头",
+        "pic": "https://i1.mifile.cn/a1/T1xLxQBgVT1RXrhCrK!220x220.jpg"
+       
+      },
+      {
+        "name": "多功能转接器",
+              "pic": "https://i1.mifile.cn/a1/pms_1469523170.25518983!220x220.jpg"
+      },
+      {
+        "name": "闪充充电器",
+              "pic": "https://i1.mifile.cn/a1/pms_1507877361.06147174!220x220.jpg"
+      },
+      {
           "pic": "https://i1.mifile.cn/f/i/g/2015/luyouqi.jpg?width=80&height=80",
           "name": "大米路由器Q4",
           "goodId": 3
@@ -321,6 +268,43 @@
         }
       ],
       "5": [{
+        "name": "小米AI音箱",
+              "pic": "https://i1.mifile.cn/a1/pms_1522666970.27937468.jpg?width=150&height=150",
+        "goodId": 3
+      },
+      {
+        "name": "小米双单元半入耳式耳机",
+              "pic": "https://i1.mifile.cn/a1/pms_1521442671.5222520!220x220.jpg",
+        "goodId": 4
+      },
+      {
+        "name": "小米移动电源",
+              "pic": "https://i1.mifile.cn/a1/pms_1513857241.9291821.jpg?width=150&height=150"
+      },
+      {
+        "name": "小米无线充电器",
+              "pic": "https://i1.mifile.cn/a1/pms_1522139938.61998092.jpg?width=150&height=150"
+        
+      },
+      {
+        "name": "小米降噪耳机",
+        "pic": "https://i1.mifile.cn/a1/pms_1492587658.23552969!220x220.jpg"
+        
+      },
+      {
+        "name": "小米随身蓝牙音箱",
+              "pic": "https://i1.mifile.cn/a1/T1IdZgB5hv1RXrhCrK!220x220.jpg"
+       
+      },
+      {
+        "name": "小米蓝牙耳机青春版",
+              "pic": "https://i1.mifile.cn/a1/pms_1478248721.42297795!220x220.jpg"
+      },
+      {
+        "name": "小米蓝牙音频接收器",
+              "pic": "https://i1.mifile.cn/a1/pms_1499161620.42031583!220x220.jpg"
+      },
+      {
           "pic": "https://i1.mifile.cn/f/i/g/2015/toudaishierjijichuxiangsu.jpg?width=80&height=80",
           "name": "便宜耳机",
           "goodId": 3
