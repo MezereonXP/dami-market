@@ -57,8 +57,8 @@
 </mat-toolbar>
 
 <mat-grid-list cols="2" rowHeight="2:1" class="divideList">
-  <mat-grid-tile class="devideTile" *ngFor="let item of killandteam">
-    <img class="dividePic" :src="{{item}}">
+  <mat-grid-tile class="devideTile" *ngFor="let item of killandteam; let i=index"  >
+    <img class="dividePic" :src="{{item}}" (click)="jump(i)">
   </mat-grid-tile>
 </mat-grid-list>
 
