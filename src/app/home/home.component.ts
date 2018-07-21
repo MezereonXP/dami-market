@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
   goodsList$: Object;
   showGoodsList$: Array<TempGoods>;
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
-  killandteam=["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532101915206&di=f6337f9599c69272fa6c668f9ead624a&imgtype=0&src=http%3A%2F%2Fimg.sccnn.com%2Fbimg%2F339%2F16545.jpg","assets/team.png"]
+  killandteam = ["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532101915206&di=f6337f9599c69272fa6c668f9ead624a&imgtype=0&src=http%3A%2F%2Fimg.sccnn.com%2Fbimg%2F339%2F16545.jpg", "assets/team.png"]
 
 
   advPics: Object[] = [["", ""], ["", ""], ["", ""], ["", ""], ["", ""]];
@@ -51,10 +51,10 @@ export class HomeComponent implements OnInit {
   isShowElevation = [[true, true], [true, true], [true, true], [true, true], [true, true]];
   isShowElevation2 = [[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true],
   [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]];
-  
-  isShowElevationNew :Array<Array<boolean>>;
-  isShowElevationNew2 :Array<Array<boolean>>;
-  
+
+  isShowElevationNew: Array<Array<boolean>>;
+  isShowElevationNew2: Array<Array<boolean>>;
+
   constructor(private data: DataService) { }
   /**
    *
@@ -89,10 +89,10 @@ export class HomeComponent implements OnInit {
           this.isShowElevationNew.push(new Array());
           this.isShowElevationNew2.push(new Array());
           for (let j = 0; j < element.goods.length; j++) {
-              this.isShowElevationNew2[i].push(true);
+            this.isShowElevationNew2[i].push(true);
           }
           for (let j = 0; j < element.advPics.length; j++) {
-              this.isShowElevationNew[i].push(true);
+            this.isShowElevationNew[i].push(true);
           }
         }
       }
@@ -174,8 +174,8 @@ export class HomeComponent implements OnInit {
     return flag ? '-5px' : '0px';
   }
 
-  getRowHeight(flag){
-    return flag?"2:5":"1:5";
+  getRowHeight(flag) {
+    return flag ? "2:5" : "1:5";
   }
 
 }
