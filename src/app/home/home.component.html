@@ -41,7 +41,7 @@
 
 <mat-toolbar class="headbar" color="primary">
   <mat-toolbar-row>
-    <mat-grid-list cols="15" rowHeight="5:3" class="bar">
+    <mat-grid-list cols="15" rowHeight="5:2" class="bar">
       <mat-grid-tile colspan="1"></mat-grid-tile>
       <mat-grid-tile class="ok">
         <span>闪购</span>
@@ -57,10 +57,10 @@
 </mat-toolbar>
 
 <mat-grid-list cols="2" rowHeight="2:1" class="divideList">
-    <mat-grid-tile class="devideTile" *ngFor="let item of killandteam">
-      <img class="dividePic" :src="{{item}}">
-    </mat-grid-tile>
-  </mat-grid-list>
+  <mat-grid-tile class="devideTile" *ngFor="let item of killandteam">
+    <img class="dividePic" :src="{{item}}">
+  </mat-grid-tile>
+</mat-grid-list>
 
 <div *ngFor="let item of showBeans; let i=index">
   <mat-grid-list cols="1" rowHeight="10:1" class="divideList">
@@ -88,7 +88,8 @@
 
     <mat-grid-tile colspan="1" class="simple-tile">
       <mat-grid-list cols="1" rowHeight="{{item.isOneAdvPic?&#34;2&#58;5&#34;:&#34;4&#58;5&#34;}}" class="advlist">
-        <mat-grid-tile *ngFor="let pic of item.advPics; let j = index" display:block (mouseover)="setElevation(i,j,1)" (mouseleave)="setElevation(i,j,0)" [ngStyle]="{'top': isShowUp(!isShowElevationNew[i][j])}">
+        <mat-grid-tile *ngFor="let pic of item.advPics; let j = index" display:block (mouseover)="setElevation(i,j,1)" (mouseleave)="setElevation(i,j,0)"
+          [ngStyle]="{'top': isShowUp(!isShowElevationNew[i][j])}">
           <img :src="{{pic}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevationNew[i][j],'mat-elevation-z8': !isShowElevationNew[i][j]}">
         </mat-grid-tile>
       </mat-grid-list>
@@ -96,8 +97,8 @@
 
     <mat-grid-tile colspan="4" class="simple-tile">
       <mat-grid-list cols="4" rowHeight="4:5" class="advlist">
-        <mat-grid-tile  (mouseover)="setElevation2(i,k,1)" *ngFor="let good of item.goods; let k=index"
-           (mouseleave)="setElevation2(i,k,0)" [ngStyle]="{'top': isShowUp2(!isShowElevationNew2[i][k])}">
+        <mat-grid-tile (mouseover)="setElevation2(i,k,1)" *ngFor="let good of item.goods; let k=index" (mouseleave)="setElevation2(i,k,0)"
+          [ngStyle]="{'top': isShowUp2(!isShowElevationNew2[i][k])}">
           <mat-grid-list cols="1" rowHeight="5:1" class="advlist" [ngClass]="{'mat-elevation-z2': isShowElevationNew2[i][k],'mat-elevation-z8': !isShowElevationNew2[i][k]}">
             <mat-grid-tile rowspan="4">
               <img :src="{{good.pic}}" class="advpic">
@@ -107,7 +108,7 @@
             </mat-grid-tile>
             <mat-grid-tile>
               <p class="ppp">
-              {{good.price}}元
+                {{good.price}}元
               </p>
             </mat-grid-tile>
           </mat-grid-list>
