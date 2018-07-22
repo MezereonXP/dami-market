@@ -8,7 +8,7 @@ import { DataService } from '../data/data.service';
 export class OrderComponent implements OnInit {
 
   addressList: Object;
-  
+  isSelected:boolean = false;
   constructor(private data: DataService) { }
 
   ngOnInit() {
@@ -17,6 +17,10 @@ export class OrderComponent implements OnInit {
         this.addressList = result["data"];
       }
     );
+  }
+
+  selectAddress(i){
+    
   }
 
 }

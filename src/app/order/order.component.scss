@@ -32,6 +32,7 @@ a:hover {
   margin-top: 1%;
   margin-left: 10%;
   width: 1150px;
+  float: left;
 }
 
 .section {
@@ -60,10 +61,7 @@ a:hover {
   width: 268px;
   height: 178px;
   border: 1px solid #b0b0b0;
-  cursor: pointer;
   position: relative;
-  -webkit-transition: all .4s ease;
-  transition: all .4s ease;
 }
 
 .address-item-new {
@@ -85,12 +83,11 @@ a:hover {
   transition: all .4s ease;
   color: #fff;
 }
+
 .address-item-new:hover {
   color: #504e4e;
 }
-.address-item:hover {
-  border-color: #504f4f;
-}
+
 .iconfont {
   font-family: "iconfont" !important;
   font-style: normal;
@@ -173,11 +170,12 @@ dt {
 .section-goods .goods-list .col-img {
   width: 30px;
   height: 30px;
+  margin-left: 10px;
   margin-right: 10px;
 }
 
 .section-goods .goods-list .col-name {
-  width: 685px;
+  width: 675px;
 }
 
 .section-goods .goods-list .col {
@@ -198,20 +196,19 @@ dt {
 
 .section-goods .goods-list .col-total {
   width: 190px;
-  text-align: center;
+  text-align: right;
   color: #ff6700;
 }
 
 .section-count {
   min-height: 200px;
   padding: 10px 0;
-  position: relative;
   width: 1150px;
 }
 
 .section-count .money-box {
   right: 0;
-  bottom: 20px;
+  bottom: 10px;
   text-align: right;
 }
 
@@ -250,4 +247,23 @@ dt {
   background: #929190d8;
   border-color: #727170;
   color: #fff;
+}
+
+.selectAddress {
+  float: right;
+  padding-right: 2px;
+  padding-top: 2px;
+}
+
+mat-checkbox {
+  color: #625C52;
+  /deep/ .mat-checkbox-background {
+    background-color: #625C52 !important;
+  }
+  /deep/ .mat-checkbox-focused {
+    color: #625C52;
+    .mat-ink-ripple {
+      background-color: rgba(129, 111, 71, 0.26) !important;
+    }
+  }
 }

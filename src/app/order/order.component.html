@@ -32,11 +32,18 @@
     </div>
   </div>
   <div class="section section-body">
-    <div class="address-item"  ng-click="isSelected = !isSelected" *ngFor="let item of addressList;" id="item{{i}}">
+    <div class="address-item"  *ngFor="let item of addressList;let i=index" >
+      <mat-checkbox color="primary" class="selectAddress"  (check)="selectAddress(i)">
+
+      </mat-checkbox>
       <dl>
         <dt>
           <em class="uname">{{item.name}}</em>
         </dt>
+
+
+
+
         <dd class="utel">
           {{item.telephone}}
         </dd>
@@ -52,7 +59,7 @@
         </a>
       </div>
     </div>
-   
+
     <div class="address-item address-item-new">
       <i class="iconfont">
         +
