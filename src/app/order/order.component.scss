@@ -67,6 +67,7 @@ a:hover {
 .address-item-new {
   text-align: center;
   color: #b0b0b0;
+  cursor: pointer;
 }
 
 .address-item-new .iconfont {
@@ -209,7 +210,7 @@ dt {
 .section-count .money-box {
   right: 0;
   bottom: 10px;
-  text-align: right;
+  
 }
 
 .section-count .money-box ul {
@@ -219,11 +220,17 @@ dt {
 
 .section-count .money-box li {
   display: block;
-  padding-left: 100px;
+  padding-left: 80px;
   line-height: 2;
   position: relative;
   zoom: 1;
   list-style: none;
+}
+.section-count .money-box label {
+  text-align: left;
+}
+.section-count .money-box span {
+  text-align: right;
 }
 
 .section-count .money-box .val {

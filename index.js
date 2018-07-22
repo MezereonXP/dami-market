@@ -5,5 +5,6 @@ module.exports = () => ({
   getGoodsList: data.getGoodsList,
   getSimpleUser: data2.getSimpleUser,
   getGoodInfo: data2.getGoodInfo,
-  getAddress: order.getAddress
+  getAddress: order.getAddress,
+  getOrderGoodsList:order.getOrderGoodsList
 });

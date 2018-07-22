@@ -33,7 +33,7 @@
   </div>
   <div class="section section-body">
     <div class="address-item"  *ngFor="let item of addressList;let i=index" >
-      <mat-checkbox color="primary" class="selectAddress"  (check)="selectAddress(i)">
+      <mat-checkbox color="primary" class="selectAddress" [(ngModel)]="status[i]" (click)="selectAddress(i)">
 
       </mat-checkbox>
       <dl>
@@ -80,40 +80,24 @@
     </div>
     <div class="section-body">
       <ul class="goods-list">
-        <li>
+        <li *ngFor="let item of orderGoodsList">
           <div class="col col-img">
             <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!30x30.jpg">
           </div>
           <div class="col col-name">
-            小米手环3
+            {{item.name}}
           </div>
           <div class="col col-price">
-            168元x1
+            {{item.price}}元x{{item.quantity}}
           </div>
           <div class="col col-status">
             &nbsp;
           </div>
           <div class="col col-total">
-            168元
+            {{item.price*item.quantity}}元
           </div>
         </li>
-        <li>
-          <div class="col col-img">
-            <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!30x30.jpg">
-          </div>
-          <div class="col col-name">
-            小米手环3
-          </div>
-          <div class="col col-price">
-            168元x1
-          </div>
-          <div class="col col-status">
-            &nbsp;
-          </div>
-          <div class="col col-total">
-            168元
-          </div>
-        </li>
+        
       </ul>
     </div>
   </div>
@@ -125,7 +109,7 @@
             商品件数
           </label>
           <span class="val">
-            1件
+            {{count}}件
           </span>
         </li>
         <li>
