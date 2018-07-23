@@ -1,13 +1,30 @@
-
 <mat-toolbar class="headbar mat-elevation-z2" color="primary">
-    <mat-toolbar-row>
-      <mat-grid-list cols="15" rowHeight="5:3" class="bar">
-        <mat-grid-tile colspan="1"></mat-grid-tile>
-        <mat-grid-tile colspan="2">
-          <span>123</span>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="12"></mat-grid-tile>
-        
-      </mat-grid-list>
-    </mat-toolbar-row>
-  </mat-toolbar>
+  <mat-toolbar-row>
+    <mat-grid-list cols="15" rowHeight="5:3" class="bar">
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="2" class="ok">
+        <span>{{goods.name}}</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="9"></mat-grid-tile>
+      <mat-grid-tile colspan="1">
+        <span class="span-info">
+          <button mat-button class="btn-info">用户评价</button>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2"></mat-grid-tile>
+
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-grid-list cols="5" rowHeight="2:5" class="divideList">
+
+  <mat-grid-tile colspan="2" class="simple-tile">
+
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="3" class="simple-tile">
+
+  </mat-grid-tile>
+</mat-grid-list>

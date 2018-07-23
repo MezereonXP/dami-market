@@ -1,0 +1,16 @@
+{
+    "getShopGood": {
+      "data":
+        { 
+            "id": 1,
+            "name": "小米8 SE 4GB+64GB",
+            "pic": "https://i1.mifile.cn/a1/pms_1527684990.93616987.jpg?width=150&height=150",
+            "price": "1999",
+            "comment": "That is good"
+          }
+
+      ,
+      "code":200,
+      "msg":"success"
+    }
+  }

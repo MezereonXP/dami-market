@@ -24,7 +24,7 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/getAllUser")
   }
 
-  insertUser(user:User) {
+  insertUser(user: User) {
     return this.http.post('http://localhost:8080/api/addUser', user);
   }
 
@@ -34,21 +34,24 @@ export class DataService {
 
   getGoodInfo(goodId) {
     const params = new HttpParams().set("goodId", goodId);
-    return this.http.get("http://localhost:8080/api/getGoodInfo", {params});
+    return this.http.get("http://localhost:8080/api/getGoodInfo", { params });
   }
 
   getTopGoodsAdv(type) {
     const params = new HttpParams().set("type", type);
-    return this.http.get("http://localhost:8080/api/getTopGoodsAdv", {params});
+    return this.http.get("http://localhost:8080/api/getTopGoodsAdv", { params });
   }
 
   getgoodsPic(type) {
     const params = new HttpParams().set("type", type);
-    return this.http.get("http://localhost:8080/api/getgoodsPic", {params});
+    return this.http.get("http://localhost:8080/api/getgoodsPic", { params });
   }
 
   getInfo() {
     return this.http.get("http://localhost:8080/api/newApi");
+  }
+  getShopGood() {
+    return this.http.get("http://localhost:8080/api/getShopGood");
   }
 
 }
