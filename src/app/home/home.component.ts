@@ -136,7 +136,6 @@ export class HomeComponent implements OnInit {
   }
   jump(i){
       if(i==0){
-        window.alert(1);
         location.href = "/#/kill"
       }else if(i==1){
         window.alert(2);
