@@ -8,7 +8,7 @@ import { RegistComponent } from './regist/regist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from "./data/data.service";
-import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatDividerModule } from "@angular/material";
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatDividerModule, MatDialog, MatDialogModule } from "@angular/material";
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { ShoppingComponent } from './shopping/shopping.component';
@@ -20,6 +20,8 @@ import { TeamComponent } from './team/team.component';
 import { SelfcenterComponent } from './selfcenter/selfcenter.component';
 import { InfomationComponent } from './infomation/infomation.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { KilltipsComponent }  from './killtips/killtips.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     KillComponent,
     TeamComponent,
     SelfcenterComponent,
-    InfomationComponent
+    InfomationComponent,
+    KilltipsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,11 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     MatCardModule,
     CarouselModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
+  ],
+  entryComponents:[
+    KilltipsComponent
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

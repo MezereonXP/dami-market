@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { timer } from '../../../node_modules/rxjs';
 import { DataService } from '../data/data.service';
 import { KillGoods } from '../bean/KillGoods'
+import { MatDialog } from '../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-kill',
@@ -28,13 +29,14 @@ export class KillComponent implements OnInit {
   ifkillGoodOver: string;
   isShowButton: boolean;
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService,public dialog:MatDialog) { }
 
   ngOnInit() {
     //从service得到数据
     this.data.killGoods(this.killId).subscribe(
       result => {
         this.killGoods$ = result["data"];
+        this.defaultShow();
       }
     ),
 
@@ -48,6 +50,30 @@ export class KillComponent implements OnInit {
     this.getTime();
   }
 
+    defaultShow(){
+    let nTime = (this.testTime - new Date().getTime()) / 1000;
+    let hour = Math.floor(nTime % 86400 / 3600);
+    let minute = Math.floor(nTime % 86400 % 3600 / 60);
+    let second = Math.floor(nTime % 86400 % 3600 % 60);
+    this.ifkillGoodOver = "立即抢购";
+    if(nTime<=0){
+      this.killGoodsList$ = this.killGoods$[5];
+      this.isShowButton = this.isShowButtonList[4];
+
+    }else{
+      if(hour>=12){
+        this.killGoodsList$ = this.killGoods$[1];
+        this.isShowButton = this.isShowButtonList[0];
+      }else{
+        let index=4 - Math.floor(hour / 4)
+        this.killGoodsList$ = this.killGoods$[ index];
+        this.isShowButton = this.isShowButtonList[index - 1];
+      }
+    }
+  }
+
+
+
   getTime() {
 
     let nTime = (this.testTime - new Date().getTime()) / 1000;
@@ -56,18 +82,18 @@ export class KillComponent implements OnInit {
     let second = Math.floor(nTime % 86400 % 3600 % 60);
     let timeSlot = 4 - Math.floor(hour / 4);
     if (timeSlot > 0) {
-      for (let i = 0; i < timeSlot-1; i++) {
-        this.timeTipe[i] = "已结束";
+      for (let i = 0; i < timeSlot; i++) {
+        this.timeTipe[i] = "正在抢购";
       }
-      this.timeTipe[timeSlot-1]="正在抢购";
     }
     let temp = 4 * Math.floor(hour / 4);
     if ((hour - temp) < 2) {
       let position = Math.floor(4 - temp / 4);
       this.timeTipe[position] = "距开始还剩" + (hour - temp) + ":" + minute + ":" + second;
     }
+
     if (nTime >= 0) {
-      for (let i = 4 - hour / 4; i <= 4; i++) {
+      for (let i = 4 - Math.floor(hour / 4); i <= 4; i++) {
         this.isShowButtonList[i] = false;
       }
     }
@@ -92,13 +118,19 @@ export class KillComponent implements OnInit {
     this.killGoodsList$ = this.killGoods$[index];
     this.ifkillGoodOver = "立即抢购";
     this.isShowButton = this.isShowButtonList[index - 1];
-    window.alert(this.isShowButton);
   }
 
   kill() {
     this.data.killGoods(this.killId).subscribe(
       result => window.alert(result["msg"])
     );
+  }
+
+  openDialog(){
+     this.dialog.open(KilltipsComponent, {
+      height: '400px',
+      width: '600px',
+    });
   }
 
 }
