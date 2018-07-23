@@ -55,3 +55,188 @@
     </mat-grid-list>
   </mat-toolbar-row>
 </mat-toolbar>
+<<<<<<< HEAD
+=======
+
+<mat-grid-list cols="1" rowHeight="10:1" class="divideList">
+  <mat-grid-tile class="devideTile">
+    <img class="dividePic" src="https://i1.mifile.cn/a4/xmad_15299774887546_atPHd.jpg">
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-list class="divide-list">
+  <mat-list-item class="title-item">手机</mat-list-item>
+  <mat-list-item class="seeall-item" (mouseover)="changeSeeAllColor(1)" (mouseleave)="changeSeeAllColor(0)" [ngStyle]="{'color': currentSeeAllColor}">查看全部
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor!='red'">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor=='red'">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="red" />
+    </svg>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+
+<mat-grid-list cols="5" rowHeight="1:2" class="divideList">
+  <mat-grid-tile class="simple-tile">
+    <mat-grid-list cols="1" rowHeight="2:5" class="advlist">
+      <mat-grid-tile (mouseover)="setElevation(0,0,1)" (mouseleave)="setElevation(0,0,0)" [ngStyle]="{'top': isShowUp(!isShowElevation[0][0])}">
+        <img :src="{{advPics[0][0]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation[0][0],'mat-elevation-z8': !isShowElevation[0][0]}">
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4">
+
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="1" rowHeight="10:1" class="divideList">
+  <mat-grid-tile class="devideTile">
+    <img class="dividePic" src="https://i1.mifile.cn/a4/xmad_15302841772912_KtGTu.jpg">
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-list class="divide-list">
+  <mat-list-item class="title-item">笔记本平板</mat-list-item>
+  <mat-list-item class="seeall-item" (mouseover)="changeSeeAllColor(1)" (mouseleave)="changeSeeAllColor(0)" [ngStyle]="{'color': currentSeeAllColor}">查看全部
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor!='red'">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor=='red'">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="red" />
+    </svg>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+
+<mat-grid-list cols="5" rowHeight="1:2" class="divideList">
+  <mat-grid-tile class="simple-tile">
+    <mat-grid-list cols="1" rowHeight="4:5" class="advlist">
+      <mat-grid-tile (mouseover)="setElevation(1,0,1)" (mouseleave)="setElevation(1,0,0)" [ngStyle]="{'top': isShowUp(!isShowElevation[1][0])}">
+        <img :src="{{advPics[1][0]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation[1][0],'mat-elevation-z8': !isShowElevation[1][0]}">
+      </mat-grid-tile>
+      <mat-grid-tile (mouseover)="setElevation(1,1,1)" (mouseleave)="setElevation(1,1,0)" [ngStyle]="{'top': isShowUp(!isShowElevation[1][1])}">
+        <img :src="{{advPics[1][1]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation[1][1],'mat-elevation-z8': !isShowElevation[1][1]}">
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4">
+
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="1" rowHeight="10:1" class="divideList">
+  <mat-grid-tile class="devideTile">
+    <img class="dividePic" src="https://i1.mifile.cn/a4/xmad_15204795762271_ZwaxE.jpg">
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-list class="divide-list">
+  <mat-list-item class="title-item">智能家居</mat-list-item>
+  <mat-list-item class="seeall-item" (mouseover)="changeSeeAllColor(1)" (mouseleave)="changeSeeAllColor(0)" [ngStyle]="{'color': currentSeeAllColor}">查看全部
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor!='red'">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor=='red'">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="red" />
+    </svg>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+
+<mat-grid-list cols="5" rowHeight="1:2" class="divideList">
+  <mat-grid-tile class="simple-tile">
+    <mat-grid-list cols="1" rowHeight="4:5" class="advlist">
+      <mat-grid-tile (mouseover)="setElevation(2,0,1)" (mouseleave)="setElevation(2,0,0)" [ngStyle]="{'top': isShowUp(!isShowElevation[0][0])}">
+        <img :src="{{advPics[2][0]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation[2][0],'mat-elevation-z8': !isShowElevation[2][0]}">
+      </mat-grid-tile>
+      <mat-grid-tile (mouseover)="setElevation(2,1,1)" (mouseleave)="setElevation(2,1,0)" [ngStyle]="{'top': isShowUp(!isShowElevation[0][1])}">
+        <img :src="{{advPics[2][1]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation[2][1],'mat-elevation-z8': !isShowElevation[2][1]}">
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4">
+
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="1" rowHeight="10:1" class="divideList">
+  <mat-grid-tile class="devideTile">
+    <img class="dividePic" src="https://i1.mifile.cn/a4/xmad_15204798088946_YvzWs.jpg">
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-list class="divide-list">
+  <mat-list-item class="title-item">配件</mat-list-item>
+  <mat-list-item class="seeall-item" (mouseover)="changeSeeAllColor(1)" (mouseleave)="changeSeeAllColor(0)" [ngStyle]="{'color': currentSeeAllColor}">查看全部
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor!='red'">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor=='red'">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="red" />
+    </svg>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+
+<mat-grid-list cols="5" rowHeight="1:2" class="divideList">
+  <mat-grid-tile class="simple-tile">
+    <mat-grid-list cols="1" rowHeight="4:5" class="advlist">
+      <mat-grid-tile (mouseover)="setElevation(3,0,1)" (mouseleave)="setElevation(3,0,0)" [ngStyle]="{'top': isShowUp(!isShowElevation[0][0])}">
+        <img :src="{{advPics[3][0]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation[3][0],'mat-elevation-z8': !isShowElevation[3][0]}">
+      </mat-grid-tile>
+      <mat-grid-tile (mouseover)="setElevation(3,1,1)" (mouseleave)="setElevation(3,1,0)" [ngStyle]="{'top': isShowUp(!isShowElevation[0][1])}">
+        <img :src="{{advPics[3][1]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation[3][1],'mat-elevation-z8': !isShowElevation[3][1]}">
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4">
+
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="1" rowHeight="10:1" class="divideList">
+  <mat-grid-tile class="devideTile">
+    <img class="dividePic" src="https://i1.mifile.cn/a4/xmad_15204799796935_WjnpM.jpg">
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-list class="divide-list">
+  <mat-list-item class="title-item">耳机音箱</mat-list-item>
+  <mat-list-item class="seeall-item" (mouseover)="changeSeeAllColor(1)" (mouseleave)="changeSeeAllColor(0)" [ngStyle]="{'color': currentSeeAllColor}">查看全部
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor!='red'">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" *ngIf="currentSeeAllColor=='red'">
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="red" />
+    </svg>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+
+<mat-grid-list cols="5" rowHeight="1:2" class="divideList">
+  <mat-grid-tile class="simple-tile">
+    <mat-grid-list cols="1" rowHeight="4:5" class="advlist">
+      <mat-grid-tile (mouseover)="setElevation(4,0,1)" (mouseleave)="setElevation(4,0,0)" [ngStyle]="{'top': isShowUp(!isShowElevation[0][0])}">
+        <img :src="{{advPics[4][0]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation[4][0],'mat-elevation-z8': !isShowElevation[4][0]}">
+      </mat-grid-tile>
+      <mat-grid-tile (mouseover)="setElevation(4,1,1)" (mouseleave)="setElevation(4,1,0)" [ngStyle]="{'top': isShowUp(!isShowElevation[0][1])}">
+        <img :src="{{advPics[4][1]}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevation[4][1],'mat-elevation-z8': !isShowElevation[4][1]}">
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4">
+
+  </mat-grid-tile>
+</mat-grid-list>
+>>>>>>> c4ddfc697b0e40120be455f4f4955083f9a081ef

@@ -37,7 +37,14 @@ export class HomeComponent implements OnInit {
   isShowDetail = false;
   goodsList$: Object;
   showGoodsList$: Array<TempGoods>;
+<<<<<<< HEAD
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg","https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg","https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
+=======
+  goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
+
+  advPics:Object[] = [["",""],["",""],["",""],["",""],["",""]];
+  isShowElevation=[[true, true],[true, true],[true, true],[true, true],[true, true]];
+>>>>>>> c4ddfc697b0e40120be455f4f4955083f9a081ef
 
   constructor(private data: DataService) { }
 
@@ -48,6 +55,14 @@ export class HomeComponent implements OnInit {
         console.log(this.goodsList$["1"][0].name);
       }
     );
+<<<<<<< HEAD
+=======
+    for (let type = 1; type <= this.advPics.length; type++) {
+      this.data.getTopGoodsAdv(type).subscribe(
+        result => this.advPics[type-1] = result[0]["pics"]
+      );
+    }
+>>>>>>> c4ddfc697b0e40120be455f4f4955083f9a081ef
   }
 
   /**
@@ -87,4 +102,33 @@ export class HomeComponent implements OnInit {
     console.log(this.currentColor);
   }
 
+<<<<<<< HEAD
+=======
+  changeSeeAllColor(flag) {
+    if (flag == 1) {
+      this.currentSeeAllColor = "red";
+    } else {
+      this.currentSeeAllColor = "black";
+    }
+  }
+
+  /**
+   * 
+   * @param type 代表商品的種類
+   * @param flag 代表商品的特定id
+   * @param isOver 代表鼠標是否在上方
+   */
+  setElevation(type, flag, isOver) {
+    let temp = isOver == 1 ? false : true;
+    this.isShowElevation[type].forEach(element => {
+      element = true;
+    });
+    this.isShowElevation[type][flag] = temp;
+  }
+
+  isShowUp(flag) {
+    return flag ? '-5px' : '0px';
+  }
+
+>>>>>>> c4ddfc697b0e40120be455f4f4955083f9a081ef
 }
