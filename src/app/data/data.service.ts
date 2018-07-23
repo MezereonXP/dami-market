@@ -44,13 +44,10 @@ export class DataService {
     const params = new HttpParams().set("userId", userId);
     return this.http.get("http://localhost:8080/api/getOrderGoodsList", {params});
   }
-<<<<<<< HEAD
-=======
 
   killGoods(name) {
     const params = new HttpParams().set("id", name);
     return this.http.get("api/killGoods", {params});
   }
 
->>>>>>> c4ddfc697b0e40120be455f4f4955083f9a081ef
 }

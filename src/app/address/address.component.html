@@ -1,0 +1,40 @@
+<h4>
+  添加收货地址</h4>
+<table class="example-full-width" cellspacing="1">
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="姓名">
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="电话">
+      </mat-form-field>
+    </td>
+  </tr>
+</table>
+
+<table class="example-full-width" cellspacing="0">
+  <tr>
+
+    <td>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="省市区街道">
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field class="example-full-width">
+        <input matInput #postalCode maxlength="6" placeholder="邮编">
+
+      </mat-form-field>
+    </td>
+  </tr>
+</table>
+
+<mat-form-field class="example-full-width">
+  <input   matInput placeholder="详细地址">
+</mat-form-field>
+<div class="btn example-full-width">
+  <button mat-button>确认</button>
+</div>

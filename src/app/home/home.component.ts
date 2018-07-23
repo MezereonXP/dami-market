@@ -33,18 +33,15 @@ export class HomeComponent implements OnInit {
   goodsImages = ["assets/goods-1.jpg", "assets/goods-2.jpg", "assets/goods-3.jpg", "assets/goods-4.jpg"];
   slideColors = ["rgb(98,92,82)", "rgb(98,92,88)", "rgb(85,87,92)", "rgb(83,12,12)"];
   currentColor = "rgb(98,92,82)";
+  currentSeeAllColor = "black";
   users$: Object;
   isShowDetail = false;
   goodsList$: Object;
   showGoodsList$: Array<TempGoods>;
-<<<<<<< HEAD
-  goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg","https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg","https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
-=======
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
 
   advPics:Object[] = [["",""],["",""],["",""],["",""],["",""]];
   isShowElevation=[[true, true],[true, true],[true, true],[true, true],[true, true]];
->>>>>>> c4ddfc697b0e40120be455f4f4955083f9a081ef
 
   constructor(private data: DataService) { }
 
@@ -55,14 +52,7 @@ export class HomeComponent implements OnInit {
         console.log(this.goodsList$["1"][0].name);
       }
     );
-<<<<<<< HEAD
-=======
-    for (let type = 1; type <= this.advPics.length; type++) {
-      this.data.getTopGoodsAdv(type).subscribe(
-        result => this.advPics[type-1] = result[0]["pics"]
-      );
-    }
->>>>>>> c4ddfc697b0e40120be455f4f4955083f9a081ef
+    
   }
 
   /**
@@ -102,8 +92,6 @@ export class HomeComponent implements OnInit {
     console.log(this.currentColor);
   }
 
-<<<<<<< HEAD
-=======
   changeSeeAllColor(flag) {
     if (flag == 1) {
       this.currentSeeAllColor = "red";
@@ -130,5 +118,4 @@ export class HomeComponent implements OnInit {
     return flag ? '-5px' : '0px';
   }
 
->>>>>>> c4ddfc697b0e40120be455f4f4955083f9a081ef
 }

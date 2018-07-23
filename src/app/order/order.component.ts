@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Inject} from '@angular/core';
 import { DataService } from '../data/data.service';
 import { OrderGoods } from "../bean/orderGoods";
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { AddressComponent } from "../address/address.component";
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -8,13 +10,13 @@ import { OrderGoods } from "../bean/orderGoods";
 })
 export class OrderComponent implements OnInit {
 
-  count:number = 0;
-  totalMoney:number = 0;
+  count: number = 0;
+  totalMoney: number = 0;
   addressList: Object;
   status: Array<boolean>;
   orderGoodsList: Array<OrderGoods>;
-  constructor(private data: DataService) { }
-  
+  constructor(private data: DataService, public dialog: MatDialog) { }
+
   ngOnInit() {
     this.data.getAddress(1).subscribe(
       result => {
@@ -31,7 +33,7 @@ export class OrderComponent implements OnInit {
         this.orderGoodsList = result["data"];
         for (let i = 0; i < this.orderGoodsList.length; i++) {
           this.count++;
-          this.totalMoney+=this.orderGoodsList[i].price*this.orderGoodsList[i].quantity;
+          this.totalMoney += this.orderGoodsList[i].price * this.orderGoodsList[i].quantity;
         }
       }
     )
@@ -46,5 +48,13 @@ export class OrderComponent implements OnInit {
       }
     }
   }
+  openDialog() {
+    this.dialog.open(AddressComponent,{
+      height: '350px',
+      width: '500px',
+    });
+  }
+
 
 }
+
