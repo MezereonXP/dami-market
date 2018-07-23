@@ -57,7 +57,7 @@
 </mat-toolbar>
 
 <mat-grid-list cols="2" rowHeight="2:1" class="divideList">
-  <mat-grid-tile class="devideTile" *ngFor="let item of killandteam; let i=index"  >
+  <mat-grid-tile class="devideTile" *ngFor="let item of killandteam; let i=index">
     <img class="dividePic" :src="{{item}}" (click)="jump(i)">
   </mat-grid-tile>
 </mat-grid-list>
@@ -100,17 +100,19 @@
         <mat-grid-tile (mouseover)="setElevation2(i,k,1)" *ngFor="let good of item.goods; let k=index" (mouseleave)="setElevation2(i,k,0)"
           [ngStyle]="{'top': isShowUp2(!isShowElevationNew2[i][k])}">
           <mat-grid-list cols="1" rowHeight="5:1" class="advlist" [ngClass]="{'mat-elevation-z2': isShowElevationNew2[i][k],'mat-elevation-z8': !isShowElevationNew2[i][k]}">
-            <mat-grid-tile rowspan="4">
-              <img :src="{{good.pic}}" class="advpic">
-            </mat-grid-tile>
-            <mat-grid-tile>
-              {{good.name}}
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <p class="ppp">
-                {{good.price}}元
-              </p>
-            </mat-grid-tile>
+            <a href="/#/shopping/{{good.id}}" class="link">
+              <mat-grid-tile rowspan="4">
+                <img :src="{{good.pic}}" class="advpic">
+              </mat-grid-tile>
+              <mat-grid-tile>
+                {{good.name}}
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p class="ppp">
+                  {{good.price}}元
+                </p>
+              </mat-grid-tile>
+            </a>
           </mat-grid-list>
         </mat-grid-tile>
       </mat-grid-list>

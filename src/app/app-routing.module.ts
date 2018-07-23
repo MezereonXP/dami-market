@@ -6,6 +6,7 @@ import { RegistComponent } from "./regist/regist.component";
 import { HomeComponent } from './home/home.component';
 import { InfomationComponent } from './infomation/infomation.component';
 import { KillComponent } from './kill/kill.component';
+import { ShoppingComponent } from './shopping/shopping.component';  
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'kill',
     component: KillComponent
+  },
+  {
+    path: 'shopping/:id',
+    component: ShoppingComponent
   }
 ];
 
