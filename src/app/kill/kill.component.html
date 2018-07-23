@@ -6,7 +6,7 @@
         <span style="font-size: 35px">Are you Ok 闪购</span>
       </mat-grid-tile>
       <mat-grid-tile colspan="2"></mat-grid-tile>
-    </mat-grid-list>  
+    </mat-grid-list>
   </mat-toolbar>
   <mat-toolbar class="headbar mat-elevation-z2" color="primary">
     <mat-toolbar-row>
@@ -57,28 +57,36 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-grid-list cols="7" class="killgoodheadbar">
+  <mat-grid-list cols="7" rowHeight="660px" class="killgoodheadbar">
     <mat-grid-tile></mat-grid-tile>
     <mat-grid-tile colspan="5" class="killgoodbar">
-        <mat-grid-list cols="3" class="killgoodbar" rowHeight="190px">
-          <mat-grid-tile [@listStagger]="killGoodsList$" *ngFor="let item of killGoodsList$">
-            <mat-grid-list cols="2" class="killgoodbar">
+      <mat-grid-list cols="3" class="killgoodbar" rowHeight="200px">
+        <mat-grid-tile [@listStagger]="killGoodsList$" *ngFor="let item of killGoodsList$">
+          <mat-card class="killgoodbar" rowHeight="200px" style="margin-right: 10px; margin-bottom: 10px">
+            <mat-grid-list cols="2" class="killgoodbar"   rowHeight="150px">
               <mat-grid-tile>
-                <img src="{{item.pic}}">
+                <img src="{{item.pic}}" style="height: 130px; width: 120px;"> 
               </mat-grid-tile>
-              <mat-grid-tile >
-                <table style="height: 150px; width: 100%;">
-                  <tr>{{item.kgId}}</tr>
-                  <tr>{{item.kgName}}</tr>
-                  <tr><button mat-button>立即抢购</button></tr>
+              <mat-grid-tile>
+                <table style="height: 150px; width: 100%; margin-left: 10%">
+                  <tr>
+                    <h5>{{item.kgName}}</h5>
+                  </tr>
+                  <tr style="color: rgb(228, 48, 48); margin-left: 10%">{{item.kgPrice}}元</tr>
+                  <tr style="margin-left: 10%" *ngIf="isShowButton">
+                    <button mat-button style="background-color: rgb(255, 87, 20)">{{ifkillGoodOver}}</button>
+                  </tr>
+                  <tr style="margin-left: 10%" *ngIf="!isShowButton">
+                    <button mat-button style="background-color: rgb(21, 218, 47)">设置提醒</button>
+                  </tr>
                 </table>
               </mat-grid-tile>
             </mat-grid-list>
-          </mat-grid-tile>
-        </mat-grid-list>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
     </mat-grid-tile>
     <mat-grid-tile></mat-grid-tile>
   </mat-grid-list>
 
 </div>
-
