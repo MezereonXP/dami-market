@@ -20,11 +20,47 @@
 
 <mat-grid-list cols="5" rowHeight="2:5" class="divideList">
 
-  <mat-grid-tile colspan="2" class="simple-tile">
-
+  <mat-grid-tile colspan="2" class="simple-tile" >
+    <img :src="{{goods.pic}}" class="advpic">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" class="simple-tile">
 
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-toolbar class="headbar mat-elevation-z2" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="15" rowHeight="5:2" class="bar">
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="2" class="ok">
+        <span>特别说明</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="12"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="18:5" class="divideList">
+  <mat-grid-tile class="devideTile" >
+    <img class="dividePic" :src="https://i8.mifile.cn/b2c-mimall-media/aaee9db8790426631abc3b76fa3da617.jpg">
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-toolbar class="headbar mat-elevation-z2" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="15" rowHeight="5:2" class="bar">
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="2" class="ok">
+        <span>官方微信</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="12"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-grid-list cols="1" rowHeight="15:2" class="divideList">
+  <mat-grid-tile class="devideTile" >
+    <img class="dividePic" :src="https://i8.mifile.cn/b2c-mimall-media/1a84b2b629512205bf528aae91361efb.jpg">
   </mat-grid-tile>
 </mat-grid-list>
