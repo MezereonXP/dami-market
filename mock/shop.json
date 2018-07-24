@@ -1,52 +1,48 @@
 {
-    "getShopGood": {
-      "data":
-        { 
-            "id": 1,
-            "name": "小米8 SE 4GB+64GB",
-            "pic": "https://i1.mifile.cn/a1/pms_1527684990.93616987.jpg?width=150&height=150",
-            "price": "1999",
-            "comment": "That is good"
-          },
-      "code":200,
-      "msg":"success"
+  "getShopGood": {
+    "data": {
+      "id": 1,
+      "name": "小米8 SE 4GB+64GB",
+      "pic": "https://i1.mifile.cn/a1/pms_1527684990.93616987.jpg?width=150&height=150",
+      "price": "1999",
+      "comment": "That is good"
     },
-    "getShopGoodInfo": {
-      "data":
-        { 
-            "id": 1,
-            "name": "小米8 SE 4GB+64GB",
-            "pic": "https://i1.mifile.cn/a1/pms_1527684990.93616987.jpg?width=150&height=150",
-            "price": "1999",
-            "comment": "That is good",
-            "config":[{
-              "id": 1,
-              "cfg_goods_id": 1,
-              "cfg_type": 1,
-              "cfg_pricedata": 0,
-              "cfg_description": "金色",
-              "goodimg": 
-              [{
-                "id": 1,
-                "cfg_id": 1,
-                "gi_img": "https://i8.mifile.cn/a1/pms_1527684982.99639658!560x560.jpg"
-              }]
+    "code": 200,
+    "msg": "success"
+  },
+  "getShopGoodInfo": {
+    "data": {
+      "id": 1,
+      "name": "小米8 SE 4GB+64GB",
+      "pic": "https://i1.mifile.cn/a1/pms_1527684990.93616987.jpg?width=150&height=150",
+      "price": "1999",
+      "comment": "That is good",
+      "config": [{
+        "id": 1,
+        "cfg_goods_id": 1,
+        "cfg_type": 1,
+        "cfg_pricedata": 0,
+        "cfg_description": "金色",
+        "goodimg": [{
+          "id": 1,
+          "cfg_id": 1,
+          "gi_img": "https://i8.mifile.cn/a1/pms_1527684982.99639658!560x560.jpg"
+        }]
 
-            },{
-              "id": 2,
-              "cfg_goods_id": 1,
-              "cfg_type": 1,
-              "cfg_pricedata": 0,
-              "cfg_description": "深灰",
-              "goodimg": 
-              [{
-                "id": 2,
-                "cfg_id": 2,
-                "gi_img": "https://i8.mifile.cn/a1/pms_1527684977.91999556!560x560.jpg"
-              }]
-            }]
-          },
-      "code":200,
-      "msg":"success"
-    }
+      }, {
+        "id": 2,
+        "cfg_goods_id": 1,
+        "cfg_type": 1,
+        "cfg_pricedata": 0,
+        "cfg_description": "深灰",
+        "goodimg": [{
+          "id": 2,
+          "cfg_id": 2,
+          "gi_img": "https://i8.mifile.cn/a1/pms_1527684977.91999556!560x560.jpg"
+        }]
+      }]
+    },
+    "code": 200,
+    "msg": "success"
   }
+}

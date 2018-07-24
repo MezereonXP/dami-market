@@ -37,16 +37,18 @@
 
       <mat-grid-tile rowspan="2">
 
-          <mat-grid-list cols="2" rowHeight="7:4" class="advlist">
-              <mat-grid-tile >
-                <mat-grid-list cols="1" rowHeight="10:3" class="advlist" >
-                    <mat-grid-tile>
-                        <button mat-button class="btn-info"><span>{{config.cfg_description}}</span></button>
-                    </mat-grid-tile>   
-                </mat-grid-list>
-              </mat-grid-tile> 
+        <mat-grid-list cols="2" rowHeight="7:4" class="advlist">
+          <mat-grid-tile>
+            <mat-grid-list cols="1" rowHeight="10:3" class="advlist">
+              <mat-grid-tile>
+                <button mat-button class="btn-info">
+                  <span>{{config.cfg_description}}</span>
+                </button>
+              </mat-grid-tile>
             </mat-grid-list>
-         
+          </mat-grid-tile>
+        </mat-grid-list>
+
       </mat-grid-tile>
 
 
@@ -57,7 +59,7 @@
 
       </mat-grid-tile>
 
-    
+
       <mat-grid-tile rowspan="1" class="button">
         <span class="insert">
           <button mat-button class="btn-insert">加入购物车</button>

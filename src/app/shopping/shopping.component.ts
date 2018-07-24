@@ -26,9 +26,9 @@ export class ShoppingComponent implements OnInit {
       result => this.goods = result["data"]
     );
     this.data.getShopGoodInfo().subscribe(
-      
+
       result => this.config = result["data"].config[0]
     );
-    
+
   }
 }
