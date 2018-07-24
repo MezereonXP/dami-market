@@ -61,7 +61,7 @@
     <mat-grid-tile></mat-grid-tile>
     <mat-grid-tile colspan="5" class="killgoodbar">
       <mat-grid-list cols="3" class="killgoodbar" rowHeight="200px">
-        <mat-grid-tile [@listStagger]="killGoodsList$" *ngFor="let item of killGoodsList$">
+        <mat-grid-tile *ngFor="let item of killGoodsList$">
           <mat-card class="killgoodbar" rowHeight="200px" style="margin-right: 10px; margin-bottom: 10px">
             <mat-grid-list cols="2" class="killgoodbar"   rowHeight="150px">
               <mat-grid-tile>

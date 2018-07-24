@@ -3,6 +3,7 @@ import { timer } from '../../../node_modules/rxjs';
 import { DataService } from '../data/data.service';
 import { KillGoods } from '../bean/KillGoods'
 import { MatDialog } from '../../../node_modules/@angular/material';
+import { KilltipsComponent } from '../killtips/killtips.component';
 
 @Component({
   selector: 'app-kill',
@@ -128,8 +129,8 @@ export class KillComponent implements OnInit {
 
   openDialog(){
      this.dialog.open(KilltipsComponent, {
-      height: '400px',
-      width: '600px',
+      height: '300px',
+      width: '400px',
     });
   }
 

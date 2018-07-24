@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-killtips',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KilltipsComponent implements OnInit {
 
-  constructor() { }
+  msg="正在等待抢购结果。。。";
+  isShowButton=true;
+
+  constructor(public dialogRef:MatDialogRef<KilltipsComponent>,
+  @Inject(MAT_DIALOG_DATA) public data:DialogData) { }
 
   ngOnInit() {
   }
+
+}
+
+export interface DialogData{
 
 }
