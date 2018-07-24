@@ -39,10 +39,13 @@ export class HomeComponent implements OnInit {
   goodsList$: Object;
   showGoodsList$: Array<TempGoods>;
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg","https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg","https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
+<<<<<<< HEAD
   advPics: Object[] = [["", ""], ["", ""], ["", ""], ["", ""], ["", ""]];
   goodsPics: Object[] = [["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""]];
 
   showBeans: Array<ShowBean>;
+=======
+>>>>>>> 8dbfd2b39f1ccf46b44978d3690c7048267b1068
 
   isShowElevation = [[true, true], [true, true], [true, true], [true, true], [true, true]];
   isShowElevation2 = [[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true],
@@ -65,6 +68,7 @@ export class HomeComponent implements OnInit {
         console.log(this.goodsList$["1"][0].name);
       }
     );
+<<<<<<< HEAD
     for (let type = 1; type <= this.advPics.length; type++) {
       this.data.getTopGoodsAdv(type).subscribe(
         result => this.advPics[type - 1] = result[0]["pics"]
@@ -95,6 +99,8 @@ export class HomeComponent implements OnInit {
       }
     );
 
+=======
+>>>>>>> 8dbfd2b39f1ccf46b44978d3690c7048267b1068
   }
 
   /**
@@ -134,6 +140,7 @@ export class HomeComponent implements OnInit {
     console.log(this.currentColor);
   }
 
+<<<<<<< HEAD
   changeSeeAllColor(flag) {
     if (flag == 1) {
       this.currentSeeAllColor = "red";
@@ -175,4 +182,6 @@ export class HomeComponent implements OnInit {
     return flag?"2:5":"1:5";
   }
 
+=======
+>>>>>>> 8dbfd2b39f1ccf46b44978d3690c7048267b1068
 }

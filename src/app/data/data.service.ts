@@ -40,6 +40,7 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/getGoodInfo", {params});
   }
 
+<<<<<<< HEAD
   killGoods(name) {
     const params = new HttpParams().set("id", name);
     return this.http.get("http://localhost:8080/api/killGoods", {params});
@@ -47,6 +48,15 @@ export class DataService {
   getgoodsPic(type) {
     const params = new HttpParams().set("type", type);
     return this.http.get("http://localhost:8080/api/getgoodsPic", {params});
+=======
+  getShopCarGoods(userId) {
+    const params = new HttpParams().set("userId", userId);
+    return this.http.get("http://localhost:8080/api/getShopCarGoods", {params});
+  }
+  getRecommendGoods(goodsId) {
+    const params = new HttpParams().set("goodsId", goodsId);
+    return this.http.get("http://localhost:8080/api/getRecommendGoods", {params});
+>>>>>>> 8dbfd2b39f1ccf46b44978d3690c7048267b1068
   }
 
   getInfo() {
