@@ -7,13 +7,29 @@
 .bar {
   width: 100%;
 }
-
-.span-info {
-  width: 100%;
-  height: 100%;
-  .btn-info {
-    width: 100%;
-    height: 100%;
+.button{
+  text-align: left;
+}
+.fav {
+  width: 80%;
+  height: 80%;
+  .btn-fav {
+    font-size:16px;
+    color:#ffffff;
+    background-color:#746d6d;
+    width: 80%;
+    height: 80%;
+  }
+}
+.insert {
+  width: 80%;
+  height: 80%;
+  .btn-insert {
+    font-size:16px;
+    color:#ffffff;
+    background-color:#f7bf0a;
+    width: 80%;
+    height: 80%;
   }
 }
 .divideList {
@@ -33,6 +49,23 @@
   width: 100%;
 }
 .advpic{
+  
   height: 100%;
   width: 100%;
+}
+.advlist {
+  width: 95%;
+  height: 95%;
+}
+.info{
+  font-size: 30px;
+  .price{
+    font-size:20px;
+    color:#6384af;
+  }
+}
+.cspan{
+  font-size:18px;
+  text-align: left;
+  float: left;
 }

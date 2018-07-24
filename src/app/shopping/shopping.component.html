@@ -18,14 +18,45 @@
 </mat-toolbar>
 
 
-<mat-grid-list cols="5" rowHeight="2:5" class="divideList">
+<mat-grid-list cols="6" rowHeight="2:7" class="divideList">
 
-  <mat-grid-tile colspan="2" class="simple-tile" >
+  <mat-grid-tile colspan="3" class="simple-tile">
     <img :src="{{goods.pic}}" class="advpic">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" class="simple-tile">
+    <mat-grid-list cols="1" rowHeight="7:1" class="advlist">
+      <mat-grid-tile rowspan="1" class="info">
+        <span>{{goods.name}}</span>
+        <span style="margin-right:40px;"> </span>
+        <span class="price">{{goods.price}}元</span>
+      </mat-grid-tile>
+      <mat-grid-tile rowspan="1" class="cspan">
+        <span>选择颜色</span>
+      </mat-grid-tile>
+      <mat-grid-tile rowspan="1">
 
+      </mat-grid-tile>
+      <mat-grid-tile rowspan="1" class="cspan">
+        <span>选择版本</span>
+      </mat-grid-tile>
+      <mat-grid-tile rowspan="2">
+
+      </mat-grid-tile>
+
+      <mat-grid-tile rowspan="1">
+
+      </mat-grid-tile>
+      <mat-grid-tile rowspan="1" class="button">
+        <span class="insert">
+          <button mat-button class="btn-insert">加入购物车</button>
+        </span>
+        <span class="fav">
+          <button mat-button class="btn-fav">喜欢</button>
+        </span>
+      </mat-grid-tile>
+
+    </mat-grid-list>
   </mat-grid-tile>
 </mat-grid-list>
 
@@ -42,7 +73,7 @@
 </mat-toolbar>
 
 <mat-grid-list cols="1" rowHeight="18:5" class="divideList">
-  <mat-grid-tile class="devideTile" >
+  <mat-grid-tile class="devideTile">
     <img class="dividePic" :src="https://i8.mifile.cn/b2c-mimall-media/aaee9db8790426631abc3b76fa3da617.jpg">
   </mat-grid-tile>
 </mat-grid-list>
@@ -60,7 +91,7 @@
 </mat-toolbar>
 
 <mat-grid-list cols="1" rowHeight="15:2" class="divideList">
-  <mat-grid-tile class="devideTile" >
+  <mat-grid-tile class="devideTile">
     <img class="dividePic" :src="https://i8.mifile.cn/b2c-mimall-media/1a84b2b629512205bf528aae91361efb.jpg">
   </mat-grid-tile>
 </mat-grid-list>
