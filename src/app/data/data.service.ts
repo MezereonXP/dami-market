@@ -10,6 +10,9 @@ import { User } from '../bean/user';
  */
 @Injectable()
 export class DataService {
+  getTopGoodsAdv(arg0: any): any {
+    throw new Error("Method not implemented.");
+  }
   constructor(private http: HttpClient) { }
 
   getUsers() {
@@ -35,11 +38,6 @@ export class DataService {
   getGoodInfo(goodId) {
     const params = new HttpParams().set("goodId", goodId);
     return this.http.get("http://localhost:8080/api/getGoodInfo", {params});
-  }
-
-  getTopGoodsAdv(type) {
-    const params = new HttpParams().set("type", type);
-    return this.http.get("http://localhost:8080/api/getTopGoodsAdv", {params});
   }
 
   killGoods(name) {
