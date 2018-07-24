@@ -53,5 +53,8 @@ export class DataService {
   getShopGood() {
     return this.http.get("http://localhost:8080/api/getShopGood");
   }
+  getShopGoodInfo(){
+    return this.http.get("http://localhost:8080/api/getShopGoodInfo");
+  }
 
 }
