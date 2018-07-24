@@ -55,4 +55,7 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/newApi");
   }
 
+  insertNote(cId,kgName,time){
+    return this.http.get('http://localhost:8800/api/insertNote?cId=' + cId+ "&kgName="+kgName+"&time="+time);
+  }
 }

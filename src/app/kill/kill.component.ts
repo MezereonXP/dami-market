@@ -29,6 +29,7 @@ export class KillComponent implements OnInit {
   isShowButtonList = [true, true, true, true, true];
   ifkillGoodOver: string;
   isShowButton: boolean;
+  testMsg:object;
 
   constructor(private data: DataService,public dialog:MatDialog) { }
 
@@ -111,8 +112,13 @@ export class KillComponent implements OnInit {
   }
 
 
-  clickTime(index) {
-
+  clickTime() {
+    this.data.insertNote(1,"pingguo",6).subscribe(
+      result => {
+        this.testMsg = result["data"];
+        this.defaultShow();
+      }
+    )
   }
 
   showKillGood(index) {
