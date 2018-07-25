@@ -1,5 +1,6 @@
 <div class="menu mat-elevation-z8" (mouseleave)="hideDetail()">
   <mat-grid-list cols="5" rowHeight="460px">
+
     <mat-grid-tile class="menu1" [ngStyle]="{'background-color': currentColor}">
       <mat-grid-list cols="1" rowHeight="240:92" class="list">
         <mat-grid-tile [@listStagger]="items" rowspan="1" *ngFor="let item of items; index as i">
@@ -7,6 +8,7 @@
         </mat-grid-tile>
       </mat-grid-list>
     </mat-grid-tile>
+
     <mat-grid-tile colspan="4" *ngIf="!isShowDetail">
       <carousel class="carousel" (activeSlideChange)="log($event)">
         <slide *ngFor="let img of goodsImages; let i=index" class="slide">
@@ -14,10 +16,11 @@
         </slide>
       </carousel>
     </mat-grid-tile>
+
     <mat-grid-tile colspan="4" *ngIf="isShowDetail">
       <mat-card class="detail-card mat-elevation-z8">
         <mat-grid-list class="detail-list" cols="4" rowHeight="72px">
-          <mat-grid-tile [@listStagger]="showGoodsList$" *ngFor="let item of showGoodsList$; let i=index">
+          <mat-grid-tile [@listStagger]="goodsList$" *ngFor="let item of goodsList$; let i=index">
             <mat-grid-list cols="3" rowHeight="1:1" style="width: 100%;">
               <mat-grid-tile>
                 <img src="{{item.gPictureurl}}" class="small-img">
@@ -33,7 +36,7 @@
   </mat-grid-list>
 </div>
 
-<mat-grid-list cols="3" rowHeight="2:1" class="divideList">
+ <mat-grid-list cols="3" rowHeight="2:1" class="divideList">
   <mat-grid-tile class="devideTile" *ngFor="let item of goodsImage2">
     <img class="dividePic" :src="{{item}}">
   </mat-grid-tile>
@@ -61,7 +64,7 @@
     <img class="dividePic" :src="{{item}}" (click)="jump(i)">
   </mat-grid-tile>
 </mat-grid-list>
-
+<!--
 <div *ngFor="let item of showBeans; let i=index">
   <mat-grid-list cols="1" rowHeight="10:1" class="divideList">
     <mat-grid-tile class="devideTile">
@@ -118,4 +121,4 @@
       </mat-grid-list>
     </mat-grid-tile>
   </mat-grid-list>
-</div>
+</div> -->
