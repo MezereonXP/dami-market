@@ -29,7 +29,7 @@ export class DataService {
   }
 
   getGoodsList() {
-    return this.http.get("http://localhost:8080/api/getGoodsList");
+    return this.http.get("http://localhost:8800/api/getGoodsList");
   }
 
   getGoodInfo(goodId) {
