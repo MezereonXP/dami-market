@@ -1,15 +1,22 @@
-export class Good{
-  id:number;
-  name:string;
-  pic: string;
-  price: number;
-  comment: string;
 
-  constructor(id:number,name:string, pic: string, price: number, comment: string){
-    this.id = id;
-    this.name = name;
-    this.pic = pic;
-    this.price = price;
-    this.comment = comment;
+
+export class Good{
+  gId:number;
+  gName:string;
+  gPrice: number;
+  gCatagory:string;
+  gStock:number;
+  gPictureurl: string;
+  gStatus:number;
+
+
+  constructor(gId:number,gName:string, gPrice: number, gCatagory:string, gStock:number,gPictureurl: string,gStatus:number){
+    this.gId = gId;
+    this.gName = gName;
+    this.gPrice = gPrice;
+    this.gCatagory = gCatagory;
+    this.gStock = gStock;
+    this.gPictureurl = gPictureurl;
+    this.gStatus = gStatus;
   }
 } 
