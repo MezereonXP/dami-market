@@ -66,28 +66,29 @@ export class HomeComponent implements OnInit {
     this.data.getGoodsList().subscribe(
       result => {
         this.goodsList$ = result["data"];
-        console.log(this.goodsList$["1"][0].name);
+        console.log(this.goodsList$)
+        // console.log(this.goodsList$[1][0].name);
       }
     );
 
-    this.data.getInfo().subscribe(
-      result => {
-        this.showBeans = result["data"];
-        this.isShowElevationNew = new Array();
-        this.isShowElevationNew2 = new Array();
-        for (let i = 0; i < this.showBeans.length; i++) {
-          const element = this.showBeans[i];
-          this.isShowElevationNew.push(new Array());
-          this.isShowElevationNew2.push(new Array());
-          for (let j = 0; j < element.goods.length; j++) {
-            this.isShowElevationNew2[i].push(true);
-          }
-          for (let j = 0; j < element.advPics.length; j++) {
-            this.isShowElevationNew[i].push(true);
-          }
-        }
-      }
-    );
+    // this.data.getInfo().subscribe(
+    //   result => {
+    //     this.showBeans = result["data"];
+    //     this.isShowElevationNew = new Array();
+    //     this.isShowElevationNew2 = new Array();
+    //     for (let i = 0; i < this.showBeans.length; i++) {
+    //       const element = this.showBeans[i];
+    //       this.isShowElevationNew.push(new Array());
+    //       this.isShowElevationNew2.push(new Array());
+    //       for (let j = 0; j < element.goods.length; j++) {
+    //         this.isShowElevationNew2[i].push(true);
+    //       }
+    //       for (let j = 0; j < element.advPics.length; j++) {
+    //         this.isShowElevationNew[i].push(true);
+    //       }
+    //     }
+    //   }
+    // );
 
   }
 
@@ -109,7 +110,8 @@ export class HomeComponent implements OnInit {
    */
   showDetail(index) {
     this.isShowDetail = true;
-    this.showGoodsList$ = this.goodsList$[index + 1];
+    // this.showGoodsList$ = this.goodsList$[1];
+    // window.alert(this.showGoodsList$[1].gName);
   }
 
   /**
