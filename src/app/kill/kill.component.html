@@ -8,7 +8,8 @@
       <mat-grid-tile colspan="2"></mat-grid-tile>
     </mat-grid-list>
   </mat-toolbar>
-  <mat-toolbar class="headbar mat-elevation-z2" color="primary">
+
+  <mat-toolbar class="headbar" color="primary">
     <mat-toolbar-row>
       <mat-grid-list cols="7" rowHeight="64px" class="bar">
         <mat-grid-tile></mat-grid-tile>
@@ -22,7 +23,7 @@
         </mat-grid-tile>
         <mat-grid-tile class="killTime">
           <span class="full">
-            <button mat-button class="killTimeInner-true" (click)="showKillGood(2)">
+            <button mat-button class="killTimeInner-true" (click)="showKillGood(2)" >
               <span class="firstTimeSize">{{times[1]}}</span>
               <span class="secondTimeSize">{{timeTipe[1]}}</span>
             </button>
@@ -57,6 +58,18 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
+  <mat-toolbar class="picheadbar mat-elevation-z2" color="primary">
+      <mat-grid-list cols="7" rowHeight="34px" class="bar">
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile *ngFor="let item of showPicList">
+          <span class="full" *ngIf="item">
+             <img src="/assets/timg.jpg" class="full">
+          </span>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+      </mat-grid-list>
+  </mat-toolbar>
+
   <mat-grid-list cols="7" rowHeight="660px" class="killgoodheadbar">
     <mat-grid-tile></mat-grid-tile>
     <mat-grid-tile colspan="5" class="killgoodbar">
@@ -73,6 +86,7 @@
                     <h5>{{item.kgName}}</h5>
                   </tr>
                   <tr style="color: rgb(228, 48, 48); margin-left: 10%">{{item.kgPrice}}元</tr>
+                  <tr style="margin-left: 10%">还剩200件</tr>
                   <tr style="margin-left: 10%" *ngIf="isShowButton">
                     <button mat-button style="background-color: rgb(255, 87, 20)">{{ifkillGoodOver}}</button>
                   </tr>
@@ -91,5 +105,4 @@
 
 <button mat-raised-button (click)="openDialog()">测试dialog</button> 
 <button mat-button (click)="clickTime()">测试连接</button>
-<p>{{testMsg.nNote}}</p>
 </div>

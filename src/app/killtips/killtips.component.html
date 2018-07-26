@@ -5,7 +5,7 @@
         <h4 style="margin-left: 25%;margin-top: 25%">{{msg}}</h4>
       </tr>
       <tr style="height: 100px; width: 240px;">
-        <button mat-button *ngIf="isShowButton" style="margin-left: 25%;margin-top: 25%; background-color: rgb(27, 204, 20);">完成</button>
+        <button mat-button *ngIf="isShowButton" class="  margin-left: 25%;margin-top: 25%;background-color: rgb(27, 204, 20);" (click)="onClick()">完成</button>
       </tr>
     </div>
   </table>

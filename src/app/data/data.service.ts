@@ -10,6 +10,13 @@ import { User } from '../bean/user';
  */
 @Injectable()
 export class DataService {
+
+  getRecommendGoods(arg0: any): any {
+    throw new Error("Method not implemented.");
+  }
+  getShopCarGoods(arg0: any): any {
+    throw new Error("Method not implemented.");
+  }
   getTopGoodsAdv(arg0: any): any {
     throw new Error("Method not implemented.");
   }
@@ -27,7 +34,7 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/getAllUser")
   }
 
-  insertUser(user:User) {
+  insertUser(user: User) {
     return this.http.post('http://localhost:8080/api/addUser', user);
   }
 
@@ -37,33 +44,28 @@ export class DataService {
 
   getGoodInfo(goodId) {
     const params = new HttpParams().set("goodId", goodId);
-    return this.http.get("http://localhost:8080/api/getGoodInfo", {params});
+    return this.http.get("http://localhost:8080/api/getGoodInfo", { params });
   }
 
-<<<<<<< HEAD
   killGoods(name) {
     const params = new HttpParams().set("id", name);
-    return this.http.get("http://localhost:8080/api/killGoods", {params});
+    return this.http.get("http://localhost:8080/api/killGoods", { params });
   }
+  
   getgoodsPic(type) {
     const params = new HttpParams().set("type", type);
-    return this.http.get("http://localhost:8080/api/getgoodsPic", {params});
-=======
-  getShopCarGoods(userId) {
-    const params = new HttpParams().set("userId", userId);
-    return this.http.get("http://localhost:8080/api/getShopCarGoods", {params});
-  }
-  getRecommendGoods(goodsId) {
-    const params = new HttpParams().set("goodsId", goodsId);
-    return this.http.get("http://localhost:8080/api/getRecommendGoods", {params});
->>>>>>> 8dbfd2b39f1ccf46b44978d3690c7048267b1068
+    return this.http.get("http://localhost:8080/api/getgoodsPic", { params });
   }
 
   getInfo() {
     return this.http.get("http://localhost:8080/api/newApi");
   }
 
-  insertNote(cId,kgName,time){
-    return this.http.get('http://localhost:8800/api/insertNote?cId=' + cId+ "&kgName="+kgName+"&time="+time);
+  insertNote(cId, kgName, time) {
+    return this.http.get('http://localhost:8800/api/insertNote?cId=' + cId + "&kgName=" + kgName + "&time=" + time);
+  }
+
+  getKillGoodInfo(){
+    return this.http.get("http://localhost:8800/api/selectKillGoods");
   }
 }

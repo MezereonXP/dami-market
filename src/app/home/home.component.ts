@@ -39,13 +39,6 @@ export class HomeComponent implements OnInit {
   goodsList$: Object;
   showGoodsList$: Array<TempGoods>;
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg","https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg","https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
-<<<<<<< HEAD
-  advPics: Object[] = [["", ""], ["", ""], ["", ""], ["", ""], ["", ""]];
-  goodsPics: Object[] = [["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""]];
-
-  showBeans: Array<ShowBean>;
-=======
->>>>>>> 8dbfd2b39f1ccf46b44978d3690c7048267b1068
 
   isShowElevation = [[true, true], [true, true], [true, true], [true, true], [true, true]];
   isShowElevation2 = [[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true],
@@ -68,39 +61,6 @@ export class HomeComponent implements OnInit {
         console.log(this.goodsList$["1"][0].name);
       }
     );
-<<<<<<< HEAD
-    for (let type = 1; type <= this.advPics.length; type++) {
-      this.data.getTopGoodsAdv(type).subscribe(
-        result => this.advPics[type - 1] = result[0]["pics"]
-      );
-    }
-    for (let type = 1; type <= this.goodsPics.length; type++) {
-      this.data.getgoodsPic(type).subscribe(
-        result => this.goodsPics[type - 1] = result[0]["pics"]
-      );
-    }
-
-    this.data.getInfo().subscribe(
-      result => {
-        this.showBeans = result["data"];
-        this.isShowElevationNew = new Array();
-        this.isShowElevationNew2 = new Array();
-        for (let i = 0; i < this.showBeans.length; i++) {
-          const element = this.showBeans[i];
-          this.isShowElevationNew.push(new Array());
-          this.isShowElevationNew2.push(new Array());
-          for (let j = 0; j < element.goods.length; j++) {
-              this.isShowElevationNew2[i].push(true);
-          }
-          for (let j = 0; j < element.advPics.length; j++) {
-              this.isShowElevationNew[i].push(true);
-          }
-        }
-      }
-    );
-
-=======
->>>>>>> 8dbfd2b39f1ccf46b44978d3690c7048267b1068
   }
 
   /**
@@ -140,48 +100,4 @@ export class HomeComponent implements OnInit {
     console.log(this.currentColor);
   }
 
-<<<<<<< HEAD
-  changeSeeAllColor(flag) {
-    if (flag == 1) {
-      this.currentSeeAllColor = "red";
-    } else {
-      this.currentSeeAllColor = "black";
-    }
-  }
-
-  /**
-   * 
-   * @param type 代表商品的種類
-   * @param flag 代表商品的特定id
-   * @param isOver 代表鼠標是否在上方
-   */
-  setElevation(type, flag, isOver) {
-    let temp = isOver == 1 ? false : true;
-    this.isShowElevationNew[type].forEach(element => {
-      element = true;
-    });
-    this.isShowElevationNew[type][flag] = temp;
-  }
-  setElevation2(type, flag, isOver) {
-    let temp = isOver == 1 ? false : true;
-    this.isShowElevationNew2[type].forEach(element => {
-      element = true;
-    });
-    this.isShowElevationNew2[type][flag] = temp;
-  }
-
-
-  isShowUp(flag) {
-    return flag ? '-5px' : '0px';
-  }
-  isShowUp2(flag) {
-    return flag ? '-5px' : '0px';
-  }
-
-  getRowHeight(flag){
-    return flag?"2:5":"1:5";
-  }
-
-=======
->>>>>>> 8dbfd2b39f1ccf46b44978d3690c7048267b1068
 }

@@ -17,6 +17,10 @@ export class KilltipsComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClick(): void {
+    this.dialogRef.close();
+  }
+
 }
 
 export interface DialogData{

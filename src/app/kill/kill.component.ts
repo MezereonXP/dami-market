@@ -27,11 +27,12 @@ export class KillComponent implements OnInit {
   times = ["6:00", "10:00", "14:00", "18:00", "22:00"];
   timeTipe = ["即将开始", "即将开始", "即将开始", "即将开始", "即将开始"];
   isShowButtonList = [true, true, true, true, true];
+  showPicList=[false, false, false, false, false];
   ifkillGoodOver: string;
   isShowButton: boolean;
-  testMsg:object;
+  testMsg: object;
 
-  constructor(private data: DataService,public dialog:MatDialog) { }
+  constructor(private data: DataService, public dialog: MatDialog) { }
 
   ngOnInit() {
     //从service得到数据
@@ -52,29 +53,38 @@ export class KillComponent implements OnInit {
     this.getTime();
   }
 
-    defaultShow(){
+  initShowPicList(){
+    for(let i=0;i<5;i++){
+      this.showPicList[i]=false;
+    }
+  }
+
+  defaultShow() {
     let nTime = (this.testTime - new Date().getTime()) / 1000;
     let hour = Math.floor(nTime % 86400 / 3600);
     let minute = Math.floor(nTime % 86400 % 3600 / 60);
     let second = Math.floor(nTime % 86400 % 3600 % 60);
     this.ifkillGoodOver = "立即抢购";
-    if(nTime<=0){
+    if (nTime <= 0) {
       this.killGoodsList$ = this.killGoods$[5];
       this.isShowButton = this.isShowButtonList[4];
-
-    }else{
-      if(hour>=12){
+      this.initShowPicList();
+      this.showPicList[4]=true;
+    } else {
+      if (hour >= 12) {
         this.killGoodsList$ = this.killGoods$[1];
-        this.isShowButton = this.isShowButtonList[0];
-      }else{
-        let index=4 - Math.floor(hour / 4)
-        this.killGoodsList$ = this.killGoods$[ index];
+        this.isShowButton=this.isShowButtonList[0];
+        this.initShowPicList();
+        this.showPicList[0]=true;
+      } else {
+        let index = 4 - Math.floor(hour / 4)
+        this.killGoodsList$ = this.killGoods$[index];
         this.isShowButton = this.isShowButtonList[index - 1];
+        this.initShowPicList();
+        this.showPicList[index-1]=true;
       }
     }
   }
-
-
 
   getTime() {
 
@@ -113,7 +123,7 @@ export class KillComponent implements OnInit {
 
 
   clickTime() {
-    this.data.insertNote(1,"pingguo",6).subscribe(
+    this.data.insertNote(1, "pingguo", 6).subscribe(
       result => {
         this.testMsg = result["data"];
         this.defaultShow();
@@ -125,6 +135,8 @@ export class KillComponent implements OnInit {
     this.killGoodsList$ = this.killGoods$[index];
     this.ifkillGoodOver = "立即抢购";
     this.isShowButton = this.isShowButtonList[index - 1];
+    this.initShowPicList();
+    this.showPicList[index-1]=true;
   }
 
   kill() {
@@ -133,8 +145,8 @@ export class KillComponent implements OnInit {
     );
   }
 
-  openDialog(){
-     this.dialog.open(KilltipsComponent, {
+  openDialog() {
+    this.dialog.open(KilltipsComponent, {
       height: '300px',
       width: '400px',
     });
