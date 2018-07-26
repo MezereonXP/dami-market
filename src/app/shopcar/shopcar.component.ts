@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data/data.service';
+
 import { forEach } from '@angular/router/src/utils/collection';
 import { Shopcar } from '../../app/bean/shopcar';
 @Component({
@@ -10,7 +11,7 @@ import { Shopcar } from '../../app/bean/shopcar';
 export class ShopcarComponent implements OnInit {
 
   goods: Array<Shopcar>;
-  recommendGoods:Object;
+  recommendGoods: Object;
   isSelectAll = false;
   status: Array<boolean>;
   //quantity: Array<number>;
@@ -22,23 +23,24 @@ export class ShopcarComponent implements OnInit {
   ngOnInit() {
     this.data.getShopCarGoods(1).subscribe(
       result => {
-        this.status = new Array();
+        this.status = new Array<boolean>();
         //this.quantity = new Array();
         for (let i = 0; i < result["data"].length; i++) {
           this.status.push(false);
 
           this.count++;
         }
+        console.log(result["data"]);
         this.goods = result["data"];
-        
+
         // for (let i = 0; i < this.goods.length; i++){
         //   this.quantity.push(this.goods[i].count)
         // }
       }
     );
     this.data.getRecommendGoods(1).subscribe(
-      result =>{
-        this.recommendGoods=result["data"];
+      result => {
+        this.recommendGoods = result["data"];
       }
     )
   }
@@ -52,20 +54,59 @@ export class ShopcarComponent implements OnInit {
       this.totalMoney = 0;
       for (let i = 0; i < this.goods.length; i++) {
 
-        this.totalMoney += this.goods[i].price * this.goods[i].count;
+        this.totalMoney += this.goods[i].goods.gPrice * this.goods[i].sQuantity;
       }
     }
     this.changeQuantity(-1);
 
 
   }
+
+
+  deleteGoodsFromShopcar(i) {
+    this.goods[i].sStatus=0;
+    console.log("刷新！");
+    this.data.editQuantityOfGoods(this.goods[i]).subscribe();
+    window.location.reload();
+  }
+
+
+  editQuantityOfGoods(n) {
+
+    if (this.goods[n].sQuantity > this.goods[n].goods.gStock) {
+      alert("不能超过最大库存量" + this.goods[n].goods.gStock);
+      this.goods[n].sQuantity = this.goods[n].goods.gStock;
+    } else {
+      this.data.editQuantityOfGoods(this.goods[n]).subscribe();
+    }
+
+
+  }
+  reduce(i) {
+
+    this.goods[i].sQuantity--;
+    if (this.goods[i].sQuantity < 1) {
+      this.goods[i].sQuantity = 1;
+    }
+    console.log(this.goods[i].sQuantity);
+    this.editQuantityOfGoods(i);
+    this.changeTatalMoney();
+  }
+  increase(i) {
+    this.goods[i].sQuantity++;
+    if (this.goods[i].sQuantity > this.goods[i].goods.gStock) {
+      this.goods[i].sQuantity = this.goods[i].goods.gStock;
+    }
+    console.log(this.goods[i].sQuantity);
+    this.editQuantityOfGoods(i);
+    this.changeTatalMoney();
+  }
   changeTatalMoney() {
-    
     this.totalMoney = 0;
     for (let i = 0; i < this.count; i++) {
       if (this.status[i]) {
-        this.totalMoney += this.goods[i].price * this.goods[i].count;
-        
+        this.totalMoney += this.goods[i].goods.gPrice * this.goods[i].sQuantity;
+
       }
     }
 
@@ -73,9 +114,9 @@ export class ShopcarComponent implements OnInit {
   changeSelectAllStatus(i, item) {
     this.changeQuantity(i);
     if (!this.status[i]) {
-      this.totalMoney += item.price * this.goods[i].count;
+      this.totalMoney += this.goods[i].goods.gPrice * this.goods[i].sQuantity;
     } else {
-      this.totalMoney -= item.price * this.goods[i].count;
+      this.totalMoney -= this.goods[i].goods.gPrice * this.goods[i].sQuantity;
     }
     for (let i = 0; i < this.count; i++) {
       if (this.status[i]) {

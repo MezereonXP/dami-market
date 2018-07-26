@@ -23,8 +23,8 @@
     text-decoration: black;
   }
   a:hover {
-    color: rgb(252, 160, 2);
-    text-decoration: rgb(250, 159, 3);
+    color: #ffffff;
+    text-decoration: #ffffff;
   }
 }
 
@@ -104,7 +104,7 @@ mat-checkbox {
     text-decoration: black;
   }
   a:hover {
-    color: rgb(250, 160, 3);
+    color: rgb(218, 216, 213);
     text-decoration: rgb(250, 160, 4);
   }
   .goodsNameTile {
@@ -224,4 +224,13 @@ mat-checkbox {
 
 .count-input {
   text-align: center;
+  border-bottom: 0px;
+}
+.changeQuantity{
+  font-size: 25px;
+  
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }

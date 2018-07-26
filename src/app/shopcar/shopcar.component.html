@@ -65,22 +65,30 @@
       </span>
     </mat-grid-tile>
     <mat-grid-tile colspan="1">
-      <img class="goodsimg" :src="{{item.pics}}">
+      <img class="goodsimg" :src="{{item.goods.gPictureurl}}">
     </mat-grid-tile>
     <mat-grid-tile colspan="3">
-      <span>{{item.name}}</span>
+      <span>{{item.goods.gName}}</span>
     </mat-grid-tile>
-    <mat-grid-tile colspan="1">{{item.price}}元</mat-grid-tile>
-    <mat-grid-tile colspan="1"></mat-grid-tile>
+    <mat-grid-tile colspan="1">{{item.goods.gPrice}}元</mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <button mat-button class="changeQuantity" (click)="reduce(i)">-</button>
+    </mat-grid-tile>
     <mat-grid-tile colspan="1">
       <mat-form-field class="count">
-        <input matInput type="number"   [(ngModel)]="goods[i].count" class="count-input" (ngModelChange)="changeTatalMoney()">
+
+        <input matInput type="number" readonly="readonly" [(ngModel)]="goods[i].sQuantity" min="1" max="{{goods[i].goods.gStock}}" class="count-input">
+
       </mat-form-field>
     </mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <button mat-button class="changeQuantity" (click)="increase(i)">+</button>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">{{item.sQuantity*item.goods.gPrice}}元</mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
-    <mat-grid-tile colspan="1">{{item.count*item.price}}元</mat-grid-tile>
-    <mat-grid-tile colspan="1"></mat-grid-tile>
-    <mat-grid-tile colspan="1"><a class="delete-btn">x</a></mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <a class="delete-btn" (click)="deleteGoodsFromShopcar(i)">x</a>
+    </mat-grid-tile>
   </mat-grid-list>
 </div>
 <div class="shoplistbar">
@@ -127,7 +135,7 @@
   </div>
   <div class="recommend">
     <ul class="row">
-      <li class="recommend-item"  *ngFor="let item of recommendGoods">
+      <li class="recommend-item" *ngFor="let item of recommendGoods">
         <dl>
           <dt>
             <a>
@@ -147,7 +155,7 @@
 
         </dl>
       </li>
-     
+
     </ul>
   </div>
 
