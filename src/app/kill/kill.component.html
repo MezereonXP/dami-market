@@ -78,20 +78,20 @@
           <mat-card class="killgoodbar" rowHeight="200px" style="margin-right: 10px; margin-bottom: 10px">
             <mat-grid-list cols="2" class="killgoodbar"   rowHeight="150px">
               <mat-grid-tile>
-                <img src="{{item.pic}}" style="height: 130px; width: 120px;"> 
+                <img src="{{item.goods.gPictureurl}}" style="height: 130px; width: 120px;"> 
               </mat-grid-tile>
               <mat-grid-tile>
                 <table style="height: 150px; width: 100%; margin-left: 10%">
                   <tr>
-                    <h5>{{item.kgName}}</h5>
+                    <h5>{{item.goods.gName}}</h5>
                   </tr>
                   <tr style="color: rgb(228, 48, 48); margin-left: 10%">{{item.kgPrice}}元</tr>
-                  <tr style="margin-left: 10%">还剩200件</tr>
+                  <tr style="margin-left: 10%">{{item.kgQuantity}}</tr>
                   <tr style="margin-left: 10%" *ngIf="isShowButton">
                     <button mat-button style="background-color: rgb(255, 87, 20)">{{ifkillGoodOver}}</button>
                   </tr>
                   <tr style="margin-left: 10%" *ngIf="!isShowButton">
-                    <button mat-button style="background-color: rgb(21, 218, 47)">设置提醒</button>
+                    <button mat-button style="background-color: rgb(21, 218, 47)" (click)="insertNote(item.goods.gName)">设置提醒</button>
                   </tr>
                 </table>
               </mat-grid-tile>

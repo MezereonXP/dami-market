@@ -68,4 +68,8 @@ export class DataService {
   getKillGoodInfo(){
     return this.http.get("http://localhost:8800/api/selectKillGoods");
   }
+
+  addKillGoodOrder(kgName){
+    return this.http.get('http://localhost:8800/api/addKillGoodOrder?kgName='+kgName);
+  }
 }

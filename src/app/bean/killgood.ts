@@ -1,11 +1,13 @@
+import { Goods } from "./goods";
+
 export  class killgood{
     kgId:number;
-    kgGood:object;
+    kgGood:Goods;
     kgQuantity:number;
     kgTime:number;
     kgPrice:number;
 
-    constructor(kgId:number,kgGood:object, kgQuantity:number, kgTime:number,kgPrice:number){
+    constructor(kgId:number,kgGood:Goods, kgQuantity:number, kgTime:number,kgPrice:number){
         this.kgId=kgId;
         this.kgGood=kgGood;
         this.kgQuantity=kgQuantity;
