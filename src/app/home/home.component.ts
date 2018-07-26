@@ -47,7 +47,6 @@ export class HomeComponent implements OnInit {
   advPics: Object[] = [["", ""], ["", ""], ["", ""], ["", ""], ["", ""]];
   goodsPics: Object[] = [["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""]];
 
-  gCatagory: "";
   showBeans: Array<ShowBean>;
 
   isShowElevation = [[true, true], [true, true], [true, true], [true, true], [true, true]];
@@ -111,6 +110,7 @@ export class HomeComponent implements OnInit {
    */
   showDetail(index) {
     this.isShowDetail = true;
+    this.showGoodsList$=new Array<Good>();
     for (let i = 0; i < this.goodsList$.length; i++) {
       if (this.goodsList$[i].gCatagory == this.items[index]) {
         this.showGoodsList$.push(this.goodsList$[i]);
