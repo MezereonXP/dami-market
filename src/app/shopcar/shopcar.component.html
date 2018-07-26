@@ -38,7 +38,7 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="2">
-      <span>商品名称</span>
+      <span>商品</span>
     </mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="1">单价</mat-grid-tile>
@@ -64,10 +64,10 @@
         </mat-checkbox>
       </span>
     </mat-grid-tile>
-    <mat-grid-tile colspan="1">
+    <mat-grid-tile colspan="2">
       <img class="goodsimg" :src="{{item.goods.gPictureurl}}">
     </mat-grid-tile>
-    <mat-grid-tile colspan="3">
+    <mat-grid-tile colspan="2">
       <span>{{item.goods.gName}}</span>
     </mat-grid-tile>
     <mat-grid-tile colspan="1">{{item.goods.gPrice}}元</mat-grid-tile>
@@ -116,7 +116,7 @@
     <mat-grid-tile colspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="1">
       <button mat-stroked-button>
-        <a href="order">去结算</a>
+        <a href="order" (click)="addNewOrder()">去结算</a>
       </button>
     </mat-grid-tile>
 

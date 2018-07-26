@@ -3,6 +3,10 @@ import { DataService } from '../data/data.service';
 
 import { forEach } from '@angular/router/src/utils/collection';
 import { Shopcar } from '../../app/bean/shopcar';
+import { Order } from '../bean/order';
+import { Customer } from '../bean/customer';
+import { Address } from '../bean/address';
+import { OrderGoods } from '../bean/ordergoods';
 @Component({
   selector: 'app-shopcar',
   templateUrl: './shopcar.component.html',
@@ -10,6 +14,9 @@ import { Shopcar } from '../../app/bean/shopcar';
 })
 export class ShopcarComponent implements OnInit {
 
+  orderType:number;
+  customer:Customer;
+  address:Address;
   goods: Array<Shopcar>;
   recommendGoods: Object;
   isSelectAll = false;
@@ -18,6 +25,8 @@ export class ShopcarComponent implements OnInit {
   count: number = 0;
   selectNum: number = 0;
   totalMoney: number = 0;
+  newOrder:Order;
+  newOrderGoodsList:Array<OrderGoods>;
   constructor(private data: DataService) { }
 
   ngOnInit() {
@@ -64,12 +73,24 @@ export class ShopcarComponent implements OnInit {
 
 
   deleteGoodsFromShopcar(i) {
-    this.goods[i].sStatus=0;
+    this.goods[i].sStatus = 0;
     console.log("刷新！");
     this.data.editQuantityOfGoods(this.goods[i]).subscribe();
     window.location.reload();
   }
 
+  addNewOrder() {
+
+    this.newOrder = new Order(null,null,this.customer,this.address,1,this.orderType,"2000-1-1","666",1);
+    for (let i = 0; i < this.count; i++) {
+      if (this.status[i]) {
+        let newOrderGoods = new OrderGoods(null,this.newOrder,this.goods[i].goods,this.goods[i].goods.gPrice,this.goods[i].sQuantity,1)
+        this.newOrderGoodsList.push(newOrderGoods);
+      }
+    }
+    
+
+  }
 
   editQuantityOfGoods(n) {
 
