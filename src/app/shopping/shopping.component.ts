@@ -5,6 +5,9 @@ import { Good } from '../bean/good';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Config } from '../bean/config';
 import { GoodImg } from '../bean/goodimg';
+import { Shopcar } from '../bean/shopcar';
+import { Customer } from '../bean/customer';
+
 
 @Component({
   selector: 'app-shopping',
@@ -13,8 +16,10 @@ import { GoodImg } from '../bean/goodimg';
 })
 export class ShoppingComponent implements OnInit {
 
-  goods: Good = new Good(0, "", "", 0, "", null);
+  goods: Good = new Good(0, "", 0, "", 0, "", 0, null);
   config: Array<Config> = new Array<Config>();
+  shopcar: Shopcar;
+  customer: Customer;
   goodimg: GoodImg = new GoodImg(0, 0, "");
   showPic = "http://www.hxbus.net/wiki/images/4/4e/%E6%9A%82%E6%97%A0%E5%9B%BE%E5%83%8F.jpg";
 
@@ -37,4 +42,14 @@ export class ShoppingComponent implements OnInit {
   changePic(index) {
     this.showPic = this.config[index].goodimg[0].gi_img;
   }
+  addGoodsToShopcar() {
+
+    this.customer = new Customer(1, null, null, null, null, null, null, null, null, null, null);
+    this.goods = new Good(4, null, null, null, null, null, null,null);
+    this.shopcar = new Shopcar(null, this.customer, this.goods, 1, 1);
+    this.data.addGoodsToShopcar(this.shopcar).subscribe();
+
+  }
+
+
 }

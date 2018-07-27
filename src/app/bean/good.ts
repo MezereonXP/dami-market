@@ -1,19 +1,32 @@
 import { Config } from "./config";
 
-export class Good{
-  id:number;
-  name:string;
-  pic: string;
-  price: number;
-  comment: string;
+export class Good {
+  gId: number;
+
+  gName: string;
+
+  gPrice: number;
+
+  gCatagory: string;
+
+  gStock: number;
+
+  gPictureurl: string;
+
+  gStatus: number;
+
   config:Array<Config>;
 
-  constructor(id:number,name:string, pic: string, price: number, comment: string,config: Array<Config>){
-    this.id = id;
-    this.name = name;
-    this.pic = pic;
-    this.price = price;
-    this.comment = comment;
-    this.config = config;
+
+  constructor(gId: number, gName: string, gPrice: number, gCatagory: string, gStock: number, gPictureurl: string, gStatus: number,config: Array<Config>) {
+      this.gId = gId;
+      this.gName = gName;
+      this.gPrice = gPrice;
+      this.gCatagory = gCatagory;
+      this.gStock = gStock;
+      this.gPictureurl = gPictureurl;
+      this.gStatus = gStatus;
+      this.config = config;
+
   }
-} 
+}

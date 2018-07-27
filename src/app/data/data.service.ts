@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../bean/user';
+import { Shopcar} from '../bean/shopcar';
 
 /**
  * 数据访问接口定义
@@ -55,6 +56,9 @@ export class DataService {
   }
   getShopGoodInfo(){
     return this.http.get("http://localhost:8080/api/getShopGoodInfo");
+  }
+  addGoodsToShopcar(shopcar: Shopcar) {
+    return this.http.post("http://localhost:8800/api/addGoodsToShopcar", shopcar);
   }
 
 }
