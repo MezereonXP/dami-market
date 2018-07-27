@@ -28,10 +28,6 @@ export class DataService {
     return this.http.post('http://localhost:8080/api/addUser', user);
   }
 
-  getGoodsList() {
-    return this.http.get('http://localhost:8800/api/getGoodsList');
-  }
-
   getGoodInfo(goodId) {
     const params = new HttpParams().set("goodId", goodId);
     return this.http.get("http://localhost:8080/api/getGoodInfo", {params});
@@ -51,9 +47,16 @@ export class DataService {
     const params = new HttpParams().set("type", type);
     return this.http.get("http://localhost:8080/api/getgoodsPic", {params});
   }
-
+  
+  getGoodsList() {
+    return this.http.get('http://localhost:8800/api/getGoodsList');
+  }
+  getgoodAdv() {
+    return this.http.get("http://localhost:8800/api/getgoodAdv");
+  }
+  
   getInfo() {
-    return this.http.get("http://localhost:8080/api/newApi");
+    return this.http.get("http://localhost:8800/api/newApi");
   }
 
 }
