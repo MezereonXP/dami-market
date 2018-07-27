@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../bean/user';
 import { Shopcar } from '../bean/shopcar';
+import { OrderGoods } from '../bean/ordergoods';
 
 /**
  * 数据访问接口定义
@@ -54,5 +55,8 @@ export class DataService {
   }
   addGoodsToShopcar(shopcar: Shopcar) {
     return this.http.post("http://localhost:8800/api/addGoodsToShopcar", shopcar);
+  }
+  addNewOrder(list:Array<OrderGoods>){
+    return this.http.post("http://localhost:8800/api/addNewOrder", list);
   }
 }

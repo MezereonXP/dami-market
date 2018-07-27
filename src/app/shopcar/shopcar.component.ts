@@ -7,6 +7,7 @@ import { Order } from '../bean/order';
 import { Customer } from '../bean/customer';
 import { Address } from '../bean/address';
 import { OrderGoods } from '../bean/ordergoods';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-shopcar',
   templateUrl: './shopcar.component.html',
@@ -27,7 +28,7 @@ export class ShopcarComponent implements OnInit {
   totalMoney: number = 0;
   newOrder:Order;
   newOrderGoodsList:Array<OrderGoods>;
-  constructor(private data: DataService) { }
+  constructor(private data: DataService,private router: Router) { }
 
   ngOnInit() {
     this.data.getShopCarGoods(1).subscribe(
@@ -79,7 +80,7 @@ export class ShopcarComponent implements OnInit {
     window.location.reload();
   }
 
-  addNewOrder() {
+  toSetNewOrder() {
 
     this.newOrder = new Order(null,null,this.customer,this.address,1,this.orderType,"2000-1-1","666",1);
     for (let i = 0; i < this.count; i++) {
@@ -88,7 +89,12 @@ export class ShopcarComponent implements OnInit {
         this.newOrderGoodsList.push(newOrderGoods);
       }
     }
-    
+    this.router.navigate(['order'], {
+      queryParams: {
+        newOrderGoodsList: this.newOrderGoodsList
+          
+      }
+  })
 
   }
 
