@@ -14,7 +14,7 @@ import { GoodImg } from '../bean/goodimg';
 export class ShoppingComponent implements OnInit {
 
   goods: Good = new Good(0, "", "", 0, "", null);
-  config: Config = new Config(0, 0, 0, 0, "", null);
+  config: Array<Config> = new Array<Config>();
   goodimg: GoodImg = new GoodImg(0, 0, "");
 
 
@@ -26,8 +26,7 @@ export class ShoppingComponent implements OnInit {
       result => this.goods = result["data"]
     );
     this.data.getShopGoodInfo().subscribe(
-
-      result => this.config = result["data"].config[0]
+      result => this.config = result["data"].config
     );
 
   }

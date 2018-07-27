@@ -21,7 +21,7 @@
 <mat-grid-list cols="6" rowHeight="2:7" class="divideList">
 
   <mat-grid-tile colspan="3" class="simple-tile">
-    <img :src="{{config.goodimg[0].gi_img}}" class="advpic">
+    <img :src="{{config[0].goodimg[0].gi_img}}" class="advpic">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" class="simple-tile">
@@ -38,11 +38,11 @@
       <mat-grid-tile rowspan="2">
 
         <mat-grid-list cols="2" rowHeight="7:4" class="advlist">
-          <mat-grid-tile>
-            <mat-grid-list cols="1" rowHeight="10:3" class="advlist">
-              <mat-grid-tile>
-                <button mat-button class="btn-info">
-                  <span>{{config.cfg_description}}</span>
+          <mat-grid-tile colspan="2">
+            <mat-grid-list cols="3" rowHeight="10:3" class="advlist">
+              <mat-grid-tile *ngFor="let item of config" >
+                <button mat-button class="btn-description">
+                  <span>{{item.cfg_description}}</span>
                 </button>
               </mat-grid-tile>
             </mat-grid-list>
