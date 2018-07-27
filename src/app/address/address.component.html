@@ -4,37 +4,36 @@
   <tr>
     <td>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="姓名">
+        <input matInput [(ngModel)]="newAddress.aReceiver" placeholder="姓名">
       </mat-form-field>
     </td>
     <td>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="电话">
+        <input matInput [(ngModel)]="newAddress.aTelephone"  placeholder="电话">
       </mat-form-field>
     </td>
   </tr>
 </table>
-
+<mat-form-field class="example-full-width">
+  <input matInput [(ngModel)]="newAddress.aDetail" placeholder="详细地址">
+</mat-form-field>
 <table class="example-full-width" cellspacing="0">
   <tr>
 
+
     <td>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="省市区街道">
+        <input matInput [(ngModel)]="newAddress.aZipcode" #postalCode maxlength="6" placeholder="邮编">
+
       </mat-form-field>
     </td>
     <td>
-      <mat-form-field class="example-full-width">
-        <input matInput #postalCode maxlength="6" placeholder="邮编">
-
-      </mat-form-field>
+      
     </td>
   </tr>
 </table>
 
-<mat-form-field class="example-full-width">
-  <input   matInput placeholder="详细地址">
-</mat-form-field>
+
 <div class="btn example-full-width">
-  <button mat-button>确认</button>
+  <button mat-button (click)="addAddress()">确认</button>
 </div>

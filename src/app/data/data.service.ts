@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../bean/user';
+import { Shopcar } from '../bean/shopcar';
+import { OrderGoods } from '../bean/ordergoods';
+import { Address } from '../bean/address';
 
 /**
  * 数据访问接口定义
@@ -24,7 +27,7 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/getAllUser")
   }
 
-  insertUser(user:User) {
+  insertUser(user: User) {
     return this.http.post('http://localhost:8080/api/addUser', user);
   }
 
@@ -34,11 +37,11 @@ export class DataService {
 
   getGoodInfo(goodId) {
     const params = new HttpParams().set("goodId", goodId);
-    return this.http.get("http://localhost:8080/api/getGoodInfo", {params});
+    return this.http.get("http://localhost:8080/api/getGoodInfo", { params });
   }
   getAddress(userId) {
     const params = new HttpParams().set("userId", userId);
-    return this.http.get("http://localhost:8080/api/getAddress", {params});
+    return this.http.get("http://localhost:8800/api/selectAllAddressByCustomerId", {params});
   }
   getOrderGoodsList(userId) {
     const params = new HttpParams().set("userId", userId);
@@ -50,4 +53,27 @@ export class DataService {
     return this.http.get("api/killGoods", {params});
   }
 
+  getShopCarGoods(customerId) {
+    const params = new HttpParams().set("customerId", customerId);
+    return this.http.get("http://localhost:8800/api/getShopCarGoods", { params });
+  }
+  getRecommendGoods(goodsId) {
+    const params = new HttpParams().set("goodsId", goodsId);
+    return this.http.get("http://localhost:8080/api/getRecommendGoods", { params });
+  }
+  editQuantityOfGoods(shopcar: Shopcar) {
+    return this.http.post("http://localhost:8800/api/editQuantityOfGoods", shopcar);
+  }
+  deleteGoodsFromShopcar(shopcar: Shopcar) {
+    return this.http.post("http://localhost:8800/api/deleteGoodsFromShopcar", shopcar);
+  }
+  addGoodsToShopcar(shopcar: Shopcar) {
+    return this.http.post("http://localhost:8800/api/addGoodsToShopcar", shopcar);
+  }
+  addNewOrder(list:Array<OrderGoods>){
+    return this.http.post("http://localhost:8800/api/addNewOrder", list);
+  }
+  addAddress(address:Address){
+    return this.http.post("http://localhost:8800/api/addAddress", address);
+  }
 }

@@ -38,18 +38,18 @@
       </mat-checkbox>
       <dl>
         <dt>
-          <em class="uname">{{item.name}}</em>
+          <em class="uname">{{item.aReceiver}}</em>
         </dt>
 
 
 
 
         <dd class="utel">
-          {{item.telephone}}
+          {{item.aTelephone}}
         </dd>
         <dd class="uaddress">
-          {{item.address}}
-          <br> {{item.detailAddress}}
+          {{item.aDetail}}
+        
         </dd>
 
       </dl>
@@ -72,7 +72,7 @@
     <div class="section-header">
       <h3>商品</h3>
       <div class="more">
-        <a href="shopcar">返回购物车
+        <a href="#shopcar">返回购物车
           <i class="iconfont">></i>
         </a>
 
@@ -82,19 +82,19 @@
       <ul class="goods-list">
         <li *ngFor="let item of orderGoodsList">
           <div class="col col-img">
-            <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!30x30.jpg">
+            <img src="{{item.goods.gPictureurl}}">
           </div>
           <div class="col col-name">
-            {{item.name}}
+            {{item.goods.gName}}
           </div>
           <div class="col col-price">
-            {{item.price}}元x{{item.quantity}}
+            {{item.goods.gPrice}}元x{{item.ogQuantity}}
           </div>
           <div class="col col-status">
             &nbsp;
           </div>
           <div class="col col-total">
-            {{item.price*item.quantity}}元
+            {{item.goods.gPrice*item.ogQuantity}}元
           </div>
         </li>
         
@@ -126,7 +126,7 @@
   </div>
   <div class="section section-bar">
     <div class="fr">
-      <a href="" class="btn btn-primary">去结算</a>
+      <a href="" class="btn btn-primary" (click)="addNewOrder()">去结算</a>
     </div>
   </div>
 </div>

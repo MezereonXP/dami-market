@@ -4,8 +4,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistComponent } from "./regist/regist.component";
 import { HomeComponent } from './home/home.component';
-import { ShopcarComponent } from './shopcar/shopcar.component'
-import { OrderComponent } from './order/order.component'
+
+import { ShopcarComponent } from './shopcar/shopcar.component';
+import { OrderComponent } from './order/order.component';
+import { ShoppingComponent } from "./shopping/shopping.component";
 import { InfomationComponent } from './infomation/infomation.component';
 import { KillComponent } from './kill/kill.component';
 
@@ -30,6 +32,10 @@ const routes: Routes = [
   {
     path:'order',
     component: OrderComponent
+  },
+  {
+    path:'shopping',
+    component: ShoppingComponent
   },
   {
     path: 'info/:id',

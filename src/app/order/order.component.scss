@@ -134,13 +134,9 @@ dt {
 }
 
 .address-item .modify {
-  display: none;
+  display: inline-block;
   margin-left: 10px;
   color: #ff6700;
-}
-
-.selected .modify {
-  display: inline-block;
 }
 
 .section-goods {
@@ -166,6 +162,7 @@ dt {
 .section-goods .goods-list li {
   padding: 10px 0;
   margin-bottom: 15px;
+  height: 40px;
 }
 
 .section-goods .goods-list .col-img {
@@ -173,10 +170,15 @@ dt {
   height: 30px;
   margin-left: 10px;
   margin-right: 10px;
+  img {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .section-goods .goods-list .col-name {
   width: 675px;
+  font-size: 20px;
 }
 
 .section-goods .goods-list .col {
@@ -210,7 +212,6 @@ dt {
 .section-count .money-box {
   right: 0;
   bottom: 10px;
-  
 }
 
 .section-count .money-box ul {
@@ -226,9 +227,11 @@ dt {
   zoom: 1;
   list-style: none;
 }
+
 .section-count .money-box label {
   text-align: left;
 }
+
 .section-count .money-box span {
   text-align: right;
 }

@@ -14,7 +14,7 @@
 
             <a href="">
               <span class="myOrder">
-                我的订单
+                我的订单>>
               </span>
             </a>
           </div>
@@ -31,14 +31,14 @@
 
     <mat-grid-tile colspan="1">
       <span>
-        <mat-checkbox color="primary" id="selectall">
+        <mat-checkbox color="primary" id="selectall" [(ngModel)]="isSelectAll" (click)="changeStatus()">
           全选
         </mat-checkbox>
       </span>
     </mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="2">
-      <span>商品名称</span>
+      <span>商品</span>
     </mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="1">单价</mat-grid-tile>
@@ -55,60 +55,41 @@
 
 
 </div>
-<div class="shoplist">
+<div class="shoplist" *ngFor="let item of goods; let i = index">
   <mat-grid-list cols="12" rowHeight="5:3" class="bar">
-
     <mat-grid-tile colspan="1">
       <span>
-        <mat-checkbox color="primary" id="checkgood">
+        <mat-checkbox color="primary" [(ngModel)]="status[i]" (click)="changeSelectAllStatus(i,item)">
 
         </mat-checkbox>
       </span>
     </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <img class="goodsimg" :src="{{item.goods.gPictureurl}}">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <span>{{item.goods.gName}}</span>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">{{item.goods.gPrice}}元</mat-grid-tile>
     <mat-grid-tile colspan="1">
-      <img class="goodsimg" src="http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg">
+      <button mat-button class="changeQuantity" (click)="reduce(i)">-</button>
     </mat-grid-tile>
-    <mat-grid-tile colspan="3">
-      <span>小白智能摄像机大众版-白色</span>
+    <mat-grid-tile colspan="1">
+      <mat-form-field class="count">
+
+        <input matInput type="number" readonly="readonly" [(ngModel)]="goods[i].sQuantity" min="1" max="{{goods[i].goods.gStock}}" class="count-input">
+
+      </mat-form-field>
     </mat-grid-tile>
-
-    <mat-grid-tile colspan="1">99元</mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <button mat-button class="changeQuantity" (click)="increase(i)">+</button>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">{{item.sQuantity*item.goods.gPrice}}元</mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
-
-    <mat-grid-tile colspan="1">2</mat-grid-tile>
-    <mat-grid-tile colspan="1"></mat-grid-tile>
-    <mat-grid-tile colspan="1">99元</mat-grid-tile>
-    <mat-grid-tile colspan="1"></mat-grid-tile>
-    <mat-grid-tile colspan="1">×</mat-grid-tile>
-
+    <mat-grid-tile colspan="1">
+      <a class="delete-btn" (click)="deleteGoodsFromShopcar(i)">x</a>
+    </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list cols="12" rowHeight="5:3" class="bar">
-
-    <mat-grid-tile colspan="1">
-      <span>
-        <mat-checkbox color="primary">
-
-        </mat-checkbox>
-      </span>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="1">
-      <img class="goodsimg" src="http://i1.mifile.cn/a1/pms_1508230324.1313855!80x80.jpg">
-    </mat-grid-tile>
-    <mat-grid-tile colspan="3">
-      <span>小白智能摄像机大众版-白色</span>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1">99元</mat-grid-tile>
-    <mat-grid-tile colspan="1"></mat-grid-tile>
-
-    <mat-grid-tile colspan="1">2</mat-grid-tile>
-    <mat-grid-tile colspan="1"></mat-grid-tile>
-    <mat-grid-tile colspan="1">99元</mat-grid-tile>
-    <mat-grid-tile colspan="1"></mat-grid-tile>
-    <mat-grid-tile colspan="1">×</mat-grid-tile>
-
-  </mat-grid-list>
-
 </div>
 <div class="shoplistbar">
   <mat-grid-list cols="12" rowHeight="5:3" class="bar">
@@ -122,7 +103,7 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="3">
       <span>
-        共1件商品，已选择1件商品
+        共{{count}}件商品，已选择{{selectNum}}件商品
       </span>
     </mat-grid-tile>
     <mat-grid-tile colspan="5">
@@ -130,11 +111,13 @@
     </mat-grid-tile>
 
 
-    <mat-grid-tile colspan="1">合计99元</mat-grid-tile>
+    <mat-grid-tile colspan="1">合计:{{totalMoney}}元</mat-grid-tile>
 
     <mat-grid-tile colspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="1">
-      <button mat-stroked-button>去结算</button>
+      <button mat-stroked-button>
+        <a  (click)="toSetNewOrder()">去结算</a>
+      </button>
     </mat-grid-tile>
 
   </mat-grid-list>
@@ -152,131 +135,29 @@
   </div>
   <div class="recommend">
     <ul class="row">
-      <li class="recommend-item">
+      <li class="recommend-item" *ngFor="let item of recommendGoods">
         <dl>
           <dt>
             <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
+              <img src="{{item.pics}}">
             </a>
           </dt>
           <dd>
-            <a> 小米手环3</a>
+            <a> {{item.name}}</a>
           </dd>
           <dd class="recommend-price">
-            169元
+            {{item.price}}元
           </dd>
           <dd class="recommend-tips">
-            1.6万人好评
+            {{item.tips}}万人好评
             <a class="recommend-addbtn">加入购物车</a>
           </dd>
 
         </dl>
       </li>
-      <li class="recommend-item">
-        <dl>
-          <dt>
-            <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
-            </a>
-          </dt>
-          <dd>
-            <a> 小米手环3</a>
-          </dd>
-          <dd class="recommend-price">
-            169元
-          </dd>
-          <dd class="recommend-tips">
-            1.6万人好评
-            <a class="recommend-addbtn">加入购物车</a>
-          </dd>
 
-        </dl>
-      </li>
-      <li class="recommend-item">
-        <dl>
-          <dt>
-            <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
-            </a>
-          </dt>
-          <dd>
-            <a> 小米手环3</a>
-          </dd>
-          <dd class="recommend-price">
-            169元
-          </dd>
-          <dd class="recommend-tips">
-            1.6万人好评
-            <a class="recommend-addbtn">加入购物车</a>
-          </dd>
-
-        </dl>
-      </li>
-      <li class="recommend-item">
-        <dl>
-          <dt>
-            <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
-            </a>
-          </dt>
-          <dd>
-            <a> 小米手环3</a>
-          </dd>
-          <dd class="recommend-price">
-            169元
-          </dd>
-          <dd class="recommend-tips">
-            1.6万人好评
-            <a class="recommend-addbtn">加入购物车</a>
-          </dd>
-
-        </dl>
-      </li>
-      <li class="recommend-item">
-        <dl>
-          <dt>
-            <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
-            </a>
-          </dt>
-          <dd>
-            <a> 小米手环3</a>
-          </dd>
-          <dd class="recommend-price">
-            169元
-          </dd>
-          <dd class="recommend-tips">
-            1.6万人好评
-            <a class="recommend-addbtn">加入购物车</a>
-          </dd>
-
-        </dl>
-      </li>
     </ul>
   </div>
-  <div class="recommend">
-    <ul class="row">
-      <li class="recommend-item">
-        <dl>
-          <dt>
-            <a>
-              <img src="https://i1.mifile.cn/a1/pms_1527754949.17141338!140x140.jpg">
-            </a>
-          </dt>
-          <dd>
-            <a> 小米手环3</a>
-          </dd>
-          <dd class="recommend-price">
-            169元
-          </dd>
-          <dd class="recommend-tips">
-            1.6万人好评
-            <a class="recommend-addbtn">加入购物车</a>
-          </dd>
 
-        </dl>
-      </li>
-    </ul>
-  </div>
 
 </div>
