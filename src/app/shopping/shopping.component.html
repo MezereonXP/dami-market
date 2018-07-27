@@ -21,7 +21,7 @@
 <mat-grid-list cols="6" rowHeight="2:7" class="divideList">
 
   <mat-grid-tile colspan="3" class="simple-tile">
-    <img :src="{{config[0].goodimg[0].gi_img}}" class="advpic">
+    <img :src="{{showPic}}" class="advpic">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" class="simple-tile">
@@ -40,8 +40,8 @@
         <mat-grid-list cols="2" rowHeight="7:4" class="advlist">
           <mat-grid-tile colspan="2">
             <mat-grid-list cols="3" rowHeight="10:3" class="advlist">
-              <mat-grid-tile *ngFor="let item of config" >
-                <button mat-button class="btn-description">
+              <mat-grid-tile *ngFor="let item of config; let i=index" >
+                <button mat-button class="btn-description" (click)="changePic(i)">
                   <span>{{item.cfg_description}}</span>
                 </button>
               </mat-grid-tile>
