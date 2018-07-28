@@ -82,5 +82,8 @@ export class DataService {
   modifyAddress(address:Address){
     return this.http.post("http://localhost:8800/api/modifyAddress", address);
   }
+  deleteAddress(address:Address){
+    return this.http.post("http://localhost:8800/api/deleteAddress", address);
+  }
 
 }
