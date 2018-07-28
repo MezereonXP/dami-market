@@ -11,12 +11,16 @@
       <mat-grid-tile colspan="7"></mat-grid-tile>
       <mat-grid-tile>
         <span class="login" *ngIf="isLogin">
-          <button mat-button class="btn-login">登录</button>
+          <a href="/#/login">
+            <button mat-button class="btn-login">登录</button>
+          </a>
         </span>
       </mat-grid-tile>
       <mat-grid-tile>
         <span class="regist" *ngIf="isLogin">
-          <button mat-button class="btn-regist">注册</button>
+          <a href="/#/regist">
+            <button mat-button class="btn-regist">注册</button>
+          </a>
         </span>
       </mat-grid-tile>
       <mat-grid-tile>

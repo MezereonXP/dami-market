@@ -40,18 +40,11 @@ export class HomeComponent implements OnInit {
   isShowDetail = false;
   goodsList$: Array<Good>;
   showGoodsList$: Array<Good>;
+
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
   killandteam = ["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532101915206&di=f6337f9599c69272fa6c668f9ead624a&imgtype=0&src=http%3A%2F%2Fimg.sccnn.com%2Fbimg%2F339%2F16545.jpg", "assets/team.png"]
 
-
-  advPics: Object[] = [["", ""], ["", ""], ["", ""], ["", ""], ["", ""]];
-  goodsPics: Object[] = [["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""], ["", "", "", "", "", "", "", ""]];
-
   showBeans: Array<ShowBean>;
-
-  isShowElevation = [[true, true], [true, true], [true, true], [true, true], [true, true]];
-  isShowElevation2 = [[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true],
-  [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]];
 
   isShowElevationNew: Array<Array<boolean>>;
   isShowElevationNew2: Array<Array<boolean>>;
@@ -63,6 +56,7 @@ export class HomeComponent implements OnInit {
    * @memberof HomeComponent
    */
   ngOnInit() {
+
     this.data.getGoodsList().subscribe(
       result => {
         this.goodsList$ = result["data"];
@@ -71,24 +65,24 @@ export class HomeComponent implements OnInit {
       }
     );
 
-    // this.data.getInfo().subscribe(
-    //   result => {
-    //     this.showBeans = result["data"];
-    //     this.isShowElevationNew = new Array();
-    //     this.isShowElevationNew2 = new Array();
-    //     for (let i = 0; i < this.showBeans.length; i++) {
-    //       const element = this.showBeans[i];
-    //       this.isShowElevationNew.push(new Array());
-    //       this.isShowElevationNew2.push(new Array());
-    //       for (let j = 0; j < element.goods.length; j++) {
-    //         this.isShowElevationNew2[i].push(true);
-    //       }
-    //       for (let j = 0; j < element.advPics.length; j++) {
-    //         this.isShowElevationNew[i].push(true);
-    //       }
-    //     }
-    //   }
-    // );
+    this.data.getInfo().subscribe(
+      result => {
+        this.showBeans = result["data"];
+        this.isShowElevationNew = new Array();
+        this.isShowElevationNew2 = new Array();
+        for (let i = 0; i < this.showBeans.length; i++) {
+          const element = this.showBeans[i];
+          this.isShowElevationNew.push(new Array());
+          this.isShowElevationNew2.push(new Array());
+          for (let j = 0; j < element.goods.length; j++) {
+            this.isShowElevationNew2[i].push(true);
+          }
+          for (let j = 0; j < element.advPic.length; j++) {
+            this.isShowElevationNew[i].push(true);
+          }
+        }
+      }
+    );
 
   }
 
@@ -110,7 +104,7 @@ export class HomeComponent implements OnInit {
    */
   showDetail(index) {
     this.isShowDetail = true;
-    this.showGoodsList$=new Array<Good>();
+    this.showGoodsList$ = new Array<Good>();
     for (let i = 0; i < this.goodsList$.length; i++) {
       if (this.goodsList$[i].gCatagory == this.items[index]) {
         this.showGoodsList$.push(this.goodsList$[i]);
@@ -147,12 +141,10 @@ export class HomeComponent implements OnInit {
     if (i == 0) {
       location.href = "/#/kill"
     } else if (i == 1) {
-      window.alert(2);
       location.href = "/#/team"
     }
 
   }
-
 
   /**
    * 
