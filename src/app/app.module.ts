@@ -20,6 +20,12 @@ import { TeamComponent } from './team/team.component';
 import { SelfcenterComponent } from './selfcenter/selfcenter.component';
 import { InfomationComponent } from './infomation/infomation.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { MessageComponent } from './message/message.component';
+import { FavoriteComponent } from './favorite/favorite.component';
+import { Regist2Component } from './regist2/regist2.component';
+import { CheckComponent } from './check/check.component';
+import { ResetComponent } from './reset/reset.component';
+import { ScaddressComponent } from './scaddress/scaddress.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,13 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     KillComponent,
     TeamComponent,
     SelfcenterComponent,
-    InfomationComponent
+    InfomationComponent,
+    MessageComponent,
+    FavoriteComponent,
+    Regist2Component,
+    CheckComponent,
+    ResetComponent,
+    ScaddressComponent
   ],
   imports: [
     BrowserModule,

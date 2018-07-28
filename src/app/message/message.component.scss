@@ -22,13 +22,12 @@ span{
 }
 .bbar {
     width: 100%;
-    height: 700px;
     margin-bottom: 30px;
 }
 .list {
     background-color: rgb(255, 255, 255);
     width: 100%;
-    height: 500px;
+    height: 300px;
 }
 .title1 {
     margin: 0 40px 2px;
@@ -48,53 +47,25 @@ a {
 }
 .top {
     float: left;
-    width: 700px;
-    height: 400px;
+    width: 800px;
 }
 .toprow{
-    font-size: 16px;
-    height: 200px;
-    width: 700px;
-    float: left;
+    font-size: 30px;
+    height: 150px;
 }
 .toprow1{
     font-size: 16px;
     height: 150px;
-    width: 780px;
-    float: left;
+    width: 800px;
     border-top: 1px solid #e0e0e0;
 }
 h1 {
     font-size: 30px;
-    color: #333;
+    color: #757575;
+    width: 800px;
+    padding-bottom: 20px;
 }
-h2 {
-    color: #333;
-}
-.avatar {
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 4px;
-    border: 1px solid #e0e0e0;
-    border-radius: 150px;
-}
-.avatar1 {
-    position: absolute;
-    left: 0;
-    top: 0;
-    border: 1px solid #e0e0e0;
-    border-radius: 150px;
-    width: 100px;
-    height: 100px;
-}
-img {
-    width: 150px;
-    height: 150px;
-}
-.usermessage {
-    width:200px;
-}
-.num {
-    color: #ff1e00;
+.size {
+    font-size: 16px;
+    color:rgb(0, 0, 0);
 }

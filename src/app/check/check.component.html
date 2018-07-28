@@ -1,0 +1,36 @@
+<mat-toolbar class="body" color="primary">
+    <mat-toolbar-row>
+      <mat-grid-list cols="6" rowHeight="4:1" class="bar">
+        <mat-grid-tile colspan="1"></mat-grid-tile>
+        <mat-grid-tile colspan="4" class="main"> 
+          <mat-grid-list cols="1" rowHeight="100px" class="title">
+            <mat-grid-tile rowspan="1" class="toprow">
+              <h1>重置密码验证</h1>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="1" class="toprow">
+              <div>
+                <p>请输入注册的手机号码，进行验证</p>
+                <label class="labelbox">
+                  <input class="item_account" type="tel" placeholder="请输入您的手机号">
+                </label>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="1" class="toprow">
+              <div>
+                <label class="labelbox">
+                  <input class="item_account1" type="msg" placeholder="请输入短信验证码">
+                </label>
+                <div class="btn1">
+                  <input class="btn331 btn_reg_1" type="submit" value="获取验证短信">
+                </div>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="1" class="toprow">
+                <a class="btnadpt" href="/#/reset">下一步</a>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-grid-tile>
+        <mat-grid-tile cplspan="1"></mat-grid-tile>
+      </mat-grid-list>
+    </mat-toolbar-row>
+  </mat-toolbar>
