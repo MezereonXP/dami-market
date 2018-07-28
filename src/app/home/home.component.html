@@ -91,7 +91,7 @@
   <mat-grid-list cols="5" rowHeight="1:2" class="divideList">
 
     <mat-grid-tile colspan="1" class="simple-tile">
-      <mat-grid-list cols="1" rowHeight="{{item.isOneAdvPic?&#34;2&#58;5&#34;:&#34;4&#58;5&#34;}}" class="advlist">
+      <mat-grid-list cols="1" rowHeight="{{item.typeName=='手机' ?&#34;2&#58;5&#34;:&#34;4&#58;5&#34;}}" class="advlist">
         <mat-grid-tile *ngFor="let pic of item.advPic; let j = index" display:block (mouseover)="setElevation(i,j,1)" (mouseleave)="setElevation(i,j,0)"
           [ngStyle]="{'top': isShowUp(!isShowElevationNew[i][j])}">
           <img :src="{{pic}}" class="advimg" [ngClass]="{'mat-elevation-z2': isShowElevationNew[i][j],'mat-elevation-z8': !isShowElevationNew[i][j]}">
