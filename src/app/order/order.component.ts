@@ -76,7 +76,7 @@ export class OrderComponent implements OnInit {
     this.address = this.addressList[i];
   }
   openDialog() {
-    this.dialog.open(AddressComponent, {
+    const dialogRef = this.dialog.open(AddressComponent, {
       height: '350px',
       width: '500px',
       data: {
@@ -84,6 +84,10 @@ export class OrderComponent implements OnInit {
         isAdd: true,
         isModify: false
       }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      window.location.reload();
     });
   }
   modifyAddress(i) {
