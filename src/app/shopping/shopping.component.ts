@@ -7,6 +7,7 @@ import { Config } from '../bean/config';
 import { GoodImg } from '../bean/goodimg';
 import { Shopcar } from '../bean/shopcar';
 import { Customer } from '../bean/customer';
+import {Favorite} from '../bean/favorite';
 
 
 @Component({
@@ -18,11 +19,11 @@ export class ShoppingComponent implements OnInit {
 
   goods: Good = new Good(0, "", 0, "", 0, "", 0, null);
   config: Array<Config> = new Array<Config>();
-  shopcar: Shopcar;
-  customer: Customer;
   goodimg: GoodImg = new GoodImg(0, 0, "");
   showPic = "http://www.hxbus.net/wiki/images/4/4e/%E6%9A%82%E6%97%A0%E5%9B%BE%E5%83%8F.jpg";
-
+  shopcar: Shopcar;
+  favorite:Favorite;
+  customer: Customer;
 
   constructor(private data: DataService, private route: ActivatedRoute) { }
 
@@ -50,6 +51,11 @@ export class ShoppingComponent implements OnInit {
     this.data.addGoodsToShopcar(this.shopcar).subscribe();
 
   }
-
+  addGoodsToFavorite(){
+    this.customer = new Customer(1, null, null, null, null, null, null, null, null, null, null);
+    this.goods = new Good(4, null, null, null, null, null, null,null);
+    this.favorite = new Favorite(0, this.customer, this.goods,1);
+    this.data.addGoodsToFavorite(this.favorite).subscribe();
+  }
 
 }

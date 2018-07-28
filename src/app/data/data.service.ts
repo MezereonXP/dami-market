@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../bean/user';
 import { Shopcar} from '../bean/shopcar';
+import {Favorite} from '../bean/favorite';
 
 /**
  * 数据访问接口定义
@@ -60,5 +61,7 @@ export class DataService {
   addGoodsToShopcar(shopcar: Shopcar) {
     return this.http.post("http://localhost:8800/api/addGoodsToShopcar", shopcar);
   }
-
+  addGoodsToFavorite(favorite: Favorite) {
+    return this.http.post("http://localhost:8800/api/addGoodsToFavorite", favorite);
+  }
 }
