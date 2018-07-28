@@ -43,6 +43,7 @@ export class ShoppingComponent implements OnInit {
   changePic(index) {
     this.showPic = this.config[index].goodimg[0].gi_img;
   }
+  
   addGoodsToShopcar() {
 
     this.customer = new Customer(1, null, null, null, null, null, null, null, null, null, null);

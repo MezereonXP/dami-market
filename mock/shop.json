@@ -45,7 +45,7 @@
         "id": 3,
         "cfg_goods_id": 1,
         "cfg_type": 2,
-        "cfg_pricedata": 0,
+        "cfg_pricedata": 200,
         "cfg_description": "4GB",
         "goodimg": [{
           "id": 3,
