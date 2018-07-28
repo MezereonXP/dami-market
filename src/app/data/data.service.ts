@@ -45,9 +45,12 @@ export class DataService {
   }
   getOrderGoodsList(userId) {
     const params = new HttpParams().set("userId", userId);
-    return this.http.get("http://localhost:8080/api/getOrderGoodsList", {params});
+    return this.http.get("http://localhost:8800/api/selectAllOrderGoods", {params});
   }
-
+  getAllOrder(userId) {
+    const params = new HttpParams().set("userId", userId);
+    return this.http.get("http://localhost:8800/api/selectAllOrder", {params});
+  }
   killGoods(name) {
     const params = new HttpParams().set("id", name);
     return this.http.get("api/killGoods", {params});
@@ -76,4 +79,8 @@ export class DataService {
   addAddress(address:Address){
     return this.http.post("http://localhost:8800/api/addAddress", address);
   }
+  modifyAddress(address:Address){
+    return this.http.post("http://localhost:8800/api/modifyAddress", address);
+  }
+
 }

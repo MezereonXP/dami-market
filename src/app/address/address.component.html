@@ -35,5 +35,6 @@
 
 
 <div class="btn example-full-width">
-  <button mat-button (click)="addAddress()">确认</button>
+  <button mat-button *ngIf="isAdd" (click)="addAddress()">确认</button>
+  <button mat-button *ngIf="isModify" (click)="modifyAddress()">修改</button>
 </div>

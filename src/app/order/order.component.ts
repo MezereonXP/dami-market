@@ -40,11 +40,11 @@ export class OrderComponent implements OnInit {
 
       queryParams => {
         let info = JSON.parse(queryParams.orderGoodsList);
-        
-       
+
+
         this.orderGoodsList = JSON.parse(queryParams.orderGoodsList);
 
-        
+
       }
 
     );
@@ -70,7 +70,7 @@ export class OrderComponent implements OnInit {
     for (let n = 0; n < this.status.length; n++) {
       if (n != i) {
         this.status[n] = false;
-        
+
       }
     }
     this.address = this.addressList[i];
@@ -79,12 +79,30 @@ export class OrderComponent implements OnInit {
     this.dialog.open(AddressComponent, {
       height: '350px',
       width: '500px',
-      data:{newAddress:new Address(null,new Customer(1,null,null,null,null,null,null,null,null,null,null),null,null,null,null,1)}
+      data: {
+        newAddress: new Address(null, new Customer(1, null, null, null, null, null, null, null, null, null, null), null, null, null, null, 1),
+        isAdd: true,
+        isModify: false
+      }
     });
   }
-  
+  modifyAddress(i) {
+    this.dialog.open(AddressComponent, {
+      height: '350px',
+      width: '500px',
+      data: {
+        newAddress: this.addressList[i],
+        isAdd: false,
+        isModify: true
+      }
+    });
+
+  }
+
 
 }
 export interface DialogData {
-  newAddress:Address;
+  newAddress: Address;
+  isAdd: boolean;
+  isModify: boolean;
 }
