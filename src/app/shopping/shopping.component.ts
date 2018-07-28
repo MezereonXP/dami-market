@@ -24,6 +24,6 @@ export class ShoppingComponent implements OnInit {
     this.goods = new  Goods(4,null,null,null,null,null,null);
     this.shopcar = new Shopcar(null,this.customer,this.goods,5,1);
     this.data.addGoodsToShopcar(this.shopcar).subscribe();
-    console.log("刷新");
+    
   }
 }

@@ -46,9 +46,10 @@ a:hover {
 
 .section .section-body {
   float: left;
-  margin-left: -18px;
+  margin-left: 0px;
   margin-top: 10px;
   border-bottom: 1px solid #e0e0e0;
+  
 }
 
 .address-item {
@@ -156,7 +157,8 @@ dt {
 }
 
 .section-goods .goods-list {
-  padding: 10px 0;
+  padding: 0px 0;
+  width: 1150px;
 }
 
 .section-goods .goods-list li {
@@ -177,7 +179,7 @@ dt {
 }
 
 .section-goods .goods-list .col-name {
-  width: 675px;
+  width: 655px;
   font-size: 20px;
 }
 

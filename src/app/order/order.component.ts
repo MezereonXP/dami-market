@@ -62,6 +62,7 @@ export class OrderComponent implements OnInit {
       this.orderGoodsList[i].order.address = this.address;
     }
     console.log(this.orderGoodsList);
+    this.data.addNewOrder(this.orderGoodsList).subscribe();
   }
 
   selectAddress(i) {
