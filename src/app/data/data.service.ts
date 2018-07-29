@@ -64,4 +64,9 @@ export class DataService {
   addGoodsToFavorite(favorite: Favorite) {
     return this.http.post("http://localhost:8800/api/addGoodsToFavorite", favorite);
   }
+  killGoods(name) {
+    const params = new HttpParams().set("id", name);
+    return this.http.get("api/killGoods", {params});
+  }
+
 }

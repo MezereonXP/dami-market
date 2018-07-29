@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { timer } from '../../../node_modules/rxjs';
+import { DataService } from '../data/data.service';
 
 @Component({
   selector: 'app-kill',
@@ -16,7 +17,11 @@ export class KillComponent implements OnInit {
   thirdTime: string;
   fourthTime: string;
   fifthTime: string;
-  constructor() { }
+
+  killId: string = "name";
+  isCanKill = false;
+
+  constructor(private data: DataService) { }
 
   ngOnInit() {
     this.currentTime = new Date();
@@ -49,6 +54,12 @@ export class KillComponent implements OnInit {
       this.timeTipe[position] = "距离开始还剩" + (hour - temp) + ":" + minute + ":" + second;
     }
 
+    if(second<=10) {
+      this.isCanKill = true;
+    } else {
+      this.isCanKill = false;
+    }
+
     setTimeout(() => {
       this.getTime();
     }, 500);
@@ -61,6 +72,12 @@ export class KillComponent implements OnInit {
 
   showKillGood(index) {
 
+  }
+
+  kill(){
+    this.data.killGoods(this.killId).subscribe(
+      result => window.alert(result["msg"])
+    );
   }
 
 }
