@@ -32,7 +32,7 @@
         <span class="price">{{goods.price}}元</span>
       </mat-grid-tile>
 
-      <mat-grid-tile rowspan="1" class="cspan">
+      <mat-grid-tile rowspan="1" class="cspan" *ngIf="map.get(1)!=null">
         <span class="span">选择颜色</span>
       </mat-grid-tile>
 
