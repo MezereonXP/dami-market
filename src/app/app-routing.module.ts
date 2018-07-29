@@ -8,6 +8,7 @@ import { InfomationComponent } from './infomation/infomation.component';
 import { KillComponent } from './kill/kill.component';
 import { ShoppingComponent } from './shopping/shopping.component';  
 import { ShopcarComponent } from './shopcar/shopcar.component';  
+import { TeamComponent } from './team/team.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'regist',
+    component: RegistComponent
+  },
+  {
     path: 'home',
     component: HomeComponent
   },
@@ -30,6 +35,10 @@ const routes: Routes = [
   {
     path: 'kill',
     component: KillComponent
+  },
+  {
+    path: 'team',
+    component: TeamComponent
   },
   {
     path: 'shopping/:id',
