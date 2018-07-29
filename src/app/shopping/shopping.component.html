@@ -32,50 +32,46 @@
         <span class="price">{{goods.price}}元</span>
       </mat-grid-tile>
 
-      <mat-grid-tile rowspan="1" class="cspan" *ngIf="map.get(1)!=null">
-        <span class="span">选择颜色</span>
-      </mat-grid-tile>
+      <div *ngIf="map.get(1)!=null">
+        <mat-grid-tile rowspan="1" class="cspan">
+          <span class="span">选择颜色</span>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan="2" class="mat-elevation-z2">
+          <mat-grid-list cols="2" rowHeight="7:4" class="advlist">
+            <mat-grid-tile colspan="2">
+              <mat-grid-list cols="2" rowHeight="4:1" class="advlist">
+                <mat-grid-tile *ngFor="let item of map.get(1); let i=index">
+                  <button mat-button class="btn-description" (click)="changePic(i)">
+                    <span clss="desspan">{{item.cfg_description}}</span>
+                    <span clss="pricespan">{{goods.price - (-item.cfg_pricedata)}}元</span>
+                  </button>
+                </mat-grid-tile>
+              </mat-grid-list>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-grid-tile>
+      </div>
 
-      <mat-grid-tile rowspan="2" class="mat-elevation-z2">
+      <div *ngIf="map.get(2)!=null">
+        <mat-grid-tile rowspan="1" class="cspan">
+          <span class="span">选择版本</span>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan="2" class="mat-elevation-z2">
+          <mat-grid-list cols="2" rowHeight="7:4" class="advlist">
+            <mat-grid-tile colspan="2">
+              <mat-grid-list cols="2" rowHeight="4:1" class="advlist">
+                <mat-grid-tile *ngFor="let item of map.get(2); let i=index">
+                  <button mat-button class="btn-description" (click)="changePic(i)">
+                    <span>{{item.cfg_description}}</span>
+                    <span clss="pricespan">{{goods.price - (-item.cfg_pricedata)}}元</span>
+                  </button>
+                </mat-grid-tile>
+              </mat-grid-list>
+            </mat-grid-tile>
+          </mat-grid-list>
 
-        <mat-grid-list cols="2" rowHeight="7:4" class="advlist">
-          <mat-grid-tile colspan="2">
-            <mat-grid-list cols="2" rowHeight="4:1" class="advlist">
-              <mat-grid-tile *ngFor="let item of map.get(1); let i=index">
-
-                <button mat-button class="btn-description" (click)="changePic(i)">
-                  <span clss="desspan">{{item.cfg_description}}</span>
-                  <span clss="pricespan">{{goods.price - (-item.cfg_pricedata)}}元</span>
-                </button>
-
-              </mat-grid-tile>
-            </mat-grid-list>
-          </mat-grid-tile>
-        </mat-grid-list>
-
-      </mat-grid-tile>
-
-
-      <mat-grid-tile rowspan="1" class="cspan">
-        <span class="span">选择版本</span>
-      </mat-grid-tile>
-
-      <mat-grid-tile rowspan="2" class="mat-elevation-z2">
-
-        <mat-grid-list cols="2" rowHeight="7:4" class="advlist">
-          <mat-grid-tile colspan="2">
-            <mat-grid-list cols="2" rowHeight="4:1" class="advlist">
-              <mat-grid-tile *ngFor="let item of map.get(2); let i=index">
-                <button mat-button class="btn-description" (click)="changePic(i)">
-                  <span>{{item.cfg_description}}</span>
-                </button>
-              </mat-grid-tile>
-            </mat-grid-list>
-          </mat-grid-tile>
-        </mat-grid-list>
-
-      </mat-grid-tile>
-
+        </mat-grid-tile>
+      </div>
 
       <mat-grid-tile rowspan="1" class="button">
         <span class="insert">
