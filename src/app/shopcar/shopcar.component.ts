@@ -17,7 +17,7 @@ export class ShopcarComponent implements OnInit {
 
 
   customer: Customer;
-
+  shopcar:Shopcar;
   goods: Array<Shopcar>;
   recommendGoods: Object;
   isSelectAll = false;
@@ -73,7 +73,13 @@ export class ShopcarComponent implements OnInit {
 
   }
 
-
+  addGoodsToShopcar(n){
+    
+    
+    this.shopcar = new Shopcar(null,this.customer,this.recommendGoods[n],1,1);
+    this.data.addGoodsToShopcar(this.shopcar).subscribe();
+    
+  }
   deleteGoodsFromShopcar(i) {
     this.goods[i].sStatus = 0;
     console.log("刷新！");

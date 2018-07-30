@@ -129,17 +129,17 @@
   <div class="recommend-title-div">
     <h1 class="recommend-title">
       <span>
-        买购物车中商品的人还购买了
+        买购物车中商品的人同时购买了
       </span>
     </h1>
   </div>
   <div class="recommend">
     <ul class="row">
-      <li class="recommend-item" *ngFor="let item of recommendGoods">
+      <li class="recommend-item" *ngFor="let item of recommendGoods;let n=index">
         <dl>
           <dt>
             <a>
-              <img src="{{item.gPictureurl}}">
+              <img src="{{item.gPictureurl}}" class="item-pic">
             </a>
           </dt>
           <dd>
@@ -150,7 +150,7 @@
           </dd>
           <dd class="recommend-tips">
             
-            <a class="recommend-addbtn">加入购物车</a>
+            <a class="recommend-addbtn" (click)="addGoodsToShopcar()">加入购物车</a>
           </dd>
 
         </dl>
