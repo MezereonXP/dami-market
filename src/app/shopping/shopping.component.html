@@ -42,8 +42,8 @@
               <mat-grid-list cols="2" rowHeight="4:1" class="advlist">
                 <mat-grid-tile *ngFor="let item of map.get(1); let i=index">
                   <button mat-button class="btn-description" (click)="changePic(i)">
-                    <span clss="desspan">{{item.cfg_description}}</span>
-                    <span clss="pricespan">{{shopping.goods.gPrice - (-item.cfg_pricedata)}}元</span>
+                    <span clss="desspan">{{item.cfgDescription}}</span>
+                    <span clss="pricespan">{{shopping.goods.gPrice - (-item.cfgPricedata)}}元</span>
                   </button>
                 </mat-grid-tile>
               </mat-grid-list>
@@ -61,9 +61,9 @@
             <mat-grid-tile colspan="2">
               <mat-grid-list cols="2" rowHeight="4:1" class="advlist">
                 <mat-grid-tile *ngFor="let item of map.get(2); let i=index">
-                  <button mat-button class="btn-description" (click)="changePic(i)">
-                    <span>{{item.cfg_description}}</span>
-                    <span clss="pricespan">{{shopping.goods.gPrice - (-item.cfg_pricedata)}}元</span>
+                  <button mat-button class="btn-description">
+                    <span>{{item.cfgDescription}}</span>
+                    <span clss="pricespan">{{shopping.goods.gPrice - (-item.cfgPricedata)}}元</span>
                   </button>
                 </mat-grid-tile>
               </mat-grid-list>

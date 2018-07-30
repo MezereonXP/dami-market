@@ -18,7 +18,7 @@ import { getOrSetAsInMap } from '@angular/animations/browser/src/render/shared';
 })
 export class ShoppingComponent implements OnInit {
 
-  shopping: Shopping;
+  shopping: Shopping = new Shopping(new Good(1, 'waiting', 1, 'waiting', 1, 'waiting', 1), null, null);
   // goods: Good = new Good(0, "", 0, "", 0, "", 0,null);
   // config: Array<Config> = new Array<Config>();
   // goodimg: Array<GoodImg>;
@@ -32,43 +32,44 @@ export class ShoppingComponent implements OnInit {
 
   ngOnInit() {
     // this.shopping.goods.gId = +this.route.snapshot.paramMap.get("id");
-
-    this.data.getShopGoodInfo("1").subscribe(
+    window.scrollTo(0, 0)
+    let id = this.route.snapshot.paramMap.get("id");
+    this.data.getShopGoodInfo(id).subscribe(
       result => {
         this.shopping = result["data"];
         // this.config = result["data"].config;
-         this.showPic = this.shopping.config[0].goodimg[0].gi_img;
+        this.showPic = this.shopping.goodimg[0][0].giImg;
         this.setMap();
       }
     );
   }
 
   changePic(index) {
-    this.showPic = this.shopping.config[index].goodimg[0].gi_img;
+    this.showPic = this.shopping.goodimg[index][0].giImg;
   }
 
   addGoodsToShopcar() {
 
     this.customer = new Customer(1, null, null, null, null, null, null, null, null, null, null);
-    this.shopping.goods = new Good(4, null, null, null, null, null, null,null);
+    this.shopping.goods = new Good(4, null, null, null, null, null, null);
     this.shopcar = new Shopcar(null, this.customer, this.shopping.goods, 1, 1);
     this.data.addGoodsToShopcar(this.shopcar).subscribe();
 
   }
   addGoodsToFavorite() {
     this.customer = new Customer(1, null, null, null, null, null, null, null, null, null, null);
-    this.shopping.goods = new Good(4, null, null, null, null, null, null,null);
+    this.shopping.goods = new Good(4, null, null, null, null, null, null);
     this.favorite = new Favorite(0, this.customer, this.shopping.goods, 1);
     this.data.addGoodsToFavorite(this.favorite).subscribe();
   }
 
   setMap() {
     this.shopping.config.forEach(element => {
-      if (this.map.get(element.cfg_type) != null) {
-        this.map.get(element.cfg_type).push(element);
+      if (this.map.get(element.cfgType) != null) {
+        this.map.get(element.cfgType).push(element);
       } else {
-        this.map.set(element.cfg_type, new Array<Config>());
-        this.map.get(element.cfg_type).push(element);
+        this.map.set(element.cfgType, new Array<Config>());
+        this.map.get(element.cfgType).push(element);
       }
     });
   }
