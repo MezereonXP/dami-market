@@ -72,7 +72,7 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="1">{{item.goods.gPrice}}元</mat-grid-tile>
     <mat-grid-tile colspan="1">
-      <button mat-button class="changeQuantity" (click)="reduce(i)">-</button>
+      <button mat-raised-button class="changeQuantity" matTooltip="最小为1" (click)="reduce(i)">-</button>
     </mat-grid-tile>
     <mat-grid-tile colspan="1">
       <mat-form-field class="count">
@@ -82,7 +82,7 @@
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile colspan="1">
-      <button mat-button class="changeQuantity" (click)="increase(i)">+</button>
+      <button mat-raised-button class="changeQuantity" matTooltip="最大为库存量{{goods[i].goods.gStock}}" (click)="increase(i)">+</button>
     </mat-grid-tile>
     <mat-grid-tile colspan="1">{{item.sQuantity*item.goods.gPrice}}元</mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
@@ -139,17 +139,17 @@
         <dl>
           <dt>
             <a>
-              <img src="{{item.pics}}">
+              <img src="{{item.gPictureurl}}">
             </a>
           </dt>
           <dd>
-            <a> {{item.name}}</a>
+            <a> {{item.gName}}</a>
           </dd>
           <dd class="recommend-price">
-            {{item.price}}元
+            {{item.gPrice}}元
           </dd>
           <dd class="recommend-tips">
-            {{item.tips}}万人好评
+            
             <a class="recommend-addbtn">加入购物车</a>
           </dd>
 

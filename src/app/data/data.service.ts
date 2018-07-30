@@ -60,9 +60,9 @@ export class DataService {
     const params = new HttpParams().set("customerId", customerId);
     return this.http.get("http://localhost:8800/api/getShopCarGoods", { params });
   }
-  getRecommendGoods(goodsId) {
-    const params = new HttpParams().set("goodsId", goodsId);
-    return this.http.get("http://localhost:8080/api/getRecommendGoods", { params });
+  getRecommendGoods(customerId) {
+    const params = new HttpParams().set("customerId", customerId);
+    return this.http.get("http://localhost:8800/api/getRecommendGoods", { params });
   }
   editQuantityOfGoods(shopcar: Shopcar) {
     return this.http.post("http://localhost:8800/api/editQuantityOfGoods", shopcar);
