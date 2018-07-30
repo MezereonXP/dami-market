@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../bean/user';
+import { Customer } from '../bean/customer';
+import { Favorite } from '../bean/favorite';
 
 /**
  * 数据访问接口定义
@@ -46,5 +48,22 @@ export class DataService {
     const params = new HttpParams().set("id", name);
     return this.http.get("api/killGoods", {params});
   }
+  register(customer:Customer) {
+    return this.http.post('http://localhost:8800/api/regist', customer);
+  }
+  reseter(customer:Customer) {
+    return this.http.post('http://localhost:8800/api/reset', customer);
+  }
 
+  getCustomerById(id) {
+    const params = new HttpParams().set("customerId", id);
+    return this.http.get('http://localhost:8800/api/selectCustomerById' ,{params});
+  }
+  selectFavoriteByCustomerId(customerId){
+    const params = new HttpParams().set("customerId", customerId);
+    return this.http.get('http://localhost:8800/api/selectFavoriteByCustomerId' ,{params});
+  }
+  deleteFavorite (favorite:Favorite){
+    return this.http.post('http://localhost:8800/api/delete', favorite);
+  }
 }

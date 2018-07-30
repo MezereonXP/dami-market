@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data/data.service';
+import { Customer } from '../bean/customer';
 
 @Component({
   selector: 'app-selfcenter',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelfcenterComponent implements OnInit {
 
-  constructor() { }
+  newCustomer:Customer
+  constructor(private data:DataService) { }
 
   ngOnInit() {
+    this.data.getCustomerById(1).subscribe(
+      result => {
+
+        console.log(result["data"]);
+        this.newCustomer=result["data"];
+        
+      }
+    )
   }
 
 }

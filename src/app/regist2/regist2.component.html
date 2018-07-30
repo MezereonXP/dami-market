@@ -12,7 +12,7 @@
               <p></p>
               <div>
               <label class="labelbox c_b" for>
-                <input class="item_account" type="password" placeholder="请设置您的密码">
+                <input class="item_account" type="password" matInput [(ngModel)]="newCustomer.cPassword" placeholder="请设置您的密码">
               </label>
               </div>
               <div>
@@ -25,7 +25,7 @@
           <mat-grid-tile rowspan="1" class="toprow">
             <div>
               <span>密码长度6~16位，数字、字母、字符至少包含两种</span>
-              <a class="btnadpt" href="/#/login">立即注册</a>
+              <a class="btnadpt" (click)="registnow()" href="/#/login">立即注册</a>
             </div>
           </mat-grid-tile>
           <mat-grid-tile rowspan="1" class="toprow"></mat-grid-tile>

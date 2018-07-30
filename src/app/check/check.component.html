@@ -11,7 +11,7 @@
               <div>
                 <p>请输入注册的手机号码，进行验证</p>
                 <label class="labelbox">
-                  <input class="item_account" type="tel" placeholder="请输入您的手机号">
+                  <input class="item_account" matInput [(ngModel)]="customer.cTelephone" placeholder="请输入您的手机号">
                 </label>
               </div>
             </mat-grid-tile>
@@ -26,7 +26,7 @@
               </div>
             </mat-grid-tile>
             <mat-grid-tile rowspan="1" class="toprow">
-                <a class="btnadpt" href="/#/reset">下一步</a>
+                <a class="btnadpt" (click)="changePW()">下一步</a>
             </mat-grid-tile>
           </mat-grid-list>
         </mat-grid-tile>

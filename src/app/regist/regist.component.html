@@ -36,7 +36,7 @@
           <div class="inputbg">
             <!-- <input type="hidden" class="select-regions-input"> -->
             <label class="labelbox err_label">
-              <input type="tel" name="phone" placeholder="请输入手机号码">
+              <input matInput [(ngModel)]="newCustomer.cTelephone" placeholder="请输入手机号码">
             </label>
           </div>
           <!-- <input type="hidden" class="select-regions-input"> -->
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div>
-          <a class="btn332 btn_reg_1" href="/#/regist2">立即注册</a>
+          <a class="btn332 btn_reg_1" (click)="registtele()">立即注册</a>
           <!-- <imp style="display: none" src="" -->
         </div>
       </div>

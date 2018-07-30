@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from '../bean/customer';
+import { ActivatedRoute } from '../../../node_modules/@angular/router';
+import { DataService } from '../data/data.service';
 
 @Component({
   selector: 'app-reset',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetComponent implements OnInit {
 
-  constructor() { }
+  customer:Customer
+  constructor(private activatedRoute:ActivatedRoute,private data:DataService) { }
 
   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe(
+      queryParams => {
+        this.customer=JSON.parse(queryParams.customer)
+      }
+    )
   }
 
+  changenow(){
+    console.log(this.customer);
+    this.data.reseter(this.customer).subscribe();
+    
+  }
 }
