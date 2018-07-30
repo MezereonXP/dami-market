@@ -52,11 +52,7 @@ export class HomeComponent implements OnInit {
         console.log(this.goodsList$["1"][0].name);
       }
     );
-    for (let type = 1; type <= this.advPics.length; type++) {
-      this.data.getTopGoodsAdv(type).subscribe(
-        result => this.advPics[type-1] = result[0]["pics"]
-      );
-    }
+    
   }
 
   /**

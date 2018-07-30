@@ -8,7 +8,7 @@ import { RegistComponent } from './regist/regist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from "./data/data.service";
-import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatDividerModule } from "@angular/material";
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule ,MatDialogModule} from "@angular/material";
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { ShoppingComponent } from './shopping/shopping.component';
@@ -26,6 +26,7 @@ import { Regist2Component } from './regist2/regist2.component';
 import { CheckComponent } from './check/check.component';
 import { ResetComponent } from './reset/reset.component';
 import { ScaddressComponent } from './scaddress/scaddress.component';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ScaddressComponent } from './scaddress/scaddress.component';
     Regist2Component,
     CheckComponent,
     ResetComponent,
-    ScaddressComponent
+    ScaddressComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
@@ -62,8 +64,11 @@ import { ScaddressComponent } from './scaddress/scaddress.component';
     MatListModule,
     MatCardModule,
     CarouselModule,
-    MatDividerModule,
-    MatListModule
+    MatCheckboxModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    AddressComponent
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
