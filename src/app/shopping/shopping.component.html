@@ -3,7 +3,7 @@
     <mat-grid-list cols="15" rowHeight="5:3" class="bar">
       <mat-grid-tile colspan="1"></mat-grid-tile>
       <mat-grid-tile colspan="2" class="ok">
-        <span>{{goods.name}}</span>
+        <span>{{shopping.goods.gName}}</span>
       </mat-grid-tile>
       <mat-grid-tile colspan="9"></mat-grid-tile>
       <mat-grid-tile colspan="1">
@@ -27,9 +27,9 @@
   <mat-grid-tile colspan="3" class="simple-tile">
     <mat-grid-list cols="1" rowHeight="7:1" class="advlist">
       <mat-grid-tile rowspan="1" class="info mat-elevation-z2">
-        <span class="infospan">{{goods.name}}</span>
+        <span class="infospan">{{shopping.goods.gName}}</span>
         <span style="margin-right:40px;"> </span>
-        <span class="price">{{goods.price}}元</span>
+        <span class="price">{{shopping.goods.gPrice}}元</span>
       </mat-grid-tile>
 
       <div *ngIf="map.get(1)!=null">
@@ -43,7 +43,7 @@
                 <mat-grid-tile *ngFor="let item of map.get(1); let i=index">
                   <button mat-button class="btn-description" (click)="changePic(i)">
                     <span clss="desspan">{{item.cfg_description}}</span>
-                    <span clss="pricespan">{{goods.price - (-item.cfg_pricedata)}}元</span>
+                    <span clss="pricespan">{{shopping.goods.gPrice - (-item.cfg_pricedata)}}元</span>
                   </button>
                 </mat-grid-tile>
               </mat-grid-list>
@@ -63,7 +63,7 @@
                 <mat-grid-tile *ngFor="let item of map.get(2); let i=index">
                   <button mat-button class="btn-description" (click)="changePic(i)">
                     <span>{{item.cfg_description}}</span>
-                    <span clss="pricespan">{{goods.price - (-item.cfg_pricedata)}}元</span>
+                    <span clss="pricespan">{{shopping.goods.gPrice - (-item.cfg_pricedata)}}元</span>
                   </button>
                 </mat-grid-tile>
               </mat-grid-list>

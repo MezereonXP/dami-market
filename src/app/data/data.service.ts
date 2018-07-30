@@ -35,16 +35,6 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/getGoodInfo", { params });
   }
 
-  getTopGoodsAdv(type) {
-    const params = new HttpParams().set("type", type);
-    return this.http.get("http://localhost:8080/api/getTopGoodsAdv", { params });
-  }
-
-  getgoodsPic(type) {
-    const params = new HttpParams().set("type", type);
-    return this.http.get("http://localhost:8080/api/getgoodsPic", { params });
-  }
-
   getGoodsList() {
     return this.http.get('http://localhost:8800/api/getGoodsList');
   }
@@ -55,11 +45,10 @@ export class DataService {
   getInfo() {
     return this.http.get("http://localhost:8800/api/getAllGoods");
   }
-  getShopGood() {
-    return this.http.get("http://localhost:8080/api/getShopGood");
-  }
-  getShopGoodInfo(){
-    return this.http.get("http://localhost:8080/api/getShopGoodInfo");
+
+  getShopGoodInfo(gId){
+    const params = new HttpParams().set("gId", gId);
+    return this.http.get("http://localhost:8800/api/getShopGoodInfo", { params });
   }
   addGoodsToShopcar(shopcar: Shopcar) {
     return this.http.post("http://localhost:8800/api/addGoodsToShopcar", shopcar);
