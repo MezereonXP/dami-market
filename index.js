@@ -10,9 +10,7 @@ module.exports = () => ({
   getGoodInfo: data2.getGoodInfo,
   getAddress: order.getAddress,
   getOrderGoodsList:order.getOrderGoodsList,
-  
   getRecommendGoods:shopcar.getRecommendGoods,
-
   newApi: home.newApi,
   getShopGood:shop.getShopGood,
   getShopGoodInfo:shop.getShopGoodInfo

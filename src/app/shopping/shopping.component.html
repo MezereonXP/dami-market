@@ -2,10 +2,17 @@
   <mat-toolbar-row>
     <mat-grid-list cols="15" rowHeight="5:3" class="bar">
       <mat-grid-tile colspan="1"></mat-grid-tile>
-      <mat-grid-tile colspan="2" class="ok">
+      <mat-grid-tile colspan="3" class="ok">
         <span>{{shopping.goods.gName}}</span>
       </mat-grid-tile>
-      <mat-grid-tile colspan="9"></mat-grid-tile>
+      <mat-grid-tile colspan="7"></mat-grid-tile>
+      <mat-grid-tile colspan="1">
+        <a href="/#/shopcar">
+          <span class="span-info">
+            <button mat-button class="btn-comment"><span class="jumptoshopcar">购物车</span></button>
+          </span>
+        </a>
+      </mat-grid-tile>
       <mat-grid-tile colspan="1">
         <span class="span-info">
           <button mat-button class="btn-comment">用户评价</button>
@@ -76,9 +83,9 @@
       <mat-grid-tile rowspan="1" class="button">
 
         <span class="insert" *ngIf="isshow">
-         
-            <button mat-button class="btn-insert" (click)="addGoodsToShopcar()">加入购物车</button>
-          
+
+          <button mat-button class="btn-insert" (click)="addGoodsToShopcar()">加入购物车</button>
+
         </span>
 
         <span class="OOS" *ngIf="!isshow">
