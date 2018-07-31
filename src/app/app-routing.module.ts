@@ -11,6 +11,8 @@ import { ShoppingComponent } from "./shopping/shopping.component";
 import { InfomationComponent } from './infomation/infomation.component';
 import { KillComponent } from './kill/kill.component';
 
+import { TeamComponent } from './team/team.component';
+
 
 const routes: Routes = [
   {
@@ -20,6 +22,10 @@ const routes: Routes = [
   {
     path: 'login/:id',
     component: LoginComponent
+  },
+  {
+    path: 'regist',
+    component: RegistComponent
   },
   {
     path: 'home',
@@ -44,6 +50,18 @@ const routes: Routes = [
   {
     path: 'kill',
     component: KillComponent
+  },
+  {
+    path: 'team',
+    component: TeamComponent
+  },
+  {
+    path: 'shopping/:id',
+    component: ShoppingComponent
+  },
+  {
+    path: 'shopcar',
+    component: ShopcarComponent
   }
 ];
 

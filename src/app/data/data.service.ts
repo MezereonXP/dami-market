@@ -4,6 +4,7 @@ import { User } from '../bean/user';
 import { Shopcar } from '../bean/shopcar';
 import { OrderGoods } from '../bean/ordergoods';
 import { Address } from '../bean/address';
+import { Favorite } from '../bean/favorite';
 
 /**
  * 数据访问接口定义
@@ -31,8 +32,14 @@ export class DataService {
     return this.http.post('http://localhost:8080/api/addUser', user);
   }
 
+
+
+
   getGoodsList() {
-    return this.http.get("http://localhost:8080/api/getGoodsList");
+    return this.http.get('http://localhost:8800/api/getGoodsList');
+  }
+  getgoodAdv() {
+    return this.http.get("http://localhost:8800/api/getgoodAdv");
   }
 
   getGoodInfo(goodId) {
@@ -41,19 +48,39 @@ export class DataService {
   }
   getAddress(userId) {
     const params = new HttpParams().set("userId", userId);
-    return this.http.get("http://localhost:8800/api/selectAllAddressByCustomerId", {params});
+    return this.http.get("http://localhost:8800/api/selectAllAddressByCustomerId", { params });
   }
   getOrderGoodsList(userId) {
     const params = new HttpParams().set("userId", userId);
-    return this.http.get("http://localhost:8800/api/selectAllOrderGoods", {params});
+    return this.http.get("http://localhost:8800/api/selectAllOrderGoods", { params });
   }
   getAllOrder(userId) {
     const params = new HttpParams().set("userId", userId);
-    return this.http.get("http://localhost:8800/api/selectAllOrder", {params});
+    return this.http.get("http://localhost:8800/api/selectAllOrder", { params });
+  }
+  getInfo() {
+    return this.http.get("http://localhost:8800/api/getAllGoods");
+  }
+
+
+
+
+  getShopGoodInfo(gId) {
+    const params = new HttpParams().set("gId", gId);
+    return this.http.get("http://localhost:8800/api/getShopGoodInfo", { params });
+  }
+
+
+  addGoodsToFavorite(favorite: Favorite) {
+    return this.http.post("http://localhost:8800/api/addGoodsToFavorite", favorite);
+  }
+  selectFavoriteByCustomerId(customerId) {
+    const params = new HttpParams().set("customerId", customerId);
+    return this.http.get('http://localhost:8800/api/selectFavoriteByCustomerId', { params });
   }
   killGoods(name) {
     const params = new HttpParams().set("id", name);
-    return this.http.get("api/killGoods", {params});
+    return this.http.get("api/killGoods", { params });
   }
 
   getShopCarGoods(customerId) {
@@ -73,17 +100,18 @@ export class DataService {
   addGoodsToShopcar(shopcar: Shopcar) {
     return this.http.post("http://localhost:8800/api/addGoodsToShopcar", shopcar);
   }
-  addNewOrder(list:Array<OrderGoods>){
+  addNewOrder(list: Array<OrderGoods>) {
     return this.http.post("http://localhost:8800/api/addNewOrder", list);
   }
-  addAddress(address:Address){
+  addAddress(address: Address) {
     return this.http.post("http://localhost:8800/api/addAddress", address);
   }
-  modifyAddress(address:Address){
+  modifyAddress(address: Address) {
     return this.http.post("http://localhost:8800/api/modifyAddress", address);
   }
-  deleteAddress(address:Address){
+  deleteAddress(address: Address) {
     return this.http.post("http://localhost:8800/api/deleteAddress", address);
   }
+
 
 }

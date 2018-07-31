@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger, state } from '@angular/animations';
 import { DataService } from '../data/data.service';
 import { TempGoods } from '../bean/temp.goods';
+import { Good } from '../bean/good';
+import { ShowBean } from '../bean/showbean';
 
 @Component({
   selector: 'app-home',
@@ -29,30 +31,59 @@ import { TempGoods } from '../bean/temp.goods';
 })
 export class HomeComponent implements OnInit {
 
-  items = ["手机 电话卡", "笔记本 平板", "健康 家居", "路由器 手机配件", "耳机 音箱"];
+  items = ["手机", "笔记本平板", "智能家居", "配件", "耳机音箱"];
   goodsImages = ["assets/goods-1.jpg", "assets/goods-2.jpg", "assets/goods-3.jpg", "assets/goods-4.jpg"];
   slideColors = ["rgb(98,92,82)", "rgb(98,92,88)", "rgb(85,87,92)", "rgb(83,12,12)"];
   currentColor = "rgb(98,92,82)";
   currentSeeAllColor = "black";
   users$: Object;
   isShowDetail = false;
-  goodsList$: Object;
-  showGoodsList$: Array<TempGoods>;
-  goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
+  goodsList$: Array<Good>;
+  showGoodsList$: Array<Good>;
 
-  advPics:Object[] = [["",""],["",""],["",""],["",""],["",""]];
-  isShowElevation=[[true, true],[true, true],[true, true],[true, true],[true, true]];
+  goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
+  killandteam = ["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532101915206&di=f6337f9599c69272fa6c668f9ead624a&imgtype=0&src=http%3A%2F%2Fimg.sccnn.com%2Fbimg%2F339%2F16545.jpg", "assets/team.png"]
+
+  showBeans: Array<ShowBean>;
+
+  isShowElevationNew: Array<Array<boolean>>;
+  isShowElevationNew2: Array<Array<boolean>>;
 
   constructor(private data: DataService) { }
-
+  /**
+   *
+   *
+   * @memberof HomeComponent
+   */
   ngOnInit() {
+
     this.data.getGoodsList().subscribe(
       result => {
         this.goodsList$ = result["data"];
-        console.log(this.goodsList$["1"][0].name);
+        console.log(this.goodsList$)
+        // console.log(this.goodsList$[1][0].name);
       }
     );
-    
+
+    this.data.getInfo().subscribe(
+      result => {
+        this.showBeans = result["data"];
+        this.isShowElevationNew = new Array();
+        this.isShowElevationNew2 = new Array();
+        for (let i = 0; i < this.showBeans.length; i++) {
+          const element = this.showBeans[i];
+          this.isShowElevationNew.push(new Array());
+          this.isShowElevationNew2.push(new Array());
+          for (let j = 0; j < element.goods.length; j++) {
+            this.isShowElevationNew2[i].push(true);
+          }
+          for (let j = 0; j < element.advPic.length; j++) {
+            this.isShowElevationNew[i].push(true);
+          }
+        }
+      }
+    );
+
   }
 
   /**
@@ -73,7 +104,14 @@ export class HomeComponent implements OnInit {
    */
   showDetail(index) {
     this.isShowDetail = true;
-    this.showGoodsList$ = this.goodsList$[index + 1];
+    this.showGoodsList$ = new Array<Good>();
+    for (let i = 0; i < this.goodsList$.length; i++) {
+      if (this.goodsList$[i].gCatagory == this.items[index]) {
+        this.showGoodsList$.push(this.goodsList$[i]);
+      }
+    }
+    // window.alert(this.showGoodsList$[1].gName);
+
   }
 
   /**
@@ -99,6 +137,14 @@ export class HomeComponent implements OnInit {
       this.currentSeeAllColor = "black";
     }
   }
+  jump(i) {
+    if (i == 0) {
+      location.href = "/#/kill"
+    } else if (i == 1) {
+      location.href = "/#/team"
+    }
+
+  }
 
   /**
    * 
@@ -108,14 +154,29 @@ export class HomeComponent implements OnInit {
    */
   setElevation(type, flag, isOver) {
     let temp = isOver == 1 ? false : true;
-    this.isShowElevation[type].forEach(element => {
+    this.isShowElevationNew[type].forEach(element => {
       element = true;
     });
-    this.isShowElevation[type][flag] = temp;
+    this.isShowElevationNew[type][flag] = temp;
   }
+  setElevation2(type, flag, isOver) {
+    let temp = isOver == 1 ? false : true;
+    this.isShowElevationNew2[type].forEach(element => {
+      element = true;
+    });
+    this.isShowElevationNew2[type][flag] = temp;
+  }
+
 
   isShowUp(flag) {
     return flag ? '-5px' : '0px';
+  }
+  isShowUp2(flag) {
+    return flag ? '-5px' : '0px';
+  }
+
+  getRowHeight(flag) {
+    return flag ? "2:5" : "1:5";
   }
 
 }
