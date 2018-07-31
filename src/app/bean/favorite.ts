@@ -5,15 +5,15 @@ export class Favorite {
 
     fId: number;
     customer: Customer;
-    good: Good;
+    goods: Good;
     fStatus: number;
     /**
      *
      */
-    constructor(fId: number, customer: Customer, good: Good, fStatus: number) {
+    constructor(fId: number, customer: Customer, goods: Good, fStatus: number) {
         this.fId = fId;
         this.customer = customer;
-        this.good = good;
+        this.goods = goods;
         this.fStatus = fStatus;
 
     }

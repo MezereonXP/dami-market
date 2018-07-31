@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../bean/user';
-import { Shopcar} from '../bean/shopcar';
-import {Favorite} from '../bean/favorite';
+import { Shopcar } from '../bean/shopcar';
+import { Favorite } from '../bean/favorite';
 
 /**
  * 数据访问接口定义
@@ -30,10 +30,8 @@ export class DataService {
     return this.http.post('http://localhost:8080/api/addUser', user);
   }
 
-  getGoodInfo(goodId) {
-    const params = new HttpParams().set("goodId", goodId);
-    return this.http.get("http://localhost:8080/api/getGoodInfo", { params });
-  }
+
+
 
   getGoodsList() {
     return this.http.get('http://localhost:8800/api/getGoodsList');
@@ -46,19 +44,33 @@ export class DataService {
     return this.http.get("http://localhost:8800/api/getAllGoods");
   }
 
-  getShopGoodInfo(gId){
+
+
+
+  getShopGoodInfo(gId) {
     const params = new HttpParams().set("gId", gId);
     return this.http.get("http://localhost:8800/api/getShopGoodInfo", { params });
   }
   addGoodsToShopcar(shopcar: Shopcar) {
     return this.http.post("http://localhost:8800/api/addGoodsToShopcar", shopcar);
   }
+  getShopCarGoods(customerId) {
+    const params = new HttpParams().set("customerId", customerId);
+    return this.http.get("http://localhost:8800/api/getShopCarGoods", { params });
+  }
+
   addGoodsToFavorite(favorite: Favorite) {
     return this.http.post("http://localhost:8800/api/addGoodsToFavorite", favorite);
   }
+  selectFavoriteByCustomerId(customerId){
+    const params = new HttpParams().set("customerId", customerId);
+    return this.http.get('http://localhost:8800/api/selectFavoriteByCustomerId' ,{params});
+  }
   killGoods(name) {
     const params = new HttpParams().set("id", name);
-    return this.http.get("api/killGoods", {params});
+    return this.http.get("api/killGoods", { params });
   }
+
+
 
 }

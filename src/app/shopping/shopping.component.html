@@ -74,10 +74,15 @@
       </div>
 
       <mat-grid-tile rowspan="1" class="button">
-        <span class="insert">
-          <a href="/#/shopcar">
+
+        <span class="insert" *ngIf="isshow">
+         
             <button mat-button class="btn-insert" (click)="addGoodsToShopcar()">加入购物车</button>
-          </a>
+          
+        </span>
+
+        <span class="OOS" *ngIf="!isshow">
+          <button mat-button class="btn-OOS">暂时缺货</button>
         </span>
 
         <span class="fav">

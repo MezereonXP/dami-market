@@ -27,6 +27,9 @@ export class ShoppingComponent implements OnInit {
   favorite: Favorite;
   customer: Customer;
   map: Map<number, Array<Config>> = new Map<number, Array<Config>>();
+  customerShopcarList:Array<Shopcar>;
+  favoriteList:Array<Favorite>;
+  isshow = true;
 
   constructor(private data: DataService, private route: ActivatedRoute) { }
 
@@ -40,27 +43,13 @@ export class ShoppingComponent implements OnInit {
         // this.config = result["data"].config;
         this.showPic = this.shopping.goodimg[0][0].giImg;
         this.setMap();
+        this.caninsert();
       }
     );
   }
-
+  
   changePic(index) {
     this.showPic = this.shopping.goodimg[index][0].giImg;
-  }
-
-  addGoodsToShopcar() {
-
-    this.customer = new Customer(1, null, null, null, null, null, null, null, null, null, null);
-    this.shopping.goods = new Good(4, null, null, null, null, null, null);
-    this.shopcar = new Shopcar(null, this.customer, this.shopping.goods, 1, 1);
-    this.data.addGoodsToShopcar(this.shopcar).subscribe();
-
-  }
-  addGoodsToFavorite() {
-    this.customer = new Customer(1, null, null, null, null, null, null, null, null, null, null);
-    this.shopping.goods = new Good(4, null, null, null, null, null, null);
-    this.favorite = new Favorite(0, this.customer, this.shopping.goods, 1);
-    this.data.addGoodsToFavorite(this.favorite).subscribe();
   }
 
   setMap() {
@@ -73,5 +62,59 @@ export class ShoppingComponent implements OnInit {
       }
     });
   }
+  caninsert(){
+    if(this.shopping.goods.gStock>0)
+    this.isshow=true;
+    else{
+      this.isshow=false;
+    }
+  }
+  addGoodsToShopcar() {
+    this.data.getShopCarGoods(1).subscribe(
+      result => {
+        this.customerShopcarList = result["data"];
+      }
+    );
+    let flag = true;
+    for (let i = 0; i < this.customerShopcarList.length; i++) {
+      if (this.customerShopcarList[i].goods.gId == this.shopping.goods.gId) {
+        flag = false;
+      }
+    }
+    if (flag) {
+      this.customer = new Customer(1, null, null, null, null, null, null, null, null, null, null);
+      this.shopcar = new Shopcar(null, this.customer, this.shopping.goods, 1, 1);
+      this.data.addGoodsToShopcar(this.shopcar).subscribe();
+      alert("加入成功");
+    } else {
+      alert("购物车中已存在该商品");
+    }
+
+
+  }
+  addGoodsToFavorite(){
+    this.data.selectFavoriteByCustomerId(1).subscribe(
+      result => {
+        this.favoriteList = result["data"];
+      }
+    );
+    let flag = true;
+    for (let i = 0; i < this.favoriteList.length; i++) {
+      if (this.favoriteList[i].goods.gId == this.shopping.goods.gId) {
+        flag = false;
+      }
+    }
+    if (flag) {
+      this.customer = new Customer(1, null, null, null, null, null, null, null, null, null, null);
+      this.favorite = new Favorite(null, this.customer, this.shopping.goods, 1);
+      this.data.addGoodsToFavorite(this.favorite).subscribe();
+      alert("已喜欢");
+    } else {
+      alert("喜欢列表中已存在该商品");
+    }
+
+
+  }
+  
 
 }
