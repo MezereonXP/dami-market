@@ -27,8 +27,8 @@ export class ShoppingComponent implements OnInit {
   favorite: Favorite;
   customer: Customer;
   map: Map<number, Array<Config>> = new Map<number, Array<Config>>();
-  customerShopcarList:Array<Shopcar>;
-  favoriteList:Array<Favorite>;
+  customerShopcarList: Array<Shopcar>;
+  favoriteList: Array<Favorite>;
   isshow = true;
 
   constructor(private data: DataService, private route: ActivatedRoute) { }
@@ -57,7 +57,7 @@ export class ShoppingComponent implements OnInit {
       }
     );
   }
-  
+
   changePic(index) {
     this.showPic = this.shopping.goodimg[index][0].giImg;
   }
@@ -72,15 +72,15 @@ export class ShoppingComponent implements OnInit {
       }
     });
   }
-  caninsert(){
-    if(this.shopping.goods.gStock>0)
-    this.isshow=true;
-    else{
-      this.isshow=false;
+  caninsert() {
+    if (this.shopping.goods.gStock > 0)
+      this.isshow = true;
+    else {
+      this.isshow = false;
     }
   }
   addGoodsToShopcar() {
-    
+
     let flag = true;
     for (let i = 0; i < this.customerShopcarList.length; i++) {
       if (this.customerShopcarList[i].goods.gId == this.shopping.goods.gId) {
@@ -96,11 +96,9 @@ export class ShoppingComponent implements OnInit {
     } else {
       alert("购物车中已存在该商品");
     }
-
-
   }
-  addGoodsToFavorite(){
-    
+  addGoodsToFavorite() {
+
     let flag = true;
     for (let i = 0; i < this.favoriteList.length; i++) {
       if (this.favoriteList[i].goods.gId == this.shopping.goods.gId) {
@@ -118,7 +116,7 @@ export class ShoppingComponent implements OnInit {
 
 
   }
-  
 
-  
+
+
 }
