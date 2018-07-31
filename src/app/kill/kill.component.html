@@ -23,7 +23,7 @@
         </mat-grid-tile>
         <mat-grid-tile class="killTime">
           <span class="full">
-            <button mat-button class="killTimeInner-true" (click)="showKillGood(2)" >
+            <button mat-button class="killTimeInner-true" (click)="showKillGood(2)">
               <span class="firstTimeSize">{{times[1]}}</span>
               <span class="secondTimeSize">{{timeTipe[1]}}</span>
             </button>
@@ -59,15 +59,15 @@
   </mat-toolbar>
 
   <mat-toolbar class="picheadbar mat-elevation-z2" color="primary">
-      <mat-grid-list cols="7" rowHeight="34px" class="bar">
-        <mat-grid-tile></mat-grid-tile>
-        <mat-grid-tile *ngFor="let item of showPicList">
-          <span class="full" *ngIf="item">
-             <img src="/assets/timg.jpg" class="full">
-          </span>
-        </mat-grid-tile>
-        <mat-grid-tile></mat-grid-tile>
-      </mat-grid-list>
+    <mat-grid-list cols="7" rowHeight="34px" class="bar">
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile *ngFor="let item of showPicList">
+        <span class="full" *ngIf="item">
+          <img src="/assets/timg.jpg" class="full">
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile></mat-grid-tile>
+    </mat-grid-list>
   </mat-toolbar>
 
   <mat-grid-list cols="7" rowHeight="660px" class="killgoodheadbar">
@@ -76,9 +76,9 @@
       <mat-grid-list cols="3" class="killgoodbar" rowHeight="200px">
         <mat-grid-tile *ngFor="let item of killGoodsList$;index as i">
           <mat-card class="killgoodbar" rowHeight="200px" style="margin-right: 10px; margin-bottom: 10px">
-            <mat-grid-list cols="2" class="killgoodbar"   rowHeight="150px">
+            <mat-grid-list cols="2" class="killgoodbar" rowHeight="150px">
               <mat-grid-tile>
-                <img src="{{item.goods.gPictureurl}}" style="height: 130px; width: 120px;"> 
+                <img src="{{item.goods.gPictureurl}}" style="height: 130px; width: 120px;">
               </mat-grid-tile>
               <mat-grid-tile>
                 <table style="height: 150px; width: 100%; margin-left: 10%">
@@ -86,12 +86,15 @@
                     <h5>{{item.goods.gName}}</h5>
                   </tr>
                   <tr style="color: rgb(228, 48, 48); margin-left: 10%">{{item.kgPrice}}元</tr>
-                  <tr style="margin-left: 10%">{{item.kgQuantity}}</tr>
+                  <tr style="margin-left: 10%">剩余{{item.kgQuantity}}</tr>
                   <tr style="margin-left: 10%" *ngIf="isShowButton">
-                    <div>
-                    <button mat-button style="background-color: rgb(255, 87, 20)" *ngIf="ifQuantityOver[i]" (click)="openDialog(item.kgId,item.kgPrice,item.goods)">{{ifKillGoodOver}} </button>
-                    <button mat-button style="background-color: rgb(209, 195, 190)" *ngIf="!ifQuantityOver[i]">已经售完 </button>
-                  </div>
+                    <div *ngIf="ifTimeOver">
+                      <button mat-button style="background-color: rgb(255, 87, 20)" *ngIf="ifQuantityOver[i]" (click)="openDialog(item.kgId,item.kgPrice,item.goods)">{{ifKillGoodOver}} </button>
+                      <button mat-button style="background-color: rgb(209, 195, 190)" *ngIf="!ifQuantityOver[i]">已经售完 </button>
+                    </div>
+                    <div *ngIf="!ifTimeOver">
+                      <button mat-button style="background-color: rgb(209, 195, 190)">已经结束 </button>
+                    </div>
                   </tr>
                   <tr style="margin-left: 10%" *ngIf="!isShowButton">
                     <button mat-button style="background-color: rgb(21, 218, 47)" (click)="insertNote(item.goods.gName)">设置提醒</button>
@@ -105,7 +108,4 @@
     </mat-grid-tile>
     <mat-grid-tile></mat-grid-tile>
   </mat-grid-list>
-
-<button mat-raised-button (click)="openDialog()">测试dialog</button> 
-<button mat-button (click)="clickTime()">测试连接</button>
 </div>

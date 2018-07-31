@@ -51,7 +51,7 @@ export class DataService {
     const params = new HttpParams().set("id", name);
     return this.http.get("http://localhost:8080/api/killGoods", { params });
   }
-  
+
   getgoodsPic(type) {
     const params = new HttpParams().set("type", type);
     return this.http.get("http://localhost:8080/api/getgoodsPic", { params });
@@ -61,19 +61,26 @@ export class DataService {
     return this.http.get("http://localhost:8080/api/newApi");
   }
 
-  insertNote(cId, kgName, time) {
-    return this.http.get('http://localhost:8800/api/insertNote?cId=' + cId + "&kgName=" + kgName + "&time=" + time);
+  //连接后台 插入note
+  insertNote(cId, kgName, time,kgMsg) {
+    const params = new HttpParams().set("cId", cId).set("kgName", kgName).set("time", time).set("kgMsg",kgMsg);
+    return this.http.get('http://localhost:8800/api/insertNote', { params });
   }
 
-  getKillGoodInfo(){
+  //得到所有的秒杀商品
+  getKillGoodInfo() {
     return this.http.get("http://localhost:8800/api/selectKillGoods");
   }
 
-  addKillGoodOrder(kgName){
-    return this.http.get('http://localhost:8800/api/addKillGoodOrder?kgName='+kgName);
+  //添加秒杀商品订单
+  addKillGoodOrder(kgName) {
+    const params = new HttpParams().set("kgName", kgName);
+    return this.http.get('http://localhost:8800/api/addKillGoodOrder', { params });
   }
 
-  beginKillGood(kgId,cId){
-    return this.http.get('http://localhost:8800/api/killGoods?kgId='+ kgId + "&cId=" + cId);
+  //客户点击秒杀后开始秒杀
+  beginKillGood(kgId, cId) {
+    const params = new HttpParams().set("kgId", kgId).set("cId", cId);
+    return this.http.get('http://localhost:8800/api/killGoods', { params });
   }
 }

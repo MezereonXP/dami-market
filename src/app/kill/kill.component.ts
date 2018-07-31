@@ -6,12 +6,13 @@ import { KilltipsComponent } from '../killtips/killtips.component';
 import { killgood } from '../bean/killgood';
 import { Goods } from '../bean/goods';
 
+//弹窗信息的结构
 export interface DialogData {
-  kgId:number;
-  goods:Goods;
-  kgPrice:number;
-  kgMsg:string;
-  cId:number;
+  kgId: number;
+  goods: Goods;
+  kgPrice: number;
+  kgMsg: string;
+  cId: number;
 }
 
 @Component({
@@ -39,16 +40,19 @@ export class KillComponent implements OnInit {
   isShowButtonList = [true, true, true, true, true];
   showPicList = [false, false, false, false, false];
   isShowButton: boolean;
-  noteMsg: string;
+  noteMsg = "";
+  noteflag: string;
   noteKgName: string;
   noteTime: number;
   ifQuantityOver = [true, true, true, true, true, true, true, true, true];
   ifKillGoodOver: string;
-  returnMsg="抢购成功";
-  cId:number;
-  killMsg:Object;
- 
-  
+  returnMsg = "抢购成功";
+  ifTimeOverList = [true, true, true, true, true];
+  ifTimeOver = true;
+  cId: number;
+  killMsg: Object;
+
+
 
   constructor(private data: DataService, public dialog: MatDialog) { }
 
@@ -73,31 +77,6 @@ export class KillComponent implements OnInit {
     this.getTime();
   }
 
-  //判断该抢购时间内商品是否已经售完
-  ifKillGoodInTimeOver() {
-
-    let count = [0, 0, 0, 0, 0];
-    for (let i = 0; i <= 4; i++) {
-
-      this.flagKillGoodList$ = new Array<killgood>();
-      
-      this.flagKillGoodList$.push(this.killGoods$[i]); 
-      
-      
-      for (let j = 0; j < this.flagKillGoodList$.length; j++) {
-
-        if (!(this.flagKillGoodList$[j].kgQuantity == 0)) {
-          count[i - 1]++;
-        }
-      }
-    }
-
-    for (let i = 0; i < 5; i++) {
-      if (count[i] == 0) {
-        this.timeTipe[i] = "抢购结束";
-      }
-    }
-  }
 
   //后台得到数据传给killGood$
   refreshKillGoodList() {
@@ -136,25 +115,27 @@ export class KillComponent implements OnInit {
     let second = Math.floor(nTime % 86400 % 3600 % 60);
     this.ifKillGoodOver = "立即抢购";
     if (nTime <= 0) {
-      //     this.killGoodsList$ = this.killGoods$[5];
       this.selectKillGoods(5);
       this.isShowButton = this.isShowButtonList[4];
       this.initShowPicList();
       this.showPicList[4] = true;
+      this.ifTimeOverFunction(3);
+      this.ifTimeOver = this.ifTimeOverList[4];
     } else {
       if (hour >= 12) {
-        //        this.killGoodsList$ = this.killGoods$[1];
         this.selectKillGoods(1);
         this.isShowButton = this.isShowButtonList[0];
         this.initShowPicList();
         this.showPicList[0] = true;
+        this.ifTimeOver=true;
       } else {
         let index = 4 - Math.floor(hour / 4)
-        //        this.killGoodsList$ = this.killGoods$[index];
         this.selectKillGoods(index);
         this.isShowButton = this.isShowButtonList[index - 1];
         this.initShowPicList();
-        this.showPicList[index - 1] = true;
+        this.showPicList[index - 1] = true;;
+        this.ifTimeOverFunction(index - 2);
+        this.ifTimeOver = this.ifTimeOverList[index - 1];
       }
     }
   }
@@ -168,10 +149,12 @@ export class KillComponent implements OnInit {
     let second = Math.floor(nTime % 86400 % 3600 % 60);
     let timeSlot = 4 - Math.floor(hour / 4);
     if (timeSlot > 0) {
-      for (let i = 0; i < timeSlot; i++) {
-        this.timeTipe[i] = "正在抢购";
+      for (let i = 0; i < timeSlot - 1; i++) {
+        this.timeTipe[i] = "已结束";
       }
+      this.timeTipe[timeSlot - 1] = "立即抢购";
     }
+
     let temp = 4 * Math.floor(hour / 4);
     if ((hour - temp) < 2) {
       let position = Math.floor(4 - temp / 4);
@@ -182,9 +165,8 @@ export class KillComponent implements OnInit {
       for (let i = 4 - Math.floor(hour / 4); i <= 4; i++) {
         this.isShowButtonList[i] = false;
       }
-    }
 
-   // this.ifKillGoodInTimeOver();
+    }
 
     if (second <= 10) {
       this.isCanKill = true;
@@ -207,18 +189,30 @@ export class KillComponent implements OnInit {
       }
     }
 
-    this.data.insertNote(1, this.noteKgName, this.noteTime).subscribe(
+    this.data.insertNote(1, this.noteKgName, this.noteTime, this.noteMsg).subscribe(
       result => {
-        this.noteMsg = result["data"];
+        this.noteflag = result["msg"];
+
+        if (this.noteflag == "true") {
+          this.noteMsg = "success";
+        } else {
+          this.noteMsg = "over";
+        }
       }
     )
 
-    window.alert("设置提醒成功");
+    if (this.noteMsg == "") {
+
+      window.alert("设置提醒成功");
+    } else {
+      window.alert("已经设置提醒");
+    }
+
   }
 
   //点击时间展示相应的商品
   showKillGood(index) {
-    //    this.killGoodsList$ = this.killGoods$[index];
+
     this.refreshKillGoodList();
     //展示对应时间的商品
     this.selectKillGoods(index);
@@ -238,6 +232,14 @@ export class KillComponent implements OnInit {
     //展示三角图标
     this.initShowPicList();
     this.showPicList[index - 1] = true;
+    //判断那些抢购已经结束
+    let nTime = (this.testTime - new Date().getTime()) / 1000;
+    let hour = Math.floor(nTime % 86400 / 3600);
+    let timeSlot = 4 - Math.floor(hour / 4);
+    this.initIfTimeOverList();
+    this.ifTimeOverFunction(timeSlot-2);
+    this.ifTimeOver = this.ifTimeOverList[index - 1];
+
   }
 
 
@@ -247,35 +249,48 @@ export class KillComponent implements OnInit {
     );
   }
 
-  //打开窗口
-  openDialog(kgId,kgPrice,goods) {
-     
-     this.data.beginKillGood(kgId,1).subscribe(
-      result => {
-        this.returnMsg= result["msg"]; 
-      }
-     );
+  //初始化ifTimeOverList
+  initIfTimeOverList(){
+    for(let i=0;i<5;i++){
+      this.ifTimeOverList[i]=true;
+    }
+  }
 
-     
-     //打开模态窗口并传值
-     const dialogRef=this.dialog.open(KilltipsComponent, {
+  //判断抢购是否结束并设置
+  ifTimeOverFunction(index) {
+    if (index >= 0) {
+      for (let i = 0; i <= index; i++) {
+        this.ifTimeOverList[i] = false;
+      }
+    }
+
+  }
+
+  //打开窗口
+  openDialog(kgId, kgPrice, goods) {
+
+    this.data.beginKillGood(kgId, 1).subscribe(
+      result => {
+        this.returnMsg = result["msg"];
+      }
+    );
+
+
+    //打开模态窗口并传值
+    const dialogRef = this.dialog.open(KilltipsComponent, {
       height: '400px',
       width: '400px',
-      data: {kgId:kgId,kgPrice:kgPrice,kgMsg:this.returnMsg,goods:goods,cId:this.cId}
+      data: { kgId: kgId, kgPrice: kgPrice, kgMsg: this.returnMsg, goods: goods, cId: this.cId }
 
     });
-    
+
     //接收关闭窗口后传过来的值
-      dialogRef.afterClosed().subscribe(result => {
-      this.returnMsg=result.kgMsg;
-      window.alert('The dialog was closed'+this.returnMsg);
+    dialogRef.afterClosed().subscribe(result => {
+      this.returnMsg = result.kgMsg;
+      window.alert('The dialog was closed' + this.returnMsg);
     });
 
 
 
   }
-
-  //点击抢购按钮时进行抢购订单的生成
-
-
 }
