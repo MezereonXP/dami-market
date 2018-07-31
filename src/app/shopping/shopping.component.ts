@@ -46,6 +46,16 @@ export class ShoppingComponent implements OnInit {
         this.caninsert();
       }
     );
+    this.data.getShopCarGoods(1).subscribe(
+      result => {
+        this.customerShopcarList = result["data"];
+      }
+    );
+    this.data.selectFavoriteByCustomerId(1).subscribe(
+      result => {
+        this.favoriteList = result["data"];
+      }
+    );
   }
   
   changePic(index) {
@@ -70,11 +80,7 @@ export class ShoppingComponent implements OnInit {
     }
   }
   addGoodsToShopcar() {
-    this.data.getShopCarGoods(1).subscribe(
-      result => {
-        this.customerShopcarList = result["data"];
-      }
-    );
+    
     let flag = true;
     for (let i = 0; i < this.customerShopcarList.length; i++) {
       if (this.customerShopcarList[i].goods.gId == this.shopping.goods.gId) {
@@ -86,6 +92,7 @@ export class ShoppingComponent implements OnInit {
       this.shopcar = new Shopcar(null, this.customer, this.shopping.goods, 1, 1);
       this.data.addGoodsToShopcar(this.shopcar).subscribe();
       alert("加入成功");
+      window.location.reload();
     } else {
       alert("购物车中已存在该商品");
     }
@@ -93,11 +100,7 @@ export class ShoppingComponent implements OnInit {
 
   }
   addGoodsToFavorite(){
-    this.data.selectFavoriteByCustomerId(1).subscribe(
-      result => {
-        this.favoriteList = result["data"];
-      }
-    );
+    
     let flag = true;
     for (let i = 0; i < this.favoriteList.length; i++) {
       if (this.favoriteList[i].goods.gId == this.shopping.goods.gId) {
