@@ -5,6 +5,7 @@ import { Shopcar } from '../bean/shopcar';
 import { OrderGoods } from '../bean/ordergoods';
 import { Address } from '../bean/address';
 import { Favorite } from '../bean/favorite';
+import { Order } from '../bean/order';
 
 /**
  * 数据访问接口定义
@@ -112,6 +113,8 @@ export class DataService {
   deleteAddress(address: Address) {
     return this.http.post("http://localhost:8800/api/deleteAddress", address);
   }
-
+  updateOrder(order:Order){
+    return this.http.post("http://localhost:8800/api/updateOrder", order);
+  }
 
 }

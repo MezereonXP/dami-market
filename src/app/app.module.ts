@@ -21,6 +21,7 @@ import { SelfcenterComponent } from './selfcenter/selfcenter.component';
 import { InfomationComponent } from './infomation/infomation.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AddressComponent } from './address/address.component';
+import { SettlementComponent } from './settlement/settlement.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AddressComponent } from './address/address.component';
     TeamComponent,
     SelfcenterComponent,
     InfomationComponent,
-    AddressComponent
+    AddressComponent,
+    SettlementComponent
   ],
   imports: [
     BrowserModule,

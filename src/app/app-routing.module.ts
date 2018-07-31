@@ -10,7 +10,7 @@ import { OrderComponent } from './order/order.component';
 import { ShoppingComponent } from "./shopping/shopping.component";
 import { InfomationComponent } from './infomation/infomation.component';
 import { KillComponent } from './kill/kill.component';
-
+import { SettlementComponent } from "./settlement/settlement.component";
 import { TeamComponent } from './team/team.component';
 
 
@@ -62,6 +62,10 @@ const routes: Routes = [
   {
     path: 'shopcar',
     component: ShopcarComponent
+  },
+  {
+    path: 'settlement',
+    component: SettlementComponent
   }
 ];
 

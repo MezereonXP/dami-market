@@ -3,9 +3,10 @@ import { DataService } from '../data/data.service';
 import { OrderGoods } from "../bean/orderGoods";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AddressComponent } from "../address/address.component";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Address } from '../bean/address';
 import { Customer } from '../bean/customer';
+import { Order } from '../bean/order';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -18,8 +19,9 @@ export class OrderComponent implements OnInit {
   totalMoney: number = 0;
   addressList: Object;
   status: Array<boolean>;
+  newOrder:Order;
   orderGoodsList: Array<OrderGoods>;
-  constructor(private data: DataService, public dialog: MatDialog, private activatedRoute: ActivatedRoute) {
+  constructor(private data: DataService, public dialog: MatDialog, private activatedRoute: ActivatedRoute, private router: Router) {
 
 
   }
@@ -32,7 +34,9 @@ export class OrderComponent implements OnInit {
           this.status.push(false);
         }
         this.status[0] = true;
+
         this.addressList = result["data"];
+        this.address = this.addressList[0];
       }
 
     );
@@ -58,11 +62,25 @@ export class OrderComponent implements OnInit {
   }
 
   addNewOrder() {
+    
     for (let i = 0; i < this.orderGoodsList.length; i++) {
       this.orderGoodsList[i].order.address = this.address;
     }
     console.log(this.orderGoodsList);
-    this.data.addNewOrder(this.orderGoodsList).subscribe();
+    this.data.addNewOrder(this.orderGoodsList).subscribe(
+      result => {
+        this.newOrder = result["data"];
+        
+        this.router.navigate(['settlement'], {
+          queryParams: {
+            order: JSON.stringify(this.newOrder)
+    
+          }
+        });
+      }
+    );
+
+    
   }
 
   selectAddress(i) {
