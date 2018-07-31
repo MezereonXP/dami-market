@@ -1,16 +1,15 @@
 <div class="background">
-  <mat-toolbar class="headbar mat-elevation-z2" color="primary">
-    <mat-toolbar-row>
-      <mat-grid-list cols="7" rowHeight="102px" class="bar">
-        <mat-grid-tile colspan="3"></mat-grid-tile>
-        <mat-grid-tile class="ok">
-          <span>Are you Ok 闪购</span>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="3"></mat-grid-tile>
-      </mat-grid-list>
-    </mat-toolbar-row>
+  <mat-toolbar class="headbar" color="primary">
+    <mat-grid-list cols="7" rowHeight="102px" class="bar">
+      <mat-grid-tile colspan="2"></mat-grid-tile>
+      <mat-grid-tile colspan="3" class="ok">
+        <span style="font-size: 35px">Are you Ok 闪购</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2"></mat-grid-tile>
+    </mat-grid-list>
   </mat-toolbar>
-  <mat-toolbar class="headbar mat-elevation-z2" color="primary">
+
+  <mat-toolbar class="headbar" color="primary">
     <mat-toolbar-row>
       <mat-grid-list cols="7" rowHeight="64px" class="bar">
         <mat-grid-tile></mat-grid-tile>
@@ -58,7 +57,55 @@
       </mat-grid-list>
     </mat-toolbar-row>
   </mat-toolbar>
-</div>
 
-<input [(ngModel)]="killId">
-<button mat-button [(disabled)]="!isCanKill" (click)="kill()">抢购</button>
+  <mat-toolbar class="picheadbar mat-elevation-z2" color="primary">
+    <mat-grid-list cols="7" rowHeight="34px" class="bar">
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile *ngFor="let item of showPicList">
+        <span class="full" *ngIf="item">
+          <img src="/assets/timg.jpg" class="full">
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar>
+
+  <mat-grid-list cols="7" rowHeight="660px" class="killgoodheadbar">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile colspan="5" class="killgoodbar">
+      <mat-grid-list cols="3" class="killgoodbar" rowHeight="200px">
+        <mat-grid-tile *ngFor="let item of killGoodsList$;index as i">
+          <mat-card class="killgoodbar" rowHeight="200px" style="margin-right: 10px; margin-bottom: 10px">
+            <mat-grid-list cols="2" class="killgoodbar" rowHeight="150px">
+              <mat-grid-tile>
+                <img src="{{item.goods.gPictureurl}}" style="height: 130px; width: 120px;">
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <table style="height: 150px; width: 100%; margin-left: 10%">
+                  <tr>
+                    <h5>{{item.goods.gName}}</h5>
+                  </tr>
+                  <tr style="color: rgb(228, 48, 48); margin-left: 10%">{{item.kgPrice}}元</tr>
+                  <tr style="margin-left: 10%">剩余{{item.kgQuantity}}</tr>
+                  <tr style="margin-left: 10%" *ngIf="isShowButton">
+                    <div *ngIf="ifTimeOver">
+                      <button mat-button style="background-color: rgb(255, 87, 20)" *ngIf="ifQuantityOver[i]" (click)="openDialog(item.kgId,item.kgPrice,item.goods)">{{ifKillGoodOver}} </button>
+                      <button mat-button style="background-color: rgb(209, 195, 190)" *ngIf="!ifQuantityOver[i]">已经售完 </button>
+                    </div>
+                    <div *ngIf="!ifTimeOver">
+                      <button mat-button style="background-color: rgb(209, 195, 190)">已经结束 </button>
+                    </div>
+                  </tr>
+                  <tr style="margin-left: 10%" *ngIf="!isShowButton">
+                    <button mat-button style="background-color: rgb(21, 218, 47)" (click)="insertNote(item.goods.gName)">设置提醒</button>
+                  </tr>
+                </table>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+</div>

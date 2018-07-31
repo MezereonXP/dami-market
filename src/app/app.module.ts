@@ -22,6 +22,8 @@ import { InfomationComponent } from './infomation/infomation.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AddressComponent } from './address/address.component';
 import { SettlementComponent } from './settlement/settlement.component';
+import { KilltipsComponent }  from './killtips/killtips.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { SettlementComponent } from './settlement/settlement.component';
     SelfcenterComponent,
     InfomationComponent,
     AddressComponent,
-    SettlementComponent
+    SettlementComponent,
+    KilltipsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,8 +62,10 @@ import { SettlementComponent } from './settlement/settlement.component';
     MatTooltipModule
   ],
   entryComponents: [
-    AddressComponent
+    AddressComponent,
+    KilltipsComponent
   ],
+  
   providers: [DataService],
   bootstrap: [AppComponent]
 })

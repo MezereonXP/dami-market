@@ -6,6 +6,7 @@ const home = require('./mock/home.json');
 const shop = require('./mock/shop.json');
 module.exports = () => ({
   getGoodsList: data.getGoodsList,
+  killGoods:data.killGoodsList,
   getSimpleUser: data2.getSimpleUser,
   getGoodInfo: data2.getGoodInfo,
   getAddress: order.getAddress,
@@ -13,5 +14,7 @@ module.exports = () => ({
   getRecommendGoods:shopcar.getRecommendGoods,
   newApi: home.newApi,
   getShopGood:shop.getShopGood,
-  getShopGoodInfo:shop.getShopGoodInfo
+  getShopGoodInfo:shop.getShopGoodInfo,
+  getShopCarGoods: shopcar.getShopCarGoods,
+  getRecommendGoods:shopcar.getRecommendGoods
 });

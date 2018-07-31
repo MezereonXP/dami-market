@@ -318,5 +318,141 @@
     },
     "code": 200,
     "msg": "success"
+  },
+
+  "killGoodsList": {
+    "data": {
+      "1": [{
+          "kgId": 1,
+          "kgName": "小米1",
+          "kgPrice": 10,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/m8-80.png"
+        },
+        {
+          "kgId": 2,
+          "kgName": "小米2",
+          "kgPrice": 15,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/m8se-80.png"
+        },
+        {
+          "kgId": 3,
+          "kgName": "小米3",
+          "kgPrice": 20,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/mix2s80-80white.png"
+        },
+        {
+          "kgId": 4,
+          "kgName": "小米4",
+          "kgPrice": 25,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/80808080808080.jpg"
+        }
+      ],
+      "2": [{
+          "kgId": 1,
+          "kgName": "无敌小钢炮",
+          "kgPrice": 10,
+          "pic": "https://i1.mifile.cn/f/i/g/2015/cn-index/xiaogangpao2-hei-80.jpg?width=80&height=80"
+        },
+        {
+          "kgId": 2,
+          "kgName": "便宜耳机",
+          "kgPrice": 15,
+          "pic": "https://i1.mifile.cn/f/i/g/2015/toudaishierjijichuxiangsu.jpg?width=80&height=80"
+        },
+        {
+          "kgId": 3,
+          "kgName": "数据线",
+          "kgPrice": 20,
+          "pic": "https://i1.mifile.cn/f/i/g/2015/cn-index/shujuxian-80.jpg?width=80&height=80"
+        },
+        {
+          "kgId": 4,
+          "kgName": "大米路由器Q4",
+          "kgPrice": 25,
+          "pic": "https://i1.mifile.cn/f/i/g/2015/luyouqi.jpg?width=80&height=80"
+        }
+      ],
+      "3": [{
+          "kgId": 9,
+          "kgName": "小米平板4",
+          "kgPrice": 50,
+          "pic": "//i1.mifile.cn/f/i/g/2015/pingban2.jpg"
+
+        },
+        {
+          "goodId": 10,
+          "kgName": "小米游戏本 15.6",
+          "kgPrice": 100,
+          "pic": "//i1.mifile.cn/f/i/g/2015/80x80youxichuantu.png"
+        },
+        {
+          "goodId": 11,
+          "kgName": "笔记本Air 12.5",
+          "kgPrice": 600,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben80.jpg"
+
+        },
+        {
+          "kgId": 12,
+          "kgName": "笔记本Air 13.3 独显",
+          "kgPrice": 1000,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben80.jpg"
+        }
+      ],
+      "4": [{
+          "kgId": 9,
+          "kgName": "小米平板4",
+          "kgPrice": 500,
+          "pic": "//i1.mifile.cn/f/i/g/2015/pingban2.jpg"
+
+        },
+        {
+          "goodId": 100,
+          "kgName": "小米游戏本 15.6",
+          "kgPrice": 100,
+          "pic": "//i1.mifile.cn/f/i/g/2015/80x80youxichuantu.png"
+        },
+        {
+          "goodId": 11,
+          "kgName": "笔记本Air 12.5",
+          "kgPrice": 600,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben80.jpg"
+
+        },
+        {
+          "kgId": 12,
+          "kgName": "笔记本Air 13.3 独显",
+          "kgPrice": 1000,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben80.jpg"
+        }
+      ],
+      "5": [{
+          "kgId": 9,
+          "kgName": "小米平板4",
+          "kgPrice": 50,
+          "pic": "//i1.mifile.cn/f/i/g/2015/pingban2.jpg"
+
+        },
+        {
+          "goodId": 10,
+          "kgName": "小米游戏本 15.6",
+          "kgPrice": 10000,
+          "pic": "//i1.mifile.cn/f/i/g/2015/80x80youxichuantu.png"
+        },
+        {
+          "goodId": 11,
+          "kgName": "笔记本Air 12.5",
+          "kgPrice": 6000,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben80.jpg"
+
+        },
+        {
+          "kgId": 12,
+          "kgName": "笔记本Air 13.3 独显",
+          "kgPrice": 1000,
+          "pic": "//i1.mifile.cn/f/i/g/2015/cn-index/bijiben80.jpg"
+        }
+      ]
+    }
   }
 }
