@@ -1,42 +1,36 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data/data.service';
-import { OrderGoods } from "../bean/orderGoods";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { AddressComponent } from "../address/address.component";
-import { ActivatedRoute, Router } from '@angular/router';
 import { Address } from '../bean/address';
+import { AddressComponent } from "../address/address.component";
 import { Customer } from '../bean/customer';
-import { Order } from '../bean/order';
+import { Router } from '@angular/router';
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.scss']
+  selector: 'app-scaddress',
+  templateUrl: './scaddress.component.html',
+  styleUrls: ['./scaddress.component.scss']
 })
-export class OrderComponent implements OnInit {
+export class ScaddressComponent implements OnInit {
 
-  customer: Customer;
-  isLogin: boolean = false;
-  phone: String;
+  customer:Customer;
+  isLogin:boolean = false;
+  phone:String;
   count: number = 0;
   address: Address;
   totalMoney: number = 0;
   addressList: Object;
   status: Array<boolean>;
-  newOrder: Order;
-  orderGoodsList: Array<OrderGoods>;
-  constructor(private data: DataService, public dialog: MatDialog, private activatedRoute: ActivatedRoute, private router: Router) {
-
-
-  }
+  constructor(private data: DataService, public dialog: MatDialog,private router:Router) { }
 
   ngOnInit() {
+
     this.data.checklogin().subscribe(
-      result => {
+      result=>{
         this.phone = result["data"];
         this.isLogin = result["status"];
-        if (this.isLogin) {
+        if(this.isLogin){
           this.data.getCustomerByPhone(this.phone).subscribe(
-            result => {
+            result=>{
               this.customer = result["data"];
               this.data.getAddress(this.customer.cId).subscribe(
                 result => {
@@ -44,63 +38,20 @@ export class OrderComponent implements OnInit {
                   for (let i = 0; i < result["data"].length; i++) {
                     this.status.push(false);
                   }
-
                   this.status[0] = true;
                   this.addressList = result["data"];
-                  this.address = this.addressList[0];
                 }
-
+          
               );
             }
           );
-        } else {
+        }else{
           this.router.navigate(["login"]);
         }
       }
     );
 
-
-    this.activatedRoute.queryParams.subscribe(
-
-      queryParams => {
-
-
-
-        this.orderGoodsList = JSON.parse(queryParams.orderGoodsList);
-
-
-      }
-
-    );
-
-    for (let i = 0; i < this.orderGoodsList.length; i++) {
-      this.count++;
-      this.totalMoney += this.orderGoodsList[i].goods.gPrice * this.orderGoodsList[i].ogQuantity;
-    }
-
-
-  }
-
-  addNewOrder() {
-
-    for (let i = 0; i < this.orderGoodsList.length; i++) {
-      this.orderGoodsList[i].order.address = this.address;
-    }
-    console.log(this.orderGoodsList);
-    this.data.addNewOrder(this.orderGoodsList).subscribe(
-      result => {
-        this.newOrder = result["data"];
-
-        this.router.navigate(['settlement'], {
-          queryParams: {
-            order: JSON.stringify(this.newOrder)
-
-          }
-        });
-      }
-    );
-
-
+    
   }
 
   selectAddress(i) {
@@ -113,6 +64,7 @@ export class OrderComponent implements OnInit {
     }
     this.address = this.addressList[i];
   }
+
   openDialog() {
     const dialogRef = this.dialog.open(AddressComponent, {
       height: '350px',
@@ -140,7 +92,12 @@ export class OrderComponent implements OnInit {
     });
 
   }
-
+  deleteAddress(i) {
+    this.data.deleteAddress(this.addressList[i]).subscribe();
+    console.log(this.addressList[i]);
+    window.location.reload();
+    
+  }
 
 }
 export interface DialogData {

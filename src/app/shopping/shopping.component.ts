@@ -31,6 +31,9 @@ export class ShoppingComponent implements OnInit {
   favoriteList: Array<Favorite>;
   isshow = true;
 
+  isLogin: boolean = false;
+  phone: String;
+
   constructor(private data: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -46,16 +49,34 @@ export class ShoppingComponent implements OnInit {
         this.caninsert();
       }
     );
-    this.data.getShopCarGoods(1).subscribe(
+
+    this.data.checklogin().subscribe(
       result => {
-        this.customerShopcarList = result["data"];
+        this.phone = result["data"];
+        this.isLogin = result["status"];
+        if (this.isLogin) {
+          this.data.getCustomerByPhone(this.phone).subscribe(
+            result => {
+              this.customer = result["data"];
+              this.data.getShopCarGoods(this.customer.cId).subscribe(
+                result => {
+                  this.customerShopcarList = result["data"];
+                }
+              );
+              this.data.selectFavoriteByCustomerId(this.customer.cId).subscribe(
+                result => {
+                  this.favoriteList = result["data"];
+                }
+              );
+            }
+          );
+        } else {
+          //未登录
+        }
       }
     );
-    this.data.selectFavoriteByCustomerId(1).subscribe(
-      result => {
-        this.favoriteList = result["data"];
-      }
-    );
+
+
   }
 
   changePic(index) {
@@ -88,7 +109,7 @@ export class ShoppingComponent implements OnInit {
       }
     }
     if (flag) {
-      this.customer = new Customer(1, null, null, null, null, null, null, null, null, null, null);
+      
       this.shopcar = new Shopcar(null, this.customer, this.shopping.goods, 1, 1);
       this.data.addGoodsToShopcar(this.shopcar).subscribe();
       alert("加入成功");
@@ -106,7 +127,7 @@ export class ShoppingComponent implements OnInit {
       }
     }
     if (flag) {
-      this.customer = new Customer(1, null, null, null, null, null, null, null, null, null, null);
+      
       this.favorite = new Favorite(null, this.customer, this.shopping.goods, 1);
       this.data.addGoodsToFavorite(this.favorite).subscribe();
       alert("已喜欢");

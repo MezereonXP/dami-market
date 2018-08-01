@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Customer } from './bean/customer';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  isLogin = true;
+  customer:Customer;
+  isLogin:boolean = false;
+  phone:String;
+
+  ngOnInit() {
+    
+  }
 }

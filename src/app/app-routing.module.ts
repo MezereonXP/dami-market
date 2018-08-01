@@ -13,6 +13,13 @@ import { KillComponent } from './kill/kill.component';
 import { SettlementComponent } from "./settlement/settlement.component";
 import { TeamComponent } from './team/team.component';
 
+import { SelfcenterComponent } from './selfcenter/selfcenter.component';
+import { MessageComponent } from './message/message.component';
+import { FavoriteComponent } from './favorite/favorite.component';
+import { ScaddressComponent } from './scaddress/scaddress.component';
+import { Regist2Component } from './regist2/regist2.component';
+import { CheckComponent } from './check/check.component';
+import { ResetComponent } from './reset/reset.component';
 
 const routes: Routes = [
   {
@@ -20,7 +27,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'login/:id',
+    path: 'login',
     component: LoginComponent
   },
   {
@@ -32,15 +39,15 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path:'shopcar',
+    path: 'shopcar',
     component: ShopcarComponent
   },
   {
-    path:'order',
+    path: 'order',
     component: OrderComponent
   },
   {
-    path:'shopping',
+    path: 'shopping',
     component: ShoppingComponent
   },
   {
@@ -66,6 +73,39 @@ const routes: Routes = [
   {
     path: 'settlement',
     component: SettlementComponent
+  },
+  {
+    path: 'regist',
+    component: RegistComponent
+  },
+  {
+    path: 'selfcenter',
+    component: SelfcenterComponent
+  },
+  {
+    path: 'message',
+    component: MessageComponent
+  },
+  {
+    path: 'favorite',
+    component: FavoriteComponent
+  },
+  {
+    path: 'scaddress',
+    component: ScaddressComponent
+  },
+  {
+    path: 'regist2',
+    component: Regist2Component
+  },
+  {
+    path: 'check',
+    component: CheckComponent
+  }
+  ,
+  {
+    path: 'reset',
+    component: ResetComponent
   }
 ];
 

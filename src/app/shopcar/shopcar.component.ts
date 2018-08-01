@@ -16,8 +16,10 @@ import { Router } from '@angular/router';
 export class ShopcarComponent implements OnInit {
 
 
+  isLogin: boolean = false;
+  phone: String;
   customer: Customer;
-  shopcar:Shopcar;
+  shopcar: Shopcar;
   goods: Array<Shopcar>;
   recommendGoods: Object;
   isSelectAll = false;
@@ -28,32 +30,50 @@ export class ShopcarComponent implements OnInit {
   totalMoney: number = 0;
   newOrder: Order;
   newOrderGoodsList: Array<OrderGoods> = new Array<OrderGoods>();
-  newOrderGoods:OrderGoods;
+  newOrderGoods: OrderGoods;
   constructor(private data: DataService, private router: Router) { }
 
   ngOnInit() {
-    this.data.getShopCarGoods(1).subscribe(
+
+    this.data.checklogin().subscribe(
       result => {
-        this.status = new Array<boolean>();
-        //this.quantity = new Array();
-        for (let i = 0; i < result["data"].length; i++) {
-          this.status.push(false);
+        this.phone = result["data"];
+        this.isLogin = result["status"];
+        if (this.isLogin) {
+          this.data.getCustomerByPhone(this.phone).subscribe(
+            result => {
+              this.customer = result["data"];
+              this.data.getShopCarGoods(this.customer.cId).subscribe(
+                result => {
+                  this.status = new Array<boolean>();
+                  //this.quantity = new Array();
+                  for (let i = 0; i < result["data"].length; i++) {
+                    this.status.push(false);
 
-          this.count++;
+                    this.count++;
+                  }
+                  console.log(result["data"]);
+                  this.goods = result["data"];
+
+                  // for (let i = 0; i < this.goods.length; i++){
+                  //   this.quantity.push(this.goods[i].count)
+                  // }
+                }
+              );
+              this.data.getRecommendGoods(this.customer.cId).subscribe(
+                result => {
+                  this.recommendGoods = result["data"];
+                }
+              )
+            }
+          );
+        } else {
+          this.router.navigate(["login"]);
         }
-        console.log(result["data"]);
-        this.goods = result["data"];
-
-        // for (let i = 0; i < this.goods.length; i++){
-        //   this.quantity.push(this.goods[i].count)
-        // }
       }
     );
-    this.data.getRecommendGoods(1).subscribe(
-      result => {
-        this.recommendGoods = result["data"];
-      }
-    )
+
+
   }
 
   changeStatus() {
@@ -73,12 +93,12 @@ export class ShopcarComponent implements OnInit {
 
   }
 
-  addGoodsToShopcar(n){
-    
-    
-    this.shopcar = new Shopcar(null,this.customer,this.recommendGoods[n],1,1);
+  addGoodsToShopcar(n) {
+
+
+    this.shopcar = new Shopcar(null, this.customer, this.recommendGoods[n], 1, 1);
     this.data.addGoodsToShopcar(this.shopcar).subscribe();
-    
+
   }
   deleteGoodsFromShopcar(i) {
     this.goods[i].sStatus = 0;
@@ -103,16 +123,16 @@ export class ShopcarComponent implements OnInit {
           this.newOrderGoodsList.push(this.newOrderGoods);
         }
       }
-      
+
       this.router.navigate(['order'], {
         queryParams: {
           orderGoodsList: JSON.stringify(this.newOrderGoodsList)
-          
+
         }
-        
+
       })
-      
-    }else{
+
+    } else {
       alert("请至少选择一个商品");
     }
 

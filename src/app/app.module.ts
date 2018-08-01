@@ -20,6 +20,12 @@ import { TeamComponent } from './team/team.component';
 import { SelfcenterComponent } from './selfcenter/selfcenter.component';
 import { InfomationComponent } from './infomation/infomation.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { MessageComponent } from './message/message.component';
+import { FavoriteComponent } from './favorite/favorite.component';
+import { Regist2Component } from './regist2/regist2.component';
+import { CheckComponent } from './check/check.component';
+import { ResetComponent } from './reset/reset.component';
+import { ScaddressComponent } from './scaddress/scaddress.component';
 import { AddressComponent } from './address/address.component';
 import { SettlementComponent } from './settlement/settlement.component';
 import { KilltipsComponent }  from './killtips/killtips.component';
@@ -39,9 +45,16 @@ import { KilltipsComponent }  from './killtips/killtips.component';
     TeamComponent,
     SelfcenterComponent,
     InfomationComponent,
-    AddressComponent,
+    
     SettlementComponent,
-    KilltipsComponent
+    KilltipsComponent,
+    MessageComponent,
+    FavoriteComponent,
+    Regist2Component,
+    CheckComponent,
+    ResetComponent,
+    ScaddressComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,

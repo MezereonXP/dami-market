@@ -4,6 +4,7 @@ import { DataService } from '../data/data.service';
 import { TempGoods } from '../bean/temp.goods';
 import { Good } from '../bean/good';
 import { ShowBean } from '../bean/showbean';
+import { Customer } from '../bean/customer';
 
 @Component({
   selector: 'app-home',
@@ -37,6 +38,9 @@ export class HomeComponent implements OnInit {
   currentColor = "rgb(98,92,82)";
   currentSeeAllColor = "black";
   users$: Object;
+  customer:Customer;
+  isLogin:boolean = false;
+  phone:String;
   isShowDetail = false;
   goodsList$: Array<Good>;
   showGoodsList$: Array<Good>;
@@ -80,6 +84,23 @@ export class HomeComponent implements OnInit {
           for (let j = 0; j < element.advPic.length; j++) {
             this.isShowElevationNew[i].push(true);
           }
+        }
+      }
+    );
+
+    this.data.checklogin().subscribe(
+      result=>{
+        this.phone = result["data"];
+        this.isLogin = result["status"];
+        if(this.isLogin){
+          
+          this.data.getCustomerByPhone(this.phone).subscribe(
+            result=>{
+              this.customer = result["data"];
+            }
+          );
+        }else{
+          //未登录
         }
       }
     );

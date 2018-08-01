@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../bean/user';
+import { Customer } from '../bean/customer';
+import { Favorite } from '../bean/favorite';
 import { Shopcar } from '../bean/shopcar';
 import { OrderGoods } from '../bean/ordergoods';
 import { Address } from '../bean/address';
-import { Favorite } from '../bean/favorite';
+
 import { Order } from '../bean/order';
 
 /**
@@ -16,7 +18,7 @@ import { Order } from '../bean/order';
 @Injectable()
 export class DataService {
 
-  
+
   constructor(private http: HttpClient) { }
 
   getUsers() {
@@ -77,19 +79,33 @@ export class DataService {
   addGoodsToFavorite(favorite: Favorite) {
     return this.http.post("http://localhost:8800/api/addGoodsToFavorite", favorite);
   }
-  selectFavoriteByCustomerId(customerId) {
-    const params = new HttpParams().set("customerId", customerId);
-    return this.http.get('http://localhost:8800/api/selectFavoriteByCustomerId', { params });
-  }
+
   killGoods(name) {
     const params = new HttpParams().set("id", name);
     return this.http.get("api/killGoods", { params });
   }
+  register(customer: Customer) {
+    return this.http.post('http://localhost:8800/api/regist', customer);
+  }
+  reseter(customer: Customer) {
+    return this.http.post('http://localhost:8800/api/reset', customer);
+  }
 
+  getCustomerById(id) {
+    const params = new HttpParams().set("customerId", id);
+    return this.http.get('http://localhost:8800/api/selectCustomerById', { params });
+  }
+  selectFavoriteByCustomerId(customerId) {
+    const params = new HttpParams().set("customerId", customerId);
+    return this.http.get('http://localhost:8800/api/selectFavoriteByCustomerId', { params });
+  }
+  deleteFavorite(favorite: Favorite) {
+    return this.http.post('http://localhost:8800/api/delete', favorite);
+  }
   getShopCarGoods(customerId) {
     const params = new HttpParams().set("customerId", customerId);
     return this.http.get("http://localhost:8800/api/getShopCarGoods", { params });
-    
+
   }
 
   getgoodsPic(type) {
@@ -121,13 +137,13 @@ export class DataService {
   deleteAddress(address: Address) {
     return this.http.post("http://localhost:8800/api/deleteAddress", address);
   }
-  updateOrder(order:Order){
+  updateOrder(order: Order) {
     return this.http.post("http://localhost:8800/api/updateOrder", order);
   }
 
   //连接后台 插入note
-  insertNote(cId, kgName, time,kgMsg) {
-    const params = new HttpParams().set("cId", cId).set("kgName", kgName).set("time", time).set("kgMsg",kgMsg);
+  insertNote(cId, kgName, time, kgMsg) {
+    const params = new HttpParams().set("cId", cId).set("kgName", kgName).set("time", time).set("kgMsg", kgMsg);
     return this.http.get('http://localhost:8800/api/insertNote', { params });
   }
 
@@ -146,5 +162,29 @@ export class DataService {
   beginKillGood(kgId, cId) {
     const params = new HttpParams().set("kgId", kgId).set("cId", cId);
     return this.http.get('http://localhost:8800/api/killGoods', { params });
+  }
+  selectNoteByCustomerId(customerId) {
+    const params = new HttpParams().set("customerId", customerId);
+    return this.http.get('http://localhost:8800/api/selectNoteByCustomerId', { params });
+  }
+  selectAllOrder(userId) {
+    const params = new HttpParams().set("userId", userId);
+    return this.http.get('http://localhost:8800/api/selectAllOrder', { params });
+  }
+  addFavorite(favorite: Favorite) {
+    return this.http.post('http://localhost:8800/api/addFavorite', favorite);
+  }
+  login(newCustomer: Customer) {
+    const params = new HttpParams().set("phone", newCustomer.cTelephone).set("pwd", newCustomer.cPassword);
+    return this.http.get('http://localhost:8800/api/login', { params });
+  }
+
+  checklogin() {
+    return this.http.get("http://localhost:8800/api/checklogin", { withCredentials: true });
+  }
+
+  getCustomerByPhone(phone) {
+    const params = new HttpParams().set("phone", phone);
+    return this.http.post('http://localhost:8800/api/getCustomerByPhone', { params });
   }
 }
