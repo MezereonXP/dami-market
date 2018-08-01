@@ -179,7 +179,7 @@ export class DataService {
   }
   login(newCustomer: Customer) {
     const params = new HttpParams().set("phone", newCustomer.cTelephone).set("pwd", newCustomer.cPassword);
-    return this.http.get('http://localhost:8800/api/login', { params });
+    return this.http.get('http://localhost:8800/api/login', { params, withCredentials: true });
   }
 
   checklogin() {
