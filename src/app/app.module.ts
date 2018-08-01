@@ -8,7 +8,7 @@ import { RegistComponent } from './regist/regist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from "./data/data.service";
-import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule, MatDialog, MatDialogModule } from "@angular/material";
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule, MatDialog, MatDialogModule, MatTabsModule } from "@angular/material";
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { ShoppingComponent } from './shopping/shopping.component';
@@ -54,7 +54,8 @@ import { KilltipsComponent }  from './killtips/killtips.component';
     MatCardModule,
     CarouselModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule
   ],
   entryComponents:[
     KilltipsComponent

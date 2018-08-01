@@ -67,7 +67,7 @@ export class KilltipsComponent implements OnInit {
 //      }
 //    }
 //  )
-    this.data.kgMsg="完成抢购";
+    this.data.kgMsg="抢购成功";
     this.dialogRef.close(this.data);
   }
 
