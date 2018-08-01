@@ -17,8 +17,10 @@ import { Observable } from 'rxjs';
 
 export class LoginComponent implements OnInit {
 
+  phone="";
+  pwd="";
   users$: Object;
-
+  flag:boolean;
   constructor(private data: DataService, private route: ActivatedRoute) { }
 
   /**
@@ -31,6 +33,16 @@ export class LoginComponent implements OnInit {
     this.data.getUsers().subscribe(
       data => this.users$ = data
     );
+  }
+
+  login(){
+
+    this.data.login(this.phone,this.pwd).subscribe(
+      result=>this.flag=result["status"]
+    )
+    if(this.flag){
+      alert("登录成功");
+    }
   }
 
 }

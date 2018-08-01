@@ -43,36 +43,36 @@ export class DataService {
   }
   getAddress(userId) {
     const params = new HttpParams().set("userId", userId);
-    return this.http.get("http://localhost:8800/api/selectAllAddressByCustomerId", {params});
+    return this.http.get("http://localhost:8800/api/selectAllAddressByCustomerId", { params });
   }
   getOrderGoodsList(userId) {
     const params = new HttpParams().set("userId", userId);
-    return this.http.get("http://localhost:8800/api/selectAllOrderGoods", {params});
+    return this.http.get("http://localhost:8800/api/selectAllOrderGoods", { params });
   }
   getAllOrder(userId) {
     const params = new HttpParams().set("userId", userId);
-    return this.http.get("http://localhost:8800/api/selectAllOrder", {params});
+    return this.http.get("http://localhost:8800/api/selectAllOrder", { params });
   }
   killGoods(name) {
     const params = new HttpParams().set("id", name);
-    return this.http.get("api/killGoods", {params});
+    return this.http.get("api/killGoods", { params });
   }
-  register(customer:Customer) {
+  register(customer: Customer) {
     return this.http.post('http://localhost:8800/api/regist', customer);
   }
-  reseter(customer:Customer) {
+  reseter(customer: Customer) {
     return this.http.post('http://localhost:8800/api/reset', customer);
   }
 
   getCustomerById(id) {
     const params = new HttpParams().set("customerId", id);
-    return this.http.get('http://localhost:8800/api/selectCustomerById' ,{params});
+    return this.http.get('http://localhost:8800/api/selectCustomerById', { params });
   }
-  selectFavoriteByCustomerId(customerId){
+  selectFavoriteByCustomerId(customerId) {
     const params = new HttpParams().set("customerId", customerId);
-    return this.http.get('http://localhost:8800/api/selectFavoriteByCustomerId' ,{params});
+    return this.http.get('http://localhost:8800/api/selectFavoriteByCustomerId', { params });
   }
-  deleteFavorite (favorite:Favorite){
+  deleteFavorite(favorite: Favorite) {
     return this.http.post('http://localhost:8800/api/delete', favorite);
   }
   getShopCarGoods(customerId) {
@@ -92,17 +92,32 @@ export class DataService {
   addGoodsToShopcar(shopcar: Shopcar) {
     return this.http.post("http://localhost:8800/api/addGoodsToShopcar", shopcar);
   }
-  addNewOrder(list:Array<OrderGoods>){
+  addNewOrder(list: Array<OrderGoods>) {
     return this.http.post("http://localhost:8800/api/addNewOrder", list);
   }
-  addAddress(address:Address){
+  addAddress(address: Address) {
     return this.http.post("http://localhost:8800/api/addAddress", address);
   }
-  modifyAddress(address:Address){
+  modifyAddress(address: Address) {
     return this.http.post("http://localhost:8800/api/modifyAddress", address);
   }
-  deleteAddress(address:Address){
+  deleteAddress(address: Address) {
     return this.http.post("http://localhost:8800/api/deleteAddress", address);
   }
-
+  selectNoteByCustomerId(customerId) {
+    const params = new HttpParams().set("customerId", customerId);
+    return this.http.get('http://localhost:8800/api/selectNoteByCustomerId', { params });
+  }
+  selectAllOrder(userId) {
+    const params = new HttpParams().set("userId", userId);
+    return this.http.get('http://localhost:8800/api/selectAllOrder', { params });
+  }
+  addFavorite(favorite: Favorite) {
+    return this.http.post('http://localhost:8800/api/addFavorite', favorite);
+  }
+  login(phone: string, password: string) {
+    const params = new HttpParams().set("phone", phone);
+    params.set("pwd", password);
+    return this.http.post('http://localhost:8800/api/login', { params });
+  }
 }

@@ -28,17 +28,17 @@
             <p class="us_name"></p>
             <div>
             <label class="labelbox c_b" for>
-              <input class="item_account" type="text" placeholder="手机号码/小米ID">
+              <input class="item_account" type="text" matInput [(ngModel)]="phone" placeholder="手机号码/小米ID">
             </label>
             </div>
             <div>
             <label class="labelbox c_b">
-              <input class="item_account" type="password" placeholder="密码">
+              <input class="item_account" type="password" matInput [(ngModel)]="pwd" placeholder="密码">
             </label>
             </div>
           </div>
           <p class="us_name"></p>
-          <a class="btnadpt" href="/#/home">登录</a>
+          <a class="btnadpt" href="" (click)="login()">登录</a>
           <div class="n_links_area">
             <a class="outer-link" href="/#/regist">立即注册</a>
             <span>|</span>

@@ -24,6 +24,6 @@ export class ResetComponent implements OnInit {
   changenow(){
     console.log(this.customer);
     this.data.reseter(this.customer).subscribe();
-    
+    alert("密码重置成功！");
   }
 }

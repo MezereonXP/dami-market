@@ -23,6 +23,7 @@ export class Regist2Component implements OnInit {
   registnow(){
     console.log(this.newCustomer);
     this.data.register(this.newCustomer).subscribe();
+    alert("注册成功！");
   }
 
 }
