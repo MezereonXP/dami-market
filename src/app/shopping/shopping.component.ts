@@ -110,6 +110,7 @@ export class ShoppingComponent implements OnInit {
       this.favorite = new Favorite(null, this.customer, this.shopping.goods, 1);
       this.data.addGoodsToFavorite(this.favorite).subscribe();
       alert("已喜欢");
+      window.location.reload();
     } else {
       alert("喜欢列表中已存在该商品");
     }
