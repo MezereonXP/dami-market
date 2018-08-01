@@ -40,4 +40,8 @@ export class AppComponent {
     this.router.navigate(["login"]);
   }
 
+  jumpToSelfCenter(){
+    this.router.navigate(["selfcenter"]);
+  }
+
 }

@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   pwd = "";
   users$: Object;
   flag: boolean;
+  isLogin:boolean;
   customer: Customer;
   constructor(private data: DataService, private router: Router) { }
 
@@ -31,6 +32,23 @@ export class LoginComponent implements OnInit {
    * @memberof LoginComponent
    */
   ngOnInit() {
+
+    this.data.checklogin().subscribe(
+      result=>{
+        this.phone = result["data"];
+        this.isLogin = result["status"];
+        if(this.isLogin){
+          
+          this.data.getCustomerByPhone(this.phone).subscribe(
+            result=>{
+              this.customer = result["data"];
+            }
+          );
+        }else{
+          //未登录
+        }
+      }
+    );
     // window.alert(this.route.snapshot.paramMap.get("id"));
     this.data.getUsers().subscribe(
       data => this.users$ = data
@@ -46,7 +64,8 @@ export class LoginComponent implements OnInit {
         console.log(result["status"]);
         if (this.flag) {
           //alert("登录成功");
-          this.router.navigate(['home']);
+          //this.router.navigate(['home']);
+          window.location.href="";
         }else{
           alert("账号或密码错误");
         }

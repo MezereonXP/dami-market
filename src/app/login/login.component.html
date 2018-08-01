@@ -23,11 +23,11 @@
           <p class="us_name"></p>
           <a class="navtab-link">帐号登录</a>
         </div>
-        <div class="login_area">
+        <div class="login_area" *ngIf="!isLogin">
           <div class="lgn_inputbg c_b">
             <p class="us_name"></p>
             <div>
-              <label class="labelbox c_b" for>
+              <label class="labelbox c_b">
                 <input class="item_account" type="text" matInput [(ngModel)]="phone" placeholder="手机号码/小米ID">
               </label>
             </div>
@@ -44,6 +44,10 @@
             <span>|</span>
             <a class="outer-link" href="/#/check">忘记密码</a>
           </div>
+        </div>
+        <div class="isLogin" *ngIf="isLogin">
+            <h1>已登录帐号</h1><br>
+          <h1><a href="/#/selfcenter" class="customer-name">{{customer.cName}}</a></h1>
         </div>
       </div>
     </mat-grid-tile>

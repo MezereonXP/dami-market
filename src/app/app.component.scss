@@ -49,3 +49,13 @@
   width: 30%;
   height: 90%;
 }
+.menu{
+  text-align: center;
+  border: 0px !important;
+  .option{
+    color:black !important;
+    a {
+      color:black !important;
+    }
+  }
+}
