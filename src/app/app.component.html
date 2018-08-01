@@ -7,7 +7,7 @@
           <img class="icon" src="assets/icon.png">
         </a>
       </mat-grid-tile>
-      <mat-grid-tile colspan="8"></mat-grid-tile>
+      <mat-grid-tile colspan="7"></mat-grid-tile>
       <mat-grid-tile>
         <span class="login" *ngIf="!isLogin">
           <a href="/#/login">
@@ -20,17 +20,30 @@
           </a>
         </span>
       </mat-grid-tile>
-      <mat-grid-tile>
+      <mat-grid-tile colspan="2">
         <span class="regist" *ngIf="!isLogin">
           <a href="/#/regist">
             <button mat-button class="btn-regist">注册</button>
           </a>
         </span>
-        <span class="login" *ngIf="isLogin">
-          <a href="/#/selfcenter">
-            <button mat-button class="btn-login">个人中心</button>
-          </a>
-        </span>
+        <mat-form-field *ngIf="isLogin">
+          <mat-select placeholder="{{customer.cName}}">
+            <mat-option>
+              <span class="regist">
+                <a href="/#/selfcenter">
+                  <button mat-button class="btn-regist">个人中心</button>
+                </a>
+              </span>
+            </mat-option>
+            <mat-option>
+              <span class="regist">
+
+                <button mat-button class="btn-regist" (click)="logout()">注销</button>
+
+              </span>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile>
         <span class="span-info">

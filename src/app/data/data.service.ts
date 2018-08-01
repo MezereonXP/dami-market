@@ -188,6 +188,11 @@ export class DataService {
 
   getCustomerByPhone(phone) {
     const params = new HttpParams().set("phone", phone);
-    return this.http.post('http://localhost:8800/api/getCustomerByPhone', { params });
+    return this.http.get('http://localhost:8800/api/getCustomerByPhone', { params });
   }
+
+  logout() {
+    return this.http.get("http://localhost:8800/api/logout", { withCredentials: true });
+  }
+
 }

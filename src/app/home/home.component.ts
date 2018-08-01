@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
    * @memberof HomeComponent
    */
   ngOnInit() {
-
+    
     this.data.getGoodsList().subscribe(
       result => {
         this.goodsList$ = result["data"];
