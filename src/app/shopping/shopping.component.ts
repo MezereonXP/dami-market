@@ -9,6 +9,7 @@ import { Shopcar } from '../bean/shopcar';
 import { Customer } from '../bean/customer';
 import { Favorite } from '../bean/favorite';
 import { getOrSetAsInMap } from '@angular/animations/browser/src/render/shared';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class ShoppingComponent implements OnInit {
   isLogin: boolean = false;
   phone: String;
 
-  constructor(private data: DataService, private route: ActivatedRoute) { }
+  constructor(private data: DataService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     // this.shopping.goods.gId = +this.route.snapshot.paramMap.get("id");
@@ -72,6 +73,7 @@ export class ShoppingComponent implements OnInit {
           );
         } else {
           //未登录
+          this.router.navigate(["login"]);
         }
       }
     );
