@@ -9,22 +9,34 @@
       </mat-grid-tile>
       <mat-grid-tile colspan="8"></mat-grid-tile>
       <mat-grid-tile>
-        <span class="login" *ngIf="isLogin">
+        <span class="login" *ngIf="!isLogin">
           <a href="/#/login">
             <button mat-button class="btn-login">登录</button>
           </a>
         </span>
+        <span class="login" *ngIf="isLogin">
+          <a href="/#/shopcar">
+            <button mat-button class="btn-login">购物车</button>
+          </a>
+        </span>
       </mat-grid-tile>
       <mat-grid-tile>
-        <span class="regist" *ngIf="isLogin">
+        <span class="regist" *ngIf="!isLogin">
           <a href="/#/regist">
             <button mat-button class="btn-regist">注册</button>
+          </a>
+        </span>
+        <span class="login" *ngIf="isLogin">
+          <a href="/#/selfcenter">
+            <button mat-button class="btn-login">个人中心</button>
           </a>
         </span>
       </mat-grid-tile>
       <mat-grid-tile>
         <span class="span-info">
-          <button mat-button class="info">消息通知</button>
+          <a href="/#/message">
+            <button mat-button class="info">消息通知</button>
+          </a>
         </span>
       </mat-grid-tile>
       <mat-grid-tile colspan="1"></mat-grid-tile>
@@ -32,39 +44,6 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-toolbar class="headbar" color="primary" *ngIf="">
-  <mat-toolbar-row>
-    <mat-grid-list cols="14" rowHeight="5:3" class="bar">
-      <mat-grid-tile colspan="1"></mat-grid-tile>
-      <mat-grid-tile colspan="1">
-        <a href="/#/home">
-          <img class="icon" src="assets/icon.png">
-        </a>
-      </mat-grid-tile>
-      <mat-grid-tile colspan="8"></mat-grid-tile>
-      <mat-grid-tile>
-        <span class="login" *ngIf="isLogin">
-          <a href="/#/">
-            <button mat-button class="btn-login">个人中心</button>
-          </a>
-        </span>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <span class="regist" *ngIf="isLogin">
-          <a href="/#/shopcar">
-            <button mat-button class="btn-regist">购物车</button>
-          </a>
-        </span>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <span class="span-info">
-          <button mat-button class="info">消息通知</button>
-        </span>
-      </mat-grid-tile>
-      <mat-grid-tile colspan="1"></mat-grid-tile>
-    </mat-grid-list>
-  </mat-toolbar-row>
-</mat-toolbar>
 
 <mat-toolbar class="headbar2 mat-elevation-z2" color="primary">
   <mat-toolbar-row>

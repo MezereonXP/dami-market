@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Customer } from './bean/customer';
+import { DataService } from './data/data.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,23 @@ export class AppComponent {
   isLogin:boolean = false;
   phone:String;
 
+  constructor(private data: DataService) { }
   ngOnInit() {
-    
+    this.data.checklogin().subscribe(
+      result=>{
+        this.phone = result["data"];
+        this.isLogin = result["status"];
+        if(this.isLogin){
+          
+          this.data.getCustomerByPhone(this.phone).subscribe(
+            result=>{
+              this.customer = result["data"];
+            }
+          );
+        }else{
+          //未登录
+        }
+      }
+    );
   }
 }

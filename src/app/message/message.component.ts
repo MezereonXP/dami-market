@@ -3,6 +3,9 @@ import { DataService } from '../data/data.service';
 import { ArrayType } from '../../../node_modules/@angular/compiler/src/output/output_ast';
 import { Note } from '../bean/Note';
 
+import { Customer } from '../bean/customer';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',
@@ -10,15 +13,36 @@ import { Note } from '../bean/Note';
 })
 export class MessageComponent implements OnInit {
 
-  noteList:Array<Note>
-  constructor(private data:DataService) { }
+  customer: Customer;
+  isLogin: boolean = false;
+  phone: String;
+  noteList: Array<Note>
+  constructor(private data: DataService,private router:Router) { }
 
   ngOnInit() {
-    this.data.selectNoteByCustomerId(1).subscribe(
-      result => {
-        this.noteList=result["data"]
+
+    this.data.checklogin().subscribe(
+      result=>{
+        this.phone = result["data"];
+        this.isLogin = result["status"];
+        if(this.isLogin){
+          
+          this.data.getCustomerByPhone(this.phone).subscribe(
+            result=>{
+              this.customer = result["data"];
+              this.data.selectNoteByCustomerId(this.customer.cId).subscribe(
+                result => {
+                  this.noteList = result["data"]
+                }
+              )
+            }
+          );
+        }else{
+          this.router.navigate(["login"]);
+        }
       }
-    )
+    );
+    
   }
 
 }
