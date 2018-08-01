@@ -30,7 +30,7 @@ export class SettlementComponent implements OnInit {
     if(flag){
       this.order.oState=2;
       this.data.updateOrder(this.order).subscribe();
-      alert("交钱成功！即将返回商城主页");
+      alert("付款成功！即将返回商城主页");
       this.router.navigate(['home']);
     }
   }
