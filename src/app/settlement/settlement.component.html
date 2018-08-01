@@ -1,2 +1,31 @@
-<h1>结算页面(伪))</h1>
-<button mat-button (click)="settlement()">我交钱！</button>
+<mat-toolbar class="headbar mat-elevation-z1" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="16" rowHeight="5:3" class="bar">
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="2" class="ok">
+        <span>选择付款方式</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="13"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+
+<div class="bar-settlement">
+  <button mat-button class="btn-description">
+    <img class="img1" src="https://cdnimg.dd373.com/file/general/images/alipay.jpg">
+  </button>
+  <button mat-button class="btn-description2">
+    <img class="img2" src="https://cdnimg.dd373.com/file/general/images/unionpay.png">
+  </button>
+  <button mat-button class="btn-description3">
+    <img class="img3" src="https://cdnimg.dd373.com/file/general/images/weixinpay.jpg">
+  </button>
+  <button mat-button class="btn-description4">
+    <img class="img4" src="https://cdnimg.dd373.com/file/general/images/qqpay.jpg">
+  </button>
+
+  <button mat-button class="btn-settlement" (click)="settlement()">确认付款</button>
+</div>

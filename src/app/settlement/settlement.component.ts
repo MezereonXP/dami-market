@@ -26,11 +26,11 @@ export class SettlementComponent implements OnInit {
 
   settlement() {
     
-    let flag = confirm("真的交钱吗");
+    let flag = confirm("确认付款？");
     if(flag){
       this.order.oState=2;
       this.data.updateOrder(this.order).subscribe();
-      alert("交钱成功！即将进入商城主页");
+      alert("交钱成功！即将返回商城主页");
       this.router.navigate(['home']);
     }
   }

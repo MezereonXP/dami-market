@@ -51,6 +51,8 @@ export class DataService {
     const params = new HttpParams().set("goodId", goodId);
     return this.http.get("http://localhost:8080/api/getGoodInfo", { params });
   }
+
+
   getAddress(userId) {
     const params = new HttpParams().set("userId", userId);
     return this.http.get("http://localhost:8800/api/selectAllAddressByCustomerId", { params });
@@ -76,10 +78,7 @@ export class DataService {
   }
 
 
-  addGoodsToFavorite(favorite: Favorite) {
-    return this.http.post("http://localhost:8800/api/addGoodsToFavorite", favorite);
-  }
-
+  
   killGoods(name) {
     const params = new HttpParams().set("id", name);
     return this.http.get("api/killGoods", { params });
@@ -107,6 +106,9 @@ export class DataService {
     return this.http.get("http://localhost:8800/api/getShopCarGoods", { params });
 
   }
+  addGoodsToFavorite(favorite: Favorite) {
+    return this.http.post("http://localhost:8800/api/addFavorite", favorite);
+  }
 
   getgoodsPic(type) {
     const params = new HttpParams().set("type", type);
@@ -128,6 +130,7 @@ export class DataService {
   addNewOrder(list: Array<OrderGoods>) {
     return this.http.post("http://localhost:8800/api/addNewOrder", list);
   }
+
   addAddress(address: Address) {
     return this.http.post("http://localhost:8800/api/addAddress", address);
   }

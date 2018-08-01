@@ -1,0 +1,76 @@
+.headbar {
+  background-color: #ffffff;
+  color: black;
+  z-index: -1 !important;
+}
+
+.bar {
+  width: 100%;
+}
+
+.bar-settlement {
+  width: 1200px;
+  height: 480px;
+  .btn-settlement {
+    width: 175px;
+    height: 50px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #f7bf0a;
+    position: absolute;
+    left: 1100px;
+    top: 550px;
+  }
+  .btn-description{
+    width: 175px;
+    height: 55px;
+    border:1px solid;
+    border-color: #000000;
+    position: absolute;
+    left: 300px;
+    top: 250px;
+    .img1{
+        width: 80%;
+        height: 80%;
+    }
+  }
+  .btn-description2{
+    width: 175px;
+    height: 55px;
+    border:1px solid;
+    border-color: #000000;
+    position: absolute;
+    left: 500px;
+    top: 250px;
+    .img2{
+        width: 80%;
+        height: 80%;
+    }
+  }
+  .btn-description3{
+    width: 175px;
+    height: 55px;
+    border:1px solid;
+    border-color: #000000;
+    position: absolute;
+    left: 300px;
+    top: 350px;
+    .img3{
+        width: 80%;
+        height: 80%;
+    }
+  }
+  .btn-description4{
+    width: 175px;
+    height: 55px;
+    border:1px solid;
+    border-color: #000000;
+    position: absolute;
+    left: 500px;
+    top: 350px;
+    .img4{
+        width: 80%;
+        height: 80%;
+    }
+  }
+}
