@@ -59,4 +59,9 @@ export class DataService {
     return this.http.get("http://localhost:8800/api/getAllGoods");
   }
 
+  search(key: string) {
+    const params = new HttpParams().set("key", key);
+    return this.http.get("http://localhost:8800/api/search", { params });
+  }
+
 }

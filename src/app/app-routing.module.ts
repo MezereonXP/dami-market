@@ -8,6 +8,7 @@ import { InfomationComponent } from './infomation/infomation.component';
 import { KillComponent } from './kill/kill.component';
 import { TeamComponent } from './team/team.component';
 import { ShoppingComponent } from './shopping/shopping.component';
+import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'shopping/:id',
     component: ShoppingComponent
+  },
+  {
+    path: 'search/:key',
+    component: SearchComponent
   }
 ];
 

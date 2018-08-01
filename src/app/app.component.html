@@ -44,9 +44,9 @@
       <mat-grid-tile colspan="3">
         <span class="searchSpan">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="输入搜索关键词" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input [(ngModel)]="searchContent" type="text" class="form-control" placeholder="输入搜索关键词" aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">搜索</button>
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="search(template)" >搜索</button>
             </div>
           </div>
         </span>
@@ -92,3 +92,15 @@
     </mat-grid-list>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Error</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      查询条件不能为空!
+    </div>
+  </ng-template>

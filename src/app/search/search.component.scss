@@ -1,0 +1,42 @@
+.title {
+  margin-top: 2%;
+  margin-left: 10%;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.chip {
+  margin-left: 5%;
+}
+
+.chip-list {
+  margin-left: 10%;
+}
+
+.d-catagory {
+  color: #656565;
+}
+
+.goods-grid-list {
+  height: 100%;
+  width: 90%;
+  margin-left: 10%;
+  padding-left: 3%;
+  .goods-tile {
+    height: 400px;
+    width: 260px !important;
+  }
+}
+
+.card-pic {
+  width: 250px;
+  height: 220px;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-action {
+  text-align: center;
+}
