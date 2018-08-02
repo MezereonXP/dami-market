@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DataService } from '../data/data.service';
-import { OrderGoods } from "../bean/orderGoods";
+import { OrderGoods } from "../bean/ordergoods";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AddressComponent } from "../address/address.component";
 import { ActivatedRoute, Router } from '@angular/router';
