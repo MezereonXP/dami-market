@@ -274,13 +274,6 @@ export class KillComponent implements OnInit {
 
   }
 
-
-  kill() {
-    this.data.killGoods(this.killId).subscribe(
-      result => window.alert(result["msg"])
-    );
-  }
-
   //初始化ifTimeOverList
   initIfTimeOverList() {
     for (let i = 0; i < 5; i++) {
