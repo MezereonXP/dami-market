@@ -15,7 +15,8 @@ import { Router } from '@angular/router';
 })
 export class ShopcarComponent implements OnInit {
 
-
+  isRecommend:boolean = false;
+  isNone:boolean = true;
   isLogin: boolean = false;
   phone: String;
   customer: Customer;
@@ -52,6 +53,9 @@ export class ShopcarComponent implements OnInit {
 
                     this.count++;
                   }
+                  if(this.count>0){
+                    this.isNone=false;
+                  }
                   console.log(result["data"]);
                   this.goods = result["data"];
 
@@ -63,6 +67,9 @@ export class ShopcarComponent implements OnInit {
               this.data.getRecommendGoods(this.customer.cId).subscribe(
                 result => {
                   this.recommendGoods = result["data"];
+                  if(result["data"].length>0){
+                    this.isRecommend = true;
+                  }
                 }
               )
             }
