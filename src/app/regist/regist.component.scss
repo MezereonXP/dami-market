@@ -1,0 +1,243 @@
+.body {
+  overflow-y: auto;
+  height: 100%;
+  background: #f9f9f9;
+  color: #666;
+  font-size: 14px;
+  font-family: arial, "Hiragino Sans GB", "Microsoft YaHei", "微軟正黑體", "儷黑 Pro", sans-serif;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  background: rgb(207, 206, 206);
+}
+
+.wrap {
+  width: 854px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  background: #f9f9f9;
+}
+
+.title-item {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  clear: both;
+}
+
+.t_c {
+  text-align: center;
+}
+
+.regbox {
+  width: 332px;
+  padding: 30px 0;
+  line-height: 20px;
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+}
+
+.regbox .tit_normal {
+  padding-bottom: 5px;
+  color: #333;
+  font-weight: normal;
+}
+
+.regbox h4 {
+  font-size: 14px;
+}
+
+.listwrap {
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.tits {
+  height: 40px;
+  padding-left: 14px;
+  line-height: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #e8e8e8;
+  color: #555;
+  cursor: pointer;
+}
+
+.c_b {
+  zoom: 1;
+}
+.result-select-regions {
+  float: left;
+  width: 275px;
+  border-right: 1px solid #e8e8e8;
+  cursor: pointer;
+}
+.icon_cirarr {
+  float: right;
+  background: url(https://account.xiaomi.com/static/res/0eeaaed/passport/oauth/images/icon_user.png);
+  width: 16px;
+  height: 16px;
+  margin: 11px 12px 0 12px;
+}
+.region_tip_text {
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.listwrap_inside_panel .listwrap {
+  float: left;
+}
+
+.listwrap_inside_panel .tits {
+  float: left;
+  width: 54px;
+  height: 40px;
+  text-align: center;
+  padding: 0 0px;
+}
+
+.icon_arrow {
+  float: left;
+  margin: 17px 0 0 10px;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #9d9d9d transparent transparent transparent;
+}
+
+.pp {
+  float: left;
+  cursor: pointer;
+  width: auto;
+  border-right: 0 none;
+}
+
+.listwrap_inside_panel .inputbg {
+  float: left;
+}
+
+.inputbg {
+  padding-bottom: 15px;
+  width: 278px;
+}
+.listwrap_inside_panel .inputbg input {
+  width: 278px;
+}
+.input {
+  color: #333;
+  border: 0 none;
+  -webkit-rtl-ordering: logical;
+  user-select: text;
+  cursor: auto;
+  font-size: 100%;
+  text-rendering: auto;
+  text-align: start;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  font: 13.3333px Arial;
+}
+
+.listwrap_inside_panel .labelbox {
+  margin-left: -1px;
+  position: relative;
+  z-index: 3;
+}
+
+.labelbox{
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+}
+
+.labelbox input {
+  height: 40px;
+  line-height: 20px;
+  padding: 10px;
+  display: inline-block;
+}
+.err_label {
+    width: 193px;
+}
+
+.label {
+  outline: 0 none;
+  cursor: default;
+}
+
+.input[type="submit"] {
+  -webkit-appearance: none;
+}
+.btn1{
+  float: right;
+  padding-bottom: 15px;
+}
+.btn_reg_1 {
+  background-color: #0059ff;
+  border: 1px solid rgba(186, 186, 186, 0.3);
+  color: #ffffff;
+}
+.btn332 {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+}
+.btn331 {
+  width: 130px;
+  height: 42px;
+  margin: 0 auto;
+  line-height: 42px;
+  text-align: center;
+  font-size: 14px;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+}
+// .err_tip {
+//   margin-top: -8px;
+//   margin-bottom: 5px;
+//   line-height: 20px;
+//   font-size: 14px;
+//   color: #f66;
+//   display: none;
+// }
+// .err_invalid {
+//   padding-top: 10px;
+// }
+// .icon_error {
+//   width: 14px;
+//   height: 14px;
+//   margin: -1px 5px 0 0;
+//   overflow: hidden;
+//   display: inline-block;
+//   vertical-align: middle;
+//   background-image: url(http://img4.imgtn.bdimg.com/it/u=3652875584,3105494870&fm=214&gp=0.jpg);
+//   background-repeat: no-repeat;
+// }
+.err_tip span {
+  vertical-align: middle;
+}

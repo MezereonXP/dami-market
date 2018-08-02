@@ -1,3 +1,4 @@
+
 export class TempGoods {
 
   goodId: number;

@@ -1,0 +1,38 @@
+<mat-toolbar class="body" color="primary">
+    <mat-toolbar-row>
+      <mat-grid-list cols="6" rowHeight="4:1" class="bar">
+        <mat-grid-tile colspan="1"></mat-grid-tile>
+        <mat-grid-tile colspan="4" class="main"> 
+          <mat-grid-list cols="1" rowHeight="120px" class="title">
+            <mat-grid-tile rowspan="1" class="toprow">
+              <h1>重置RUOK密码</h1>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="1" class="toprow">
+              <div class="lgn_inputbg c_b">
+                <p></p>
+                <div>
+                <label class="labelbox c_b">
+                  <input class="item_account" type="password" matInput [(ngModel)]="customer.cPassword" placeholder="请输入新密码">
+                </label>
+                </div>
+                <div>
+                <label class="labelbox c_b">
+                  <input class="item_account" type="password" placeholder="请输入确认密码">
+                </label>
+                </div>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="1" class="toprow">
+              <div>
+                <span>密码长度6~16位，数字、字母、字符至少包含两种</span>
+                <a class="btnadpt" (click)="changenow()" href="/#/login">提交</a>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile rowspan="1" class="toprow"></mat-grid-tile>
+          </mat-grid-list>
+        </mat-grid-tile>
+        <mat-grid-tile cplspan="1"></mat-grid-tile>
+      </mat-grid-list>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  

@@ -1,0 +1,81 @@
+<mat-toolbar class="head" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="15" class="bar">
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="2" class="title">
+        <a href="/#/home">
+          <span>首页</span>
+        </a>
+        <span> -> </span>
+        <span>喜欢的商品</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="12"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-toolbar class="body" color="primary">
+  <mat-grid-list cols="69" rowHeight="1000px" class="bbar">
+    <mat-grid-tile colspan="4"></mat-grid-tile>
+    <mat-grid-tile colspan="12" class="list">
+      <div class="sc-left">
+        <h3 class="title1">订单中心</h3>
+        <li>
+          <a href="">我的订单</a>
+        </li>
+        <li>
+          <a href="">评价晒单</a>
+        </li>
+        <h3 class="title1">个人中心</h3>
+        <li>
+          <a href="/#/selfcenter">我的个人中心</a>
+        </li>
+        <li>
+          <a href="/#/message">消息通知</a>
+        </li>
+        <li>
+          <a class="choose" href="/#/favorite">喜欢的商品</a>
+        </li>
+        <li>
+          <a href="/#/scaddress">收货地址</a>
+        </li>
+        <h3 class="title1">账户管理</h3>
+        <li>
+          <a href="">个人信息</a>
+        </li>
+        <li>
+          <a href="">修改密码</a>
+        </li>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1"></mat-grid-tile>
+    <mat-grid-tile colspan="50" class="list">
+      <mat-grid-list cols="1" rowHeight="6:1" class="top">
+        <mat-grid-tile rowspan="1" class="toprow">
+          <h1>喜欢的商品</h1>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan="5" class="toprow1">
+          <mat-grid-list class="likelist" cols="3" rowHeight="289px">
+            <mat-grid-tile class="liketile" *ngFor="let item of favoriteList;let i=index">
+              <dl>
+                <dt>
+                  <img class="pict" src="{{item.goods.gPictureurl}}">
+                </dt>
+                <dd>
+                  <a>{{item.goods.gName}}</a>
+                </dd>
+                <dd>
+                  <span class="choose1">{{item.goods.gPrice}}元</span>
+                </dd>
+                <dd>
+                  <a class="btn" (click)="deletenow(i)">删除</a>
+                </dd>
+              </dl>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2"></mat-grid-tile>
+  </mat-grid-list>
+</mat-toolbar>

@@ -1,0 +1,18 @@
+.background {
+  height: 100%;
+  width: 100%;
+  z-index: -1 !important;
+  background-image: url("/assets/kill-background.jpg");
+}
+
+.msgtable {
+  height: 80%;
+  width: 80%;
+  vertical-align: middle;
+}
+
+.button {
+  margin-left: 25%;
+  margin-top: 25%;
+  background-color: rgb(27, 204, 20);
+}

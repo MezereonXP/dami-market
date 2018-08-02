@@ -1,3 +1,132 @@
-<p>
-  order works!
-</p>
+<mat-toolbar class="headbar3 mat-elevation-z2" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="15" rowHeight="5:3" class="bar">
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="2" class="ok">
+        <span>确认订单</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="8">
+        <span></span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="3">
+        <span>
+          <div class="detail-card">
+
+            <a href="">
+              <span class="myOrder">
+                我的订单
+              </span>
+            </a>
+          </div>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="order">
+  <div class="section">
+    <div class="section-header">
+      <h3>收货地址</h3>
+    </div>
+  </div>
+  <div class="section section-body">
+    <div class="address-item"  *ngFor="let item of addressList;let i=index" >
+      <mat-checkbox color="primary" class="selectAddress" [(ngModel)]="status[i]" (click)="selectAddress(i)">
+
+      </mat-checkbox>
+      <dl>
+        <dt>
+          <em class="uname">{{item.aReceiver}}</em>
+        </dt>
+
+
+
+
+        <dd class="utel">
+          {{item.aTelephone}}
+        </dd>
+        <dd class="uaddress">
+          {{item.aDetail}}
+        
+        </dd>
+
+      </dl>
+      <div class="actions">
+        <a class="modify" (click)="modifyAddress(i)">
+          修改
+        </a>
+      </div>
+    </div>
+
+    <div class="address-item address-item-new" (click)="openDialog()">
+      <i class="iconfont">
+        +
+      </i>
+      添加新地址
+    </div>
+  </div>
+
+  <div class="section section-goods">
+    <div class="section-header">
+      <h3>商品</h3>
+      <div class="more">
+        <a href="#shopcar">返回购物车
+          <i class="iconfont">></i>
+        </a>
+
+      </div>
+    </div>
+    <div class="section-body">
+      <ul class="goods-list">
+        <li *ngFor="let item of orderGoodsList">
+          <div class="col col-img">
+            <img src="{{item.goods.gPictureurl}}">
+          </div>
+          <div class="col col-name">
+            {{item.goods.gName}}
+          </div>
+          <div class="col col-price">
+            {{item.ogPrice}}元x{{item.ogQuantity}}
+          </div>
+          <div class="col col-status">
+            &nbsp;
+          </div>
+          <div class="col col-total">
+            {{item.ogPrice*item.ogQuantity}}元
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="section section-count">
+    <div class="money-box">
+      <ul>
+        <li>
+          <label>
+            商品件数
+          </label>
+          <span class="val">
+            {{count}}件
+          </span>
+        </li>
+        <li>
+          <label>
+            商品总价
+          </label>
+          <span class="val">
+            {{totalMoney}}元
+          </span>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="section section-bar">
+    <div class="fr">
+      <a  class="btn btn-primary" (click)="addNewOrder()">去结算</a>
+    </div>
+  </div>
+</div>

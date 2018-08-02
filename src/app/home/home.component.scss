@@ -77,15 +77,15 @@
 .divideList {
   width: 1200px;
   display: block;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-left: 10%;
   padding: 0;
   .divideTile {
-    width: 100%;
+    width: 95%;
     padding: 0;
   }
+  
 }
-
 .dividePic {
   display: inline-block;
   width: 100%;
@@ -102,12 +102,18 @@
 
 .title-item {
   display: inline-block !important;
+  font-size: 20px;
+  color: #c40b14;
   width: 80%;
 }
 
 .advlist {
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
+}
+.piclist{
+  width:60%;
+  height:60%;
 }
 
 .simple-tile {
@@ -116,5 +122,18 @@
 }
 
 .advimg {
-  width: 90%;
+  width: 100%;
+  height:98%;
+}
+.advpic{
+  width:70%;
+  height:80%;
+}
+
+.superTile {
+  width: 234px !important;
+  height: 300px;
+}
+.ppp{
+  color: rgb(219, 161, 84);
 }

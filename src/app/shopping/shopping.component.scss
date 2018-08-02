@@ -1,0 +1,128 @@
+.headbar {
+  background-color: #ffffff;
+  color: black;
+  z-index: -1 !important;
+}
+
+.bar {
+  width: 100%;
+}
+
+.button {
+  text-align: center;
+}
+
+.fav {
+  width: 80%;
+  height: 80%;
+  .btn-fav {
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #746d6d;
+    width: 80%;
+    height: 80%;
+  }
+}
+
+.insert {
+  width: 80%;
+  height: 80%;
+  .btn-insert {
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #f7bf0a;
+    width: 80%;
+    height: 80%;
+  }
+}
+.OOS {
+  width: 80%;
+  height: 80%;
+  .btn-OOS {
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #adadab;
+    width: 80%;
+    height: 80%;
+  }
+}
+
+.btn-info {
+  background-color: #e9e5e5;
+  width: 100%;
+  height: 80%;
+}
+
+.btn-description{
+  border:1px solid;
+  border-color: #6384af;
+  background-color:#e9e5e5;
+  width: 80%;
+  height: 80%;
+}
+
+.btn-comment {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+}
+
+.divideList {
+  width: 1200px;
+  display: block;
+  margin-top: 30px;
+  margin-left: 10%;
+  padding: 0;
+  .divideTile {
+    width: 95%;
+    padding: 0;
+  }
+}
+
+.dividePic {
+  display: inline-block;
+  width: 100%;
+}
+
+.advpic {
+  text-align: left;
+  height: 70%;
+  width: 75%;
+}
+
+.advlist {
+  width: 100%;
+  height: 100%;
+}
+
+.info {
+  font-size: 20px;
+  .infospan {
+    width: 100%;
+  }
+  .price {
+    width: 100%;
+    font-size: 20px;
+    color: #6384af;
+  }
+}
+
+.cspan {
+  font-size: 18px;
+  text-align: left;
+  float: left;
+  .span {
+    width: 100%;
+  }
+}
+.desspan{
+  text-align: left;
+}
+
+.pricespan{
+  text-align: right;
+}
+.jumptoshopcar{
+  font-size: 15px;
+  color:#000000;
+}
