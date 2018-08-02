@@ -10,7 +10,7 @@ import { Customer } from '../bean/customer';
 import { Favorite } from '../bean/favorite';
 import { getOrSetAsInMap } from '@angular/animations/browser/src/render/shared';
 import { Router } from '@angular/router';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-shopping',
@@ -36,9 +36,14 @@ export class ShoppingComponent implements OnInit {
   isLogin: boolean = false;
   phone: String;
 
-  constructor(private data: DataService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private data: DataService, private route: ActivatedRoute, private router: Router,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      
+      this.spinner.hide();
+  }, 2500);
     // this.shopping.goods.gId = +this.route.snapshot.paramMap.get("id");
     window.scrollTo(0, 0)
     let id = this.route.snapshot.paramMap.get("id");
