@@ -12,6 +12,7 @@ import { InfomationComponent } from './infomation/infomation.component';
 import { KillComponent } from './kill/kill.component';
 import { SettlementComponent } from "./settlement/settlement.component";
 import { TeamComponent } from './team/team.component';
+import { SearchComponent } from './search/search.component';
 
 import { SelfcenterComponent } from './selfcenter/selfcenter.component';
 import { MessageComponent } from './message/message.component';
@@ -101,11 +102,15 @@ const routes: Routes = [
   {
     path: 'check',
     component: CheckComponent
-  }
-  ,
+  },
   {
     path: 'reset',
     component: ResetComponent
+  },
+
+  {
+    path: 'search/:key',
+    component: SearchComponent
   }
 ];
 
