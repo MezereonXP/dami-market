@@ -21,6 +21,7 @@ export class RegistComponent implements OnInit {
   }
 
   registtele(){
+    this.newCustomer.cName = this.newCustomer.cTelephone;
     this.router.navigate(['regist2'],{
       queryParams:{
         newCustomer:JSON.stringify(this.newCustomer)
