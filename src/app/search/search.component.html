@@ -11,7 +11,7 @@
 <br>
 
 <mat-grid-list class="goods-grid-list" cols="5" rowHeight="445px">
-  <mat-grid-tile class="goods-tile" *ngFor="let good of goods">
+  <mat-grid-tile class="goods-tile" *ngFor="let good of goods;let i=index">
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>{{good.gName}}</mat-card-title>
@@ -22,8 +22,10 @@
         {{good.gPrice}}元
       </mat-card-content>
       <mat-card-actions class="card-action">
-        <button mat-raised-button color="accent">喜欢</button>
-        <button mat-raised-button color="primary">购买</button>
+        <button mat-raised-button color="accent" *ngIf="isshow1[i]" (click)="addGoodsToFavorite(good, i)">喜欢</button>
+        <button mat-raised-button color="primary" *ngIf="!isshow1[i]">取消喜欢</button>
+        <button mat-raised-button color="primary" (click)="addGoodsToShopcar(good)">购买</button>    
+        
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>

@@ -32,18 +32,18 @@ export class ShoppingComponent implements OnInit {
   favoriteList: Array<Favorite>;
   isshow = true;
   isshow1 = true;
-  flag :boolean= true;
+  flag: boolean = true;
   isLogin: boolean = false;
   phone: String;
 
-  constructor(private data: DataService, private route: ActivatedRoute, private router: Router,private spinner: NgxSpinnerService) { }
+  constructor(private data: DataService, private route: ActivatedRoute, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.spinner.show();
     setTimeout(() => {
-      
+
       this.spinner.hide();
-  }, 2500);
+    }, 2500);
     // this.shopping.goods.gId = +this.route.snapshot.paramMap.get("id");
     window.scrollTo(0, 0)
     let id = this.route.snapshot.paramMap.get("id");
@@ -76,9 +76,8 @@ export class ShoppingComponent implements OnInit {
                       console.log(this.shopping.goods.gId);
                       for (let i = 0; i < this.favoriteList.length; i++) {
                         if (this.favoriteList[i].goods.gId == this.shopping.goods.gId) {
-                        this.flag = false;
-                        
-                        this.isshow1=false;
+                          this.flag = false;
+                          this.isshow1 = false;
                         }
                       }
                     }
@@ -94,8 +93,8 @@ export class ShoppingComponent implements OnInit {
       }
     );
 
-    
-   
+
+
 
   }
 
@@ -129,7 +128,7 @@ export class ShoppingComponent implements OnInit {
       }
     }
     if (flag) {
-      
+
       this.shopcar = new Shopcar(null, this.customer, this.shopping.goods, 1, 1);
       this.data.addGoodsToShopcar(this.shopcar).subscribe();
       alert("加入成功");
@@ -139,16 +138,18 @@ export class ShoppingComponent implements OnInit {
     }
   }
   addGoodsToFavorite() {
-     console.log("点击时"+this.flag);
+    console.log("点击时" + this.flag);
     if (this.flag) {
-      
       this.favorite = new Favorite(null, this.customer, this.shopping.goods, 1);
-      this.data.addGoodsToFavorite(this.favorite).subscribe();
-      alert("已喜欢");
-      window.location.reload();
+      this.data.addGoodsToFavorite(this.favorite).subscribe(
+        result => {
+          alert("已喜欢");
+        }
+      );
     } else {
       alert("喜欢列表中已存在该商品");
-     
     }
+    this.flag = false;
+    this.isshow1 = false;
   }
 }
