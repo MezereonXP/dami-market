@@ -65,7 +65,7 @@ export class OrderComponent implements OnInit {
       queryParams => {
 
 
-
+        console.log(queryParams.orderGoodsList);
         this.orderGoodsList = JSON.parse(queryParams.orderGoodsList);
 
 
@@ -75,7 +75,7 @@ export class OrderComponent implements OnInit {
 
     for (let i = 0; i < this.orderGoodsList.length; i++) {
       this.count++;
-      this.totalMoney += this.orderGoodsList[i].goods.gPrice * this.orderGoodsList[i].ogQuantity;
+      this.totalMoney += this.orderGoodsList[i].ogPrice * this.orderGoodsList[i].ogQuantity;
     }
 
 
@@ -118,7 +118,7 @@ export class OrderComponent implements OnInit {
       height: '350px',
       width: '500px',
       data: {
-        newAddress: new Address(null, new Customer(1, null, null, null, null, null, null, null, null, null, null), null, null, null, null, 1),
+        newAddress: new Address(null, this.customer, null, null, null, null, 1),
         isAdd: true,
         isModify: false
       }

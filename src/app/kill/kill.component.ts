@@ -301,7 +301,7 @@ export class KillComponent implements OnInit {
   //打开窗口
   openDialog(kgId, kgPrice, goods) {
 
-    this.data.beginKillGood(kgId, 1).subscribe(
+    this.data.beginKillGood(kgId, this.customer.cId).subscribe(
       result => {
         this.returnMsg = result["msg"];
       }
@@ -312,7 +312,7 @@ export class KillComponent implements OnInit {
     const dialogRef = this.dialog.open(KilltipsComponent, {
       height: '400px',
       width: '400px',
-      data: { kgId: kgId, kgPrice: kgPrice, kgMsg: this.returnMsg, goods: goods, cId: this.cId }
+      data: { kgId: kgId, kgPrice: kgPrice, kgMsg: this.returnMsg, goods: goods, customer: this.customer }
 
     });
 
