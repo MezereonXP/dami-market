@@ -116,7 +116,12 @@ export class OrderComponent implements OnInit {
 
       }
     }
-    this.address = this.addressList[i];
+    if(!this.status[i]){
+      this.address = this.addressList[i];
+    }else{
+      this.address = null;
+    }
+    
   }
   openDialog() {
     const dialogRef = this.dialog.open(AddressComponent, {
