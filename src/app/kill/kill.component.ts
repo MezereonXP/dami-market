@@ -304,11 +304,7 @@ export class KillComponent implements OnInit {
     this.data.beginKillGood(kgId, this.customer.cId).subscribe(
       result => {
         this.returnMsg = result["msg"];
-      }
-    );
-
-
-    //打开模态窗口并传值
+            //打开模态窗口并传值
     const dialogRef = this.dialog.open(KilltipsComponent, {
       height: '400px',
       width: '400px',
@@ -321,6 +317,11 @@ export class KillComponent implements OnInit {
       this.returnMsg = result.kgMsg;
       window.location.reload(true);
     });
+      }
+    );
+
+
+
 
 
 
