@@ -7,7 +7,8 @@
     width: 100%;
   }
 }
-.picheadbar{
+
+.picheadbar {
   color: black;
   z-index: -1 !important;
   height: 34px;
@@ -52,6 +53,8 @@
   width: 100%;
   z-index: -1 !important;
   background-image: url("/assets/kill-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position-x: 20%;
 }
 
@@ -72,7 +75,6 @@
 }
 
 .killgoodbar {
-  margin-top: 1%;
   width: 100%;
 }
 
@@ -87,3 +89,24 @@
   width: 90%;
 }
 
+.killgoodbarcard {
+  width: 100%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.killgoodpic {
+  height: 100px;
+  width: 90px;
+}
+
+.killgooddetail{
+  height: 150px;
+   width: 100%;
+   margin-left: 10%;
+}
+
+.killgoodmoney{
+  color: rgb(228, 48, 48);
+  margin-left: 10%;
+}
