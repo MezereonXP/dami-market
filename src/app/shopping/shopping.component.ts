@@ -32,7 +32,7 @@ export class ShoppingComponent implements OnInit {
   favoriteList: Array<Favorite>;
   isshow = true;
   isshow1 = true;
-  flag = true;
+  flag :boolean= true;
   isLogin: boolean = false;
   phone: String;
 
@@ -45,46 +45,51 @@ export class ShoppingComponent implements OnInit {
     this.data.getShopGoodInfo(id).subscribe(
       result => {
         this.shopping = result["data"];
+        console.log(this.shopping.goods.gId);
         // this.config = result["data"].config;
         this.showPic = this.shopping.goodimg[0][0].giImg;
         this.setMap();
         this.caninsert();
+
+        this.data.checklogin().subscribe(
+          result => {
+            this.phone = result["data"];
+            this.isLogin = result["status"];
+            if (this.isLogin) {
+              this.data.getCustomerByPhone(this.phone).subscribe(
+                result => {
+                  this.customer = result["data"];
+                  this.data.getShopCarGoods(this.customer.cId).subscribe(
+                    result => {
+                      this.customerShopcarList = result["data"];
+                    }
+                  );
+                  this.data.selectFavoriteByCustomerId(this.customer.cId).subscribe(
+                    result => {
+                      this.favoriteList = result["data"];
+                      console.log(this.favoriteList);
+                      console.log(this.shopping.goods.gId);
+                      for (let i = 0; i < this.favoriteList.length; i++) {
+                        if (this.favoriteList[i].goods.gId == this.shopping.goods.gId) {
+                        this.flag = false;
+                        
+                        this.isshow1=false;
+                        }
+                      }
+                    }
+                  );
+                }
+              );
+            } else {
+              //未登录
+              this.router.navigate(["login"]);
+            }
+          }
+        );
       }
     );
 
-    this.data.checklogin().subscribe(
-      result => {
-        this.phone = result["data"];
-        this.isLogin = result["status"];
-        if (this.isLogin) {
-          this.data.getCustomerByPhone(this.phone).subscribe(
-            result => {
-              this.customer = result["data"];
-              this.data.getShopCarGoods(this.customer.cId).subscribe(
-                result => {
-                  this.customerShopcarList = result["data"];
-                }
-              );
-              this.data.selectFavoriteByCustomerId(this.customer.cId).subscribe(
-                result => {
-                  this.favoriteList = result["data"];
-                  for (let i = 0; i < this.favoriteList.length; i++) {
-                    if (this.favoriteList[i].goods.gId == this.shopping.goods.gId) {
-                    this.flag = false;
-                    console.log(this.flag);
-                    this.isshow1=false;
-                    }
-                  }
-                }
-              );
-            }
-          );
-        } else {
-          //未登录
-          this.router.navigate(["login"]);
-        }
-      }
-    );
+    
    
 
   }
@@ -129,7 +134,7 @@ export class ShoppingComponent implements OnInit {
     }
   }
   addGoodsToFavorite() {
-    // console.log(this.flag);
+     console.log("点击时"+this.flag);
     if (this.flag) {
       
       this.favorite = new Favorite(null, this.customer, this.shopping.goods, 1);
