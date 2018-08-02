@@ -114,7 +114,7 @@ export class KillComponent implements OnInit {
     let hour = Math.floor(nTime % 86400 / 3600);
     let minute = Math.floor(nTime % 86400 % 3600 / 60);
     let second = Math.floor(nTime % 86400 % 3600 % 60);
-    this.ifKillGoodOver = "立即抢购";
+    this.ifKillGoodOver = "正在抢购";
     if (nTime <= 0) {
       this.selectKillGoods(5);
       this.isShowButton = this.isShowButtonList[4];
@@ -156,7 +156,7 @@ export class KillComponent implements OnInit {
       for (let i = 0; i < timeSlot - 1; i++) {
         this.timeTipe[i] = "已结束";
       }
-      this.timeTipe[timeSlot - 1] = "立即抢购";
+      this.timeTipe[timeSlot - 1] = "正在抢购";
     }
 
     let temp = 4 * Math.floor(hour / 4);
