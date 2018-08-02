@@ -72,9 +72,7 @@ export class ScaddressComponent implements OnInit {
   }
   deleteAddress(i) {
     this.data.deleteAddress(this.addressList[i]).subscribe();
-    console.log(this.addressList[i]);
     window.location.reload();
-    
   }
 
 }

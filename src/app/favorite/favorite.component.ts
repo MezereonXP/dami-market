@@ -10,7 +10,7 @@ import { Favorite } from '../bean/favorite';
 })
 export class FavoriteComponent implements OnInit {
 
-  favoriteList:Array<Favorite>
+  favoriteList:Array<Favorite> = new Array<Favorite>();
   constructor(private data:DataService) { }
 
   ngOnInit() {

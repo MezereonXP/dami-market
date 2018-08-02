@@ -55,8 +55,8 @@
           <h1>喜欢的商品</h1>
         </mat-grid-tile>
         <mat-grid-tile rowspan="5" class="toprow1">
-          <div>
-            <div class="fgoods" *ngFor="let item of favoriteList;let i=index">
+          <mat-grid-list class="likelist" cols="3" rowHeight="289px">
+            <mat-grid-tile class="liketile" *ngFor="let item of favoriteList;let i=index">
               <dl>
                 <dt>
                   <img class="pict" src="{{item.goods.gPictureurl}}">
@@ -71,8 +71,8 @@
                   <a class="btn" (click)="deletenow(i)">删除</a>
                 </dd>
               </dl>
-            </div>
-          </div>
+            </mat-grid-tile>
+          </mat-grid-list>
         </mat-grid-tile>
       </mat-grid-list>
     </mat-grid-tile>

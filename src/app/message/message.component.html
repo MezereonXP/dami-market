@@ -34,14 +34,12 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="50" class="list">
-      <mat-grid-list cols="1" rowHeight="8:1" class="top">
-        <mat-grid-tile rowspan="1" class="toprow">
-          <div>
-            <h1>消息通知</h1>
-          </div>
+      <mat-grid-list cols="1" rowHeight="9:1" class="top">
+        <mat-grid-tile rowspan="1" class="toprow toprow-size">
+          <h1>消息通知</h1>
         </mat-grid-tile>
         <mat-grid-tile rowspan="6" class="toprow1">
-          <li>
+          <li class="msg">
             <div *ngFor="let item of noteList;let i=index">
               <h1>{{item.nTipTime}}</h1>
               <span>{{item.nNote}}</span>

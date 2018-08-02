@@ -1,13 +1,13 @@
 <mat-toolbar class="head" color="primary">
   <mat-toolbar-row>
-    <mat-grid-list cols="15"  class="bar">
+    <mat-grid-list cols="15" class="bar">
       <mat-grid-tile colspan="1"></mat-grid-tile>
-      <mat-grid-tile colspan="2" class="title"> 
+      <mat-grid-tile colspan="2" class="title">
         <a href="/#/home">
           <span>首页</span>
-        </a>  
-        <span> -> </span>   
-        <span>个人中心</span> 
+        </a>
+        <span> -> </span>
+        <span>个人中心</span>
       </mat-grid-tile>
       <mat-grid-tile colspan="12"></mat-grid-tile>
     </mat-grid-list>
@@ -20,51 +20,85 @@
     <mat-grid-tile colspan="12" class="list">
       <div>
         <h3 class="title1">订单中心</h3>
-        <li><a href="">我的订单</a></li>
-        <li><a href="">评价晒单</a></li>
+        <li>
+          <a href="">我的订单</a>
+        </li>
+        <li>
+          <a href="">评价晒单</a>
+        </li>
         <h3 class="title1">个人中心</h3>
-        <li><a class="choose" href="/#/selfcenter">我的个人中心</a></li>
-        <li><a href="/#/message">消息通知</a></li>
-        <li><a href="/#/favorite">喜欢的商品</a></li>
-        <li><a href="/#/scaddress">收货地址</a></li>
+        <li>
+          <a class="choose" href="/#/selfcenter">我的个人中心</a>
+        </li>
+        <li>
+          <a href="/#/message">消息通知</a>
+        </li>
+        <li>
+          <a href="/#/favorite">喜欢的商品</a>
+        </li>
+        <li>
+          <a href="/#/scaddress">收货地址</a>
+        </li>
         <h3 class="title1">账户管理</h3>
-        <li><a href="">个人信息</a></li>
-        <li><a href="">修改密码</a></li>
+        <li>
+          <a href="">个人信息</a>
+        </li>
+        <li>
+          <a href="">修改密码</a>
+        </li>
       </div>
     </mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="50" class="list">
-      <mat-grid-list cols="1" rowHeight="150px" class="top">
-        <mat-grid-tile rowspan="1" class="toprow">
-          <img class="avatar" src="../../assets/{{newCustomer.cPictureurl}}">
+      <mat-grid-list cols="5" rowHeight="150px" class="top">
+        <mat-grid-tile colspan="1" class="toprow mat-elevation-z8">
           <div class="usermessage">
-            <h1>{{newCustomer.cName}}</h1>
+            <img class="avatar" src="../../assets/{{newCustomer.cPictureurl}}">
+            <h1 class="name">{{newCustomer.cName}}</h1>
             <span>您好~Are you OK?</span>
           </div>
         </mat-grid-tile>
-        <mat-grid-tile rowspan="1" class="toprow1">
-          <img class="avatar1" src="https://s01.mifile.cn/i/user/portal-icon-1.png">
-          <div class="usermessage">
-            <h2>待支付的订单:<span class="num">{{oNum1}}</span></h2>
-            <a href="">查看待支付订单></a>
-          </div>
-          <div class="usermessage">
-            <h2>待收货的订单:<span class="num">{{oNum2}}</span></h2>
-            <a href="">查看待收货订单></a>
-          </div>
+        <mat-grid-tile colspan="4" class="toprow1">
+          <mat-grid-list cols="2" class="itemlist" rowHeight="2:1">
+            <mat-grid-tile class="itemtile">
+              <img class="avatar1" src="https://s01.mifile.cn/i/user/portal-icon-1.png">
+              <div class="usermessage">
+                <h2>待支付的订单:
+                  <span class="num">{{oNum1}}</span>
+                </h2>
+                <a href="">查看待支付订单></a>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile class="itemtile">
+              <img class="avatar1" src="https://s01.mifile.cn/i/user/portal-icon-1.png">
+              <div class="usermessage">
+                <h2>待收货的订单:
+                  <span class="num">{{oNum2}}</span>
+                </h2>
+                <a href="">查看待收货订单></a>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile class="itemtile">
+              <img class="avatar1" src="https://s01.mifile.cn/i/user/portal-icon-3.png">
+              <div class="usermessage">
+                <h2>待评价商品数:
+                  <span class="num">{{oNum3}}</span>
+                </h2>
+                <a href="">查看待评价商品></a>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile class="itemtile">
+              <img class="avatar1" src="https://s01.mifile.cn/i/user/portal-icon-3.png">
+              <div class="usermessage">
+                <h2>喜欢的商品:
+                  <span class="num">{{fNum4}}</span>
+                </h2>
+                <a href="/#/favorite">查看喜欢的商品></a>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
         </mat-grid-tile>
-        <mat-grid-tile rowspan="1" class="toprow">
-          <img class="avatar1" src="https://s01.mifile.cn/i/user/portal-icon-3.png">
-          <div class="usermessage">
-              <h2>待评价商品数:<span class="num">{{oNum3}}</span></h2>
-              <a href="">查看待评价商品></a>
-          </div>
-          <div class="usermessage">
-              <h2>喜欢的商品:<span class="num">{{fNum4}}</span></h2>
-              <a href="/#/favorite">查看喜欢的商品></a>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>      
+      </mat-grid-list>
     </mat-grid-tile>
     <mat-grid-tile colspan="2"></mat-grid-tile>
   </mat-grid-list>
