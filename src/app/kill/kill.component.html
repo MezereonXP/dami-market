@@ -89,11 +89,11 @@
                   <tr style="margin-left: 10%">剩余{{item.kgQuantity}}</tr>
                   <tr style="margin-left: 10%" *ngIf="isShowButton">
                     <div *ngIf="ifTimeOver">
-                      <button mat-button style="background-color: rgb(255, 87, 20)" *ngIf="ifQuantityOver[i]" (click)="openDialog(item.kgId,item.kgPrice,item.goods)">{{ifKillGoodOver}} </button>
-                      <button mat-button style="background-color: rgb(209, 195, 190)" *ngIf="!ifQuantityOver[i]">已经售完 </button>
+                      <button mat-raised-button color="primary" *ngIf="ifQuantityOver[i]" (click)="openDialog(item.kgId,item.kgPrice,item.goods)">{{ifKillGoodOver}} </button>
+                      <button mat-button disabled="true" style="background-color: rgb(209, 195, 190)" *ngIf="!ifQuantityOver[i]">已经售完 </button>
                     </div>
                     <div *ngIf="!ifTimeOver">
-                      <button mat-button style="background-color: rgb(209, 195, 190)">已经结束 </button>
+                      <button mat-button disabled="true" style="background-color: rgb(209, 195, 190)">已经结束 </button>
                     </div>
                   </tr>
                   <tr style="margin-left: 10%" *ngIf="!isShowButton">
