@@ -70,7 +70,7 @@ export class ScaddressComponent implements OnInit {
       height: '350px',
       width: '500px',
       data: {
-        newAddress: new Address(null, new Customer(1, null, null, null, null, null, null, null, null, null, null), null, null, null, null, 1),
+        newAddress: new Address(null, this.customer, null, null, null, null, 1),
         isAdd: true,
         isModify: false
       }
