@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger, state } from '@angular/animations';
 import { DataService } from '../data/data.service';
-import { TempGoods } from '../bean/temp.goods';
 import { Good } from '../bean/good';
 import { ShowBean } from '../bean/showbean';
 import { Customer } from '../bean/customer';
@@ -30,6 +29,7 @@ import { Customer } from '../bean/customer';
     ])
   ]
 })
+
 export class HomeComponent implements OnInit {
 
   items = ["手机", "笔记本平板", "智能家居", "配件", "耳机音箱"];
@@ -44,21 +44,17 @@ export class HomeComponent implements OnInit {
   isShowDetail = false;
   goodsList$: Array<Good>;
   showGoodsList$: Array<Good>;
-
   goodsImage2 = ["https://i1.mifile.cn/a4/xmad_15302595556283_DAjhs.jpg", "https://i1.mifile.cn/a4/xmad_15302597437612_vWwBm.jpg", "https://i1.mifile.cn/a4/xmad_15294897230285_fVNvp.png"];
   killandteam = ["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532101915206&di=f6337f9599c69272fa6c668f9ead624a&imgtype=0&src=http%3A%2F%2Fimg.sccnn.com%2Fbimg%2F339%2F16545.jpg", "assets/team.png"]
-
   showBeans: Array<ShowBean>;
-
   isShowElevationNew: Array<Array<boolean>>;
   isShowElevationNew2: Array<Array<boolean>>;
 
   constructor(private data: DataService) { }
   /**
-   *
-   *
    * @memberof HomeComponent
    */
+  //页面加载时初始化
   ngOnInit() {
     
     this.data.getGoodsList().subscribe(
@@ -87,7 +83,7 @@ export class HomeComponent implements OnInit {
         }
       }
     );
-
+    //检查登录状态
     this.data.checklogin().subscribe(
       result=>{
         this.phone = result["data"];
@@ -132,7 +128,6 @@ export class HomeComponent implements OnInit {
       }
     }
     // window.alert(this.showGoodsList$[1].gName);
-
   }
 
   /**
@@ -145,12 +140,12 @@ export class HomeComponent implements OnInit {
   test(id) {
     window.alert(id);
   }
-
+  
   log(event: number) {
     this.currentColor = this.slideColors[event];
     console.log(this.currentColor);
   }
-
+  
   changeSeeAllColor(flag) {
     if (flag == 1) {
       this.currentSeeAllColor = "red";
@@ -158,6 +153,7 @@ export class HomeComponent implements OnInit {
       this.currentSeeAllColor = "black";
     }
   }
+  // 跳转至闪购和团购页面
   jump(i) {
     if (i == 0) {
       location.href = "/#/kill"

@@ -1,4 +1,4 @@
-import { GoodImg } from "./goodimg";
+//商品配置(颜色，版本)
 import { Good } from "./good";
 
 export class Config {

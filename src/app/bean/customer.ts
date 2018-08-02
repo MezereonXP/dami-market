@@ -1,36 +1,20 @@
+//顾客实体类
 export class Customer {
     cId: number;
-
     cPassword: string;
-
     cName: string;
-
     cSex: number;
-
     cBirthday: string;
-
     cTelephone: string;
-
     cArea: string;
-
     cBankcard: string;
-
     cEmail: string;
-
     cPictureurl: string;
-
     cStatus: number;
 
 
     constructor(cId: number, cPassword: string, cName: string, cSex: number, cBirthday: string,cTelephone: string,cArea: string,
-
-        cBankcard: string,
-
-        cEmail: string,
-
-        cPictureurl: string,
-
-        cStatus: number, ) {
+                cBankcard: string,cEmail: string,cPictureurl: string,cStatus: number) {
             this.cId = cId;
             this.cPassword = cPassword;
             this.cName = cName;

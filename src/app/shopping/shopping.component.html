@@ -1,3 +1,4 @@
+<!-- 工具栏显示商品名称与购物车，评价按钮 -->
 <mat-toolbar class="headbar mat-elevation-z2" color="primary">
   <mat-toolbar-row>
     <mat-grid-list cols="30" rowHeight="5:6" class="bar">
@@ -9,7 +10,9 @@
       <mat-grid-tile colspan="2">
         <a href="/#/shopcar">
           <span class="span-info">
-            <button mat-button class="btn-comment"><span class="jumptoshopcar">购物车</span></button>
+            <button mat-button class="btn-comment">
+              <span class="jumptoshopcar">购物车</span>
+            </button>
           </span>
         </a>
       </mat-grid-tile>
@@ -19,18 +22,17 @@
         </span>
       </mat-grid-tile>
       <mat-grid-tile colspan="3"></mat-grid-tile>
-
     </mat-grid-list>
   </mat-toolbar-row>
 </mat-toolbar>
 
-
+<!-- 六列，左侧三列为图片展示，右侧三列为信息展示 -->
 <mat-grid-list cols="6" rowHeight="2:7" class="divideList">
-
+  
   <mat-grid-tile colspan="3" class="simple-tile">
     <img :src="{{showPic}}" class="advpic">
   </mat-grid-tile>
-
+<!-- 列内部分行，分别显示各类信息 -->
   <mat-grid-tile colspan="3" class="simple-tile">
     <mat-grid-list cols="1" rowHeight="7:1" class="advlist">
       <mat-grid-tile rowspan="1" class="info mat-elevation-z2">
@@ -38,7 +40,7 @@
         <span style="margin-right:40px;"> </span>
         <span class="price">{{shopping.goods.gPrice}}元</span>
       </mat-grid-tile>
-
+      <!-- 根据type判断是否现实颜色或版本 -->
       <div *ngIf="map.get(1)!=null">
         <mat-grid-tile rowspan="1" class="cspan">
           <span class="span">选择颜色</span>
@@ -80,12 +82,11 @@
         </mat-grid-tile>
       </div>
 
+      <!-- 不同条件下展示不同按钮 -->
       <mat-grid-tile rowspan="1" class="button">
 
         <span class="insert" *ngIf="isshow">
-
           <button mat-button class="btn-insert" (click)="addGoodsToShopcar()">加入购物车</button>
-
         </span>
 
         <span class="OOS" *ngIf="!isshow">
@@ -95,7 +96,7 @@
         <span class="fav" *ngIf="isshow1">
           <button mat-button class="btn-fav" (click)="addGoodsToFavorite()">喜欢</button>
         </span>
-        
+
         <span class="OOS" *ngIf="!isshow1">
           <button mat-button class="btn-OOS">已喜欢</button>
         </span>

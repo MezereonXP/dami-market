@@ -1,17 +1,13 @@
+
 import { Order } from "./order";
 import { Goods } from "./goods";
 
 export class OrderGoods{
     ogId:number;
-
     order:Order;
-
     goods:Goods;
-
     ogPrice:number;
-
     ogQuantity:number;
-
     ogStatus:number;
 
     

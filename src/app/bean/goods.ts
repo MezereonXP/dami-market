@@ -1,16 +1,10 @@
 export class Goods {
     gId: number;
-
     gName: string;
-
     gPrice: number;
-
     gCatagory: string;
-
     gStock: number;
-
-    gPictureurl: string;
-
+    gPictureurl: string; 
     gStatus: number;
 
 
