@@ -10,18 +10,23 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class CheckComponent implements OnInit {
 
-  customer:Customer=new Customer(null,null,null,null,null,null,"中国",null,null,null,1);
+  customer:Customer = new Customer(null,null,null,null,null,null,null,null,null,null,null);
   constructor(private data: DataService,private router:Router) { }
 
   ngOnInit() {
   }
 
   changePW(){
-    this.router.navigate(['reset'],{
-      queryParams:{
-        customer:JSON.stringify(this.customer)
-      }
-    })
+    this.data.getCustomerByPhone(this.customer.cTelephone).subscribe(
+      result=>{this.customer = result["data"]
+      this.router.navigate(['reset'],{
+        queryParams:{
+          customer:JSON.stringify(this.customer)
+        }
+      })
+    }
+    );
+    
   }
 
 }
