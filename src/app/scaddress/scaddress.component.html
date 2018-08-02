@@ -55,7 +55,44 @@
           <h1>收货地址</h1>
         </mat-grid-tile>
         <mat-grid-tile rowspan="5" class="toprow1">
-          <div class="section section-body section-top">
+          <mat-grid-list class="likelist" cols="3" rowHeight="300px">
+            <mat-grid-tile class="liketile">
+              <div class="section section-body section-top">
+                <div class="address-item" *ngFor="let item of addressList;let i=index">
+                  <dl>
+                    <dt>
+                      <em class="uname">{{item.aReceiver}}</em>
+                    </dt>
+                    <dd class="utel">
+                      {{item.aTelephone}}
+                    </dd>
+                    <dd class="uaddress">
+                      {{item.aDetail}}
+                    </dd>
+                  </dl>
+                  <div class="actions">
+                    <a class="modify" (click)="deleteAddress(i)">
+                      删除
+                    </a>
+                    <a class="modify" (click)="modifyAddress(i)">
+                      修改
+                    </a>
+                  </div>
+                </div>
+                <div class="address-item address-item-new" (click)="openDialog()">
+                  <i class="iconfont">
+                    +
+                  </i>
+                  添加新地址
+                </div>
+              </div>  
+            </mat-grid-tile>
+          </mat-grid-list>
+          
+          
+          
+          
+          <!-- <div class="section section-body section-top">
             <div class="address-item" *ngFor="let item of addressList;let i=index">
               <dl>
                 <dt>
@@ -83,7 +120,7 @@
               </i>
               添加新地址
             </div>
-          </div>
+          </div> -->
         </mat-grid-tile>
       </mat-grid-list>
     </mat-grid-tile>
