@@ -56,7 +56,7 @@ export class AppComponent {
     if(this.searchContent == "") {
       this.modalRef = this.modalService.show(template);
     } else {
-      window.location.replace("localhost/#/search/"+this.searchContent);
+      window.location.href = ("localhost/#/search/"+this.searchContent);
     }
   }
 }
