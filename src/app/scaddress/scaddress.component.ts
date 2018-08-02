@@ -5,6 +5,7 @@ import { Address } from '../bean/address';
 import { AddressComponent } from "../address/address.component";
 import { Customer } from '../bean/customer';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-scaddress',
   templateUrl: './scaddress.component.html',
@@ -20,10 +21,14 @@ export class ScaddressComponent implements OnInit {
   totalMoney: number = 0;
   addressList: Object;
   status: Array<boolean>;
-  constructor(private data: DataService, public dialog: MatDialog,private router:Router) { }
+  constructor(private data: DataService, public dialog: MatDialog,private router:Router,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-
+    this.spinner.show();
+    setTimeout(() => {
+      
+      this.spinner.hide();
+  }, 800);
     this.data.checklogin().subscribe(
       result=>{
         this.phone = result["data"];
