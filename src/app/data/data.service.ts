@@ -17,7 +17,7 @@ import { Order } from '../bean/order';
 @Injectable()
 export class DataService {
 
-  host = "";
+  host = "http://localhost:8800/";
 
   constructor(private http: HttpClient) { }
 
