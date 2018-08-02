@@ -8,6 +8,7 @@ import { Customer } from '../bean/customer';
 import { Address } from '../bean/address';
 import { OrderGoods } from '../bean/ordergoods';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-shopcar',
   templateUrl: './shopcar.component.html',
@@ -32,10 +33,14 @@ export class ShopcarComponent implements OnInit {
   newOrder: Order;
   newOrderGoodsList: Array<OrderGoods> = new Array<OrderGoods>();
   newOrderGoods: OrderGoods;
-  constructor(private data: DataService, private router: Router) { }
+  constructor(private data: DataService, private router: Router,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-
+    this.spinner.show();
+    setTimeout(() => {
+      
+      this.spinner.hide();
+  }, 1500);
     this.data.checklogin().subscribe(
       result => {
         this.phone = result["data"];

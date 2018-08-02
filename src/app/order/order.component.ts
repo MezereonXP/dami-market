@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Address } from '../bean/address';
 import { Customer } from '../bean/customer';
 import { Order } from '../bean/order';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -24,12 +25,17 @@ export class OrderComponent implements OnInit {
   status: Array<boolean>;
   newOrder: Order;
   orderGoodsList: Array<OrderGoods>;
-  constructor(private data: DataService, public dialog: MatDialog, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private data: DataService, public dialog: MatDialog, private activatedRoute: ActivatedRoute, private router: Router,private spinner: NgxSpinnerService) {
 
 
   }
 
   ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      
+      this.spinner.hide();
+  }, 800);
     this.data.checklogin().subscribe(
       result => {
         this.phone = result["data"];
@@ -82,7 +88,7 @@ export class OrderComponent implements OnInit {
   }
 
   addNewOrder() {
-
+    
     if(this.address!=null&&this.address!=undefined){
       for (let i = 0; i < this.orderGoodsList.length; i++) {
         this.orderGoodsList[i].order.address = this.address;
