@@ -185,6 +185,7 @@ export class HomeComponent implements OnInit {
   }
 
 
+
   isShowUp(flag) {
     return flag ? '-5px' : '0px';
   }

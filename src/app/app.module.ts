@@ -8,8 +8,8 @@ import { RegistComponent } from './regist/regist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from "./data/data.service";
-import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule ,MatDialogModule,MatTooltipModule,MatSelectModule} from "@angular/material";
-import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule ,MatDialogModule,MatTooltipModule,MatSelectModule, MatDividerModule, MatChipsModule } from "@angular/material";
+import { MatCardModule , MatCardHeader } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { ShopcarComponent } from './shopcar/shopcar.component';
@@ -30,6 +30,8 @@ import { AddressComponent } from './address/address.component';
 import { SettlementComponent } from './settlement/settlement.component';
 import { KilltipsComponent }  from './killtips/killtips.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { SearchComponent } from './search/search.component';
+import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CheckComponent,
     ResetComponent,
     ScaddressComponent,
-    AddressComponent
+    AddressComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatDialogModule,
     MatTooltipModule,
     MatSelectModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatDividerModule,
+    MatListModule,
+    MatChipsModule,
+    ModalModule.forRoot()
   ],
   entryComponents: [
     AddressComponent,

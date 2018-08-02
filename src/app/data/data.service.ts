@@ -208,5 +208,10 @@ export class DataService {
   //   const params = new HttpParams().set("type", type);
   //   return this.http.get("http://localhost:8080/api/getgoodsPic", { params });
   // }
+  
+  search(key: string) {
+    const params = new HttpParams().set("key", key);
+    return this.http.get("http://localhost:8800/api/search", { params });
+  }
 
 }
