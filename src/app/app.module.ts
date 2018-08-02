@@ -29,7 +29,7 @@ import { ScaddressComponent } from './scaddress/scaddress.component';
 import { AddressComponent } from './address/address.component';
 import { SettlementComponent } from './settlement/settlement.component';
 import { KilltipsComponent }  from './killtips/killtips.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -73,7 +73,8 @@ import { KilltipsComponent }  from './killtips/killtips.component';
     MatCheckboxModule,
     MatDialogModule,
     MatTooltipModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxSpinnerModule
   ],
   entryComponents: [
     AddressComponent,
