@@ -1,11 +1,12 @@
+//商品配置对应图片
 export class GoodImg {
     id: number;
-    cfg_id: number;
-    gi_img: string;
+    cfgId: number;
+    giImg: string;
 
-    constructor(id: number, cfg_id: number, gi_img: string) {
+    constructor(id: number, cfgId: number, giImg: string) {
         this.id = id;
-        this.cfg_id = cfg_id;
-        this.gi_img = gi_img;
+        this.cfgId = cfgId;
+        this.giImg = giImg;
     }
 } 

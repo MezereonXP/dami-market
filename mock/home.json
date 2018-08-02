@@ -10,22 +10,19 @@
           ],
           "isOneAdvPic":true,
           "goods":[
-            { 
-              "id": 1,
+            {
               "name": "小米8 SE 4GB+64GB",
               "pic": "https://i1.mifile.cn/a1/pms_1527684990.93616987.jpg?width=150&height=150",
               "price": "1999",
               "comment": "That is good"
             },
-            { 
-              
+            {
               "name": "红米6A",
               "pic": "https://i1.mifile.cn/a1/pms_1528719476.67789934.jpg?width=150&height=150",
               "price": "599",
               "comment": "That is good"
             },
-            { 
-              
+            {
               "name": "小米8 6GB+64GB",
               "pic": "https://i1.mifile.cn/a1/pms_1528092587.49664451!220x220.jpg",
               "price": "2699",
@@ -105,7 +102,7 @@
             {
               "name": "13.3 Air 四核i7 独显",
               "pic": "https://i8.mifile.cn/b2c-mimall-media/a20dc22f36750ae93eb51dfb579cd7bd.jpg",
-              "price": "7249",
+              "price": "1249",
               "comment": "That is good"
             },
             {
@@ -299,13 +296,6 @@
             }
           ]
         }
-
-
-
-
-      ],
-      "code": 200,
-      "msg": "success"
+      ]
   }
-
 }

@@ -1,19 +1,18 @@
-import { GoodImg } from "./goodimg";
+//商品配置(颜色，版本)
+import { Good } from "./good";
 
 export class Config {
-    id: number;
-    cfg_goods_id: number;
-    cfg_type: number;
-    cfg_pricedata: number;
-    cfg_description: string;
-    goodimg: Array<GoodImg>;
+    cfgId: number;
+    goods: Good;
+    cfgType: number;
+    cfgPricedata: number;
+    cfgDescription: string;
 
-    constructor(id: number, cfg_goods_id: number, cfg_type: number, cfg_pricedata: number, cfg_description: string, goodimg: Array<GoodImg>) {
-        this.id = id;
-        this.cfg_goods_id = cfg_goods_id;
-        this.cfg_type = cfg_type;
-        this.cfg_pricedata = cfg_pricedata;
-        this.cfg_description = cfg_description;
-        this.goodimg = goodimg;
+    constructor(cfgId: number, goods: Good, cfgType: number, cfgPricedata: number, cfgDescription: string) {
+        this.cfgId = cfgId;
+        this.goods = goods;
+        this.cfgType = cfgType;
+        this.cfgPricedata = cfgPricedata;
+        this.cfgDescription = cfgDescription;
     }
 } 

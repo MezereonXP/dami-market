@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DataService } from '../data/data.service';
 import { User } from '../bean/user';
+import { Customer } from '../bean/customer';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-regist',
@@ -10,34 +12,22 @@ import { User } from '../bean/user';
 })
 export class RegistComponent implements OnInit {
 
-  user$: User;
-  id: string;
-  title: string;
+  newCustomer:Customer=new Customer(null,null,null,null,null,null,"中国",null,null,null,1);
 
-  users$: Array<User>;
-
-  constructor(private data: DataService) { }
+  constructor(private data: DataService,private router:Router) { }
 
   ngOnInit() {
-    this.id = "input value";
-    this.title = "My title";
-    this.user$ = new User(1, "loading", "loading", "loading");
-    this.data.getAllUser().subscribe(
-      result => this.users$ = result["data"]
-    );
+    
   }
 
-  login() {
-    this.data.getUser(this.id).subscribe(
-      user => this.user$ = user["data"]
-    );
+  registtele(){
+    this.newCustomer.cName = this.newCustomer.cTelephone;
+    this.router.navigate(['regist2'],{
+      queryParams:{
+        newCustomer:JSON.stringify(this.newCustomer)
+      }
+    })
   }
-
-  check() {
-    this.user$ = new User(null, "testName", "testPwd", "testSign");
-    this.data.insertUser(this.user$).subscribe(
-      result => window.alert(result["sign"])
-    );
-  }
+  
 
 }

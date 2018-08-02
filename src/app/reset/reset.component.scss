@@ -1,0 +1,63 @@
+.body {
+    height: 500px;
+    background-color: rgb(207, 206, 206);
+}
+.bar{
+    width:100%;
+}
+.main {
+    background-color: #f9f9f9;
+    height: 500px;
+}
+.title {
+    width:100%;
+
+}
+.toprow {
+    height: 120px;
+    text-align: center;
+}
+h1 {
+    font-size: 30px;
+    color: #000000;
+    width: 100%;
+    padding-bottom: 20px;
+}
+.lgn_inputbg {
+    position: relative;
+}
+.c_b {
+    zoom: 1;
+}
+.labelbox {
+    margin-bottom: 14px;
+    border: 1px solid #e0e0e0;
+}
+.labelbox input {
+    width: 344px;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    height: 50px;
+    line-height: 25px;
+    font-size: 16px;
+    padding: 13px 16px 13px 14px;
+}
+.btnadpt {
+    background-color: #0059ff;
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    margin-bottom: 14px;
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    cursor: pointer;
+    border: 1px solid rgba(186, 186, 186, 0.3);
+    text-decoration: none;
+    margin-top: 10px;
+}
+span {
+    font-size: 14px;
+    color: #000000;
+}

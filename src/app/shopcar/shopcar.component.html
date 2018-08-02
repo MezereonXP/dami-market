@@ -1,3 +1,169 @@
-<p>
-  shopcar works!
-</p>
+<mat-toolbar class="headbar3 mat-elevation-z2" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="15" rowHeight="5:3" class="bar">
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="2" class="ok">
+        <span>我的购物车</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="8">
+        <span></span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="3">
+        <span>
+          <div class="detail-card">
+
+            <a href="">
+              <span class="myOrder">
+                我的订单>>
+              </span>
+            </a>
+          </div>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div *ngIf="isNone" class="none-div">
+  
+  <span class="shopcar-tips">购物车里还没有商品 快去加入商品吧！</span>
+</div>
+<div *ngIf="!isNone" class="shopcar-main">
+  <div class="shoplistbar">
+
+    <mat-grid-list cols="12" rowHeight="5:3" class="bar">
+
+      <mat-grid-tile colspan="1">
+        <span>
+          <mat-checkbox color="primary" id="selectall" [(ngModel)]="isSelectAll" (click)="changeStatus()">
+            全选
+          </mat-checkbox>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="2">
+        <span>商品</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="1">单价</mat-grid-tile>
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+
+      <mat-grid-tile colspan="1">数量</mat-grid-tile>
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="1">小计</mat-grid-tile>
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="1">操作</mat-grid-tile>
+
+    </mat-grid-list>
+
+
+
+  </div>
+  <div class="shoplist" *ngFor="let item of goods; let i = index">
+    <mat-grid-list cols="12" rowHeight="5:3" class="bar">
+      <mat-grid-tile colspan="1">
+        <span>
+          <mat-checkbox color="primary" [(ngModel)]="status[i]" (click)="changeSelectAllStatus(i,item)">
+
+          </mat-checkbox>
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2">
+        <img class="goodsimg" :src="{{item.goods.gPictureurl}}">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2">
+        <span>{{item.goods.gName}}</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1">{{item.goods.gPrice}}元</mat-grid-tile>
+      <mat-grid-tile colspan="1">
+        <button mat-raised-button class="changeQuantity" matTooltip="最小为1" (click)="reduce(i)">-</button>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1">
+        <mat-form-field class="count">
+
+          <input matInput type="number" readonly="readonly" [(ngModel)]="goods[i].sQuantity" min="1" max="{{goods[i].goods.gStock}}"
+            class="count-input">
+
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1">
+        <button mat-raised-button class="changeQuantity" matTooltip="最大为库存量{{goods[i].goods.gStock}}" (click)="increase(i)">+</button>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1">{{item.sQuantity*item.goods.gPrice}}元</mat-grid-tile>
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="1">
+        <a class="delete-btn" (click)="deleteGoodsFromShopcar(i)">x</a>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div class="shoplistbar">
+    <mat-grid-list cols="12" rowHeight="5:3" class="bar">
+
+      <mat-grid-tile colspan="1">
+        <a href="">
+          <span>
+            继续购物
+          </span>
+        </a>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="3">
+        <span>
+          共{{count}}件商品，已选择{{selectNum}}件商品
+        </span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="5">
+
+      </mat-grid-tile>
+
+
+      <mat-grid-tile colspan="1">合计:{{totalMoney}}元</mat-grid-tile>
+
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="1">
+        <button mat-stroked-button>
+          <a (click)="toSetNewOrder()">去结算</a>
+        </button>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+  </div>
+
+  <div *ngIf="isRecommend">
+    <div class="recommend-title-div"></div>
+    <div class="recommend-title-div">
+      <h1 class="recommend-title">
+        <span>
+          买购物车中商品的人同时购买了
+        </span>
+      </h1>
+    </div>
+    <div class="recommend">
+      <ul class="row">
+        <li class="recommend-item" *ngFor="let item of recommendGoods;let n=index">
+          <dl>
+            <dt>
+              <a>
+                <img src="{{item.gPictureurl}}" class="item-pic">
+              </a>
+            </dt>
+            <dd>
+              <a> {{item.gName}}</a>
+            </dd>
+            <dd class="recommend-price">
+              {{item.gPrice}}元
+            </dd>
+            <dd class="recommend-tips">
+
+              <a class="recommend-addbtn" (click)="addGoodsToShopcar()">加入购物车</a>
+            </dd>
+
+          </dl>
+        </li>
+
+      </ul>
+    </div>
+
+
+  </div>
+</div>
