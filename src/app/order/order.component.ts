@@ -83,22 +83,27 @@ export class OrderComponent implements OnInit {
 
   addNewOrder() {
 
-    for (let i = 0; i < this.orderGoodsList.length; i++) {
-      this.orderGoodsList[i].order.address = this.address;
-    }
-    console.log(this.orderGoodsList);
-    this.data.addNewOrder(this.orderGoodsList).subscribe(
-      result => {
-        this.newOrder = result["data"];
-
-        this.router.navigate(['settlement'], {
-          queryParams: {
-            order: JSON.stringify(this.newOrder)
-
-          }
-        });
+    if(this.address!=null&&this.address!=undefined){
+      for (let i = 0; i < this.orderGoodsList.length; i++) {
+        this.orderGoodsList[i].order.address = this.address;
       }
-    );
+      console.log(this.orderGoodsList);
+      this.data.addNewOrder(this.orderGoodsList).subscribe(
+        result => {
+          this.newOrder = result["data"];
+  
+          this.router.navigate(['settlement'], {
+            queryParams: {
+              order: JSON.stringify(this.newOrder)
+  
+            }
+          });
+        }
+      );
+    }else{
+      alert("请选择收货地址");
+    }
+    
 
 
   }
