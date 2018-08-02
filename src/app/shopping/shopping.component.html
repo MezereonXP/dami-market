@@ -92,8 +92,12 @@
           <button mat-button class="btn-OOS">暂时缺货</button>
         </span>
 
-        <span class="fav">
+        <span class="fav" *ngIf="isshow1">
           <button mat-button class="btn-fav" (click)="addGoodsToFavorite()">喜欢</button>
+        </span>
+        
+        <span class="OOS" *ngIf="!isshow1">
+          <button mat-button class="btn-OOS">已喜欢</button>
         </span>
 
       </mat-grid-tile>

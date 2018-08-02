@@ -31,7 +31,8 @@ export class ShoppingComponent implements OnInit {
   customerShopcarList: Array<Shopcar>;
   favoriteList: Array<Favorite>;
   isshow = true;
-
+  isshow1 = true;
+  flag = true;
   isLogin: boolean = false;
   phone: String;
 
@@ -67,6 +68,13 @@ export class ShoppingComponent implements OnInit {
               this.data.selectFavoriteByCustomerId(this.customer.cId).subscribe(
                 result => {
                   this.favoriteList = result["data"];
+                  for (let i = 0; i < this.favoriteList.length; i++) {
+                    if (this.favoriteList[i].goods.gId == this.shopping.goods.gId) {
+                    this.flag = false;
+                    console.log(this.flag);
+                    this.isshow1=false;
+                    }
+                  }
                 }
               );
             }
@@ -77,7 +85,7 @@ export class ShoppingComponent implements OnInit {
         }
       }
     );
-
+   
 
   }
 
@@ -121,14 +129,8 @@ export class ShoppingComponent implements OnInit {
     }
   }
   addGoodsToFavorite() {
-
-    let flag = true;
-    for (let i = 0; i < this.favoriteList.length; i++) {
-      if (this.favoriteList[i].goods.gId == this.shopping.goods.gId) {
-        flag = false;
-      }
-    }
-    if (flag) {
+    // console.log(this.flag);
+    if (this.flag) {
       
       this.favorite = new Favorite(null, this.customer, this.shopping.goods, 1);
       this.data.addGoodsToFavorite(this.favorite).subscribe();
@@ -136,6 +138,7 @@ export class ShoppingComponent implements OnInit {
       window.location.reload();
     } else {
       alert("喜欢列表中已存在该商品");
+     
     }
 
 
