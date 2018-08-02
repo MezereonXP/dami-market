@@ -1,3 +1,4 @@
+//秒杀商品实体类
 import { Goods } from "./goods";
 
 export  class killgood{

@@ -1,5 +1,4 @@
-import { Config } from "./config";
-
+//商品实体类
 export class Good {
   gId: number;
   gName: string;

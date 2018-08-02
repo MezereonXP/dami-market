@@ -145,10 +145,5 @@ export class ShoppingComponent implements OnInit {
       alert("喜欢列表中已存在该商品");
      
     }
-
-
   }
-
-
-
 }

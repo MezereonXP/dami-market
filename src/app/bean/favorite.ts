@@ -1,3 +1,4 @@
+//喜欢的商品实体类
 import { Good } from "./good";
 import { Customer } from "./customer";
 
@@ -7,9 +8,7 @@ export class Favorite {
     customer: Customer;
     goods: Good;
     fStatus: number;
-    /**
-     *
-     */
+  
     constructor(fId: number, customer: Customer, goods: Good, fStatus: number) {
         this.fId = fId;
         this.customer = customer;

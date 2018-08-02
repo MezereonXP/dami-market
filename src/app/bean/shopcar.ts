@@ -1,3 +1,4 @@
+//购物车实体类
 import { Goods } from "./goods";
 import { Customer } from "./customer";
 

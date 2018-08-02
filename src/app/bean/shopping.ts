@@ -1,3 +1,4 @@
+//购买商品展示实体类
 import { Good } from "./good";
 import { Config } from "./config";
 import { GoodImg } from "./goodimg";

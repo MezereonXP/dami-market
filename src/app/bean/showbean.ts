@@ -1,3 +1,4 @@
+//主页商品展示实体类
 import { Goods } from "./goods";
 
 export class ShowBean {

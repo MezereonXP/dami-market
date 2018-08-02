@@ -1,14 +1,17 @@
+<!-- 设置阴影，鼠标移开时触发隐藏事件 -->
 <div class="menu mat-elevation-z8" (mouseleave)="hideDetail()">
-  <mat-grid-list cols="5" rowHeight="460px">
-
+  <!-- 分为5列，菜单占左侧一列 -->
+  <mat-grid-list cols="5" rowHeight="460px">  
     <mat-grid-tile class="menu1" [ngStyle]="{'background-color': currentColor}">
       <mat-grid-list cols="1" rowHeight="240:92" class="list">
+        <!-- 遍历item，获取对应的5个名称，鼠标悬停时触发显示函数-->
         <mat-grid-tile [@listStagger]="items" rowspan="1" *ngFor="let item of items; index as i">
           <button mat-button class="menu-btn" (mouseover)="showDetail(i)">{{item}}</button>
         </mat-grid-tile>
       </mat-grid-list>
     </mat-grid-tile>
 
+    <!-- 图片占右侧四列，轮播显示 -->
     <mat-grid-tile colspan="4" *ngIf="!isShowDetail">
       <carousel class="carousel" (activeSlideChange)="log($event)">
         <slide *ngFor="let img of goodsImages; let i=index" class="slide">
@@ -16,7 +19,7 @@
         </slide>
       </carousel>
     </mat-grid-tile>
-
+    <!-- 按分类显示对应分类下的商品名称和缩略图 -->
     <mat-grid-tile colspan="4" *ngIf="isShowDetail">
       <mat-card class="detail-card mat-elevation-z8">
         <mat-grid-list class="detail-list" cols="4" rowHeight="72px">
@@ -36,12 +39,14 @@
   </mat-grid-list>
 </div>
 
+<!-- 分隔图片 -->
 <mat-grid-list cols="3" rowHeight="2:1" class="divideList">
   <mat-grid-tile class="devideTile" *ngFor="let item of goodsImage2">
     <img class="dividePic" :src="{{item}}">
   </mat-grid-tile>
 </mat-grid-list>
 
+<!-- 工具栏 -->
 <mat-toolbar class="headbar mat-elevation-z2" color="primary">
   <mat-toolbar-row>
     <mat-grid-list cols="15" rowHeight="5:2" class="bar">
@@ -59,20 +64,22 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+<!-- 使用两张图片分别作为闪购和团购的入口 -->
 <mat-grid-list cols="2" rowHeight="2:1" class="divideList">
   <mat-grid-tile class="devideTile" *ngFor="let item of killandteam; let i=index">
     <img class="dividePic" :src="{{item}}" (click)="jump(i)">
   </mat-grid-tile>
 </mat-grid-list>
 
-
+<!-- 详细商品信息展示，遍历showBeans -->
 <div *ngFor="let item of showBeans; let i=index">
+  <!-- 分隔图 -->
   <mat-grid-list cols="1" rowHeight="10:1" class="divideList">
     <mat-grid-tile class="devideTile">
       <img class="dividePic" :src="{{item.dividePic}}">
     </mat-grid-tile>
   </mat-grid-list>
-
+  <!-- 遍历显示5种分类 -->
   <mat-list class="divide-list">
     <mat-list-item class="title-item">{{item.typeName}}</mat-list-item>
     <!-- <mat-list-item class="seeall-item" (mouseover)="changeSeeAllColor(1)" (mouseleave)="changeSeeAllColor(0)" [ngStyle]="{'color': currentSeeAllColor}">查看全部
@@ -85,11 +92,12 @@
         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="red" />
       </svg>
     </mat-list-item> 
-    <mat-divider></mat-divider>-->
+    -->
   </mat-list>
-
+  <!-- 5列，左边一列为广告图，右边4列显示各个分类下的商品 -->
   <mat-grid-list cols="5" rowHeight="1:2" class="divideList">
-
+    
+    <!-- 判断广告图张数，1或2张调整行高行宽比例 -->
     <mat-grid-tile colspan="1" class="simple-tile">
       <mat-grid-list cols="1" rowHeight="{{item.typeName=='手机' ?&#34;2&#58;5&#34;:&#34;4&#58;5&#34;}}" class="advlist">
         <mat-grid-tile *ngFor="let pic of item.advPic; let j = index" display:block (mouseover)="setElevation(i,j,1)" (mouseleave)="setElevation(i,j,0)"
@@ -98,7 +106,7 @@
         </mat-grid-tile>
       </mat-grid-list>
     </mat-grid-tile>
-
+    <!-- 遍历展示所有商品 -->
     <mat-grid-tile colspan="4" class="simple-tile">
       <mat-grid-list cols="4" rowHeight="4:5" class="advlist">
         <mat-grid-tile (mouseover)="setElevation2(i,k,1)" *ngFor="let good of item.goods; let k=index" (mouseleave)="setElevation2(i,k,0)"
