@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data/data.service';
 import { Good } from '../bean/good';
@@ -17,7 +17,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './shopping.component.html',
   styleUrls: ['./shopping.component.scss']
 })
-export class ShoppingComponent implements OnInit {
+export class ShoppingComponent implements OnInit, AfterViewInit {
 
   shopping: Shopping = new Shopping(new Good(1, 'waiting', 1, 'waiting', 1, 'waiting', 1), null, null);
   // goods: Good = new Good(0, "", 0, "", 0, "", 0,null);
@@ -40,10 +40,6 @@ export class ShoppingComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
-    setTimeout(() => {
-
-      this.spinner.hide();
-    }, 2500);
     // this.shopping.goods.gId = +this.route.snapshot.paramMap.get("id");
     window.scrollTo(0, 0)
     let id = this.route.snapshot.paramMap.get("id");
@@ -93,9 +89,10 @@ export class ShoppingComponent implements OnInit {
       }
     );
 
+  }
 
-
-
+  ngAfterViewInit() {
+    this.spinner.hide();
   }
 
   changePic(index) {
