@@ -61,6 +61,7 @@ export class SelfcenterComponent implements OnInit {
                       this.oNum3++;
                     }
                   }
+                  this.spinner.hide();
                 }
               )
               this.data.selectFavoriteByCustomerId(this.customer.cId).subscribe(

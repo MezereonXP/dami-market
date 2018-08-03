@@ -25,10 +25,7 @@ export class ScaddressComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
-    setTimeout(() => {
-      
-      this.spinner.hide();
-  }, 800);
+    
     this.data.checklogin().subscribe(
       result=>{
         this.phone = result["data"];
@@ -45,6 +42,7 @@ export class ScaddressComponent implements OnInit {
                   }
                   this.status[0] = true;
                   this.addressList = result["data"];
+                  this.spinner.hide();
                 }
           
               );
