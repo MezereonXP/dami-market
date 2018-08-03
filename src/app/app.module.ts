@@ -34,6 +34,7 @@ import { SearchComponent } from './search/search.component';
 import { ModalModule } from 'ngx-bootstrap';
 import { TeamdisplayComponent } from './teamdisplay/teamdisplay.component';
 import { TeamgoodComponent } from './teamgood/teamgood.component';
+import { OrderService } from './data/order.service';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,7 @@ import { TeamgoodComponent } from './teamgood/teamgood.component';
     TeamdisplayComponent
   ],
 
-  providers: [DataService],
+  providers: [DataService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

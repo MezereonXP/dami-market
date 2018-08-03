@@ -9,6 +9,7 @@ import { Address } from '../bean/address';
 import { Good } from '../bean/good';
 import { OrderGoods } from '../bean/ordergood';
 import { Customer } from '../bean/customer';
+import { OrderService } from '../data/order.service';
 
 @Component({
   selector: 'app-teamdisplay',
@@ -24,11 +25,11 @@ export class TeamdisplayComponent implements OnInit {
   customer : Customer = new Customer(this.cId,null,null,1,null,null,null,null,null,null,1);
   TeamGood: Teamgoods = new Teamgoods(1, null, 1, 1, null, 1, 1, null);
   newAddress: Address = new Address(null, this.customer, null, null, null, null, 1);
-  newOrder: Order = new Order(null,null,this.customer,this.newAddress,null,2,null,null,1);
+  newOrder: Order = new Order(null,null,this.customer,this.newAddress,1,2,null,null,1);
   good: Good = new Good(null,null,null,null,null,null,null);
   orderGoods : OrderGoods = new OrderGoods(null,this.newOrder,this.good,this.TeamGood.nowPrice,1,1);
-  orderGoodsList :Array<OrderGoods>
-  constructor(public dialogRef: MatDialogRef<TeamdisplayComponent>,
+  orderGoodsList :Array<OrderGoods> = new Array<OrderGoods>();
+  constructor(public dialogRef: MatDialogRef<TeamdisplayComponent>, private orderService: OrderService,
     @Inject(MAT_DIALOG_DATA) public data1: DialogData, private data2: DataService,private router:Router) {
       this.tId = this.data1.tId;
       this.tgId = this.data1.tgId;
@@ -37,6 +38,11 @@ export class TeamdisplayComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.data2.getCustomerById(this.cId).subscribe(
+      result => {
+        this.orderGoods.order.customer = result["data"];
+      }
+    );
     this.data2.getTeamByTId(this.tId).subscribe(
       result => {
         this.teamCustomer$ = result["data"];
@@ -44,23 +50,20 @@ export class TeamdisplayComponent implements OnInit {
     );
     this.data2.getTeamGoodById(this.tgId).subscribe(
       result => {
-        this.TeamGood = result["data"];
-        console.log(this.TeamGood.name);
+        this.orderGoods.ogPrice = result["data"].nowPrice;
       });
     this.data2.getGoodsByTgId(this.tgId).subscribe(
       result => {
-        this.good = result["data"];
+        this.orderGoods.goods = result["data"];
       });
   }
   sendOrder(){
     this.orderGoodsList.push(this.orderGoods);
     window.alert("参团成功");
     //递送order方法
-    this.router.navigate(['order'], {
-      queryParams: {
-        orderGoodsList: JSON.stringify(this.orderGoodsList)
-      }
-    })
+    this.orderService.orderGoodsList = this.orderGoodsList;
+    this.orderService.tId = this.tId;
+    this.router.navigate(['order']);
   }
 
 }

@@ -23,7 +23,7 @@ export class TeamgoodComponent implements OnInit {
 
   cId: number = 1;
   customer: Customer = new Customer(this.cId, null, null, 1, null, null, null, null, null, null, 1);
-  Teams$: Team = new Team(1, 1, 1, true);
+  Teams$: Array<Team> = new Array<Team>();
   TeamGood: Teamgoods = new Teamgoods(1, null, 1, 1, null, 1, 1, null);
   newAddress: Address = new Address(null, this.customer, null, null, null, null, 1);
   newOrder: Order = new Order(null, null, this.customer, this.newAddress, null, 2, null, null, 1);
