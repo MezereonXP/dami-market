@@ -26,20 +26,7 @@
             <button mat-button class="btn-regist">注册</button>
           </a>
         </span>
-        <mat-form-field *ngIf="isLogin" class="menu">
-          <mat-select placeholder="{{customer.cName}}" >
-            <mat-option>
-              <span class="option" (click)="jumpToSelfCenter()">
-                个人中心
-              </span>
-            </mat-option>
-            <mat-option (click)="logout()">
-              <span class="option">
-                注销
-              </span>
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+        <button mat-button class="btn-regist" *ngIf="isLogin" [matMenuTriggerFor]="menu">{{customer.cName}}</button>
       </mat-grid-tile>
       <mat-grid-tile>
         <span class="span-info">
@@ -50,9 +37,12 @@
       </mat-grid-tile>
       <mat-grid-tile colspan="1"></mat-grid-tile>
     </mat-grid-list>
-  </mat-toolbar-row>
+  </mat-toolbar-row> 
 </mat-toolbar>
-
+<mat-menu #menu="matMenu" class="menu-self">
+    <button mat-menu-item class="btn-regist"  (click)="jumpToSelfCenter()">个人中心</button>
+    <button mat-menu-item class="btn-regist"  (click)="logout()">注销</button>
+</mat-menu>
 
 <mat-toolbar class="headbar2 mat-elevation-z2" color="primary">
   <mat-toolbar-row>

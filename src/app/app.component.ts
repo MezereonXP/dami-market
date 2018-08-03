@@ -3,9 +3,10 @@ import { Customer } from './bean/customer';
 import { DataService } from './data/data.service';
 import { Router } from '@angular/router';
 
-import { Component, TemplateRef } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { MatMenuTrigger } from "@angular/material/menu";
 
 @Component({
   selector: 'app-root',
@@ -13,10 +14,12 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'app';
   customer: Customer = new Customer(1, "", "加载中", 1, "", "", "", "", "", "", 1);
   isLogin: boolean = false;
   phone: String;
+
   constructor(private data: DataService, private router: Router, private modalService: BsModalService) { }
   ngOnInit() {
 
@@ -45,7 +48,6 @@ export class AppComponent {
         this.router.navigate(["login"]);
       }
     );
-
   }
 
   jumpToSelfCenter() {
