@@ -37,10 +37,7 @@ export class ShopcarComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
-    setTimeout(() => {
-      
-      this.spinner.hide();
-  }, 1500);
+    
     this.data.checklogin().subscribe(
       result => {
         this.phone = result["data"];
@@ -75,6 +72,7 @@ export class ShopcarComponent implements OnInit {
                   if(result["data"].length>0){
                     this.isRecommend = true;
                   }
+                  this.spinner.hide();
                 }
               )
             }

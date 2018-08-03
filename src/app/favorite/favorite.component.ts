@@ -21,10 +21,7 @@ export class FavoriteComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
-    setTimeout(() => {
-      
-      this.spinner.hide();
-  }, 900);
+    
     this.data.checklogin().subscribe(
       result => {
         this.phone = result["data"];
@@ -35,7 +32,8 @@ export class FavoriteComponent implements OnInit {
               this.customer = result["data"];
               this.data.selectFavoriteByCustomerId(this.customer.cId).subscribe(
                 result => {
-                  this.favoriteList = result["data"]
+                  this.favoriteList = result["data"];
+                  this.spinner.hide();
                 }
               )
             }

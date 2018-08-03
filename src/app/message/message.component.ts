@@ -21,10 +21,7 @@ export class MessageComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
-    setTimeout(() => {
-      
-      this.spinner.hide();
-  }, 900);
+    
     this.data.checklogin().subscribe(
       result=>{
         this.phone = result["data"];
@@ -36,7 +33,8 @@ export class MessageComponent implements OnInit {
               this.customer = result["data"];
               this.data.selectNoteByCustomerId(this.customer.cId).subscribe(
                 result => {
-                  this.noteList = result["data"]
+                  this.noteList = result["data"];
+                  this.spinner.hide();
                 }
               )
             }
