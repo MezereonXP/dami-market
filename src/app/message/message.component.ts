@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data/data.service';
 import { ArrayType } from '../../../node_modules/@angular/compiler/src/output/output_ast';
-import { Note } from '../bean/Note';
+import { Note } from '../bean/note';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Customer } from '../bean/customer';
 import { Router } from '@angular/router';
