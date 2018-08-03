@@ -33,6 +33,7 @@ export class TeamdisplayComponent implements OnInit {
       this.tId = this.data1.tId;
       this.tgId = this.data1.tgId;
       this.newOrder = this.data1.newOrder;
+      this.cId = this.data1.cId;
      }
 
   ngOnInit() {
@@ -67,4 +68,5 @@ export interface DialogData {
   newOrder: Order;
   tId:number;
   tgId:number;
+  cId: number;
 }
