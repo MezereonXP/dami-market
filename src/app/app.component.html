@@ -26,8 +26,8 @@
             <button mat-button class="btn-regist">注册</button>
           </a>
         </span>
-        <mat-form-field *ngIf="isLogin">
-          <mat-select placeholder="{{customer.cName}}" class="menu">
+        <mat-form-field *ngIf="isLogin" class="menu">
+          <mat-select placeholder="{{customer.cName}}" >
             <mat-option>
               <span class="option" (click)="jumpToSelfCenter()">
                 个人中心

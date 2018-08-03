@@ -14,50 +14,57 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class AppComponent {
   title = 'app';
-  customer:Customer;
-  isLogin:boolean = false;
-  phone:String;
-  constructor(private data: DataService,private router:Router,private modalService: BsModalService) { }
+  customer: Customer;
+  isLogin: boolean = false;
+  phone: String;
+  constructor(private data: DataService, private router: Router, private modalService: BsModalService) { }
   ngOnInit() {
-    
+
     this.data.checklogin().subscribe(
-      result=>{
+      result => {
         this.phone = result["data"];
         this.isLogin = result["status"];
-        if(this.isLogin){
-          
+        if (this.isLogin) {
+
           this.data.getCustomerByPhone(this.phone).subscribe(
-            result=>{
+            result => {
               this.customer = result["data"];
             }
           );
-        }else{
+        } else {
           //未登录
         }
       }
     );
   }
 
-  logout(){
-    this.data.logout().subscribe();
-    window.location.reload();
-    this.router.navigate(["login"]);
+  logout() {
+    this.data.logout().subscribe(
+      result => {
+        window.location.reload();
+        this.router.navigate(["login"]);
+      }
+    );
+
   }
 
-  jumpToSelfCenter(){
+  jumpToSelfCenter() {
     this.router.navigate(["selfcenter"]);
   }
 
   searchContent = "";
   modalRef: BsModalRef;
-  
+
 
   search(template: TemplateRef<any>) {
-    if(this.searchContent == "") {
+
+    if (this.searchContent == "") {
       this.modalRef = this.modalService.show(template);
     } else {
+      console.log(this.searchContent);
+      window.location.href = ("/#/search/" + this.searchContent);
+      window.location.reload();
       
-      window.location.href = ("http://119.29.87.112/#/search/"+this.searchContent);
     }
   }
 }
