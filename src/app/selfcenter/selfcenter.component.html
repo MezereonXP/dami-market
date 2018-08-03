@@ -1,9 +1,4 @@
-<ngx-spinner
-bdColor = "rgba(51, 51, 51, 0.8)"
-size = "large"
-color = "#fff"
-type = "ball-clip-rotate"
-></ngx-spinner>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-clip-rotate"></ngx-spinner>
 <mat-toolbar class="head" color="primary">
   <mat-toolbar-row>
     <mat-grid-list cols="15" class="bar">
@@ -34,7 +29,7 @@ type = "ball-clip-rotate"
         </li>
         <h3 class="title1">个人中心</h3>
         <li>
-          <a class="choose" href="/#/selfcenter">我的个人中心</a>
+          <a class="choose" href="/#/selfcenter" (click)="change(0)">我的个人中心</a>
         </li>
         <li>
           <a href="/#/message">消息通知</a>
@@ -55,7 +50,7 @@ type = "ball-clip-rotate"
       </div>
     </mat-grid-tile>
     <mat-grid-tile colspan="1"></mat-grid-tile>
-    <mat-grid-tile colspan="50" class="list">
+    <mat-grid-tile colspan="50" class="list" *ngIf="flag[0]">
       <mat-grid-list cols="5" rowHeight="150px" class="top">
         <mat-grid-tile colspan="1" class="toprow mat-elevation-z8">
           <div class="usermessage">
@@ -72,7 +67,7 @@ type = "ball-clip-rotate"
                 <h2>待支付的订单:
                   <span class="num">{{oNum1}}</span>
                 </h2>
-                <a href="">查看待支付订单></a>
+                <a href="javascript:void(0);" (click)="change(1)">查看待支付订单></a>
               </div>
             </mat-grid-tile>
             <mat-grid-tile class="itemtile">
@@ -81,7 +76,7 @@ type = "ball-clip-rotate"
                 <h2>待收货的订单:
                   <span class="num">{{oNum2}}</span>
                 </h2>
-                <a href="">查看待收货订单></a>
+                <a href="javascript:void(0);" (click)="change(2)">查看待收货订单></a>
               </div>
             </mat-grid-tile>
             <mat-grid-tile class="itemtile">
@@ -90,7 +85,7 @@ type = "ball-clip-rotate"
                 <h2>待评价商品数:
                   <span class="num">{{oNum3}}</span>
                 </h2>
-                <a href="">查看待评价商品></a>
+                <a href="javascript:void(0);" (click)="change(3)">查看待评价商品></a>
               </div>
             </mat-grid-tile>
             <mat-grid-tile class="itemtile">
@@ -105,6 +100,61 @@ type = "ball-clip-rotate"
           </mat-grid-list>
         </mat-grid-tile>
       </mat-grid-list>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="50" class="list" *ngIf="flag[1]">    
+      <mat-grid-list class="goods-grid-list" cols="3" rowHeight="380px">
+          <mat-grid-tile class="goods-tile" *ngFor="let good of goodsData[0];let i=index">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-title class="card-tile">{{good.gName}}</mat-card-title>
+              </mat-card-header>
+              <img class="card-pic" mat-card-image :src="{{good.gPictureurl}}" alt="Photo of a Shiba Inu">
+              <mat-card-content class="card-content">
+                {{good.gPrice}}元
+              </mat-card-content>
+              <mat-card-actions class="card-action">
+                <button mat-raised-button color="accent">付款</button>          
+              </mat-card-actions>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="50" class="list" *ngIf="flag[2]">
+        <mat-grid-list class="goods-grid-list" cols="3" rowHeight="380px">
+            <mat-grid-tile class="goods-tile" *ngFor="let good of goodsData[1];let i=index">
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title class="card-tile">{{good.gName}}</mat-card-title>
+                </mat-card-header>
+                <img class="card-pic" mat-card-image :src="{{good.gPictureurl}}" alt="Photo of a Shiba Inu">
+                <mat-card-content class="card-content">
+                  {{good.gPrice}}元
+                </mat-card-content>
+                <mat-card-actions class="card-action">
+                  <button mat-raised-button color="accent">确认收货</button>         
+                </mat-card-actions>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="50" class="list" *ngIf="flag[3]">
+        <mat-grid-list class="goods-grid-list" cols="3" rowHeight="380px">
+            <mat-grid-tile class="goods-tile" *ngFor="let good of goodsData[2];let i=index">
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <mat-card-title class="card-tile">{{good.gName}}</mat-card-title>
+                </mat-card-header>
+                <img class="card-pic" mat-card-image :src="{{good.gPictureurl}}" alt="Photo of a Shiba Inu">
+                <mat-card-content class="card-content">
+                  {{good.gPrice}}元
+                </mat-card-content>
+                <mat-card-actions class="card-action">
+                  <button mat-raised-button color="accent">喜欢</button>
+                  <button mat-raised-button color="primary" >购买</button>             
+                </mat-card-actions>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
     </mat-grid-tile>
     <mat-grid-tile colspan="2"></mat-grid-tile>
   </mat-grid-list>
