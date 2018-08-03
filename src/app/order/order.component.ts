@@ -32,10 +32,7 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
-    setTimeout(() => {
-      
-      this.spinner.hide();
-  }, 800);
+    
     this.data.checklogin().subscribe(
       result => {
         this.phone = result["data"];
@@ -54,6 +51,7 @@ export class OrderComponent implements OnInit {
                   this.status[0] = true;
                   this.addressList = result["data"];
                   this.address = this.addressList[0];
+                  this.spinner.hide();
                 }
 
               );
