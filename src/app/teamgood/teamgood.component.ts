@@ -6,6 +6,13 @@ import { Team } from '../bean/team';
 import { Teamgoods } from '../bean/teamgoods';
 import { TeamdisplayComponent } from '../teamdisplay/teamdisplay.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Route } from '../../../node_modules/@angular/compiler/src/core';
+import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
+import { Order } from '../bean/order';
+import { Customer } from '../bean/customer';
+import { Address } from '../bean/address';
+import { OrderGoods } from '../bean/ordergoods';
+import { Good } from '../bean/good';
 
 @Component({
   selector: 'app-teamgood',
@@ -15,26 +22,55 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class TeamgoodComponent implements OnInit {
 
   cId: number = 1;
-  tgId: number = 1;
+  customer : Customer = new Customer(this.cId,null,null,1,null,null,null,null,null,null,1);
   Teams$: Team = new Team(1, 1, 1, true);
   TeamGood: Teamgoods = new Teamgoods(1, null, 1, 1, null, 1, 1, null);
-  constructor(private data: DataService, public dialog: MatDialog) { }
+  newAddress: Address = new Address(null, this.customer, null, null, null, null, 1);
+  newOrder: Order = new Order(null,null,this.customer,this.newAddress,null,2,null,null,1);
+  good: Good = new Good(null,null,null,null,null,null,null);
+  orderGoods : OrderGoods = new OrderGoods(null,this.newOrder,this.good,this.TeamGood.nowPrice,1,1);
+  orderGoodsList :Array<OrderGoods>
+  constructor(private data: DataService, public dialog: MatDialog, public route:ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
-    this.data.getTeamGoodById(this.tgId).subscribe(
+    let tgId = this.route.snapshot.paramMap.get("tgId");
+    this.data.getTeamGoodById(tgId).subscribe(
       result => {
         this.TeamGood = result["data"];
         console.log(this.TeamGood.name);
       });
-    this.data.getTeamByTgId(this.tgId, this.cId).subscribe(
+    this.data.getTeamByTgId(tgId, this.cId).subscribe(
       result => {
         this.Teams$ = result["data"];
       });
+    this.data.getGoodsByTgId(tgId).subscribe(
+      result => {
+        this.good = result["data"];
+      });
   }
-  openDialog() {
+  sendOrderAndInsert(){
+    this.orderGoodsList.push(this.orderGoods);
+    let tgId = this.route.snapshot.paramMap.get("tgId");
+    //生成团
+    this.data.insertTeam(tgId,this.cId).subscribe();
+    //递送order
+    this.router.navigate(['order'], {
+      queryParams: {
+        orderGoodsList: JSON.stringify(this.orderGoodsList)
+      }
+    })
+  }
+
+  openDialog(tId) {
+    let tgId = this.route.snapshot.paramMap.get("tgId");
     this.dialog.open(TeamdisplayComponent, {
       height: '350px',
       width: '500px',
+      data: {
+        newOrder: this.newOrder,
+        tId:tId,
+        tgId:tgId
+      }
     });
   }
 }

@@ -35,7 +35,7 @@
     <mat-grid-tile colspan="1" style="color: black;">已有{{item.nowPeople}}参团</mat-grid-tile>
     <mat-grid-tile colspan="1" style="color: aqua;">还可以有{{item.leftPeople}}加入</mat-grid-tile>
     <mat-grid-tile *ngIf="!item.hide" colspan="2">
-      <button mat-icon-button class="buttonitem">参加</button>
+      <button mat-icon-button class="buttonitem" (click)="openDialog(item.teamId)">参加</button>
     </mat-grid-tile>
     <mat-grid-tile *ngIf="item.hide" colspan="2">
       <button mat-icon-button disabled>已参加</button>
@@ -47,6 +47,6 @@
 <mat-grid-list cols="7" rowHeight="100px" class="super-class">
   <mat-grid-tile colspan="2"></mat-grid-tile>
   <mat-grid-tile colspan="3">
-    <button mat-button style="background-color: rgb(122, 119, 119);" (click)="openDialog()">建立一个自己的团购</button>
+    <button mat-button style="background-color: rgb(122, 119, 119);" (click)="sendOrder()">建立一个自己的团购</button>
   </mat-grid-tile>
 </mat-grid-list>

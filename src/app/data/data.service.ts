@@ -239,8 +239,12 @@ export class DataService {
     const params = new HttpParams().set("tId",tId);
     return this.http.get('http://localhost:8800/api/getTeamByTId',{params});
   }
-  insertTeam(tgId){
+  getGoodsByTgId(tgId){
     const params = new HttpParams().set("tgId",tgId);
+    return this.http.get('http://localhost:8800/api/getGoodsByTgId',{params});
+  }
+  insertTeam(tgId,cId){
+    const params = new HttpParams().set("tgId",tgId).set("cId",cId);
     return this.http.get('http://localhost:8800/api/insertTeam',{params});
   }
   attendTeam(oId,tId){
