@@ -23,7 +23,7 @@
       </mat-card-content>
       <mat-card-actions class="card-action">
         <button mat-raised-button color="accent" *ngIf="isshow1[i]" (click)="addGoodsToFavorite(good, i)">喜欢</button>
-        <button mat-raised-button color="primary" *ngIf="!isshow1[i]">取消喜欢</button>
+        <button mat-raised-button color="primary" *ngIf="!isshow1[i]">已喜欢</button>
         <button mat-raised-button color="primary" (click)="addGoodsToShopcar(good)">购买</button>    
         
       </mat-card-actions>
