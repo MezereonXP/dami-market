@@ -1,16 +1,23 @@
-//订单实体类
 import { Customer } from "./customer";
 import { Address } from "./address";
 
 export class Order {
     oId: number;
+
     oCode: string;
+
     customer: Customer;
+
     address: Address;
+
     oState: number;
+
     oType: number;
+
     oSetdate: string;
+
     oRemark: string;
+
     oStatus: number;
     
     

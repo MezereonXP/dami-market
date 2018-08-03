@@ -34,7 +34,7 @@ export class ShoppingComponent implements OnInit {
   isshow1 = true;
   flag: boolean = true;
   isLogin: boolean = false;
-  phone: String;
+  phone: string;
 
   constructor(private data: DataService, private route: ActivatedRoute, private router: Router, private spinner: NgxSpinnerService) { }
 
@@ -60,24 +60,8 @@ export class ShoppingComponent implements OnInit {
               this.data.getCustomerByPhone(this.phone).subscribe(
                 result => {
                   this.customer = result["data"];
-                  this.data.getShopCarGoods(this.customer.cId).subscribe(
-                    result => {
-                      this.customerShopcarList = result["data"];
-                    }
-                  );
-                  this.data.selectFavoriteByCustomerId(this.customer.cId).subscribe(
-                    result => {
-                      this.favoriteList = result["data"];
-                      console.log(this.favoriteList);
-                      console.log(this.shopping.goods.gId);
-                      for (let i = 0; i < this.favoriteList.length; i++) {
-                        if (this.favoriteList[i].goods.gId == this.shopping.goods.gId) {
-                          this.flag = false;
-                          this.isshow1 = false;
-                        }
-                      }
-                    }
-                  );
+                  this.initShopCarGoods();
+                  this.initFavouriteGoods();
                 }
               );
             } else {
@@ -89,6 +73,30 @@ export class ShoppingComponent implements OnInit {
       }
     );
 
+  }
+
+  initFavouriteGoods() {
+    this.data.selectFavoriteByCustomerId(this.customer.cId).subscribe(
+      result => {
+        this.favoriteList = result["data"];
+        console.log(this.favoriteList);
+        console.log(this.shopping.goods.gId);
+        for (let i = 0; i < this.favoriteList.length; i++) {
+          if (this.favoriteList[i].goods.gId == this.shopping.goods.gId) {
+            this.flag = false;
+            this.isshow1 = false;
+          }
+        }
+      }
+    );
+  }
+
+  initShopCarGoods() {
+    this.data.getShopCarGoods(this.customer.cId).subscribe(
+      result => {
+        this.customerShopcarList = result["data"];
+      }
+    );
   }
 
   changePic(index) {

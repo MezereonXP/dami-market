@@ -8,8 +8,8 @@ import { RegistComponent } from './regist/regist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from "./data/data.service";
-import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule ,MatDialogModule,MatTooltipModule,MatSelectModule, MatDividerModule, MatChipsModule } from "@angular/material";
-import { MatCardModule , MatCardHeader } from '@angular/material/card';
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule, MatDialogModule, MatTooltipModule, MatSelectModule, MatDividerModule, MatChipsModule, MatTabsModule } from "@angular/material";
+import { MatCardModule, MatCardHeader } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { ShopcarComponent } from './shopcar/shopcar.component';
@@ -28,10 +28,12 @@ import { ResetComponent } from './reset/reset.component';
 import { ScaddressComponent } from './scaddress/scaddress.component';
 import { AddressComponent } from './address/address.component';
 import { SettlementComponent } from './settlement/settlement.component';
-import { KilltipsComponent }  from './killtips/killtips.component';
+import { KilltipsComponent } from './killtips/killtips.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SearchComponent } from './search/search.component';
 import { ModalModule } from 'ngx-bootstrap';
+import { TeamdisplayComponent } from './teamdisplay/teamdisplay.component';
+import { TeamgoodComponent } from './teamgood/teamgood.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,6 @@ import { ModalModule } from 'ngx-bootstrap';
     TeamComponent,
     SelfcenterComponent,
     InfomationComponent,
-    
     SettlementComponent,
     KilltipsComponent,
     MessageComponent,
@@ -57,7 +58,9 @@ import { ModalModule } from 'ngx-bootstrap';
     ResetComponent,
     ScaddressComponent,
     AddressComponent,
-    SearchComponent
+    SearchComponent,
+    TeamdisplayComponent,
+    TeamgoodComponent
   ],
   imports: [
     BrowserModule,
@@ -81,13 +84,16 @@ import { ModalModule } from 'ngx-bootstrap';
     MatDividerModule,
     MatListModule,
     MatChipsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    MatDialogModule,
+    MatTabsModule
   ],
   entryComponents: [
     AddressComponent,
-    KilltipsComponent
+    KilltipsComponent,
+    TeamdisplayComponent
   ],
-  
+
   providers: [DataService],
   bootstrap: [AppComponent]
 })

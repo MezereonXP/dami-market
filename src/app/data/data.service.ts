@@ -18,6 +18,7 @@ import { Order } from '../bean/order';
 export class DataService {
 
   host = "";
+  // host = "http://localhost:8800/";
 
   constructor(private http: HttpClient) { }
 
@@ -26,15 +27,15 @@ export class DataService {
   }
 
   getUser(id) {
-    return this.http.get('http://localhost:8080/api/getUser?id=' + id);
+    return this.http.get('http://localhost:8800/api/getUser?id=' + id);
   }
 
   getAllUser() {
-    return this.http.get("http://localhost:8080/api/getAllUser")
+    return this.http.get("http://localhost:8800/api/getAllUser")
   }
 
-  insertUser(user: User) {
-    return this.http.post('http://localhost:8080/api/addUser', user);
+  insertUser(user:User) {
+    return this.http.post('http://localhost:8800/api/addUser', user);
   }
 
   //主页面
@@ -213,6 +214,55 @@ export class DataService {
   search(key: string) {
     const params = new HttpParams().set("key", key);
     return this.http.get(this.host+"api/search", { params });
+  }
+
+  getTeamByTgId(tgId,cId){
+    const params = new HttpParams().set("tgId",tgId).set("cId",cId);
+    return this.http.get("http://localhost:8800/api/getTeamByTgId",{params});
+    }
+  
+  getTeamGoods(catagory){
+    const params = new HttpParams().set("catagory",catagory);
+    return this.http.get("http://localhost:8800/api/getTeamGoods",{params});
+  }
+
+  getAllTeamGoods(){
+    return this.http.get("http://localhost:8800/api/getAllTeamGoods");
+  }
+
+  getTeamGoodById(tgId){
+    const params = new HttpParams().set("tgId",tgId);
+    return this.http.get('http://localhost:8800/api/getTeamGoodById',{params});
+  }
+
+  getTeamByTId(tId){
+    const params = new HttpParams().set("tId",tId);
+    return this.http.get('http://localhost:8800/api/getTeamByTId',{params});
+  }
+  getGoodsByTgId(tgId){
+    const params = new HttpParams().set("tgId",tgId);
+    return this.http.get('http://localhost:8800/api/getGoodsByTgId',{params});
+  }
+  insertTeam(tgId,cId){
+    const params = new HttpParams().set("tgId",tgId).set("cId",cId);
+    return this.http.get('http://localhost:8800/api/insertTeam',{params});
+  }
+  attendTeam(oId,tId){
+    const params = new HttpParams().set("oId",oId).set("tId",tId);
+    return this.http.get('http://localhost:8800/api/attendTeam',{params});
+  }
+  sendTeamNote(cId){
+    const params = new HttpParams().set("cId",cId);
+    return this.http.get('http://localhost:8800/api/sendTeamNote',{params});
+  }
+  getTopGoodsAdv(type) {
+    const params = new HttpParams().set("type", type);
+    return this.http.get("http://localhost:8800/api/getTopGoodsAdv", {params});
+  }
+
+  killGoods(name) {
+    const params = new HttpParams().set("id", name);
+    return this.http.get("api/killGoods", {params});
   }
 
 }
