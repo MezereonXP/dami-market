@@ -55,7 +55,6 @@ export class OrderComponent implements OnInit {
 
     if (this.orderService.orderGoodsList!=null) {
       this.orderGoodsList = this.orderService.orderGoodsList;
-      console.log("set goodslist")
     } else {
       this.activatedRoute.queryParams.subscribe(
         queryParams => {
