@@ -14,7 +14,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class AppComponent {
   title = 'app';
-  customer: Customer;
+  customer: Customer = new Customer(1, "", "加载中", 1, "", "", "", "", "", "", 1);
   isLogin: boolean = false;
   phone: String;
   constructor(private data: DataService, private router: Router, private modalService: BsModalService) { }

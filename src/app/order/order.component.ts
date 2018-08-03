@@ -8,6 +8,7 @@ import { Address } from '../bean/address';
 import { Customer } from '../bean/customer';
 import { Order } from '../bean/order';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { OrderService } from '../data/order.service';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -25,14 +26,16 @@ export class OrderComponent implements OnInit {
   status: Array<boolean>;
   newOrder: Order;
   orderGoodsList: Array<OrderGoods>;
-  constructor(private data: DataService, public dialog: MatDialog, private activatedRoute: ActivatedRoute, private router: Router,private spinner: NgxSpinnerService) {
+  constructor(private data: DataService, public dialog: MatDialog, private orderService: OrderService,
+    private activatedRoute: ActivatedRoute, private router: Router, private spinner: NgxSpinnerService) {
 
 
   }
 
   ngOnInit() {
+    this.dialog.closeAll();
     this.spinner.show();
-    
+
     this.data.checklogin().subscribe(
       result => {
         this.phone = result["data"];
@@ -41,20 +44,7 @@ export class OrderComponent implements OnInit {
           this.data.getCustomerByPhone(this.phone).subscribe(
             result => {
               this.customer = result["data"];
-              this.data.getAddress(this.customer.cId).subscribe(
-                result => {
-                  this.status = new Array();
-                  for (let i = 0; i < result["data"].length; i++) {
-                    this.status.push(false);
-                  }
-
-                  this.status[0] = true;
-                  this.addressList = result["data"];
-                  this.address = this.addressList[0];
-                  this.spinner.hide();
-                }
-
-              );
+              this.initAddress();
             }
           );
         } else {
@@ -63,19 +53,15 @@ export class OrderComponent implements OnInit {
       }
     );
 
-
-    this.activatedRoute.queryParams.subscribe(
-
-      queryParams => {
-
-
-        console.log(queryParams.orderGoodsList);
-        this.orderGoodsList = JSON.parse(queryParams.orderGoodsList);
-
-
-      }
-
-    );
+    if (this.orderService.orderGoodsList!=null) {
+      this.orderGoodsList = this.orderService.orderGoodsList;
+    } else {
+      this.activatedRoute.queryParams.subscribe(
+        queryParams => {
+          this.orderGoodsList = JSON.parse(queryParams.orderGoodsList);
+        }
+      );
+    }
 
     for (let i = 0; i < this.orderGoodsList.length; i++) {
       this.count++;
@@ -85,30 +71,36 @@ export class OrderComponent implements OnInit {
 
   }
 
+  initAddress() {
+    this.data.getAddress(this.customer.cId).subscribe(
+      result => {
+        this.status = new Array();
+        for (let i = 0; i < result["data"].length; i++) {
+          this.status.push(false);
+        }
+        this.status[0] = true;
+        this.addressList = result["data"];
+        this.address = this.addressList[0];
+        this.spinner.hide();
+      }
+    );
+  }
+
   addNewOrder() {
-    
-    if(this.address!=null&&this.address!=undefined){
+
+    if (this.address != null && this.address != undefined) {
       for (let i = 0; i < this.orderGoodsList.length; i++) {
         this.orderGoodsList[i].order.address = this.address;
       }
-      console.log(this.orderGoodsList);
       this.data.addNewOrder(this.orderGoodsList).subscribe(
         result => {
-          this.newOrder = result["data"];
-  
-          this.router.navigate(['settlement'], {
-            queryParams: {
-              order: JSON.stringify(this.newOrder)
-  
-            }
-          });
+          this.orderService.order = result["data"];
+          this.router.navigate(['settlement']);
         }
       );
-    }else{
+    } else {
       alert("请选择收货地址");
     }
-    
-
 
   }
 
@@ -117,15 +109,14 @@ export class OrderComponent implements OnInit {
     for (let n = 0; n < this.status.length; n++) {
       if (n != i) {
         this.status[n] = false;
-
       }
     }
-    if(!this.status[i]){
+    if (!this.status[i]) {
       this.address = this.addressList[i];
-    }else{
+    } else {
       this.address = null;
     }
-    
+
   }
   openDialog() {
     const dialogRef = this.dialog.open(AddressComponent, {
@@ -139,7 +130,7 @@ export class OrderComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      window.location.reload();
+      this.initAddress();
     });
   }
   modifyAddress(i) {
