@@ -59,11 +59,11 @@ export class KilltipsComponent implements OnInit {
     //   this.orderGoods$.ogStatus=1;
     //   this.orderGoods$.order.oType=3;
     //   this.orderGoods$.order.customer.cId=this.cId;
-    //   this.orderGoodList.push(this.orderGoods$);
+    //   this.orderGoodsList.push(this.orderGoods$);
     //   this.router.navigate(['order'], 
     //  {
     //      queryParams:{
-    //        orderGoodList:JSON.stringify(this.orderGoodList)
+    //        orderGoodList:JSON.stringify(this.orderGoodsList)
     //      }
     //    }
     //  )

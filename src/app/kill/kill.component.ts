@@ -282,23 +282,25 @@ export class KillComponent implements OnInit {
     this.data.beginKillGood(kgId, 1).subscribe(
       result => {
         this.returnMsg = result["msg"];
+
+        //打开模态窗口并传值
+        const dialogRef = this.dialog.open(KilltipsComponent, {
+          height: '400px',
+          width: '400px',
+          data: { kgId: kgId, kgPrice: kgPrice, kgMsg: this.returnMsg, goods: goods, cId: this.cId }
+
+        });
+
+        //接收关闭窗口后传过来的值
+        dialogRef.afterClosed().subscribe(result => {
+          this.returnMsg = result.kgMsg;
+          window.location.reload(true);
+        });
       }
     );
 
 
-    //打开模态窗口并传值
-    const dialogRef = this.dialog.open(KilltipsComponent, {
-      height: '400px',
-      width: '400px',
-      data: { kgId: kgId, kgPrice: kgPrice, kgMsg: this.returnMsg, goods: goods, cId: this.cId }
 
-    });
-
-    //接收关闭窗口后传过来的值
-    dialogRef.afterClosed().subscribe(result => {
-      this.returnMsg = result.kgMsg;
-      window.location.reload(true);
-    });
 
 
 
