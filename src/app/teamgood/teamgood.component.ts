@@ -41,7 +41,7 @@ export class TeamgoodComponent implements OnInit {
         this.phone = result["data"];
         this.isLogin = result["status"];
         if (this.isLogin) {
-          this.init();
+          this.initCId();
         }
       }
     );
@@ -52,7 +52,6 @@ export class TeamgoodComponent implements OnInit {
    * 初始化所有信息
    */
   init() {
-    this.initCId();
     let tgId = this.route.snapshot.paramMap.get("tgId");
     this.data.getTeamGoodById(tgId).subscribe(
       result => {
@@ -73,6 +72,7 @@ export class TeamgoodComponent implements OnInit {
     this.data.getCustomerByPhone(this.phone).subscribe(
       result => {
         this.cId = result["data"].cId;
+        this.init();
       }
     )
   }
