@@ -39,9 +39,13 @@ export class AppComponent {
   }
 
   logout(){
-    this.data.logout().subscribe();
-    window.location.reload();
-    this.router.navigate(["login"]);
+    this.data.logout().subscribe(
+      result=>{
+        window.location.reload();
+        this.router.navigate(["login"]);
+      }
+    );
+    
   }
 
   jumpToSelfCenter(){
