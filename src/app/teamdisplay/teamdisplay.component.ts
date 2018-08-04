@@ -65,7 +65,6 @@ export class TeamdisplayComponent implements OnInit {
     this.orderService.tId = this.tId;
     this.router.navigate(['order']);
   }
-
 }
 export interface DialogData {
   newOrder: Order;
