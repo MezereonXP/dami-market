@@ -6,7 +6,7 @@
     <mat-grid-list cols="30" rowHeight="5:6" class="bar">
       <mat-grid-tile colspan="1"></mat-grid-tile>
       <mat-grid-tile colspan="5" class="ok">
-        <span>{{shopping.goods.gName}}</span>
+        <span (click)="goToShop()">{{shopping.goods.gName}}</span>
       </mat-grid-tile>
       <mat-grid-tile colspan="17"></mat-grid-tile>
       <mat-grid-tile colspan="2">
@@ -158,7 +158,7 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-<mat-toolbar class="headbar mat-elevation-z2" color="primary" style="position: relative;margin-top: 60px;">
+<mat-toolbar *ngIf="!isShowComment" class="headbar mat-elevation-z2" color="primary" style="position: relative;margin-top: 60px;">
   <mat-toolbar-row>
     <mat-grid-list cols="15" rowHeight="5:2" class="bar">
       <mat-grid-tile colspan="1"></mat-grid-tile>
@@ -170,13 +170,13 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-grid-list cols="1" rowHeight="18:5" class="divideList">
+<mat-grid-list *ngIf="!isShowComment" cols="1" rowHeight="18:5" class="divideList">
   <mat-grid-tile class="devideTile">
     <img class="dividePic" :src="https://i8.mifile.cn/b2c-mimall-media/aaee9db8790426631abc3b76fa3da617.jpg">
   </mat-grid-tile>
 </mat-grid-list>
 
-<mat-toolbar class="headbar mat-elevation-z2" color="primary">
+<mat-toolbar *ngIf="!isShowComment" class="headbar mat-elevation-z2" color="primary">
   <mat-toolbar-row>
     <mat-grid-list cols="15" rowHeight="5:2" class="bar">
       <mat-grid-tile colspan="1"></mat-grid-tile>
@@ -188,7 +188,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-grid-list cols="1" rowHeight="15:2" class="divideList">
+<mat-grid-list *ngIf="!isShowComment" cols="1" rowHeight="15:2" class="divideList">
   <mat-grid-tile class="devideTile">
     <img class="dividePic" :src="https://i8.mifile.cn/b2c-mimall-media/1a84b2b629512205bf528aae91361efb.jpg">
   </mat-grid-tile>

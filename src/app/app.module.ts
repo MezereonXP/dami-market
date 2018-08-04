@@ -36,6 +36,7 @@ import { TeamdisplayComponent } from './teamdisplay/teamdisplay.component';
 import { TeamgoodComponent } from './teamgood/teamgood.component';
 import { OrderService } from './data/order.service';
 import { HtmlPipe } from './data/pipe';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,9 @@ import { HtmlPipe } from './data/pipe';
     MatDialogModule,
     MatTabsModule,
     MatMenuModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot()
   ],
   entryComponents: [
     AddressComponent,

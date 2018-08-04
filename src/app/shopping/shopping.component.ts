@@ -229,6 +229,13 @@ export class ShoppingComponent implements OnInit {
     this.isShowComment = true;
   }
 
+  /**
+   * 隐藏评论
+   */
+  goToShop() {
+    this.isShowComment = false;
+  }
+
   currentComment: Comment;
   startSending(comment, template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);

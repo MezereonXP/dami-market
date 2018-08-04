@@ -113,7 +113,7 @@
                 {{good.gPrice}}元
               </mat-card-content>
               <mat-card-actions class="card-action">
-                <button mat-raised-button color="accent">付款</button>          
+                <button mat-raised-button color="accent" (click)="pay(i)">付款</button>          
               </mat-card-actions>
             </mat-card>
           </mat-grid-tile>
@@ -121,17 +121,17 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="50" class="list" *ngIf="flag[2]">
         <mat-grid-list class="goods-grid-list" cols="3" rowHeight="380px">
-            <mat-grid-tile class="goods-tile" *ngFor="let good of goodsData[1];let i=index">
+            <mat-grid-tile class="goods-tile" *ngFor="let orderGoods of orderGoodsData[1];let i=index">
               <mat-card class="example-card">
                 <mat-card-header>
-                  <mat-card-title class="card-tile">{{good.gName}}</mat-card-title>
+                  <mat-card-title class="card-tile">{{orderGoods.goods.gName}}</mat-card-title>
                 </mat-card-header>
-                <img class="card-pic" mat-card-image :src="{{good.gPictureurl}}" alt="Photo of a Shiba Inu">
+                <img class="card-pic" mat-card-image :src="{{orderGoods.goods.gPictureurl}}" alt="Photo of a Shiba Inu">
                 <mat-card-content class="card-content">
-                  {{good.gPrice}}元
+                  {{orderGoods.ogPrice}}元
                 </mat-card-content>
                 <mat-card-actions class="card-action">
-                  <button mat-raised-button color="accent" (click)="accept(good)">确认收货</button>         
+                  <button mat-raised-button color="accent" (click)="accept(i)">确认收货</button>         
                 </mat-card-actions>
               </mat-card>
             </mat-grid-tile>
@@ -139,18 +139,17 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="50" class="list" *ngIf="flag[3]">
         <mat-grid-list class="goods-grid-list" cols="3" rowHeight="380px">
-            <mat-grid-tile class="goods-tile" *ngFor="let good of goodsData[2];let i=index">
+            <mat-grid-tile class="goods-tile" *ngFor="let orderGood of unCommentGoodsData;let i=index">
               <mat-card class="example-card">
                 <mat-card-header>
-                  <mat-card-title class="card-tile">{{good.gName}}</mat-card-title>
+                  <mat-card-title class="card-tile">{{orderGood.goods.gName}}</mat-card-title>
                 </mat-card-header>
-                <img class="card-pic" mat-card-image :src="{{good.gPictureurl}}" alt="Photo of a Shiba Inu">
+                <img class="card-pic" mat-card-image :src="{{orderGood.goods.gPictureurl}}" alt="Photo of a Shiba Inu">
                 <mat-card-content class="card-content">
-                  {{good.gPrice}}元
+                  {{orderGood.goods.gPrice}}元
                 </mat-card-content>
                 <mat-card-actions class="card-action">
-                  <button mat-raised-button color="accent">喜欢</button>
-                  <button mat-raised-button color="primary" >购买</button>             
+                  <button mat-raised-button color="accent" (click)="comment(template, i)">评论</button>            
                 </mat-card-actions>
               </mat-card>
             </mat-grid-tile>
@@ -159,3 +158,18 @@
     <mat-grid-tile colspan="2"></mat-grid-tile>
   </mat-grid-list>
 </mat-toolbar>
+
+<ng-template #template>
+  <div style="width: 800px; height: 600px;">
+      <div class="modal-header">
+          <h4 class="modal-title pull-left">评论</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div [froalaEditor]="option" style="width: 100%;height: 100%;" [(ngModel)]="editorContent">Hello, Froala!</div>
+            <button mat-raised-button style="margin-top: 5px" color="primary" (click)="upload()">提交</button>
+        </div>
+  </div>
+ </ng-template>
