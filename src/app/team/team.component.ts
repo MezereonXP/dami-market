@@ -22,7 +22,7 @@ export class TeamComponent implements OnInit {
     catagory = "";
     teamId: String;
     tgId: String;
-    constructor(private data: DataService,private activatedRoute: ActivatedRoute, private router: Router) { }
+    constructor(private data: DataService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
         this.data.getAllTeamGoods().subscribe(
@@ -67,6 +67,6 @@ export class TeamComponent implements OnInit {
         }
     }
     showalert(i) {
-       window.location.href='/#/teamgood/'+i;
+        window.location.href = '/#/teamgood/' + i;
     }
 }

@@ -18,7 +18,7 @@
       <mat-grid-list cols="8" rowHeight="400px" class="teamgoodheadbar">
         <mat-grid-tile colspan="1"></mat-grid-tile>
         <mat-grid-tile colspan="6">
-          <mat-grid-list rowHeight="1:2" cols="4" class="super-class" *ngFor="let item of TeamGoodsList$;index as i">
+          <mat-grid-list rowHeight="300px" cols="3" class="super-class" *ngFor="let item of TeamGoodsList$;index as i">
             <mat-grid-tile class="super-class">
               <mat-card class="cardbar mat-elevation-z8" (click)="showalert(item.teamGoodsId)">
                 <img src="{{item.pic}}" class="imgbar">
