@@ -13,6 +13,7 @@ import { Customer } from '../bean/customer';
 import { Address } from '../bean/address';
 import { OrderGoods } from '../bean/ordergoods';
 import { Good } from '../bean/good';
+import { OrderService } from '../data/order.service';
 
 @Component({
   selector: 'app-teamgood',
@@ -21,7 +22,9 @@ import { Good } from '../bean/good';
 })
 export class TeamgoodComponent implements OnInit {
 
+  tId:number ;
   cId: number = 1;
+  isHideButton=false;
   customer: Customer = new Customer(this.cId, null, null, 1, null, null, null, null, null, null, 1);
   Teams$: Array<Team> = new Array<Team>();
   TeamGood: Teamgoods = new Teamgoods(1, null, 1, 1, null, 1, 1, null);
@@ -30,7 +33,7 @@ export class TeamgoodComponent implements OnInit {
   good: Good = new Good(null, null, null, null, null, null, null);
   orderGoods: OrderGoods = new OrderGoods(null, this.newOrder, this.good, this.TeamGood.nowPrice, 1, 1);
   orderGoodsList: Array<OrderGoods>
-  constructor(private data: DataService, public dialog: MatDialog, public route: ActivatedRoute, private router: Router) { }
+  constructor(private data: DataService, public dialog: MatDialog, private orderService: OrderService, public route: ActivatedRoute, private router: Router) { }
 
   phone = "";// 用户的手机号
   isLogin: boolean = false;// 是否登陆
@@ -56,16 +59,27 @@ export class TeamgoodComponent implements OnInit {
     this.data.getTeamGoodById(tgId).subscribe(
       result => {
         this.TeamGood = result["data"];
-        console.log(this.TeamGood.name);
       });
     this.data.getTeamByTgId(tgId, this.cId).subscribe(
       result => {
         this.Teams$ = result["data"];
+        if(Team[0].maxPeople==Team.length){
+          this.isHideButton = true;
+        }
       });
-    this.data.getGoodsByTgId(tgId).subscribe(
-      result => {
-        this.good = result["data"];
-      });
+      this.data.getCustomerById(this.cId).subscribe(
+        result => {
+          this.orderGoods.order.customer = result["data"];
+        }
+      );
+      this.data.getTeamGoodById(tgId).subscribe(
+        result => {
+          this.orderGoods.ogPrice = result["data"].nowPrice;
+        });
+      this.data.getGoodsByTgId(tgId).subscribe(
+        result => {
+          this.orderGoods.goods = result["data"];
+        });
   }
 
   initCId() {
@@ -81,13 +95,16 @@ export class TeamgoodComponent implements OnInit {
     this.orderGoodsList.push(this.orderGoods);
     let tgId = this.route.snapshot.paramMap.get("tgId");
     //生成团
-    this.data.insertTeam(tgId, this.cId).subscribe();
-    //递送order
-    this.router.navigate(['order'], {
-      queryParams: {
-        orderGoodsList: JSON.stringify(this.orderGoodsList)
-      }
-    })
+    this.data.insertTeam(tgId).subscribe(
+      result => {
+        this.tId = result["data"];
+    });
+    this.orderGoodsList.push(this.orderGoods);
+    window.alert("参团成功");
+    //递送order方法
+    this.orderService.orderGoodsList = this.orderGoodsList;
+    this.orderService.tId = this.tId;
+    this.router.navigate(['order']);
   }
 
   openDialog(tId) {

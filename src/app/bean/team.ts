@@ -2,6 +2,7 @@ export class Team {
     teamId: number;
     nowPeople: number;
     leftPeople: number;
+    maxTeam : number;
     hide: boolean;
     constructor(teamId: number,
         nowPeople: number,
