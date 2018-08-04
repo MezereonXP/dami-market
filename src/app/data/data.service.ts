@@ -17,8 +17,8 @@ import { Order } from '../bean/order';
 @Injectable()
 export class DataService {
 
-  host = "";
-  // host = "http://localhost:8800/";
+  //host = "";
+   host = "http://localhost:8800/";
 
   constructor(private http: HttpClient) { }
 
@@ -216,41 +216,50 @@ export class DataService {
     return this.http.get(this.host+"api/search", { params });
   }
 
+  //根据商品id获得Team信息
   getTeamByTgId(tgId,cId){
     const params = new HttpParams().set("tgId",tgId).set("cId",cId);
     return this.http.get(this.host+"api/getTeamByTgId",{params});
     }
   
+  //获得某种类的全部商品
   getTeamGoods(catagory){
     const params = new HttpParams().set("catagory",catagory);
     return this.http.get(this.host+"api/getTeamGoods",{params});
   }
 
+  //获得全部团购商品
   getAllTeamGoods(){
     return this.http.get(this.host+"api/getAllTeamGoods");
   }
 
+  //根据商品Id获得团购商品信息
   getTeamGoodById(tgId){
     const params = new HttpParams().set("tgId",tgId);
     return this.http.get(this.host+'api/getTeamGoodById',{params});
   }
 
+  //根据团id获得团信息
   getTeamByTId(tId){
     const params = new HttpParams().set("tId",tId);
     return this.http.get(this.host+'api/getTeamByTId',{params});
   }
+  //根据商品id获得货物信息
   getGoodsByTgId(tgId){
     const params = new HttpParams().set("tgId",tgId);
     return this.http.get(this.host+'api/getGoodsByTgId',{params});
   }
+  //建立团
   insertTeam(tgId){
     const params = new HttpParams().set("tgId",tgId);
     return this.http.get(this.host+'api/insertTeam',{params});
   }
+  //加入团
   attendTeam(oId,tId){
     const params = new HttpParams().set("oId",oId).set("tId",tId);
     return this.http.get(this.host+'api/attendTeam',{params});
   }
+  //发送团购信息
   sendTeamNote(cId){
     const params = new HttpParams().set("cId",cId);
     return this.http.get(this.host+'api/sendTeamNote',{params});
