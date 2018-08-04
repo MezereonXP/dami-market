@@ -18,24 +18,24 @@ import { OrderService } from '../data/order.service';
 })
 export class TeamdisplayComponent implements OnInit {
 
-  tId: number ;
+  tId: number;
   tgId: number;
-  teamCustomer$ :TeamCustomer;
-  cId:number = 1;
-  customer : Customer = new Customer(this.cId,null,null,1,null,null,null,null,null,null,1);
+  teamCustomer$: TeamCustomer;
+  cId: number = 1;
+  customer: Customer = new Customer(this.cId, null, null, 1, null, null, null, null, null, null, 1);
   TeamGood: Teamgoods = new Teamgoods(1, null, 1, 1, null, 1, 1, null);
   newAddress: Address = new Address(null, this.customer, null, null, null, null, 1);
-  newOrder: Order = new Order(null,null,this.customer,this.newAddress,1,2,null,null,1);
-  good: Good = new Good(null,null,null,null,null,null,null);
-  orderGoods : OrderGoods = new OrderGoods(null,this.newOrder,this.good,this.TeamGood.nowPrice,1,1);
-  orderGoodsList :Array<OrderGoods> = new Array<OrderGoods>();
+  newOrder: Order = new Order(null, null, this.customer, this.newAddress, 1, 2, null, null, 1);
+  good: Good = new Good(null, null, null, null, null, null, null);
+  orderGoods: OrderGoods = new OrderGoods(null, this.newOrder, this.good, this.TeamGood.nowPrice, 1, 1);
+  orderGoodsList: Array<OrderGoods> = new Array<OrderGoods>();
   constructor(public dialogRef: MatDialogRef<TeamdisplayComponent>, private orderService: OrderService,
-    @Inject(MAT_DIALOG_DATA) public data1: DialogData, private data2: DataService,private router:Router) {
-      this.tId = this.data1.tId;
-      this.tgId = this.data1.tgId;
-      this.newOrder = this.data1.newOrder;
-      this.cId = this.data1.cId;
-     }
+    @Inject(MAT_DIALOG_DATA) public data1: DialogData, private data2: DataService, private router: Router) {
+    this.tId = this.data1.tId;
+    this.tgId = this.data1.tgId;
+    this.newOrder = this.data1.newOrder;
+    this.cId = this.data1.cId;
+  }
 
   ngOnInit() {
     this.data2.getCustomerById(this.cId).subscribe(
@@ -57,7 +57,7 @@ export class TeamdisplayComponent implements OnInit {
         this.orderGoods.goods = result["data"];
       });
   }
-  sendOrder(){
+  sendOrder() {
     this.orderGoodsList.push(this.orderGoods);
     window.alert("参团成功");
     //递送order方法
@@ -68,7 +68,7 @@ export class TeamdisplayComponent implements OnInit {
 }
 export interface DialogData {
   newOrder: Order;
-  tId:number;
-  tgId:number;
+  tId: number;
+  tgId: number;
   cId: number;
 }
