@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data/data.service';
 import { Good } from '../bean/good';
@@ -20,6 +20,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap';
   templateUrl: './shopping.component.html',
   styleUrls: ['./shopping.component.scss']
 })
+
 export class ShoppingComponent implements OnInit {
 
   shopping: Shopping = new Shopping(new Good(1, 'waiting', 1, 'waiting', 1, 'waiting', 1), null, null);
@@ -40,8 +41,9 @@ export class ShoppingComponent implements OnInit {
   phone: string;
 
   comments: Array<Comment> = new Array<Comment>();
+  latestComments: Array<Comment> = new Array<Comment>();
   isShowComment: boolean = false;//控制显示商品评论的布尔值
-  panelOpenState:boolean;
+  panelOpenState: Array<boolean> = new Array<boolean>();
   forumArray :Array<Array<Forum>> = new Array<Array<Forum>>();
   modalRef: BsModalRef;
   content: string = "";// 回复的内容
@@ -66,6 +68,7 @@ export class ShoppingComponent implements OnInit {
       }
     );
   }
+
 
   checkLogin() {
     this.data.checklogin().subscribe(
@@ -94,23 +97,33 @@ export class ShoppingComponent implements OnInit {
   }
 
   initComment() {
-    this.data.getCommentByGId(this.shopping.goods.gId).subscribe(
+    this.data.getPopularCommentByGId(this.shopping.goods.gId).subscribe(
       result => {
         this.comments = result["data"];
+        if(this.comments.length==0) {
+          this.spinner.hide();// Hide the spinner
+        }
         this.initForum();
-        this.spinner.hide();// Hide the spinner
       }
     );
+    this.data.getCommentByGId(this.shopping.goods.gId).subscribe(
+      reuslt => {
+        this.latestComments = reuslt["data"];
+      }
+    )
+
   }
 
   //初始化评论
   initForum() {
     for (let i = 0; i < this.comments.length; i++) {
       const element = this.comments[i];
+      this.panelOpenState.push(false);
       this.forumArray.push(new Array<Forum>());
       this.data.getForumByCMId(element.cmId).subscribe(
         result => {
           this.forumArray[i] = result["data"];
+          this.spinner.hide();// Hide the spinner
         }
       )
     }

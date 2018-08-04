@@ -97,6 +97,10 @@ export class SelfcenterComponent implements OnInit {
     )
   }
 
+  /**
+   * 通过参数改变不同状态订单的显示
+   * @param index 索引
+   */
   change(index){
     for (let i = 0; i < this.flag.length; i++) {
       this.flag[i] = false;
@@ -105,6 +109,10 @@ export class SelfcenterComponent implements OnInit {
     if(index != 0) {
       this.goods = this.goodsData[index-1];
     }
+  }
+
+  accept(good:Good) {
+    
   }
 
 }

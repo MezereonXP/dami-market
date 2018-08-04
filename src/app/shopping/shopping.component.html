@@ -117,20 +117,20 @@
           <img class="avatar" :src="{{comment.order.customer.cPictureurl}}">
           {{comment.order.customer.cName}}
           <button mat-raised-button color="accent" class="btn-send" (click)="startSending(comment, template)">回复</button>
-          <div class="comment-conetnt">
-              {{comment.cmInfo}}
+          <div class="comment-conetnt" [innerHTML]="comment.cmInfo | html">
+            
           </div>
           <p class="time">{{comment.cmDate|date:'yyyy-MM-dd HH:mm:ss'}}</p>
 
-          <mat-accordion>
-              <mat-expansion-panel (opened)="panelOpenState = true"
-                                   (closed)="panelOpenState = false">
+          <mat-accordion class="forum">
+              <mat-expansion-panel (opened)="panelOpenState[i] = true"
+                                   (closed)="panelOpenState[i] = false">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    查看评论
+                    查看评论({{forumArray[i].length}})
                   </mat-panel-title>
                   <mat-panel-description>
-                    {{panelOpenState ? '收起' : '展开'}}
+                    {{panelOpenState[i] ? '收起' : '展开'}}
                   </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="d-forum" *ngFor="let forum of forumArray[i]"> 
@@ -141,14 +141,24 @@
               </mat-expansion-panel>
           </mat-accordion>
       </div>
+      <br><br>
     </div>
   </mat-grid-tile>
   <mat-grid-tile>
-    <h3>最新评价</h3>
+    <div class="title-popular">
+        <h5 class="h-popular">最新评价</h5>
+        <div class="d-popular mat-elevation-z4" *ngFor="let comment of latestComments;let i=index">
+            <img class="avatar2" :src="{{comment.order.customer.cPictureurl}}">
+            {{comment.order.customer.cName}}
+            <div class="comment-conetnt2" [innerHTML]="comment.cmInfo | html">
+            </div>
+            <p class="latest-time">{{comment.cmDate|date:'yyyy-MM-dd HH:mm:ss'}}</p>
+          </div>
+    </div>
   </mat-grid-tile>
 </mat-grid-list>
 
-<mat-toolbar class="headbar mat-elevation-z2" color="primary">
+<mat-toolbar class="headbar mat-elevation-z2" color="primary" style="position: relative;margin-top: 60px;">
   <mat-toolbar-row>
     <mat-grid-list cols="15" rowHeight="5:2" class="bar">
       <mat-grid-tile colspan="1"></mat-grid-tile>

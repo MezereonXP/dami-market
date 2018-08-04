@@ -317,6 +317,15 @@ export class DataService {
   }
 
   /**
+   * 通过商品ID获取评论, 评论按回复量进行排序
+   * @param gId 商品ID
+   */
+  getPopularCommentByGId(gId) {
+    const params = new HttpParams().set("gId", gId);
+    return this.http.get(this.host + "api/getPopularComment", { params });
+  }
+
+  /**
    * 通过商品ID获取评论, 评论按时间进行排序
    * @param gId 商品ID
    */

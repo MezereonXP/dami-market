@@ -35,6 +35,7 @@ import { ModalModule } from 'ngx-bootstrap';
 import { TeamdisplayComponent } from './teamdisplay/teamdisplay.component';
 import { TeamgoodComponent } from './teamgood/teamgood.component';
 import { OrderService } from './data/order.service';
+import { HtmlPipe } from './data/pipe';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { OrderService } from './data/order.service';
     AddressComponent,
     SearchComponent,
     TeamdisplayComponent,
-    TeamgoodComponent
+    TeamgoodComponent,
+    HtmlPipe
   ],
   imports: [
     BrowserModule,
