@@ -22,7 +22,9 @@ import { OrderService } from '../data/order.service';
 })
 export class TeamgoodComponent implements OnInit {
 
+  tId:number ;
   cId: number = 1;
+  isHideButton=false;
   customer: Customer = new Customer(this.cId, null, null, 1, null, null, null, null, null, null, 1);
   Teams$: Array<Team> = new Array<Team>();
   TeamGood: Teamgoods = new Teamgoods(1, null, 1, 1, null, 1, 1, null);
@@ -57,11 +59,13 @@ export class TeamgoodComponent implements OnInit {
     this.data.getTeamGoodById(tgId).subscribe(
       result => {
         this.TeamGood = result["data"];
-        console.log(this.TeamGood.name);
       });
     this.data.getTeamByTgId(tgId, this.cId).subscribe(
       result => {
         this.Teams$ = result["data"];
+        if(Team[0].maxPeople==Team.length){
+          this.isHideButton = true;
+        }
       });
       this.data.getCustomerById(this.cId).subscribe(
         result => {
@@ -91,7 +95,10 @@ export class TeamgoodComponent implements OnInit {
     this.orderGoodsList.push(this.orderGoods);
     let tgId = this.route.snapshot.paramMap.get("tgId");
     //生成团
-    this.data.insertTeam(tgId).subscribe();
+    this.data.insertTeam(tgId).subscribe(
+      result => {
+        this.tId = result["data"];
+    });
     this.orderGoodsList.push(this.orderGoods);
     window.alert("参团成功");
     //递送order方法
