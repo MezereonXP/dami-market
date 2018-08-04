@@ -1,9 +1,4 @@
-<ngx-spinner
-bdColor = "rgba(51, 51, 51, 0.8)"
-size = "large"
-color = "#fff"
-type = "ball-atom"
-></ngx-spinner>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-atom"></ngx-spinner>
 
 <!-- 工具栏显示商品名称与购物车，评价按钮 -->
 <mat-toolbar class="headbar mat-elevation-z2" color="primary">
@@ -25,7 +20,7 @@ type = "ball-atom"
       </mat-grid-tile>
       <mat-grid-tile colspan="2">
         <span class="span-info">
-          <button mat-button class="btn-comment">用户评价</button>
+          <button mat-button class="btn-comment" (click)="goToComment()">用户评价</button>
         </span>
       </mat-grid-tile>
       <mat-grid-tile colspan="3"></mat-grid-tile>
@@ -34,12 +29,12 @@ type = "ball-atom"
 </mat-toolbar>
 
 <!-- 六列，左侧三列为图片展示，右侧三列为信息展示 -->
-<mat-grid-list cols="6" rowHeight="2:7" class="divideList">
-  
+<mat-grid-list *ngIf="!isShowComment" cols="6" rowHeight="2:7" class="divideList">
+
   <mat-grid-tile colspan="3" class="simple-tile">
     <img :src="{{showPic}}" class="advpic">
   </mat-grid-tile>
-<!-- 列内部分行，分别显示各类信息 -->
+  <!-- 列内部分行，分别显示各类信息 -->
   <mat-grid-tile colspan="3" class="simple-tile">
     <mat-grid-list cols="1" rowHeight="7:1" class="advlist">
       <mat-grid-tile rowspan="1" class="info mat-elevation-z2">
@@ -114,6 +109,45 @@ type = "ball-atom"
   </mat-grid-tile>
 </mat-grid-list>
 
+<mat-grid-list *ngIf="isShowComment" cols="3" class="list-comment">
+  <mat-grid-tile colspan="2" class="tile-popular">
+    <div class="title-popular">
+      <h5 class="h-popular">热门评价</h5>
+      <div class="d-popular mat-elevation-z4" *ngFor="let comment of comments;let i=index">
+          <img class="avatar" :src="{{comment.order.customer.cPictureurl}}">
+          {{comment.order.customer.cName}}
+          <button mat-raised-button color="accent" class="btn-send" (click)="startSending(comment, template)">回复</button>
+          <div class="comment-conetnt">
+              {{comment.cmInfo}}
+          </div>
+          <p class="time">{{comment.cmDate|date:'yyyy-MM-dd HH:mm:ss'}}</p>
+
+          <mat-accordion>
+              <mat-expansion-panel (opened)="panelOpenState = true"
+                                   (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    查看评论
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    {{panelOpenState ? '收起' : '展开'}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="d-forum" *ngFor="let forum of forumArray[i]"> 
+                    <img class="avatar-small" :src="{{forum.customer.cPictureurl}}">
+                    {{comment.order.customer.cName}}
+                    <p class="forum-content">{{forum.fContent}}</p>
+                </div>
+              </mat-expansion-panel>
+          </mat-accordion>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <h3>最新评价</h3>
+  </mat-grid-tile>
+</mat-grid-list>
+
 <mat-toolbar class="headbar mat-elevation-z2" color="primary">
   <mat-toolbar-row>
     <mat-grid-list cols="15" rowHeight="5:2" class="bar">
@@ -149,3 +183,19 @@ type = "ball-atom"
     <img class="dividePic" :src="https://i8.mifile.cn/b2c-mimall-media/1a84b2b629512205bf528aae91361efb.jpg">
   </mat-grid-tile>
 </mat-grid-list>
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">回复评价</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <mat-form-field class="mat-form">
+          <textarea matInput placeholder="请输入回复内容:" [(ngModel)]="content"></textarea>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" (click)="sendForum(modalRef)">确定回复</button>
+    </div>
+  </ng-template>

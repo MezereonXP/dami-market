@@ -7,6 +7,7 @@ import { Shopcar } from '../bean/shopcar';
 import { OrderGoods } from '../bean/ordergoods';
 import { Address } from '../bean/address';
 import { Order } from '../bean/order';
+import { Forum } from '../bean/forum';
 
 /**
  * 数据访问接口定义
@@ -17,8 +18,13 @@ import { Order } from '../bean/order';
 @Injectable()
 export class DataService {
 
+<<<<<<< HEAD
   host = "";
   //host = "http://localhost:8800/";
+=======
+  // host = "";
+  host = "http://localhost:8800/";
+>>>>>>> [UPDATE] Add comment in shopping page
 
   constructor(private http: HttpClient) { }
 
@@ -216,23 +222,33 @@ export class DataService {
     return this.http.get(this.host + "api/search", { params });
   }
 
+<<<<<<< HEAD
   //根据商品id获得Team信息
+=======
+>>>>>>> [UPDATE] Add comment in shopping page
   getTeamByTgId(tgId, cId) {
     const params = new HttpParams().set("tgId", tgId).set("cId", cId);
     return this.http.get(this.host + "api/getTeamByTgId", { params });
   }
 
+<<<<<<< HEAD
   //获得某种类的全部商品
+=======
+>>>>>>> [UPDATE] Add comment in shopping page
   getTeamGoods(catagory) {
     const params = new HttpParams().set("catagory", catagory);
     return this.http.get(this.host + "api/getTeamGoods", { params });
   }
 
+<<<<<<< HEAD
   //获得全部团购商品
+=======
+>>>>>>> [UPDATE] Add comment in shopping page
   getAllTeamGoods() {
     return this.http.get(this.host + "api/getAllTeamGoods");
   }
 
+<<<<<<< HEAD
   //根据商品Id获得团购商品信息
   getTeamGoodById(tgId) {
     const params = new HttpParams().set("tgId", tgId);
@@ -255,11 +271,33 @@ export class DataService {
     return this.http.get(this.host + 'api/insertTeam', { params });
   }
   //加入团
+=======
+  getTeamGoodById(tgId) {
+    const params = new HttpParams().set("tgId", tgId);
+    return this.http.get(this.host + 'api/getTeamGoodById', { params });
+  }
+
+  getTeamByTId(tId) {
+    const params = new HttpParams().set("tId", tId);
+    return this.http.get(this.host + 'api/getTeamByTId', { params });
+  }
+  getGoodsByTgId(tgId) {
+    const params = new HttpParams().set("tgId", tgId);
+    return this.http.get(this.host + 'api/getGoodsByTgId', { params });
+  }
+  insertTeam(tgId){
+    const params = new HttpParams().set("tgId",tgId);
+    return this.http.get(this.host+'api/insertTeam',{params});
+  }
+>>>>>>> [UPDATE] Add comment in shopping page
   attendTeam(oId, tId) {
     const params = new HttpParams().set("oId", oId).set("tId", tId);
     return this.http.get(this.host + 'api/attendTeam', { params });
   }
+<<<<<<< HEAD
   //发送团购信息
+=======
+>>>>>>> [UPDATE] Add comment in shopping page
   sendTeamNote(cId) {
     const params = new HttpParams().set("cId", cId);
     return this.http.get(this.host + 'api/sendTeamNote', { params });
@@ -271,7 +309,36 @@ export class DataService {
 
   killGoods(name) {
     const params = new HttpParams().set("id", name);
+<<<<<<< HEAD
     return this.http.get("api/killGoods", { params });
+=======
+    return this.http.get(this.host + "api/killGoods", { params });
+>>>>>>> [UPDATE] Add comment in shopping page
   }
 
+  /**
+   * 通过商品ID获取评论, 评论按时间进行排序
+   * @param gId 商品ID
+   */
+  getCommentByGId(gId) {
+    const params = new HttpParams().set("gId", gId);
+    return this.http.get(this.host + "api/getComment", { params });
+  }
+
+  /**
+   * 通过commentID来获取回复
+   * @param cmId 
+   */
+  getForumByCMId(cmId) {
+    const params = new HttpParams().set("cmId", cmId);
+    return this.http.get(this.host + "api/getForum", { params });
+  }
+
+  /**
+   * 插入评价的回复
+   * @param forum 
+   */
+  addForum(forum:Forum) {
+    return this.http.post(this.host + "api/addForum", forum)
+  }
 }

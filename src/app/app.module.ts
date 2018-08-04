@@ -8,7 +8,7 @@ import { RegistComponent } from './regist/regist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from "./data/data.service";
-import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule, MatDialogModule, MatTooltipModule, MatSelectModule, MatDividerModule, MatChipsModule, MatTabsModule, MatMenuTrigger, MatMenuModule } from "@angular/material";
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule, MatDialogModule, MatTooltipModule, MatSelectModule, MatDividerModule, MatChipsModule, MatTabsModule, MatMenuTrigger, MatMenuModule, MatExpansionModule } from "@angular/material";
 import { MatCardModule, MatCardHeader } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { ShoppingComponent } from './shopping/shopping.component';
@@ -88,7 +88,8 @@ import { OrderService } from './data/order.service';
     ModalModule.forRoot(),
     MatDialogModule,
     MatTabsModule,
-    MatMenuModule 
+    MatMenuModule,
+    MatExpansionModule
   ],
   entryComponents: [
     AddressComponent,
