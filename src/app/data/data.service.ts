@@ -7,6 +7,8 @@ import { Shopcar } from '../bean/shopcar';
 import { OrderGoods } from '../bean/ordergoods';
 import { Address } from '../bean/address';
 import { Order } from '../bean/order';
+import { Forum } from '../bean/forum';
+import { Comment } from '../bean/comment';
 
 /**
  * 数据访问接口定义
@@ -18,7 +20,7 @@ import { Order } from '../bean/order';
 export class DataService {
 
   host = "";
-  //host = "http://localhost:8800/";
+  // host = "http://localhost:8800/";
 
   constructor(private http: HttpClient) { }
 
@@ -271,7 +273,58 @@ export class DataService {
 
   killGoods(name) {
     const params = new HttpParams().set("id", name);
-    return this.http.get("api/killGoods", { params });
+    return this.http.get(this.host + "api/killGoods", { params });
   }
 
+  /**
+   * 通过商品ID获取评论, 评论按回复量进行排序
+   * @param gId 
+   */
+  getPopularCommentByGId(gId) {
+    const params = new HttpParams().set("gId", gId);
+    return this.http.get(this.host + "api/getPopularComment", { params });
+  }
+
+  /**
+   * 通过商品ID获取评论, 评论按时间进行排序
+   * @param gId 商品ID
+   */
+  getCommentByGId(gId) {
+    const params = new HttpParams().set("gId", gId);
+    return this.http.get(this.host + "api/getComment", { params });
+  }
+
+  /**
+   * 通过commentID来获取回复
+   * @param cmId 
+   */
+  getForumByCMId(cmId) {
+    const params = new HttpParams().set("cmId", cmId);
+    return this.http.get(this.host + "api/getForum", { params });
+  }
+
+  /**
+   * 插入评价的回复
+   * @param forum 
+   */
+  addForum(forum:Forum) {
+    return this.http.post(this.host + "api/addForum", forum)
+  }
+
+  /**
+   * 获取没有评论的商品(已收货)
+   * @param cId 客户ID
+   */
+  getUnCommentOrderGoods(cId) {
+    const params = new HttpParams().set("cId", cId);
+    return this.http.get(this.host + "api/getUnCommentOrderGoods", { params })
+  }
+
+  updateOrderGoods(orderGoods: OrderGoods) {
+    return this.http.post(this.host + "api/updateOrderGoods", orderGoods);
+  }
+
+  addComment(comment: Comment) {
+    return this.http.post(this.host + "api/addComment", comment);
+  }
 }

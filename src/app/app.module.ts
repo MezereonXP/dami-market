@@ -8,7 +8,7 @@ import { RegistComponent } from './regist/regist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from "./data/data.service";
-import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule, MatDialogModule, MatTooltipModule, MatSelectModule, MatDividerModule, MatChipsModule, MatTabsModule, MatMenuTrigger, MatMenuModule } from "@angular/material";
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule, MatDialogModule, MatTooltipModule, MatSelectModule, MatDividerModule, MatChipsModule, MatTabsModule, MatMenuTrigger, MatMenuModule, MatExpansionModule } from "@angular/material";
 import { MatCardModule, MatCardHeader } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { ShoppingComponent } from './shopping/shopping.component';
@@ -35,6 +35,8 @@ import { ModalModule } from 'ngx-bootstrap';
 import { TeamdisplayComponent } from './teamdisplay/teamdisplay.component';
 import { TeamgoodComponent } from './teamgood/teamgood.component';
 import { OrderService } from './data/order.service';
+import { HtmlPipe } from './data/pipe';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { OrderService } from './data/order.service';
     AddressComponent,
     SearchComponent,
     TeamdisplayComponent,
-    TeamgoodComponent
+    TeamgoodComponent,
+    HtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,10 @@ import { OrderService } from './data/order.service';
     ModalModule.forRoot(),
     MatDialogModule,
     MatTabsModule,
-    MatMenuModule 
+    MatMenuModule,
+    MatExpansionModule,
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot()
   ],
   entryComponents: [
     AddressComponent,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data/data.service';
 import { Good } from '../bean/good';
@@ -11,12 +11,16 @@ import { Favorite } from '../bean/favorite';
 import { getOrSetAsInMap } from '@angular/animations/browser/src/render/shared';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Comment } from '../bean/comment';
+import { Forum } from '../bean/forum';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-shopping',
   templateUrl: './shopping.component.html',
   styleUrls: ['./shopping.component.scss']
 })
+
 export class ShoppingComponent implements OnInit {
 
   shopping: Shopping = new Shopping(new Good(1, 'waiting', 1, 'waiting', 1, 'waiting', 1), null, null);
@@ -36,7 +40,16 @@ export class ShoppingComponent implements OnInit {
   isLogin: boolean = false;
   phone: string;
 
-  constructor(private data: DataService, private route: ActivatedRoute, private router: Router, private spinner: NgxSpinnerService) { }
+  comments: Array<Comment> = new Array<Comment>();
+  latestComments: Array<Comment> = new Array<Comment>();
+  isShowComment: boolean = false;//控制显示商品评论的布尔值
+  panelOpenState: Array<boolean> = new Array<boolean>();
+  forumArray :Array<Array<Forum>> = new Array<Array<Forum>>();
+  modalRef: BsModalRef;
+  content: string = "";// 回复的内容
+
+  constructor(private data: DataService, private route: ActivatedRoute, private router: Router
+    , private spinner: NgxSpinnerService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.spinner.show();// Begin the animation
@@ -51,36 +64,75 @@ export class ShoppingComponent implements OnInit {
         this.showPic = this.shopping.goodimg[0][0].giImg;
         this.setMap();
         this.caninsert();
-        this.spinner.hide();// Hide the spinner
-        this.data.checklogin().subscribe(
-          result => {
-            this.phone = result["data"];
-            this.isLogin = result["status"];
-            if (this.isLogin) {
-              this.data.getCustomerByPhone(this.phone).subscribe(
-                result => {
-                  this.customer = result["data"];
-                  this.initShopCarGoods();
-                  this.initFavouriteGoods();
-                }
-              );
-            } else {
-              //未登录
-              this.router.navigate(["login"]);
-            }
-          }
-        );
+        this.checkLogin();
       }
     );
+  }
 
+
+  checkLogin() {
+    this.data.checklogin().subscribe(
+      result => {
+        this.phone = result["data"];
+        this.isLogin = result["status"];
+        if (this.isLogin) {
+          this.getCustomerAndInit();
+        } else {
+          //未登录
+          this.router.navigate(["login"]);
+        }
+      }
+    );
+  }
+
+  getCustomerAndInit() {
+    this.data.getCustomerByPhone(this.phone).subscribe(
+      result => {
+        this.customer = result["data"];
+        this.initShopCarGoods();
+        this.initFavouriteGoods();
+        this.initComment();
+      }
+    );
+  }
+
+  initComment() {
+    this.data.getPopularCommentByGId(this.shopping.goods.gId).subscribe(
+      result => {
+        this.comments = result["data"];
+        if(this.comments.length==0) {
+          this.spinner.hide();// Hide the spinner
+        }
+        this.initForum();
+      }
+    );
+    this.data.getCommentByGId(this.shopping.goods.gId).subscribe(
+      reuslt => {
+        this.latestComments = reuslt["data"];
+      }
+    )
+
+  }
+
+  //初始化评论
+  initForum() {
+    for (let i = 0; i < this.comments.length; i++) {
+      const element = this.comments[i];
+      this.panelOpenState.push(false);
+      this.forumArray.push(new Array<Forum>());
+      this.data.getForumByCMId(element.cmId).subscribe(
+        result => {
+          this.forumArray[i] = result["data"];
+          this.spinner.hide();// Hide the spinner
+        }
+      )
+    }
   }
 
   initFavouriteGoods() {
     this.data.selectFavoriteByCustomerId(this.customer.cId).subscribe(
       result => {
         this.favoriteList = result["data"];
-        console.log(this.favoriteList);
-        console.log(this.shopping.goods.gId);
         for (let i = 0; i < this.favoriteList.length; i++) {
           if (this.favoriteList[i].goods.gId == this.shopping.goods.gId) {
             this.flag = false;
@@ -99,6 +151,10 @@ export class ShoppingComponent implements OnInit {
     );
   }
 
+  /**
+   * 修改商品图片的显示
+   * @param index 索引
+   */
   changePic(index) {
     this.showPic = this.shopping.goodimg[index][0].giImg;
   }
@@ -113,6 +169,10 @@ export class ShoppingComponent implements OnInit {
       }
     });
   }
+
+  /**
+   * 判断是否可以插入
+   */
   caninsert() {
     if (this.shopping.goods.gStock > 0)
       this.isshow = true;
@@ -120,6 +180,10 @@ export class ShoppingComponent implements OnInit {
       this.isshow = false;
     }
   }
+
+  /**
+   * 加入购物车
+   */
   addGoodsToShopcar() {
 
     let flag = true;
@@ -138,6 +202,10 @@ export class ShoppingComponent implements OnInit {
       alert("购物车中已存在该商品");
     }
   }
+
+  /**
+   * 将商品加入喜欢
+   */
   addGoodsToFavorite() {
     console.log("点击时" + this.flag);
     if (this.flag) {
@@ -152,5 +220,46 @@ export class ShoppingComponent implements OnInit {
     }
     this.flag = false;
     this.isshow1 = false;
+  }
+
+  /**
+   * 显示评论
+   */
+  goToComment() {
+    this.isShowComment = true;
+  }
+
+  /**
+   * 隐藏评论
+   */
+  goToShop() {
+    this.isShowComment = false;
+  }
+
+  currentComment: Comment;
+  startSending(comment, template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+    this.currentComment = comment;
+  }
+
+  sendForum(template: BsModalRef) {
+    template.hide();
+    if (this.content=="") {
+      window.alert("回复不能为空!");
+    } else {
+      this.spinner.show();
+      let forum = new Forum();
+      forum.fContent = this.content;
+      forum.fDate = ""+new Date().getTime();
+      forum.comment = this.currentComment;
+      forum.customer = this.customer; 
+      this.data.addForum(forum).subscribe(
+        result => {
+          this.spinner.hide();
+          window.alert("回复成功!");
+          window.location.reload();
+        }
+      );
+    }
   }
 }
