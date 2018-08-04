@@ -108,7 +108,7 @@ export class ShopcarComponent implements OnInit {
 
     this.shopcar = new Shopcar(null, this.customer, this.recommendGoods[n], 1, 1);
     this.data.addGoodsToShopcar(this.shopcar).subscribe();
-
+    window.location.reload();
   }
   deleteGoodsFromShopcar(i) {
     this.goods[i].sStatus = 0;
