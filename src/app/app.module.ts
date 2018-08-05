@@ -37,7 +37,6 @@ import { TeamgoodComponent } from './teamgood/teamgood.component';
 import { OrderService } from './data/order.service';
 import { HtmlPipe } from './data/pipe';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -95,8 +94,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatMenuModule,
     MatExpansionModule,
     FroalaEditorModule.forRoot(), 
-    FroalaViewModule.forRoot(),
-    NgbModule.forRoot()
+    FroalaViewModule.forRoot()
   ],
   entryComponents: [
     AddressComponent,

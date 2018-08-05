@@ -24,7 +24,6 @@
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
     "@material/elevation": "^0.36.1",
-    "@ng-bootstrap/ng-bootstrap": "^2.2.2",
     "angular-froala-wysiwyg": "^2.8.4-1",
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
