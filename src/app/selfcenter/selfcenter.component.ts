@@ -10,7 +10,7 @@ import { OrderGoods } from '../bean/ordergoods';
 import { OrderService } from '../data/order.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { Comment } from '../bean/comment';
-var qiniu = require("qiniu");
+import { qiniu } from 'qiniu-js';
 
 @Component({
   selector: 'app-selfcenter',
@@ -38,15 +38,6 @@ export class SelfcenterComponent implements OnInit {
   fNum4: number = 0;
 
   flag = [true, false, false, false, false];
-
-  qiniu.conf.ACCESS_KEY = 'Access_Key';
-  qiniu.conf.SECRET_KEY = 'Secret_Key';
-
-  //要上传的空间
-  bucket = 'Bucket_Name';
-
-    //上传到七牛后保存的文件名
-  key = 'my-nodejs-logo.png';
   
   public options: Object = {
     placeholderText: '请输入评论内容',
@@ -120,6 +111,9 @@ export class SelfcenterComponent implements OnInit {
       }
     );
 
+    if(this.orderService.flag!=-1){
+      this.change(this.orderService.flag);
+    }
   }
 
   initGoodsData() {

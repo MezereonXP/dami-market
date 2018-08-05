@@ -1,9 +1,4 @@
-<ngx-spinner
-bdColor = "rgba(51, 51, 51, 0.8)"
-size = "large"
-color = "#fff"
-type = "ball-spin-clockwise"
-></ngx-spinner>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-spin-clockwise"></ngx-spinner>
 <mat-toolbar class="head" color="primary">
   <mat-toolbar-row>
     <mat-grid-list cols="15" class="bar">
@@ -27,10 +22,13 @@ type = "ball-spin-clockwise"
       <div class="sc-left">
         <h3 class="title1">订单中心</h3>
         <li>
-          <a href="">我的订单</a>
+          <a href="javascript:void(0);" (click)="jumpToInfo(1)">待支付订单</a>
         </li>
         <li>
-          <a href="">评价晒单</a>
+          <a href="javascript:void(0);" (click)="jumpToInfo(2)">待收货订单</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" (click)="jumpToInfo(3)">评价晒单</a>
         </li>
         <h3 class="title1">个人中心</h3>
         <li>
@@ -47,10 +45,10 @@ type = "ball-spin-clockwise"
         </li>
         <h3 class="title1">账户管理</h3>
         <li>
-          <a href="">个人信息</a>
+          <a href="javascript:void(0);" (click)="jumpToInfo(4)">个人信息</a>
         </li>
         <li>
-          <a href="">修改密码</a>
+          <a href="javascript:void(0);">修改密码</a>
         </li>
       </div>
     </mat-grid-tile>
@@ -91,42 +89,9 @@ type = "ball-spin-clockwise"
                   </i>
                   添加新地址
                 </div>
-              </div>  
+              </div>
             </mat-grid-tile>
           </mat-grid-list>
-          
-          
-          
-          
-          <!-- <div class="section section-body section-top">
-            <div class="address-item" *ngFor="let item of addressList;let i=index">
-              <dl>
-                <dt>
-                  <em class="uname">{{item.aReceiver}}</em>
-                </dt>
-                <dd class="utel">
-                  {{item.aTelephone}}
-                </dd>
-                <dd class="uaddress">
-                  {{item.aDetail}}
-                </dd>
-              </dl>
-              <div class="actions">
-                <a class="modify" (click)="deleteAddress(i)">
-                  删除
-                </a>
-                <a class="modify" (click)="modifyAddress(i)">
-                  修改
-                </a>
-              </div>
-            </div>
-            <div class="address-item address-item-new" (click)="openDialog()">
-              <i class="iconfont">
-                +
-              </i>
-              添加新地址
-            </div>
-          </div> -->
         </mat-grid-tile>
       </mat-grid-list>
     </mat-grid-tile>

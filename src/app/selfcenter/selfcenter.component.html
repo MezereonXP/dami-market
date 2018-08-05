@@ -22,14 +22,17 @@
       <div>
         <h3 class="title1">订单中心</h3>
         <li>
-          <a href="">我的订单</a>
+          <a href="javascript:void(0);" (click)="change(1)" [ngClass]="{'choose': flag[1]}">待支付订单</a>
         </li>
         <li>
-          <a href="">评价晒单</a>
+          <a href="javascript:void(0);" (click)="change(2)" [ngClass]="{'choose': flag[2]}">待收货订单</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" (click)="change(3)" [ngClass]="{'choose': flag[3]}">评价晒单</a>
         </li>
         <h3 class="title1">个人中心</h3>
         <li>
-          <a class="choose" href="/#/selfcenter" (click)="change(0)">我的个人中心</a>
+          <a class="choose" href="/#/selfcenter" (click)="change(0)" [ngClass]="{'choose': flag[0]}">我的个人中心</a>
         </li>
         <li>
           <a href="/#/message">消息通知</a>
@@ -42,7 +45,7 @@
         </li>
         <h3 class="title1">账户管理</h3>
         <li>
-          <a href="">个人信息</a>
+          <a href="javascript:void(0);" (click)="change(4)" [ngClass]="{'choose': flag[4]}">个人信息</a>
         </li>
         <li>
           <a href="">修改密码</a>
@@ -56,7 +59,7 @@
           <div class="usermessage">
             <img class="avatar" :src="{{newCustomer.cPictureurl}}">
             <h1 class="name">{{newCustomer.cName}}</h1>
-            <span>您好~Are you OK?</span>
+            <span class="welcome">您好~Are you OK?</span>
           </div>
         </mat-grid-tile>
         <mat-grid-tile colspan="4" class="toprow1">
@@ -152,6 +155,17 @@
                   <button mat-raised-button color="accent" (click)="comment(template, i)">评论</button>            
                 </mat-card-actions>
               </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="50" class="list" *ngIf="flag[4]">
+        <mat-grid-list cols="5" rowHeight="150px" class="top">
+            <mat-grid-tile colspan="1" class="toprow mat-elevation-z8">
+              <div class="usermessage">
+                <img class="avatar" :src="{{newCustomer.cPictureurl}}">
+                <h1 class="name">{{newCustomer.cName}}</h1>
+                <span class="welcome">您好~Are you OK?</span>
+              </div>
             </mat-grid-tile>
           </mat-grid-list>
     </mat-grid-tile>

@@ -137,9 +137,7 @@ export class ShopcarComponent implements OnInit {
       this.router.navigate(['order'], {
         queryParams: {
           orderGoodsList: JSON.stringify(this.newOrderGoodsList)
-
         }
-
       })
 
     } else {

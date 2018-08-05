@@ -5,6 +5,7 @@ import { Note } from '../bean/note';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Customer } from '../bean/customer';
 import { Router } from '@angular/router';
+import { OrderService } from '../data/order.service';
 
 @Component({
   selector: 'app-message',
@@ -17,7 +18,8 @@ export class MessageComponent implements OnInit {
   isLogin: boolean = false;
   phone: String;
   noteList: Array<Note>
-  constructor(private data: DataService,private router:Router,private spinner: NgxSpinnerService) { }
+  constructor(private data: DataService,private router:Router, private orderService: OrderService, 
+        private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.spinner.show();
@@ -45,6 +47,14 @@ export class MessageComponent implements OnInit {
       }
     );
     
+  }
+
+  /**
+   * 跳转到订单或者是个人中心界面
+   */
+  jumpToInfo(index) {
+    this.orderService.flag = index;
+    this.router.navigate(['selfcenter']);
   }
 
 }

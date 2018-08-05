@@ -7,5 +7,6 @@ export class OrderService {
   orderGoodsList: Array<OrderGoods>;
   tId: number;
   order: Order;
+  flag: number = -1;
   constructor() { }
 }
