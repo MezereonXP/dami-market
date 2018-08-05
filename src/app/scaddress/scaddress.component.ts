@@ -6,6 +6,7 @@ import { AddressComponent } from "../address/address.component";
 import { Customer } from '../bean/customer';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { OrderService } from '../data/order.service';
 @Component({
   selector: 'app-scaddress',
   templateUrl: './scaddress.component.html',
@@ -21,7 +22,8 @@ export class ScaddressComponent implements OnInit {
   totalMoney: number = 0;
   addressList: Object;
   status: Array<boolean>;
-  constructor(private data: DataService, public dialog: MatDialog,private router:Router,private spinner: NgxSpinnerService) { }
+  constructor(private data: DataService, public dialog: MatDialog, private orderService: OrderService,
+        private router:Router,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.spinner.show();
@@ -100,6 +102,13 @@ export class ScaddressComponent implements OnInit {
     window.location.reload();
   }
 
+  /**
+   * 跳转到订单或者是个人中心界面
+   */
+  jumpToInfo(index) {
+    this.orderService.flag = index;
+    this.router.navigate(['selfcenter']);
+  }
 }
 export interface DialogData {
   newAddress: Address;

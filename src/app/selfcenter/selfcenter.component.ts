@@ -10,6 +10,8 @@ import { OrderGoods } from '../bean/ordergoods';
 import { OrderService } from '../data/order.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { Comment } from '../bean/comment';
+import { qiniu } from 'qiniu-js';
+
 @Component({
   selector: 'app-selfcenter',
   templateUrl: './selfcenter.component.html',
@@ -36,12 +38,23 @@ export class SelfcenterComponent implements OnInit {
   fNum4: number = 0;
 
   flag = [true, false, false, false, false];
+  nameChangeFlag = true;
+  areaChangeFlag = true;
+  emailChangeFlag = true;
 
+  isShowBtn: boolean = false;// 显示确认修改按钮
   
   public options: Object = {
     placeholderText: '请输入评论内容',
     charCounterCount: false,
-    imageUploadURL: '/upload_image'
+    //图片上传配置(必须)
+    imageUploadDomain: "http://ol3p4szw6.bkt.clouddn.com",    //七牛云存储空间域名地址
+    imageUploadParam: 'file',
+    imageUploadURL: 'http://upload.qiniu.com',                            //七牛上传服务器, 如果是海外服务器为 http://up.qiniu.com
+    imageUploadParams: { token: '<%= @uptoken %>'},                       //上传凭证, 详细规则查看七牛官方文档
+    imageUploadMethod: 'POST',
+    imageMaxSize: 5 * 1024 * 1024,
+    imageAllowedTypes: ['jpeg', 'jpg', 'png']
   }
 
   modalRef: BsModalRef;
@@ -103,6 +116,9 @@ export class SelfcenterComponent implements OnInit {
       }
     );
 
+    if(this.orderService.flag!=-1){
+      this.change(this.orderService.flag);
+    }
   }
 
   initGoodsData() {
@@ -194,4 +210,40 @@ export class SelfcenterComponent implements OnInit {
     );
   }
 
+  changeName() {
+    this.nameChangeFlag = false;
+  }
+
+  changeEmail() {
+    this.emailChangeFlag = false;
+  }
+
+  changeArea() {
+    this.areaChangeFlag = false;
+  }
+
+  /**
+   * 放弃修改, 重新加载customer数据
+   */
+  abort() {
+    this.nameChangeFlag = true;
+    this.emailChangeFlag = true;
+    this.areaChangeFlag = true;
+    this.spinner.show();
+    this.data.getCustomerByPhone(this.phone).subscribe(
+      result => {
+        this.newCustomer = result["data"];
+        this.spinner.hide();
+      }
+    );
+  }
+
+  update() {
+    this.spinner.show();
+    this.data.updateCustomer(this.newCustomer).subscribe(
+      result => {
+        this.abort();
+      }
+    );
+  }
 }

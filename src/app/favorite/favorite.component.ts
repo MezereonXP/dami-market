@@ -5,6 +5,7 @@ import { Favorite } from '../bean/favorite';
 import { Customer } from '../bean/customer';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { OrderService } from '../data/order.service';
 
 @Component({
   selector: 'app-favorite',
@@ -17,7 +18,7 @@ export class FavoriteComponent implements OnInit {
   isLogin: boolean = false;
   phone: String;
   favoriteList: Array<Favorite>
-  constructor(private data: DataService,private router:Router,private spinner: NgxSpinnerService) { }
+  constructor(private data: DataService,private router:Router,private spinner: NgxSpinnerService, private orderService: OrderService) { }
 
   ngOnInit() {
     this.spinner.show();
@@ -52,6 +53,14 @@ export class FavoriteComponent implements OnInit {
       }
     )
     window.location.reload();
+  }
+
+  /**
+   * 跳转到订单或者是个人中心界面
+   */
+  jumpToInfo(index) {
+    this.orderService.flag = index;
+    this.router.navigate(['selfcenter']);
   }
 
 }
