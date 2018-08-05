@@ -10,7 +10,8 @@ import { OrderGoods } from '../bean/ordergoods';
 import { OrderService } from '../data/order.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { Comment } from '../bean/comment';
-import { qiniu } from 'qiniu-js';
+import { UploaderBuilder,Uploader} from 'qiniu4js';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-selfcenter',
@@ -42,8 +43,10 @@ export class SelfcenterComponent implements OnInit {
   areaChangeFlag = true;
   emailChangeFlag = true;
 
+  url: string = "http://ol3p4szw6.bkt.clouddn.com/";
+
   isShowBtn: boolean = false;// 显示确认修改按钮
-  
+
   public options: Object = {
     placeholderText: '请输入评论内容',
     charCounterCount: false,
@@ -51,7 +54,7 @@ export class SelfcenterComponent implements OnInit {
     imageUploadDomain: "http://ol3p4szw6.bkt.clouddn.com",    //七牛云存储空间域名地址
     imageUploadParam: 'file',
     imageUploadURL: 'http://upload.qiniu.com',                            //七牛上传服务器, 如果是海外服务器为 http://up.qiniu.com
-    imageUploadParams: { token: '<%= @uptoken %>'},                       //上传凭证, 详细规则查看七牛官方文档
+    imageUploadParams: { token: '<%= @uptoken %>' },                       //上传凭证, 详细规则查看七牛官方文档
     imageUploadMethod: 'POST',
     imageMaxSize: 5 * 1024 * 1024,
     imageAllowedTypes: ['jpeg', 'jpg', 'png']
@@ -60,12 +63,15 @@ export class SelfcenterComponent implements OnInit {
   modalRef: BsModalRef;
   editorContent: string;
 
+  uploader: Uploader;
+
   constructor(private data: DataService, private router: Router, private spinner: NgxSpinnerService,
-                private orderService: OrderService, private modalService: BsModalService) { }
+    private orderService: OrderService, private modalService: BsModalService, private http: HttpClient) { }
 
   ngOnInit() {
     this.spinner.show();
     this.initSpace();
+    this.initUploader();
     this.data.checklogin().subscribe(
       result => {
         this.phone = result["data"];
@@ -85,6 +91,64 @@ export class SelfcenterComponent implements OnInit {
         }
       }
     );
+  }
+
+  initUploader() {
+    let listener = {
+      onReady(tasks) {},onStart(tasks){
+        //所有内部图片任务处理后执行
+        //开始上传
+      },onTaskGetKey(task){
+          //为每一个上传的文件指定key,如果不指定则由七牛服务器自行处理
+        return new Date().getTime() + task.file.name;
+      },onTaskProgress: function (task) {
+          //每一个任务的上传进度,通过`task.progress`获取
+        console.log(task.progress);
+      },onTaskSuccess(task){
+        //一个任务上传成功后回调
+        console.log(task.key);//文件的key
+      },onTaskFail(task) {
+            //一个任务在经历重传后依然失败后回调此函数
+      },onTaskRetry(task) {
+            //开始重传    	
+      },onFinish(tasks){
+              //所有任务结束后回调，注意，结束不等于都成功，该函数会在所有HTTP上传请求响应后回调(包括重传请求)。
+      }};
+    this.uploader = new UploaderBuilder()
+    .debug(false)//开启debug，默认false
+    .retry(0)//设置重传次数，默认0，不重传
+    .compress(0.5)//默认为1,范围0-1
+    .scale([200,0])//第一个参数是宽度，第二个是高度,[200,0],限定高度，宽度等比缩放.[0,100]限定宽度,高度等比缩放.[200,100]固定长宽
+    .size(1024*1024)//分片大小，最多为4MB,单位为字节,默认1MB
+    .chunk(true)//是否分块上传，默认true，当chunk=true并且文件大于4MB才会进行分块上传
+    .auto(true)//选中文件后立即上传，默认true
+    .multiple(false)//是否支持多文件选中，默认true
+    .accept(['.gif','.png','video/*','.jpg','.jpeg'])//过滤文件，默认无，详细配置见http://www.w3schools.com/tags/att_input_accept.asp
+    .tokenShare(false)
+    .tokenFunc(function (setToken,task) {
+      setTimeout(function () {
+        setToken("token");
+      }, 1000);
+    })
+    .tokenUrl('http://localhost:8800/api/getSign')
+    //任务拦截器
+      .interceptor({
+          //拦截任务,返回true，任务将会从任务队列中剔除，不会被上传
+        onIntercept: function (task) {
+          return task.file.size > 1024 * 1024;
+        },
+        //中断任务，返回true，任务队列将会在这里中断，不会执行上传操作。
+        onInterrupt: function (task) {
+          if (this.onIntercept(task)) {
+            alert("请上传小于1m的文件");
+            return true;
+          }
+          else {
+            return false;
+          }
+        }
+      })
+    .listener(listener).build();
   }
 
   initSpace() {
@@ -116,7 +180,7 @@ export class SelfcenterComponent implements OnInit {
       }
     );
 
-    if(this.orderService.flag!=-1){
+    if (this.orderService.flag != -1) {
       this.change(this.orderService.flag);
     }
   }
@@ -191,7 +255,7 @@ export class SelfcenterComponent implements OnInit {
   upload() {
     this.spinner.show();
     let cm = new Comment();
-    cm.cmDate = ""+new Date().getTime();
+    cm.cmDate = "" + new Date().getTime();
     cm.cmInfo = this.editorContent;
     cm.cmStatus = 0;
     cm.goods = this.unCommentGoodsData[this.currentIndex].goods;
@@ -246,4 +310,30 @@ export class SelfcenterComponent implements OnInit {
       }
     );
   }
+
+  showFileChoose() {
+    this.uploader.chooseFile();
+    this.uploader.listener.onStart = (task) => {
+      this.spinner.show();
+    }
+    this.uploader.listener.onTaskSuccess = (task) =>{
+      this.updateImg(task.key);
+    } 
+  }
+
+  updateImg(url) {
+    this.url = this.url + url;
+    this.newCustomer.cPictureurl = this.url;
+    this.data.updateCustomer(this.newCustomer).subscribe(
+      result => {
+        this.data.getCustomerByPhone(this.phone).subscribe(
+          result => {
+            this.newCustomer = result["data"];
+            this.spinner.hide();
+          }
+        );
+      }
+    );
+  }
+
 }

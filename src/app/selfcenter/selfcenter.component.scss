@@ -174,3 +174,14 @@ img {
   width: 100%;
   margin-left: -30px;
 }
+
+.input {
+    opacity:0;
+    filter:alpha(opacity=0);
+    height: 170px;
+    width: 170px;
+    position: absolute;
+    top: 20;
+    left: 0;
+    z-index: 9;
+}
