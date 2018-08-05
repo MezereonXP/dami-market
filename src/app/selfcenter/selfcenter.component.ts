@@ -130,7 +130,7 @@ export class SelfcenterComponent implements OnInit {
         setToken("token");
       }, 1000);
     })
-    .tokenUrl('http://localhost:8800/api/getSign')
+    .tokenUrl('/api/getSign')
     //任务拦截器
       .interceptor({
           //拦截任务,返回true，任务将会从任务队列中剔除，不会被上传
