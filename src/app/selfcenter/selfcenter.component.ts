@@ -10,6 +10,8 @@ import { OrderGoods } from '../bean/ordergoods';
 import { OrderService } from '../data/order.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { Comment } from '../bean/comment';
+var qiniu = require("qiniu");
+
 @Component({
   selector: 'app-selfcenter',
   templateUrl: './selfcenter.component.html',
@@ -37,11 +39,26 @@ export class SelfcenterComponent implements OnInit {
 
   flag = [true, false, false, false, false];
 
+  qiniu.conf.ACCESS_KEY = 'Access_Key';
+  qiniu.conf.SECRET_KEY = 'Secret_Key';
+
+  //要上传的空间
+  bucket = 'Bucket_Name';
+
+    //上传到七牛后保存的文件名
+  key = 'my-nodejs-logo.png';
   
   public options: Object = {
     placeholderText: '请输入评论内容',
     charCounterCount: false,
-    imageUploadURL: '/upload_image'
+    //图片上传配置(必须)
+    imageUploadDomain: "http://ol3p4szw6.bkt.clouddn.com",    //七牛云存储空间域名地址
+    imageUploadParam: 'file',
+    imageUploadURL: 'http://upload.qiniu.com',                            //七牛上传服务器, 如果是海外服务器为 http://up.qiniu.com
+    imageUploadParams: { token: '<%= @uptoken %>'},                       //上传凭证, 详细规则查看七牛官方文档
+    imageUploadMethod: 'POST',
+    imageMaxSize: 5 * 1024 * 1024,
+    imageAllowedTypes: ['jpeg', 'jpg', 'png']
   }
 
   modalRef: BsModalRef;
