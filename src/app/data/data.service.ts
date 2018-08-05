@@ -320,11 +320,27 @@ export class DataService {
     return this.http.get(this.host + "api/getUnCommentOrderGoods", { params })
   }
 
+  /**
+   * 更新对应的orderGoods
+   * @param orderGoods orderGoods对象
+   */
   updateOrderGoods(orderGoods: OrderGoods) {
     return this.http.post(this.host + "api/updateOrderGoods", orderGoods);
   }
 
+  /**
+   * 插入评论
+   * @param comment 评论
+   */
   addComment(comment: Comment) {
     return this.http.post(this.host + "api/addComment", comment);
+  }
+
+  /**
+   * 更新对应主键的customer记录
+   * @param customer customer对象
+   */
+  updateCustomer(customer: Customer) {
+    return this.http.post(this.host + "api/updateCustomer", customer);
   }
 }

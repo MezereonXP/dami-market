@@ -38,6 +38,11 @@ export class SelfcenterComponent implements OnInit {
   fNum4: number = 0;
 
   flag = [true, false, false, false, false];
+  nameChangeFlag = true;
+  areaChangeFlag = true;
+  emailChangeFlag = true;
+
+  isShowBtn: boolean = false;// 显示确认修改按钮
   
   public options: Object = {
     placeholderText: '请输入评论内容',
@@ -205,4 +210,40 @@ export class SelfcenterComponent implements OnInit {
     );
   }
 
+  changeName() {
+    this.nameChangeFlag = false;
+  }
+
+  changeEmail() {
+    this.emailChangeFlag = false;
+  }
+
+  changeArea() {
+    this.areaChangeFlag = false;
+  }
+
+  /**
+   * 放弃修改, 重新加载customer数据
+   */
+  abort() {
+    this.nameChangeFlag = true;
+    this.emailChangeFlag = true;
+    this.areaChangeFlag = true;
+    this.spinner.show();
+    this.data.getCustomerByPhone(this.phone).subscribe(
+      result => {
+        this.newCustomer = result["data"];
+        this.spinner.hide();
+      }
+    );
+  }
+
+  update() {
+    this.spinner.show();
+    this.data.updateCustomer(this.newCustomer).subscribe(
+      result => {
+        this.abort();
+      }
+    );
+  }
 }
