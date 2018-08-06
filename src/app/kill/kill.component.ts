@@ -56,6 +56,7 @@ export class KillComponent implements OnInit {
   customer:Customer;
   isLogin:boolean = false;
   phone:String;
+  killGoodData:number;
 
 
   constructor(private data: DataService, public dialog: MatDialog,private router:Router) { }
@@ -70,7 +71,7 @@ export class KillComponent implements OnInit {
       }
     ),
 
-      //保证时间在今天22点 并调用gettime定时器展示时间
+      //保证测试在今天 并调用gettime定时器展示时间
       this.currentTime = new Date();
     while (new Date().getTime() > this.testTime) {
       this.testTime = this.testTime + 86400000;
@@ -182,7 +183,7 @@ export class KillComponent implements OnInit {
     }
 
     let temp = 4 * Math.floor(hour / 4);
-    if ((hour - temp) < 2) {
+    if ((hour - temp) < 4 ) {
       let position = Math.floor(4 - temp / 4);
       this.timeTipe[position] = "距开始剩" + (hour - temp) + ":" + minute + ":" + second;
     }
@@ -212,10 +213,12 @@ export class KillComponent implements OnInit {
     for (let i = 0; i < 5; i++) {
       if (this.showPicList[i] == true) {
         this.noteTime = (i + 1) * 4 + 2;
+
       }
     }
-
-    this.data.insertNote(1, this.noteKgName, this.noteTime, this.noteMsg).subscribe(
+    this.killGoodData=new Date().getTime()-new Date().getHours()*1000*60*60-new Date().getMinutes()*1000*60- new Date().getSeconds()*1000;
+    this.killGoodData=this.noteTime*1000*60*60+this.killGoodData;
+    this.data.insertNote(this.customer.cId, this.noteKgName, this.noteTime,this.killGoodData, this.noteMsg).subscribe(
       result => {
         this.noteflag = result["msg"];
 
