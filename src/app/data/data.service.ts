@@ -179,9 +179,9 @@ export class DataService {
     return this.http.get(this.host + 'api/selectAllOrder', { params });
   }
   //连接后台 插入note
-  insertNote(cId, kgName, time, kgMsg) {
-    const params = new HttpParams().set("cId", cId).set("kgName", kgName).set("time", time).set("kgMsg", kgMsg);
-    return this.http.get(this.host + 'api/insertNote', { params });
+  insertNote(cId, kgName, time,killGoodDate,kgMsg) {
+    const params = new HttpParams().set("cId", cId).set("kgName", kgName).set("time", time).set("kgMsg",kgMsg).set("killGoodDate",killGoodDate);
+    return this.http.get(this.host + '/api/insertNote', { params });
   }
   //得到所有的秒杀商品
   getKillGoodInfo() {
