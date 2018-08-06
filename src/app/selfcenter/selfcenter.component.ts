@@ -50,14 +50,39 @@ export class SelfcenterComponent implements OnInit {
   public options: Object = {
     placeholderText: '请输入评论内容',
     charCounterCount: false,
+    requestWithCORS: false,
     //图片上传配置(必须)
     imageUploadDomain: "http://ol3p4szw6.bkt.clouddn.com",    //七牛云存储空间域名地址
     imageUploadParam: 'file',
-    imageUploadURL: 'http://upload.qiniu.com',                            //七牛上传服务器, 如果是海外服务器为 http://up.qiniu.com
+    imageUploadURL: '/api/upload',                            //七牛上传服务器, 如果是海外服务器为 http://up.qiniu.com
     imageUploadParams: { token: '<%= @uptoken %>' },                       //上传凭证, 详细规则查看七牛官方文档
     imageUploadMethod: 'POST',
     imageMaxSize: 5 * 1024 * 1024,
-    imageAllowedTypes: ['jpeg', 'jpg', 'png']
+    imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+    imageManagerLoadURL: 'http://ol3p4szw6.bkt.clouddn.com',
+    //文件上传配置(必须)
+    fileUploadDomain: "http://ol3p4szw6.bkt.clouddn.com",     //七牛云存储空间域名地址
+    fileUploadParam: 'file',
+    fileUploadURL: '/api/upload',                             //同上
+    fileUploadParams: { token: '<%= @uptoken %>'},                        //同上
+    fileUploadMethod: 'POST',
+    fileMaxSize: 20 * 1024 * 1024,
+    fileAllowedTypes: ['*'],
+    events : {
+      'froalaEditor.image.uploaded': function (e, editor, response) {
+        console.log(JSON.parse(response).key);
+        let re = { 'link' : "http://ol3p4szw6.bkt.clouddn.com/" + JSON.parse(response).key }; 
+        // response = '{ "link:" ' + JSON.parse(response).key + '}';
+        response = re;
+      },
+      'froalaEditor.image.inserted': function (e, editor, $img, response) {
+        console.log(response);
+      },
+      'froalaEditor.image.error': function (e, editor, error, response) {
+        // Do something here.
+        console.log(error);
+      }
+    }
   }
 
   modalRef: BsModalRef;
@@ -248,8 +273,15 @@ export class SelfcenterComponent implements OnInit {
   public currentIndex;
   comment(template: TemplateRef<any>, index) {
     this.currentIndex = index;
-    this.modalRef = this.modalService.show(template,
-      Object.assign({}, { class: 'gray modal-lg' }));
+    this.http.get("/api/getSign").subscribe(
+      result => {
+        this.options["imageUploadParams"].token = result["uptoken"];
+        this.options["fileUploadParams"].token = result["uptoken"];
+        this.modalRef = this.modalService.show(template,
+          Object.assign({}, { class: 'gray modal-lg' }));
+      }
+    );
+
   }
 
   upload() {

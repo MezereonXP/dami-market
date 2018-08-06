@@ -271,7 +271,7 @@
       </button>
     </div>
     <div class="modal-body">
-      <div [froalaEditor]="option" style="width: 100%;height: 100%;" [(ngModel)]="editorContent">Hello, Froala!</div>
+      <div [(froalaEditor)]="options" style="width: 100%;height: 100%;" [(ngModel)]="editorContent">Hello, Froala!</div>
       <button mat-raised-button style="margin-top: 5px" color="primary" (click)="upload()">提交</button>
     </div>
   </div>
