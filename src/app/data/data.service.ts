@@ -343,4 +343,22 @@ export class DataService {
   updateCustomer(customer: Customer) {
     return this.http.post(this.host + "api/updateCustomer", customer);
   }
+
+  /**
+   * 发送短信验证码
+   */
+  sendMessage(phone: string){
+    const params = new HttpParams().set("phone", phone);
+    return this.http.get(this.host + "/api/sendMessage", { params });
+  }
+
+  /**
+   * 验证验证码的正确
+   * @param phone 手机号
+   * @param code 验证码
+   */
+  checkCode(phone: string, code: string) {
+    const params = new HttpParams().set("phone", phone).set('code', code);
+    return this.http.get(this.host + "/api/checkCode", { params });
+  }
 }

@@ -13,6 +13,7 @@ import { Router } from '../../../node_modules/@angular/router';
 export class RegistComponent implements OnInit {
 
   newCustomer:Customer=new Customer(null,null,null,null,null,null,"中国",null,null,null,1);
+  code: string = "";
 
   constructor(private data: DataService,private router:Router) { }
 
@@ -22,11 +23,29 @@ export class RegistComponent implements OnInit {
 
   registtele(){
     this.newCustomer.cName = this.newCustomer.cTelephone;
-    this.router.navigate(['regist2'],{
-      queryParams:{
-        newCustomer:JSON.stringify(this.newCustomer)
+  
+    this.data.checkCode(this.newCustomer.cTelephone, this.code).subscribe(
+      result => {
+        if(result["status"]==true) {
+          this.router.navigate(['regist2'],{
+            queryParams:{
+              newCustomer:JSON.stringify(this.newCustomer)
+            }
+          })
+        } else {
+          window.alert("验证码错误");
+        }
       }
-    })
+    );
+
+  }
+
+  send() {
+    this.data.sendMessage(this.newCustomer.cTelephone).subscribe(
+      result => {
+        window.alert("已发送");
+      }
+    )
   }
   
 

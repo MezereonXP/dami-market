@@ -41,10 +41,10 @@
           </div>
           <!-- <input type="hidden" class="select-regions-input"> -->
           <label class="labelbox err_label">
-            <input type="msg" placeholder="请输入短信验证码">
+            <input type="msg" placeholder="请输入短信验证码" [(ngModel)]="code">
           </label>
           <div class="btn1">
-            <input class="btn331 btn_reg_1" type="submit" value="获取验证短信">
+            <input class="btn331 btn_reg_1" type="submit" (click)="send()" value="获取验证短信">
           </div>
         </div>
         <div>

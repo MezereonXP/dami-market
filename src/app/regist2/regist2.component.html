@@ -7,8 +7,8 @@
           <mat-grid-tile rowspan="1" class="toprow">
             <h1>设置RUOK密码</h1>
           </mat-grid-tile>
-          <mat-grid-tile rowspan="1" class="toprow">
-            <div class="lgn_inputbg c_b">
+          <mat-grid-tile rowspan="2" class="toprow">
+            <!-- <div class="lgn_inputbg c_b">
               <p></p>
               <div>
               <label class="labelbox c_b" for>
@@ -20,12 +20,39 @@
                 <input class="item_account" type="password" placeholder="请输入确认密码">
               </label>
               </div>
-            </div>
+            </div> -->
+            <form style="width: 600px;">
+                <div class="form-row">
+                  <div class="col-md-2"></div>
+                  <div class="col-md-8">
+                    <input name="pwd" type="password" class="form-control" [ngClass]="{'is-valid': pwd!='','is-invalid': pwd==''}" [(ngModel)]="pwd" style="width: 100%"  placeholder="请输入密码" required>
+                    <div class="valid-feedback">
+                      输入正确!
+                    </div>
+                    <div class="invalid-feedback">
+                        请输入密码!
+                    </div>
+                  </div>
+                  <div class="col-md-2"></div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                      <input name="pwd2" type="password" class="form-control"  [ngClass]="{'is-valid': pwd==pwd2,'is-invalid': pwd!=pwd2}" [(ngModel)]="pwd2" style="width: 100%"  placeholder="请再次输入密码" required>
+                      <div class="invalid-feedback">
+                          两次密码不一致!
+                      </div>
+                      <div class="valid-feedback">
+                          输入正确!
+                      </div>
+                    </div>
+                </div>
+            </form>
           </mat-grid-tile>
           <mat-grid-tile rowspan="1" class="toprow">
             <div>
-              <span>密码长度6~16位，数字、字母、字符至少包含两种</span>
-              <a class="btnadpt" (click)="registnow()" href="/#/login">立即注册</a>
+              <!-- <span>密码长度6~16位，数字、字母、字符至少包含两种</span> -->
+              <a class="btnadpt" (click)="registnow()">立即注册</a>
             </div>
           </mat-grid-tile>
           <mat-grid-tile rowspan="1" class="toprow"></mat-grid-tile>
