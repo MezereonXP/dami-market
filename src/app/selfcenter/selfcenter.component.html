@@ -57,7 +57,7 @@
       <mat-grid-list cols="5" rowHeight="150px" class="top">
         <mat-grid-tile colspan="1" class="toprow mat-elevation-z8">
           <div class="usermessage">
-            <img class="avatar" :src="{{newCustomer.cPictureurl}}" (click)="showFileChoose()">
+            <img class="avatar" :src="{{newCustomer.cPictureurl}}"  matTooltip="点击上传新头像~"  (click)="showFileChoose()">
             <h1 class="name">{{newCustomer.cName}}</h1>
             <span class="welcome">您好~Are you OK?</span>
           </div>
