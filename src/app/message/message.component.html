@@ -54,7 +54,7 @@ type = "ball-newton-cradle"
         <mat-grid-tile rowspan="6" class="toprow1">
           <li class="msg">
             <div *ngFor="let item of noteList;let i=index">
-              <h1>{{item.nTipTime}}</h1>
+              <h1>{{item.nTipTime |date:'yyyy-MM-dd HH:mm:ss'}}</h1>
               <span>{{item.nNote}}</span>
             </div>
           </li>
