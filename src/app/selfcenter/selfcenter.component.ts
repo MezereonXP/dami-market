@@ -43,6 +43,7 @@ export class SelfcenterComponent implements OnInit {
   areaChangeFlag = true;
   emailChangeFlag = true;
 
+  tempUrl: string = "http://ol3p4szw6.bkt.clouddn.com/";
   url: string = "http://ol3p4szw6.bkt.clouddn.com/";
 
   isShowBtn: boolean = false;// 显示确认修改按钮
@@ -361,6 +362,7 @@ export class SelfcenterComponent implements OnInit {
         this.data.getCustomerByPhone(this.phone).subscribe(
           result => {
             this.newCustomer = result["data"];
+            this.url = this.tempUrl;
             this.spinner.hide();
           }
         );
