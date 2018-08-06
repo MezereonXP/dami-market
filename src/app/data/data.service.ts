@@ -20,7 +20,7 @@ import { Comment } from '../bean/comment';
 export class DataService {
 
   host = "";
-  // host = "http://localhost:8800/";
+  //host = "http://localhost:8800/";
 
   constructor(private http: HttpClient) { }
 
