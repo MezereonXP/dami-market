@@ -14,22 +14,46 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TeamComponent implements OnInit {
 
-    items = ["手机", "笔记本平板", "智能家具"];
+    items = ["手机", "笔记本平板", "智能家居"];
     isShowAll: boolean = true;
     typelist$: Object;
-    TeamGoodsList$: Object;
-    TeamGoodsListByType$: Object;
+    isHideGood: Array<boolean> = new Array<boolean>();
+    TeamGoodsList$: Array<Teamgoods> = new Array<Teamgoods>();
+    TeamGoodsListByType$: Array<Teamgoods> = new Array<Teamgoods>();
     catagory = "";
     teamId: String;
     tgId: String;
+    date: number;
+    phone: number;
+    isLogin: boolean;
     constructor(private data: DataService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
-        this.data.getAllTeamGoods().subscribe(
+        this.date = new Date().getTime();
+        this.data.checklogin().subscribe(
             result => {
-                this.TeamGoodsList$ = result["data"];
+                this.phone = result["data"];
+                this.isLogin = result["status"];
+                if (this.isLogin) {
+                    this.data.getAllTeamGoods().subscribe(
+                        result => {
+                            this.TeamGoodsList$ = result["data"];
+                            for (let i = 0; i < this.TeamGoodsList$.length; i++) {
+                                if (this.date >= +this.TeamGoodsList$[i].date) {
+                                    this.isHideGood[i] = false;
+                                } else {
+                                    this.isHideGood[i] = true;
+                                }
+                            }
+                        }
+                    );
+                } else {
+                    //未登录
+                    this.router.navigate(["login"]);
+                }
             }
         );
+
     }
 
     showAll() {
@@ -45,14 +69,22 @@ export class TeamComponent implements OnInit {
      * @param index 
      */
     showTeamGoods(index) {
+        this.date = new Date().getTime();
         this.isShowAll = false;
         this.catagory = this.items[index];
         console.log(this.catagory);
-        this.data.getTeamGoods(this.catagory).subscribe(
-            result => {
-                this.TeamGoodsListByType$ = result["data"];
-            }
-        );
+            this.data.getTeamGoods(this.catagory).subscribe(
+                result => {
+                    this.TeamGoodsListByType$ = result["data"];
+                    for (let i = 0; i < this.TeamGoodsListByType$.length; i++) {
+                        if (this.date >= +this.TeamGoodsListByType$[i].date) {
+                            this.isHideGood[i] = false;
+                        } else {
+                            this.isHideGood[i] = true;
+                        }
+                    }
+                }
+            );
     }
 
     /**
