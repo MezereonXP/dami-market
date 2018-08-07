@@ -45,8 +45,8 @@
         <mat-grid-tile colspan="1"></mat-grid-tile>
         <mat-grid-tile colspan="6">
           <mat-grid-list rowHeight="330px" cols="3" class="super-class" >
-            <mat-grid-tile class="super-class" *ngFor="let item of TeamGoodsListByType$">
-              <mat-card *ngIf="isHideGood[i]" class="cardbar mat-elevation-z8" (click)="showalert(item.teamGoodsId)">
+            <mat-grid-tile class="super-class" *ngFor="let item of TeamGoodsListByType$;index as i1">
+              <mat-card *ngIf="isHideGood[i1]" class="cardbar mat-elevation-z8" (click)="showalert(item.teamGoodsId)">
                 <img src="{{item.pic}}" class="imgbar">
                 <table class="tablebar">
                   <tr>{{item.name}}</tr>
