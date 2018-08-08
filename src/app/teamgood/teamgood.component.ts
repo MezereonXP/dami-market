@@ -99,7 +99,7 @@ export class TeamgoodComponent implements OnInit {
         this.tId = result["data"];
         console.log(this.tId);
         this.orderGoodsList.push(this.orderGoods);
-        window.alert("参团成功");
+        window.alert("建团成功");
         //递送order方法
         this.orderService.orderGoodsList = this.orderGoodsList;
         this.orderService.tId = this.tId;
