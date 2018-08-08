@@ -19,8 +19,8 @@ import { Comment } from '../bean/comment';
 @Injectable()
 export class DataService {
 
-  host = "";
-  //host = "http://localhost:8800/";
+  // host = "";
+  host = "http://localhost:8800/";
 
   constructor(private http: HttpClient) { }
 

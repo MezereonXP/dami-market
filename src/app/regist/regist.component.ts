@@ -23,7 +23,7 @@ export class RegistComponent implements OnInit {
 
   registtele(){
     this.newCustomer.cName = this.newCustomer.cTelephone;
-  
+    
     this.data.checkCode(this.newCustomer.cTelephone, this.code).subscribe(
       result => {
         if(result["status"]==true) {
@@ -41,11 +41,15 @@ export class RegistComponent implements OnInit {
   }
 
   send() {
-    this.data.sendMessage(this.newCustomer.cTelephone).subscribe(
-      result => {
-        window.alert("已发送");
-      }
-    )
+    if(!(/^1[34578]\d{9}$/.test(this.newCustomer.cTelephone))){ 
+      alert("手机号码有误，请重填");  
+    } else {
+      this.data.sendMessage(this.newCustomer.cTelephone).subscribe(
+        result => {
+          window.alert("已发送");
+        }
+      )
+    }
   }
   
 
