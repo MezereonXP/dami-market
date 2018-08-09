@@ -25,6 +25,7 @@ export class Regist2Component implements OnInit {
   }
   registnow(){
     if(this.pwd!=''&&this.pwd2!=''&&this.pwd==this.pwd2){
+      this.newCustomer.cPassword=this.pwd;
       this.data.register(this.newCustomer).subscribe();
       alert("注册成功！");
       window.location.href = "/#/login";
