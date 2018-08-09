@@ -13,6 +13,9 @@ export class ResetComponent implements OnInit {
   customer:Customer
   constructor(private activatedRoute:ActivatedRoute,private data:DataService) { }
 
+  pwd: string = '';
+  pwd2: string = '';
+
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(
       queryParams => {
@@ -22,8 +25,13 @@ export class ResetComponent implements OnInit {
   }
 
   changenow(){
-    console.log(this.customer);
-    this.data.reseter(this.customer).subscribe();
-    alert("密码重置成功！");
+    if(this.pwd!=''&&this.pwd2!=''&&this.pwd==this.pwd2){
+      this.customer.cPassword=this.pwd;
+      this.data.reseter(this.customer).subscribe();
+      alert("修改成功！");
+      window.location.href = "/#/login";
+    }else{
+      alert("请确认密码一致!");
+    }
   }
 }
