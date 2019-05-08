@@ -24,12 +24,12 @@ export class RegistComponent implements OnInit {
   registtele(){
     this.newCustomer.cName = this.newCustomer.cTelephone;
     
-    this.data.register(this.,this.code).subscribe(
+    this.data.register(this.newCustomer).subscribe(
       result => {
         if(result["status"]==true) {
           this.router.navigate(['regist2'],{
             queryParams:{
-              newCustomer:JSON.stringify(this.newCustomer,this.code)
+              newCustomer:JSON.stringify(this.newCustomer)
             }
           })
         } else {
