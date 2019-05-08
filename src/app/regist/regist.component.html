@@ -36,18 +36,11 @@
           <div class="inputbg">
             <!-- <input type="hidden" class="select-regions-input"> -->
             <label class="labelbox err_label">
-              <input matInput [(ngModel)]="newCustomer.cName" placeholder="请输入姓名">
-            </label>
-            <label class="labelbox err_label">
               <input matInput [(ngModel)]="newCustomer.cTelephone" placeholder="请输入手机号码">
-            </label>
-            <label class="labelbox err_label">
-              <input matInput [(ngModel)]="newCustomer.cPassword" placeholder="请输入密码">
             </label>
           </div>
 
-      <!-- 
-            <input type="hidden" class="select-regions-input">
+      <!-- <input type="hidden" class="select-regions-input"> -->
           <label class="labelbox err_label">
             <input type="msg" placeholder="请输入短信验证码" [(ngModel)]="code">
           </label>
@@ -55,8 +48,6 @@
             <input class="btn331 btn_reg_1" type="submit" (click)="send()" value="获取验证短信">
           </div>
         </div>
-
-      -->
         <div>
           <a class="btn332 btn_reg_1" (click)="registtele()">立即注册</a>
           <!-- <imp style="display: none" src="" -->

@@ -358,10 +358,9 @@ export class DataService {
    * 验证验证码的正确
    * @param phone 手机号
    * @param code 验证码
-   
-  checkCode(phone: string) {
-    const params = new HttpParams().set("phone", phone);
-    return this.http.get(this.host + "/api/register", { params });
+   */
+  checkCode(phone: string, code: string) {
+    const params = new HttpParams().set("phone", phone).set('code', code);
+    return this.http.get(this.host + "/api/checkCode", { params });
   }
-  */
 }
