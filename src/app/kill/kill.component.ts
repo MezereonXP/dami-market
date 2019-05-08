@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material';
 import { KilltipsComponent } from '../killtips/killtips.component';
 import { killgood } from '../bean/killgood';
 import { Goods } from '../bean/goods';
+import { Customer } from '../bean/customer';
+import { Router } from '@angular/router';
 
 //弹窗信息的结构
 export interface DialogData {
@@ -51,10 +53,13 @@ export class KillComponent implements OnInit {
   ifTimeOver = true;
   cId: number;
   killMsg: Object;
+  customer:Customer;
+  isLogin:boolean = false;
+  phone:String;
+  killGoodData:number;
 
 
-
-  constructor(private data: DataService, public dialog: MatDialog) { }
+  constructor(private data: DataService, public dialog: MatDialog,private router:Router) { }
 
   ngOnInit() {
     //从service得到数据
@@ -66,7 +71,7 @@ export class KillComponent implements OnInit {
       }
     ),
 
-      //保证时间在今天22点 并调用gettime定时器展示时间
+      //保证测试在今天 并调用gettime定时器展示时间
       this.currentTime = new Date();
     while (new Date().getTime() > this.testTime) {
       this.testTime = this.testTime + 86400000;
@@ -75,6 +80,24 @@ export class KillComponent implements OnInit {
       + this.currentTime.getMinutes() + ":"
       + this.currentTime.getSeconds());
     this.getTime();
+
+    this.data.checklogin().subscribe(
+      result=>{
+        this.phone = result["data"];
+        this.isLogin = result["status"];
+        if(this.isLogin){
+          
+          this.data.getCustomerByPhone(this.phone).subscribe(
+            result=>{
+              this.customer = result["data"];
+            }
+          );
+        }else{
+          //未登录
+          this.router.navigate(["login"]);
+        }
+      }
+    );
   }
 
 
@@ -160,7 +183,7 @@ export class KillComponent implements OnInit {
     }
 
     let temp = 4 * Math.floor(hour / 4);
-    if ((hour - temp) < 2) {
+    if ((hour - temp) < 4 ) {
       let position = Math.floor(4 - temp / 4);
       this.timeTipe[position] = "距开始剩" + (hour - temp) + ":" + minute + ":" + second;
     }
@@ -190,10 +213,12 @@ export class KillComponent implements OnInit {
     for (let i = 0; i < 5; i++) {
       if (this.showPicList[i] == true) {
         this.noteTime = (i + 1) * 4 + 2;
+
       }
     }
-
-    this.data.insertNote(1, this.noteKgName, this.noteTime, this.noteMsg).subscribe(
+    this.killGoodData=new Date().getTime()-new Date().getHours()*1000*60*60-new Date().getMinutes()*1000*60- new Date().getSeconds()*1000;
+    this.killGoodData=this.noteTime*1000*60*60+this.killGoodData;
+    this.data.insertNote(this.customer.cId, this.noteKgName, this.noteTime,this.killGoodData, this.noteMsg).subscribe(
       result => {
         this.noteflag = result["msg"];
 
@@ -252,13 +277,6 @@ export class KillComponent implements OnInit {
 
   }
 
-
-  kill() {
-    this.data.killGoods(this.killId).subscribe(
-      result => window.alert(result["msg"])
-    );
-  }
-
   //初始化ifTimeOverList
   initIfTimeOverList() {
     for (let i = 0; i < 5; i++) {
@@ -279,23 +297,22 @@ export class KillComponent implements OnInit {
   //打开窗口
   openDialog(kgId, kgPrice, goods) {
 
-    this.data.beginKillGood(kgId, 1).subscribe(
+    this.data.beginKillGood(kgId, this.customer.cId).subscribe(
       result => {
         this.returnMsg = result["msg"];
+            //打开模态窗口并传值
+    const dialogRef = this.dialog.open(KilltipsComponent, {
+      height: '400px',
+      width: '400px',
+      data: { kgId: kgId, kgPrice: kgPrice, kgMsg: this.returnMsg, goods: goods, customer: this.customer }
 
-        //打开模态窗口并传值
-        const dialogRef = this.dialog.open(KilltipsComponent, {
-          height: '400px',
-          width: '400px',
-          data: { kgId: kgId, kgPrice: kgPrice, kgMsg: this.returnMsg, goods: goods, cId: this.cId }
+    });
 
-        });
-
-        //接收关闭窗口后传过来的值
-        dialogRef.afterClosed().subscribe(result => {
-          this.returnMsg = result.kgMsg;
-          window.location.reload(true);
-        });
+    //接收关闭窗口后传过来的值
+    dialogRef.afterClosed().subscribe(result => {
+      this.returnMsg = result.kgMsg;
+      window.location.reload(true);
+    });
       }
     );
 

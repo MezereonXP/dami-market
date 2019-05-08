@@ -1,0 +1,38 @@
+<h4 *ngIf="isAdd">
+  添加收货地址</h4>
+  <h4 *ngIf="isModify">
+    修改收货地址</h4>
+<table class="example-full-width" cellspacing="1">
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="newAddress.aReceiver" placeholder="姓名">
+      </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="newAddress.aTelephone" placeholder="电话">
+      </mat-form-field>
+    </td>
+  </tr>
+</table>
+<mat-form-field class="example-full-width">
+  <input matInput [(ngModel)]="newAddress.aDetail" placeholder="详细地址">
+</mat-form-field>
+<table class="example-full-width" cellspacing="0">
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="newAddress.aZipcode" #postalCode maxlength="6" placeholder="邮编">
+      </mat-form-field>
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
+
+
+<div class="btn example-full-width">
+  <button mat-button *ngIf="isAdd" (click)="addAddress()">确认</button>
+  <button mat-button *ngIf="isModify" (click)="modifyAddress()">修改</button>
+</div>

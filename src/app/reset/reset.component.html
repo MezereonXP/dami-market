@@ -1,0 +1,51 @@
+<mat-toolbar class="body" color="primary">
+  <mat-toolbar-row>
+    <mat-grid-list cols="6" rowHeight="4:1" class="bar">
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+      <mat-grid-tile colspan="4" class="main"> 
+        <mat-grid-list cols="1" rowHeight="120px" class="title">
+          <mat-grid-tile rowspan="1" class="toprow">
+            <h1>重置RUOK密码</h1>
+          </mat-grid-tile>
+          <mat-grid-tile rowspan="2" class="toprow">
+            <form style="width: 600px;">
+                <div class="form-row">
+                  <div class="col-md-2"></div>
+                  <div class="col-md-8">
+                    <input name="pwd" type="password" class="form-control" [ngClass]="{'is-valid': pwd!='','is-invalid': pwd==''}" [(ngModel)]="pwd" style="width: 100%"  placeholder="请输入密码" required>
+                    <div class="valid-feedback">
+                      输入正确!
+                    </div>
+                    <div class="invalid-feedback">
+                        请输入密码!
+                    </div>
+                  </div>
+                  <div class="col-md-2"></div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                      <input name="pwd2" type="password" class="form-control"  [ngClass]="{'is-valid': pwd==pwd2,'is-invalid': pwd!=pwd2}" [(ngModel)]="pwd2" style="width: 100%"  placeholder="请再次输入密码" required>
+                      <div class="invalid-feedback">
+                          两次密码不一致!
+                      </div>
+                      <div class="valid-feedback">
+                          输入正确!
+                      </div>
+                    </div>
+                </div>
+            </form>
+          </mat-grid-tile>
+          <mat-grid-tile rowspan="1" class="toprow">
+            <div>
+              <!-- <span>密码长度6~16位，数字、字母、字符至少包含两种</span> -->
+              <a class="btnadpt" (click)="changenow()">确认</a>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile rowspan="1" class="toprow"></mat-grid-tile>
+        </mat-grid-list>
+      </mat-grid-tile>
+      <mat-grid-tile cplspan="1"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar-row>
+</mat-toolbar>

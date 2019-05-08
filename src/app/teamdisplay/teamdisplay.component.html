@@ -1,0 +1,8 @@
+<h3>团详细情况</h3>
+<mat-grid-list cols="2" rowHeight="50px" *ngFor="let item of teamCustomer$;index as i">
+  <mat-grid-tile *ngIf="i==0" colspan="1">已参团人姓名</mat-grid-tile>
+  <mat-grid-tile>{{item.customerName}} </mat-grid-tile>
+</mat-grid-list>
+<div class="d-btn-join">
+  <button mat-button (click)="sendOrder()">参加团购</button>
+</div>

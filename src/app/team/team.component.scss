@@ -1,0 +1,136 @@
+.headbar {
+  color: black;
+  z-index: -1 !important;
+  height: 64px;
+  background-color: rgba(0, 0, 0, 0);
+  .bar {
+    width: 100%;
+  }
+}
+
+.bar {
+  width: 100%;
+}
+
+.bar2 {
+  width: 100%;
+}
+
+.background {
+  height: 100%;
+  width: 100%;
+  z-index: -1 !important;
+  background-position-x: 60%;
+}
+
+.teamgoodheadbar {
+  width: 100%;
+  height: 100%;
+  color: rgb(224, 118, 118);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.teamTime {
+  background-color: #333333;
+}
+
+.teamTimeInner-true {
+  width: 100%;
+  height: 100%;
+  color: #fdfcfc;
+}
+
+.teamTimeInner-false {
+  width: 100px;
+  height: 100px;
+  color: rgb(218, 24, 24);
+}
+
+.full {
+  width: 100%;
+  height: 100%;
+}
+
+.firstTimeSize {
+  font-size: 25px;
+}
+
+.secondTimeSize {
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+.teamgoodheadbar {
+  width: 100%;
+  height: 100%;
+  color: black;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.teamgoodbar {
+  margin-top: 5%;
+  width: 100%;
+  height: 100%;
+}
+
+.detailteamgood {
+  width: 100%;
+  height: 100%;
+  padding: 1%;
+}
+
+.teamgoodcard {
+  height: 90%;
+  width: 90%;
+}
+
+.typesbar {
+  height: 100%;
+  width: 100%;
+}
+
+.super-class {
+  height: 100%;
+  width: 100%;
+}
+
+.imgbar {
+  height: 70%;
+  width: 70%;
+}
+
+.tablebar {
+  height: 70px;
+  width: 100%;
+  text-align: center
+}
+
+.originpricebar {
+  color: red;
+}
+
+.nowpricebar {
+  color: #000;
+}
+
+.cardbar {
+  margin-top: 5%;
+  width: 90%;
+  height: 90%;
+  cursor: pointer;
+}
+
+.tabitem {
+  height: 1000px;
+  width: 100%;
+}
+
+.centreitem {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.titleitem {
+  font-size: 35px;
+}

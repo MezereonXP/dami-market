@@ -1,0 +1,50 @@
+{
+  "getAddress": {
+    "data": [{
+        "userId": 1,
+        "name": "王作洞",
+        "telephone": "139****8373",
+        "address": "辽宁 沈阳市 浑南新区 白塔街道",
+        "detailAddress": "东北大学浑南校区"
+      },
+      {
+        "userId": 1,
+        "name": "王作洞",
+        "telephone": "139****8373",
+        "address": "辽宁 沈阳市 浑南新区 白塔街道",
+        "detailAddress": "东北大学浑南校区"
+      },
+      {
+        "userId": 1,
+        "name": "王作洞",
+        "telephone": "139****8373",
+        "address": "辽宁 沈阳市 浑南新区 白塔街道",
+        "detailAddress": "东北大学浑南校区"
+      }
+    ]
+  },
+  "getOrderGoodsList": {
+    "data": [{
+        "pics": "https://i1.mifile.cn/a1/pms_1527754949.17141338!30x30.jpg",
+        "name": "小米手环3",
+        "price": 168,
+        "quantity": 1
+
+      },
+      {
+        "pics": "https://i1.mifile.cn/a1/pms_1527754949.17141338!30x30.jpg",
+        "name": "小米手环3",
+        "price": 168,
+        "quantity": 2
+
+      },
+      {
+        "pics": "https://i1.mifile.cn/a1/pms_1527754949.17141338!30x30.jpg",
+        "name": "小米手环3",
+        "price": 168,
+        "quantity": 3
+
+      }
+    ]
+  }
+}

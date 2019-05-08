@@ -23,11 +23,25 @@
     text-decoration: black;
   }
   a:hover {
-    color: rgb(252, 160, 2);
-    text-decoration: rgb(250, 159, 3);
+    color: #ffffff;
+    text-decoration: #ffffff;
   }
 }
-
+.none-div{
+  height: 500px;
+  text-align: center;
+  padding-top: 210px;
+}
+.shopcar-main{
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+.shopcar-tips{
+  font-size: 40px;
+  
+  color: #757575;
+  text-align: center;
+}
 .shoplist {
   background-color: #ffffff;
   margin-top: 1%;
@@ -104,7 +118,7 @@ mat-checkbox {
     text-decoration: black;
   }
   a:hover {
-    color: rgb(250, 160, 3);
+    color: rgb(218, 216, 213);
     text-decoration: rgb(250, 160, 4);
   }
   .goodsNameTile {
@@ -143,7 +157,9 @@ mat-checkbox {
 .recommend {
   background-color: #ffffff;
   margin-left: 10%;
+  margin-bottom: 10%;
   width: 1150px;
+  height: auto;
   text-align: center;
 }
 
@@ -160,13 +176,14 @@ mat-checkbox {
 .recommend li {
   float: left;
   margin-left: 14px;
-  min-height: 1px;
+  height: 250px;
   background-color: #ffffff;
   width: 220px;
 }
 
 .row {
   margin-left: -14px;
+  
 }
 
 .recommend .recommend-price {
@@ -224,4 +241,17 @@ mat-checkbox {
 
 .count-input {
   text-align: center;
+  border-bottom: 0px;
+}
+.changeQuantity{
+  font-size: 25px;
+  
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+.item-pic{
+  width: 150px;
+  height: 150px;
 }

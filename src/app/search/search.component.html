@@ -1,0 +1,37 @@
+<div class="title">
+  {{key}} 的搜索结果为
+</div>
+<br>
+<div class="chip-list">
+  <mat-chip-list>
+    <div class="d-catagory">类别:&nbsp;&nbsp;&nbsp;</div>
+    <mat-chip *ngFor="let item of catagories" color="primary" selected class="chip" (click)="changeGoods(item)">{{item}}</mat-chip>
+  </mat-chip-list>
+</div>
+<br>
+
+<mat-grid-list class="goods-grid-list" cols="5" rowHeight="445px">
+  <mat-grid-tile class="goods-tile" *ngFor="let good of goods;let i=index">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{good.gName}}</mat-card-title>
+        <mat-card-subtitle>库存量约为{{good.gStock}}</mat-card-subtitle>
+      </mat-card-header>
+      <img class="card-pic" mat-card-image :src="{{good.gPictureurl}}" alt="Photo of a Shiba Inu">
+      <mat-card-content class="card-content">
+        {{good.gPrice}}元
+      </mat-card-content>
+      <mat-card-actions class="card-action">
+        <button mat-raised-button color="accent" *ngIf="isshow1[i]" (click)="addGoodsToFavorite(good, i)">喜欢</button>
+        <button mat-raised-button color="primary" *ngIf="!isshow1[i]">已喜欢</button>
+        <button mat-raised-button color="primary" (click)="addGoodsToShopcar(good)">购买</button>    
+        
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<br>
+<br>
+<br>
+<br>

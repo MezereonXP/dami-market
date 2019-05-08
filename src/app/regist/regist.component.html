@@ -1,9 +1,69 @@
-<p>
-  hi! {{user$.name}}
-</p>
-<input type="text" [(ngModel)]="id"> {{id}}
-<button (click)="login()">go to login</button>
-<button mat-raised-button (click)="check()">check</button>
-<ul *ngFor="let user of users$">
-  <li>{{user.name}}</li>
-</ul>
+<body>
+<div class="wrapper">
+<div class="wrap">
+  <br/>
+  <br/>
+  <div class="title-item t_c">
+    <h4>注册帐号</h4>
+  </div>
+  <div>
+    <div class="regbox">
+      <div class="phone_step1">
+        <h4 class="tit_normal">
+          国家/地区
+        </h4>
+        <div class="listwrap">   
+          <div class="listtit">
+            <div class="tits display_box c_b">
+              <p class="result-select-regions">中国</p>
+              <i class="icon_cirarr"></i>
+            </div>
+          </div>
+        </div>
+        <div class="region_tip_text">成功注册帐号后，国家/地区将不能被修改</div>
+        <h4 class="tit_normal">
+          手机号码
+        </h4>
+        <div class="listwrap_inside_panel c_b">
+          <div class="listwrap">
+            <div>
+              <div class="tits display_box c_b">
+                <p class="pp">+86</p>
+                <i class="icon_arrow"></i>
+              </div>
+            </div>
+          </div>
+          <div class="inputbg">
+            <!-- <input type="hidden" class="select-regions-input"> -->
+            <label class="labelbox err_label">
+              <input matInput [(ngModel)]="newCustomer.cName" placeholder="请输入姓名">
+            </label>
+            <label class="labelbox err_label">
+              <input matInput [(ngModel)]="newCustomer.cTelephone" placeholder="请输入手机号码">
+            </label>
+            <label class="labelbox err_label">
+              <input matInput [(ngModel)]="newCustomer.cPassword" placeholder="请输入密码">
+            </label>
+          </div>
+
+      <!-- 
+            <input type="hidden" class="select-regions-input">
+          <label class="labelbox err_label">
+            <input type="msg" placeholder="请输入短信验证码" [(ngModel)]="code">
+          </label>
+          <div class="btn1">
+            <input class="btn331 btn_reg_1" type="submit" (click)="send()" value="获取验证短信">
+          </div>
+        </div>
+
+      -->
+        <div>
+          <a class="btn332 btn_reg_1" (click)="registtele()">立即注册</a>
+          <!-- <imp style="display: none" src="" -->
+        </div>
+      </div>
+    </div>
+  </div>    
+</div>
+</div>
+</body>

@@ -1,0 +1,52 @@
+<div class="background">
+  <mat-toolbar class="headbar" color="primary">
+    <mat-grid-list cols="7" rowHeight="102px" class="bar">
+      <mat-grid-tile colspan="2"></mat-grid-tile>
+      <mat-grid-tile colspan="3" class="ok">
+        <span style="font-size: 35px">Are you Ok 团购</span>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2"></mat-grid-tile>
+    </mat-grid-list>
+  </mat-toolbar>
+</div>
+<!-- 商品详细信息 -->
+<mat-grid-list cols="7" rowHeight="500px" class="teamgoodheadbar">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile colspan="2" class="teamgoodbar">
+    <img :src="{{TeamGood.pic}}" style="height: 70%; width: 70%;">
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3">
+    <table class="tableitem">
+      <tr>
+        <h5>{{TeamGood.name}}</h5>
+      </tr>
+      <tr style="color: rgb(228, 48, 48); margin-left: 10%">
+        <del>￥{{TeamGood.originPrice}}</del>￥{{TeamGood.nowPrice}}</tr>
+      <tr style="color: rgb(228, 48, 48); margin-left: 10%">已有{{TeamGood.nowTeam}}团 还能建{{TeamGood.leftTeam}}团</tr>
+    </table>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+<!-- 该商品下团的属性 -->
+<mat-card class="super-class" *ngFor="let item of Teams$">
+  <mat-grid-list cols="7" rowHeight="50px" class="super-class">
+    <mat-grid-tile colspan="1"></mat-grid-tile>
+    <mat-grid-tile colspan="1">激情{{item.teamId}}团</mat-grid-tile>
+    <mat-grid-tile colspan="1" style="color: black;">已有{{item.nowPeople}}参团</mat-grid-tile>
+    <mat-grid-tile colspan="1" style="color: aqua;">还可以有{{item.leftPeople}}加入</mat-grid-tile>
+    <mat-grid-tile *ngIf="!item.hide" colspan="2">
+      <button mat-icon-button class="buttonitem" (click)="openDialog(item.teamId)">参加</button>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="item.hide" colspan="2">
+      <button mat-icon-button disabled>已参加</button>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+<!-- 建立团购 -->
+<mat-grid-list cols="7" rowHeight="100px" class="super-class">
+  <mat-grid-tile colspan="2"></mat-grid-tile>
+  <mat-grid-tile colspan="3">
+    <button mat-button *ngIf="!isHideButton" style="background-color: rgb(122, 119, 119);" (click)="sendOrderAndInsert()">建立一个自己的团购</button>
+  </mat-grid-tile>
+</mat-grid-list>

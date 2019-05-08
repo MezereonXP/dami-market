@@ -15,10 +15,10 @@ export class InfomationComponent implements OnInit {
   constructor(private data: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.goodId = +this.route.snapshot.paramMap.get("id");
-    this.data.getGoodInfo(this.goodId).subscribe(
-      result => this.pics = result["data"]
-    );
+    // this.goodId = +this.route.snapshot.paramMap.get("id");
+    // this.data.getGoodInfo(this.goodId).subscribe(
+    //   result => this.pics = result["data"]
+    // );
   }
 
 }

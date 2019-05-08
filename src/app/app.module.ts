@@ -8,8 +8,8 @@ import { RegistComponent } from './regist/regist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DataService } from "./data/data.service";
-import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule, MatDialog, MatDialogModule, MatTabsModule } from "@angular/material";
-import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule, MatToolbarModule, MatInputModule, MatIconModule, MatGridListModule, MatListModule, MatCheckboxModule, MatDialogModule, MatTooltipModule, MatSelectModule, MatDividerModule, MatChipsModule, MatTabsModule, MatMenuTrigger, MatMenuModule, MatExpansionModule } from "@angular/material";
+import { MatCardModule, MatCardHeader } from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { ShopcarComponent } from './shopcar/shopcar.component';
@@ -20,8 +20,23 @@ import { TeamComponent } from './team/team.component';
 import { SelfcenterComponent } from './selfcenter/selfcenter.component';
 import { InfomationComponent } from './infomation/infomation.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { KilltipsComponent }  from './killtips/killtips.component';
-
+import { MessageComponent } from './message/message.component';
+import { FavoriteComponent } from './favorite/favorite.component';
+import { Regist2Component } from './regist2/regist2.component';
+import { CheckComponent } from './check/check.component';
+import { ResetComponent } from './reset/reset.component';
+import { ScaddressComponent } from './scaddress/scaddress.component';
+import { AddressComponent } from './address/address.component';
+import { SettlementComponent } from './settlement/settlement.component';
+import { KilltipsComponent } from './killtips/killtips.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { SearchComponent } from './search/search.component';
+import { ModalModule } from 'ngx-bootstrap';
+import { TeamdisplayComponent } from './teamdisplay/teamdisplay.component';
+import { TeamgoodComponent } from './teamgood/teamgood.component';
+import { OrderService } from './data/order.service';
+import { HtmlPipe } from './data/pipe';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 @NgModule({
   declarations: [
@@ -37,7 +52,19 @@ import { KilltipsComponent }  from './killtips/killtips.component';
     TeamComponent,
     SelfcenterComponent,
     InfomationComponent,
-    KilltipsComponent
+    SettlementComponent,
+    KilltipsComponent,
+    MessageComponent,
+    FavoriteComponent,
+    Regist2Component,
+    CheckComponent,
+    ResetComponent,
+    ScaddressComponent,
+    AddressComponent,
+    SearchComponent,
+    TeamdisplayComponent,
+    TeamgoodComponent,
+    HtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -55,12 +82,27 @@ import { KilltipsComponent }  from './killtips/killtips.component';
     CarouselModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatTabsModule
+    MatTooltipModule,
+    MatSelectModule,
+    NgxSpinnerModule,
+    MatDividerModule,
+    MatListModule,
+    MatChipsModule,
+    ModalModule.forRoot(),
+    MatDialogModule,
+    MatTabsModule,
+    MatMenuModule,
+    MatExpansionModule,
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot()
   ],
-  entryComponents:[
-    KilltipsComponent
+  entryComponents: [
+    AddressComponent,
+    KilltipsComponent,
+    TeamdisplayComponent
   ],
-  providers: [DataService],
+
+  providers: [DataService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
